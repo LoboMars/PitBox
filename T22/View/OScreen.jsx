@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View , Dimensions, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View ,Image , Dimensions } from 'react-native';
 
 export default function OScreen() {
     return (
@@ -52,6 +52,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     textAlign: 'center',
-  }
+  },
 
 });
