@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     color:'#6D4EE5'
   },
   Login: {
-    marginTop: '20%',
+    marginTop: '5%',
     color: 'white',
     borderWidth: 1,
     borderColor: 'white',
@@ -60,15 +60,13 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   homeIm: {
-    marginTop: '10%',
+    marginTop: '1%',
     width: '100%',
     height: '40%',
-    marginBottom: '10%',
   },
   logo: {
     width: '30%',
     height: '30%',
-    paddingBottom:'10%'
   },
 
 });

@@ -76,6 +76,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 50,
         fontSize: 13,
         textAlign: "left", 
+        marginLeft:'5%',
       },
 
       BTNpurple: {

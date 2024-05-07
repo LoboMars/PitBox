@@ -5,8 +5,8 @@ import Logo from '../Image/Logo.png'
 export default function Login() {
     return (
         <View style={styles.container}>
+           <Image source={Logo} style={styles.logo}/>
           <View>
-            <Image source={Logo} style={styles.logo}/>
             <View style={styles.line} />
                 <Text style={styles.BigText}>Login</Text>
           </View>
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     height: 1,
     width: "100%",
-    marginBottom: "20%",
+    marginBottom: "10%",
     marginTop: "5%",
   },
   line2: {
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
 
   BigText: {
     color: "white",
-    fontSize: 45,
+    fontSize: 35,
     fontWeight: "bold",
     textAlign: "center",
   },
@@ -75,16 +75,17 @@ const styles = StyleSheet.create({
     backgroundColor: '#383343',
     borderWidth: 1,
     borderColor: "white",
-    marginTop: '15%',
+    marginTop: '10%',
     borderRadius: 15,
     paddingVertical: 15,
     paddingHorizontal: 50,
     fontSize: 18,
     textAlign: "left", 
+    marginLeft:'5%',
   },
 
   BTNpurple: {
-    marginTop: '30%',
+    marginTop: '20%',
     backgroundColor: '#6D4EE5',
     color: 'white',
     borderRadius: 15,
@@ -112,9 +113,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   logo: {
-    width: '70%',
-    height: '40%',
-    paddingBottom:'30%',
-    marginLeft:'15%'
+    marginTop:'5%',
+    width: '50%',
+    height: '10%',
+    marginLeft:'23%'
   },
 });
