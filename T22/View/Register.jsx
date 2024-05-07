@@ -9,14 +9,14 @@ export default function Register() {
            <Image source={Logo} style={styles.logo}/>
           <View style={styles.line} />
             <View>
-                <Text style={styles.BigText}>Register</Text>
+            <Text style={styles.BigText}>Register</Text>
                 <Image source={Icon} style={styles.icon}/>
-            </View>
-            <View style={styles.textBoxContainer}>
-                <Text style={styles.TextBox}>Email</Text>
-                <Text style={styles.TextBox}>Nome</Text>
-                <Text style={styles.TextBox}>Palavra-passe</Text>
-                <Text style={styles.TextBox}>Confirmar palavra-passe</Text>
+                <View  style={styles.textBoxContainer}>
+                  <Text style={styles.TextBox}>Email</Text>
+                  <Text style={styles.TextBox}>Nome</Text>
+                  <Text style={styles.TextBox}>Palavra-passe</Text>
+                  <Text style={styles.TextBox}>Confirmar palavra-passe</Text>
+                </View>
             </View>
             <View style={styles.textBoxLogin}>
                 <Text style={styles.BTNpurple}>Registar Conta</Text>
@@ -44,23 +44,23 @@ const styles = StyleSheet.create({
       },
       textWhite: {
         color: "white",
-        fontSize: 20,
+        fontSize: 15,
       },
       textPurple: {
         color: "#6D4EE5",
-        fontSize: 18,
+        fontSize: 15,
       },
       line: {
         backgroundColor: "white",
         height: 1,
         width: "100%",
         marginBottom: "5%",
-        marginTop: "5%",
+        marginTop: "2%",
       },
     
       BigText: {
         color: "white",
-        fontSize: 45,
+        fontSize: 30,
         fontWeight: "bold",
         textAlign: "center",
       },
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         paddingVertical: 15,
         paddingHorizontal: 50,
-        fontSize: 18,
+        fontSize: 13,
         textAlign: "left", 
       },
 
@@ -94,16 +94,16 @@ const styles = StyleSheet.create({
         alignItems: "center",
       },
       logo: {
-        width: '70%',
+        width: '50%',
         height: '10%',
-        paddingBottom:'30%',
-        marginLeft:'15%'
+        paddingBottom:'5%',
+        marginTop:'5%',
+        marginLeft:'24%'
       },
       icon: {
-        width: '40%',
-        height: '50%',
-        paddingBottom:'35%',
-        marginLeft:'30%',
+        width: '25%',
+        height: '15%',
+        marginLeft:'38%',
         marginTop:'5%',
       },
   });
