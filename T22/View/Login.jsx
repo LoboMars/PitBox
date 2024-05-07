@@ -7,11 +7,9 @@ export default function Login() {
         <View style={styles.container}>
           <View>
             <Image source={Logo} style={styles.logo}/>
-          </View>
             <View style={styles.line} />
-          <View>
                 <Text style={styles.BigText}>Login</Text>
-            </View>
+          </View>
             <View style={styles.textBoxContainer}>
                 <Text style={styles.TextBox}>Nome</Text>
                 <Text style={styles.TextBox}>Palavra-passe</Text>
@@ -55,6 +53,7 @@ const styles = StyleSheet.create({
     height: 1,
     width: "100%",
     marginBottom: "20%",
+    marginTop: "5%",
   },
   line2: {
     marginTop: "2%",
@@ -113,8 +112,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   logo: {
-    width: '30%',
-    height: '30%',
-    paddingBottom:'10%'
+    width: '70%',
+    height: '40%',
+    paddingBottom:'30%',
+    marginLeft:'15%'
   },
 });

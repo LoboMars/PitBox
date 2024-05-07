@@ -7,7 +7,7 @@ import Register from './View/Register';
 export default function App() {
   return (
     <View style={styles.container}>
-     <Login/>
+     <Register/>
       <StatusBar style="auto" />
     </View>
   );
