@@ -2,7 +2,6 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View ,Image } from 'react-native';
 import OScreenP from '../Image/OScreenP.png'
 import Logo from '../Image/Logo.png'
-import { Button } from 'react-native-web';
 
 
 export default function OScreen() {
@@ -15,8 +14,8 @@ export default function OScreen() {
         <Text style={styles.textWhite}>A nossa App é a chave</Text>
         <Image  source={OScreenP} style={styles.homeIm}/>
         <View>
-          <Button style={styles.Login}>Login</Button>
-          <Button style={styles.Register}>Register</Button>
+          <Text style={styles.Login}>Login</Text>
+          <Text style={styles.Register}>Register</Text>
         </View>
       </View>
     );

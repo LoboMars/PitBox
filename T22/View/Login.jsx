@@ -1,11 +1,15 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, Image, Dimensions } from "react-native";
+import Logo from '../Image/Logo.png'
 
 export default function Login() {
     return (
         <View style={styles.container}>
-          <View style={styles.line} />
-            <View>
+          <View>
+            <Image source={Logo} style={styles.logo}/>
+          </View>
+            <View style={styles.line} />
+          <View>
                 <Text style={styles.BigText}>Login</Text>
             </View>
             <View style={styles.textBoxContainer}>
@@ -21,8 +25,8 @@ export default function Login() {
                 <View style={styles.line2} />
             </View>
             <View style={styles.textBoxLogin}>
-                 <Button style={styles.Register}>Registar Conta</Button>
-            </View>
+                 <Text style={styles.Register}>Registar Conta</Text>
+           </View>
         </View>
       );
     }
@@ -33,8 +37,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#232427",
     textAlign: "center", 
-    justifyContent: "flex-start",
-    paddingTop: "35%",
+    justifyContent: "center",
   },
   textBoxContainer: {
     width: "85%",
@@ -108,5 +111,10 @@ const styles = StyleSheet.create({
 
   textBoxLogin: {
     alignItems: "center",
+  },
+  logo: {
+    width: '30%',
+    height: '30%',
+    paddingBottom:'10%'
   },
 });

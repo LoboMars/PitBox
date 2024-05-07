@@ -15,7 +15,7 @@ export default function Register() {
                 <Text style={styles.TextBox}>Confirmar palavra-passe</Text>
             </View>
             <View style={styles.textBoxLogin}>
-                <Button style={styles.BTNpurple}>Registar Conta</Button>
+                <Text style={styles.BTNpurple}>Registar Conta</Text>
             </View>
             <View style={styles.textBoxLogin}>
             <Text style={[styles.textPurple, {paddingTop: '5%'}]}>Já tem uma conta?</Text>
