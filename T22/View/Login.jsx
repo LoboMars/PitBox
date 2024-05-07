@@ -21,7 +21,7 @@ export default function Login() {
                 <View style={styles.line2} />
             </View>
             <View style={styles.textBoxLogin}>
-                 <Text style={styles.Register}>Registar Conta</Text>
+                 <Button style={styles.Register}>Registar Conta</Button>
             </View>
         </View>
       );
