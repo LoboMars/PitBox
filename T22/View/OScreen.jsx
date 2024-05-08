@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View ,Image } from 'react-native';
+import { StyleSheet, Text, View ,Image,TouchableOpacity} from 'react-native';
+import React, {useState} from 'react';
 import OScreenP from '../Image/OScreenP.png'
 import Logo from '../Image/Logo.png'
 
@@ -14,8 +15,16 @@ export default function OScreen() {
         <Text style={styles.textWhite}>A nossa App é a chave</Text>
         <Image  source={OScreenP} style={styles.homeIm}/>
         <View>
-          <Text style={styles.Login}>Login</Text>
-          <Text style={styles.Register}>Register</Text>
+          <TouchableOpacity>
+            <View>
+            <Text style={styles.Login}>Login</Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <View>
+            <Text style={styles.Register}>Register</Text>
+            </View>
+          </TouchableOpacity>
         </View>
       </View>
     );
@@ -68,5 +77,4 @@ const styles = StyleSheet.create({
     width: '30%',
     height: '30%',
   },
-
 });

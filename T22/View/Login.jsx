@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Image, Dimensions } from "react-native";
+import { StyleSheet, Text, View, Image, Dimensions,TouchableOpacity } from "react-native";
 import Logo from '../Image/Logo.png'
 
 export default function Login() {
@@ -14,17 +14,21 @@ export default function Login() {
                 <Text style={styles.TextBox}>Nome</Text>
                 <Text style={styles.TextBox}>Palavra-passe</Text>
             </View>
+            <TouchableOpacity>
             <View style={styles.textBoxLogin}>
                 <Text style={styles.BTNpurple}>Login</Text>
             </View>
+            </TouchableOpacity>
             <View style={{paddingTop: '10%',flexDirection:'row'}} >
                 <View style={styles.line2} />
                 <Text style={styles.textWhite}>OU</Text>
                 <View style={styles.line2} />
             </View>
+            <TouchableOpacity>
             <View style={styles.textBoxLogin}>
                  <Text style={styles.Register}>Registar Conta</Text>
            </View>
+            </TouchableOpacity>
         </View>
       );
     }
