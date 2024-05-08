@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import {StyleSheet,Text,View,Image,Dimensions,TouchableOpacity,TextInput} from "react-native";
+import {StyleSheet,Text,View,Image,Dimensions,TouchableOpacity} from "react-native";
 import Logo from "../Image/Logo.png";
 import Icon from "../Image/Icon.png";
 
@@ -12,7 +12,7 @@ export default function Register() {
         <Text style={styles.BigText}>Register</Text>
         <Image source={Icon} style={styles.icon} />
         <View style={styles.textBoxContainer}>
-          <Text style={styles.TextBox}>Email</Text>
+        <Text style={styles.TextBox}>Email</Text>
           <Text style={styles.TextBox}>Nome</Text>
           <Text style={styles.TextBox}>Palavra-passe</Text>
           <Text style={styles.TextBox}>Confirmar palavra-passe</Text>
