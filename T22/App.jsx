@@ -9,11 +9,14 @@ import RegistarViatura from './View/RegistarViatura';
 import EditarViatura from './View/EditarViatura';
 import EditarAssistencia from './View/EditarAssistencia';
 import EditarQuotidino from './View/EditarQuotidiano';
+import CriarViatura from './View/CriarViatura';
+import CriarOficina from './View/CriarOficina';
+import CriarCombustivel from './View/CriarCombustivel';
 
 export default function App() {
   return (
     <View style={styles.container}>
-        <EditarQuotidino/>
+       <CriarOficina/>
       <StatusBar style="auto" />
     </View>
   );
