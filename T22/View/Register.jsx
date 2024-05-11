@@ -9,7 +9,7 @@ export default function Register() {
       <Image source={Logo} style={styles.logo} />
       <View style={styles.line} />
       <View>
-        <Text style={styles.BigText}>Register</Text>
+        <Text style={styles.BigText}>Registar</Text>
         <Image source={Icon} style={styles.icon} />
         <View style={styles.textBoxContainer}>
         <Text style={styles.TextBox}>Email</Text>
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
   },
   line: {
-    backgroundColor: "white",
+    backgroundColor: "#9F9BA8",
     height: 1,
     width: "100%",
     marginBottom: "5%",
@@ -72,10 +72,10 @@ const styles = StyleSheet.create({
   },
 
   TextBox: {
-    color: "white",
+    color: "#9F9BA8",
     backgroundColor: "#383343",
     borderWidth: 1,
-    borderColor: "white",
+    borderColor: "#9F9BA8",
     marginTop: "8%",
     borderRadius: 15,
     paddingVertical: 15,

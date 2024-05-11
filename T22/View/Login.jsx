@@ -21,7 +21,7 @@ export default function Login() {
             </TouchableOpacity>
             <View style={{paddingTop: '10%',flexDirection:'row'}} >
                 <View style={styles.line2} />
-                <Text style={styles.textWhite}>OU</Text>
+                <Text style={styles.textGray}>OU</Text>
                 <View style={styles.line2} />
             </View>
             <TouchableOpacity>
@@ -46,6 +46,9 @@ const styles = StyleSheet.create({
     alignItems: "left",
     paddingLeft: '12%'
   },
+  textGray: {
+    color: "#9F9BA8",
+  },
   textWhite: {
     color: "white",
   },
@@ -53,7 +56,7 @@ const styles = StyleSheet.create({
     color: "#6D4EE5",
   },
   line: {
-    backgroundColor: "white",
+    backgroundColor: "#9F9BA8",
     height: 1,
     width: "100%",
     marginBottom: "10%",
@@ -61,7 +64,7 @@ const styles = StyleSheet.create({
   },
   line2: {
     marginTop: "2%",
-    backgroundColor: "white",
+    backgroundColor: "#9F9BA8",
     height: 1,
     width: "40%",
     marginLeft:'4%',
@@ -75,10 +78,10 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   TextBox: {
-    color: "white",
+    color: "#9F9BA8",
     backgroundColor: '#383343',
     borderWidth: 1,
-    borderColor: "white",
+    borderColor: "#9F9BA8",
     marginTop: '10%',
     borderRadius: 15,
     paddingVertical: 15,
@@ -105,6 +108,7 @@ const styles = StyleSheet.create({
     color: '#6D4EE5',
     borderWidth: 1,
     borderColor: '#6D4EE5',
+    borderWidth: 2,
     borderRadius: 15,
     paddingVertical: 25,
     paddingHorizontal: 75,

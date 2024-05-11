@@ -39,7 +39,7 @@ export default function CriarViatura() {
       <View style={styles.textBoxContainer}>
           <TouchableOpacity onPress={() => alert("Download icon clicked")}>
             <Text style={styles.TextBox}>
-              Upload(png.jpg...)
+              Upload (png.jpg...)
             </Text>
           </TouchableOpacity>
         </View>
@@ -117,10 +117,10 @@ const styles = StyleSheet.create({
 
   TextBox: {
     width: "100%",
-    color: "white",
+    color: "#9F9BA8",
     backgroundColor: "#383343",
     borderWidth: 1,
-    borderColor: "white",
+    borderColor: "#9F9BA8",
     marginTop: "5%",
     borderRadius: 15,
     paddingVertical: 15,

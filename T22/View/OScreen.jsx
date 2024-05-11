@@ -26,6 +26,7 @@ export default function OScreen() {
             </View>
           </TouchableOpacity>
         </View>
+        <Text style={styles.textGray}>@ 2024 PitBox, Inc. All rights reserved</Text>
       </View>
     );
   }
@@ -38,6 +39,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-start',
     paddingTop: '10%',
+  },
+  textGray:{
+    color: "#9F9BA8",
   },
   textWhite: {
     color: 'white',
