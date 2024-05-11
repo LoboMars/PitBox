@@ -12,11 +12,12 @@ import EditarQuotidino from './View/EditarQuotidiano';
 import CriarViatura from './View/CriarViatura';
 import CriarOficina from './View/CriarOficina';
 import CriarCombustivel from './View/CriarCombustivel';
+import EditarOficina from './View/EditarOficina';
 
 export default function App() {
   return (
     <View style={styles.container}>
-       <CriarOficina/>
+       <EditarOficina/>
       <StatusBar style="auto" />
     </View>
   );
