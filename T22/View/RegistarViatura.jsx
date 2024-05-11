@@ -59,11 +59,9 @@ export default function RegistarViatura() {
       <View style={{ marginTop: "5%" }} />
 
       <View style={styles.textBoxContainer}>
-        <View style={{flexDirection:'row'}}>
-            <View style={{ marginTop: "10%" }} >
-                <Text style={styles.smallText}>Valor da Fatura:</Text>
-            </View>
-          <View style={{marginHorizontal: '1%'}} />
+        <View style={{flexDirection:'row',alignItems: 'center'}}>
+            <Text style={styles.smallText}>Valor da Fatura:</Text>
+          <View style={{marginHorizontal: '5%'}} />
           <Text style={styles.SmallTextBox}>00.00$:</Text>
         </View>
       </View>
