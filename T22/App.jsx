@@ -6,11 +6,14 @@ import Register from './View/Register';
 import  RegistarQuotidino from './View/RegistarQuotidiano'
 import RegistarAssistencia from './View/RegistarAssistencia';
 import RegistarViatura from './View/RegistarViatura';
+import EditarViatura from './View/EditarViatura';
+import EditarAssistencia from './View/EditarAssistencia';
+import EditarQuotidino from './EditarQuotidiano';
 
 export default function App() {
   return (
     <View style={styles.container}>
-        <RegistarViatura/>
+        <EditarQuotidino/>
       <StatusBar style="auto" />
     </View>
   );

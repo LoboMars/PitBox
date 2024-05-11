@@ -9,64 +9,61 @@ import {
   ScrollView,
 } from "react-native";
 
-export default function RegistarAssistencia() {
+export default function EditarQuotidino() {
   return (
    
     <View style={styles.container}>
     <ScrollView  contentContainerStyle={styles.scrollView}> 
-      <Text style={styles.BigText}>Registar Assistencia</Text>
+      <Text style={styles.BigText}>Registar Quotidiano</Text>
       
       <View style={{ marginTop: "5%" }}/>
       <View style={styles.line} />
 
       <View style={styles.textBoxContainer}>
-        <Text style={styles.smallText}>Viatura:</Text>
+        <Text style={styles.smallText}>Viagem:</Text>
       </View>
 
       <View style={styles.textBoxContainer}>
-        <Text style={styles.TextBox}>-Escolher-</Text>
-      </View>
-
-      <View style={{ marginTop: "5%" }} />
-
-      <View style={styles.textBoxContainer}>
-        <Text style={styles.smallText}>Oficina:</Text>
-      </View>
-
-      <View style={styles.textBoxContainer}>
-        <Text style={styles.TextBox}>-Escolher-</Text>
+        <Text style={styles.TextBox}>Bragança</Text>
+        <Text style={styles.TextBox}>Vinhais</Text>
       </View>
 
       <View style={{ marginTop: "5%" }} />
 
       <View style={styles.textBoxContainer}>
-        <Text style={styles.smallText}>Data da Assistência:</Text>
+        <Text style={styles.smallText}>Viatura Usada:</Text>
       </View>
 
       <View style={styles.textBoxContainer}>
-        <Text style={styles.TextBox}>DD/MM/YYYY</Text>
+        <Text style={styles.TextBox}>Renault Clio</Text>
       </View>
 
       <View style={{ marginTop: "5%" }} />
 
       <View style={styles.textBoxContainer}>
-        <View style={{flexDirection:'row',alignItems: 'center'}}>
-            <Text style={styles.smallText}>Valor da Fatura:</Text>
+        <View style={{flexDirection:'row'}}>
+          <Text style={styles.smallText}>Nº Kilometros:</Text>
           <View style={{marginHorizontal: '5%'}} />
-          <Text style={styles.SmallTextBox}>00.00$:</Text>
+          <Text style={styles.smallText}>Consumo Medio:</Text>
         </View>
       </View>
 
+      <View style={styles.textBoxContainer}>
+        <View style={{flexDirection:'row'}}>
+          <Text style={styles.SmallTextBox}>31 KM</Text>
+          <View style={{marginHorizontal: '5%'}} />
+          <Text style={styles.SmallTextBox}>4.8L/100KM</Text>
+        </View>
+      </View>
 
       <View style={{ marginTop: "5%" }} />
 
       <View style={styles.textBoxContainer}>
-        <Text style={styles.smallText}>Detalhes:</Text>
+        <Text style={styles.smallText}>Comportamento Invulgar:</Text>
       </View>
 
       <View style={styles.textBoxContainer}>
-      <Text style={styles.TextBox}>Tipo de Assistencia</Text>
-        <Text style={styles.BigTextBox}>Procedimentos  Aplicados</Text>
+        <Text style={styles.BigTextBox}>Solabanco a subir</Text>
       </View>
       
 
@@ -76,7 +73,7 @@ export default function RegistarAssistencia() {
 
       <TouchableOpacity>
         <View style={styles.textBoxContainer}>
-          <Text style={styles.BTNpurple}>Registar</Text>
+          <Text style={styles.BTNpurple}>Aplicar</Text>
         </View>
       </TouchableOpacity>
 
@@ -173,10 +170,10 @@ const styles = StyleSheet.create({
     borderColor: "white",
     marginTop: "5%",
     borderRadius: 15,
-    paddingVertical: 100,
+    paddingVertical: 10,
     paddingHorizontal: 40,
     fontSize: 18,
-    textAlign: "center",
+    textAlign: "left",
   },
 
   BTNpurple: {

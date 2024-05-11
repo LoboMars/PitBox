@@ -9,12 +9,12 @@ import {
   ScrollView,
 } from "react-native";
 
-export default function RegistarAssistencia() {
+export default function EditarAssistencia() {
   return (
    
     <View style={styles.container}>
     <ScrollView  contentContainerStyle={styles.scrollView}> 
-      <Text style={styles.BigText}>Registar Assistencia</Text>
+      <Text style={styles.BigText}>Editar Assistencia</Text>
       
       <View style={{ marginTop: "5%" }}/>
       <View style={styles.line} />
@@ -24,7 +24,7 @@ export default function RegistarAssistencia() {
       </View>
 
       <View style={styles.textBoxContainer}>
-        <Text style={styles.TextBox}>-Escolher-</Text>
+        <Text style={styles.TextBox}>Ferrari 458 Italia</Text>
       </View>
 
       <View style={{ marginTop: "5%" }} />
@@ -34,7 +34,7 @@ export default function RegistarAssistencia() {
       </View>
 
       <View style={styles.textBoxContainer}>
-        <Text style={styles.TextBox}>-Escolher-</Text>
+        <Text style={styles.TextBox}>Hot Wheels</Text>
       </View>
 
       <View style={{ marginTop: "5%" }} />
@@ -44,7 +44,7 @@ export default function RegistarAssistencia() {
       </View>
 
       <View style={styles.textBoxContainer}>
-        <Text style={styles.TextBox}>DD/MM/YYYY</Text>
+        <Text style={styles.TextBox}>29/02/2024</Text>
       </View>
 
       <View style={{ marginTop: "5%" }} />
@@ -53,7 +53,7 @@ export default function RegistarAssistencia() {
         <View style={{flexDirection:'row',alignItems: 'center'}}>
             <Text style={styles.smallText}>Valor da Fatura:</Text>
           <View style={{marginHorizontal: '5%'}} />
-          <Text style={styles.SmallTextBox}>00.00$:</Text>
+          <Text style={styles.SmallTextBox}>420.00$:</Text>
         </View>
       </View>
 
@@ -65,8 +65,8 @@ export default function RegistarAssistencia() {
       </View>
 
       <View style={styles.textBoxContainer}>
-      <Text style={styles.TextBox}>Tipo de Assistencia</Text>
-        <Text style={styles.BigTextBox}>Procedimentos  Aplicados</Text>
+      <Text style={styles.TextBox}>Revisão Periódica</Text>
+        <Text style={styles.BigTextBox}>YAPPING YAPPING YAPPING YAPPING YAPPING YAPPING YAPPING YAPPING YAPPING</Text>
       </View>
       
 
@@ -76,7 +76,7 @@ export default function RegistarAssistencia() {
 
       <TouchableOpacity>
         <View style={styles.textBoxContainer}>
-          <Text style={styles.BTNpurple}>Registar</Text>
+          <Text style={styles.BTNpurple}>Aplicar</Text>
         </View>
       </TouchableOpacity>
 
@@ -173,10 +173,10 @@ const styles = StyleSheet.create({
     borderColor: "white",
     marginTop: "5%",
     borderRadius: 15,
-    paddingVertical: 100,
-    paddingHorizontal: 40,
+    textAlign: 'start',
+    paddingVertical: 10,
+    paddingHorizontal: 35,
     fontSize: 18,
-    textAlign: "center",
   },
 
   BTNpurple: {
