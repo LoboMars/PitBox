@@ -46,7 +46,7 @@ export default function EditarQuotidino() {
       <View style={styles.textBoxContainer}>
       <TextInput
             style={styles.TextBox} // Estilo para o TextInput
-            placeholder="Nissan"
+            placeholder="Renaul Clio"
             placeholderTextColor="white"
           />
       </View>

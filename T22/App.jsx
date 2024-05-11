@@ -8,7 +8,7 @@ import RegistarAssistencia from './View/RegistarAssistencia';
 import RegistarViatura from './View/RegistarViatura';
 import EditarViatura from './View/EditarViatura';
 import EditarAssistencia from './View/EditarAssistencia';
-import EditarQuotidino from './EditarQuotidiano';
+import EditarQuotidino from './View/EditarQuotidiano';
 
 export default function App() {
   return (
