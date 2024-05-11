@@ -7,7 +7,10 @@ import {
   Dimensions,
   TouchableOpacity,
   ScrollView,
+  TextInput,
+  inputValue,
 } from "react-native";
+
 
 export default function EditarAssistencia() {
   return (
@@ -18,14 +21,19 @@ export default function EditarAssistencia() {
       
       <View style={{ marginTop: "5%" }}/>
       <View style={styles.line} />
-
+ 
       <View style={styles.textBoxContainer}>
         <Text style={styles.smallText}>Viatura:</Text>
       </View>
 
       <View style={styles.textBoxContainer}>
-        <Text style={styles.TextBox}>Ferrari 458 Italia</Text>
+      <TextInput
+            style={styles.TextBox} // Estilo para o TextInput
+            placeholder="Marca-Modelo"
+            placeholderTextColor="white"
+          />
       </View>
+      
 
       <View style={{ marginTop: "5%" }} />
 
@@ -34,7 +42,11 @@ export default function EditarAssistencia() {
       </View>
 
       <View style={styles.textBoxContainer}>
-        <Text style={styles.TextBox}>Hot Wheels</Text>
+     <TextInput
+            style={styles.TextBox} // Estilo para o TextInput
+            placeholder="Nome"
+            placeholderTextColor="white"
+      />      
       </View>
 
       <View style={{ marginTop: "5%" }} />
@@ -44,7 +56,11 @@ export default function EditarAssistencia() {
       </View>
 
       <View style={styles.textBoxContainer}>
-        <Text style={styles.TextBox}>29/02/2024</Text>
+      <TextInput
+            style={styles.TextBox} // Estilo para o TextInput
+            placeholder="DD/MM/YYYY"
+            placeholderTextColor="white"
+          />
       </View>
 
       <View style={{ marginTop: "5%" }} />
@@ -53,7 +69,13 @@ export default function EditarAssistencia() {
         <View style={{flexDirection:'row',alignItems: 'center'}}>
             <Text style={styles.smallText}>Valor da Fatura:</Text>
           <View style={{marginHorizontal: '5%'}} />
-          <Text style={styles.SmallTextBox}>420.00$:</Text>
+          <TextInput
+            style={styles.SmallTextBox}
+            placeholder="0$"
+            placeholderTextColor="white"
+            keyboardType="numeric"
+            mask="$[999999]"
+          />
         </View>
       </View>
 
@@ -65,8 +87,17 @@ export default function EditarAssistencia() {
       </View>
 
       <View style={styles.textBoxContainer}>
-      <Text style={styles.TextBox}>Revisão Periódica</Text>
-        <Text style={styles.BigTextBox}>YAPPING YAPPING YAPPING YAPPING YAPPING YAPPING YAPPING YAPPING YAPPING</Text>
+      <TextInput
+            style={styles.TextBox} // Estilo para o TextInput
+            placeholder="Revisão"
+            placeholderTextColor="white"
+      />      
+       <TextInput
+            style={styles.BigTextBox} // Estilo para o TextInput
+            placeholder="..."
+            placeholderTextColor="white"
+            multiline={true}
+      />            
       </View>
       
 
@@ -162,7 +193,7 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     paddingHorizontal: 15,
     fontSize: 15,
-    textAlign: "center",
+    textAlign: "right",
   },
 
   BigTextBox: {
@@ -201,4 +232,5 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
   },
+ 
 });
