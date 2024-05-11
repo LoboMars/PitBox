@@ -17,7 +17,7 @@ import EditarOficina from './View/EditarOficina';
 export default function App() {
   return (
     <View style={styles.container}>
-       <EditarOficina/>
+       <OScreen/>
       <StatusBar style="auto" />
     </View>
   );
