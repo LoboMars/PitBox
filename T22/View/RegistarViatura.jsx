@@ -20,31 +20,40 @@ export default function RegistarViatura() {
       <View style={styles.line} />
 
       <View style={styles.textBoxContainer}>
-        <Text style={styles.smallText}>Viatura:</Text>
+        <Text style={styles.smallText}>Tipo de Viatura:</Text>
       </View>
 
       <View style={styles.textBoxContainer}>
-        <Text style={styles.TextBox}>Local Partida</Text>
-      </View>
-
-      <View style={{ marginTop: "5%" }} />
-
-      <View style={styles.textBoxContainer}>
-        <Text style={styles.smallText}>Oficina:</Text>
-      </View>
-
-      <View style={styles.textBoxContainer}>
-        <Text style={styles.TextBox}>Escolher</Text>
+        <Text style={styles.TextBox}>-Escolher-</Text>
       </View>
 
       <View style={{ marginTop: "5%" }} />
 
       <View style={styles.textBoxContainer}>
-        <Text style={styles.smallText}>Data da Assistência:</Text>
+        <Text style={styles.smallText}>Informação sobre a Viatura:</Text>
       </View>
 
       <View style={styles.textBoxContainer}>
-        <Text style={styles.TextBox}>DD/MM/YYYY</Text>
+        <Text style={styles.TextBox}>Marca</Text>
+        <Text style={styles.TextBox}>Modelo</Text>
+      </View>
+
+      <View style={{ marginTop: "5%" }} />
+
+      <View style={styles.textBoxContainer}>
+        <View style={{flexDirection:'row'}}>
+          <Text style={styles.smallText}>Data de Fabrico:</Text>
+          <View style={{marginHorizontal: '5%'}} />
+          <Text style={styles.smallText}>Matricula:</Text>
+        </View>
+      </View>
+
+      <View style={styles.textBoxContainer}>
+        <View style={{flexDirection:'row'}}>
+          <Text style={styles.SmallTextBox}>DD/MM/YYYY</Text>
+          <View style={{marginHorizontal: '5%'}} />
+          <Text style={styles.SmallTextBox}>##-##-##</Text>
+        </View>
       </View>
 
       <View style={{ marginTop: "5%" }} />
@@ -63,12 +72,21 @@ export default function RegistarViatura() {
       <View style={{ marginTop: "5%" }} />
 
       <View style={styles.textBoxContainer}>
-        <Text style={styles.smallText}>Detalhes:</Text>
+        <Text style={styles.smallText}>Cor da Viatura:</Text>
       </View>
 
       <View style={styles.textBoxContainer}>
-      <Text style={styles.TextBox}>Tipo de Assistencia</Text>
-        <Text style={styles.BigTextBox}>Procedimentos  Aplicados</Text>
+        <Text style={styles.TextBox}>Cor</Text>
+      </View>
+
+      <View style={{ marginTop: "5%" }} />
+
+      <View style={styles.textBoxContainer}>
+        <Text style={styles.smallText}>Combustivel:</Text>
+      </View>
+
+      <View style={styles.textBoxContainer}>
+        <Text style={styles.TextBox}>-Escolher-</Text>
       </View>
       
 

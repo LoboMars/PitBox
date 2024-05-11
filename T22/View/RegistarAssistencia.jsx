@@ -24,7 +24,7 @@ export default function RegistarAssistencia() {
       </View>
 
       <View style={styles.textBoxContainer}>
-        <Text style={styles.TextBox}>Local Partida</Text>
+        <Text style={styles.TextBox}>-Escolher-</Text>
       </View>
 
       <View style={{ marginTop: "5%" }} />
@@ -34,7 +34,7 @@ export default function RegistarAssistencia() {
       </View>
 
       <View style={styles.textBoxContainer}>
-        <Text style={styles.TextBox}>Escolher</Text>
+        <Text style={styles.TextBox}>-Escolher-</Text>
       </View>
 
       <View style={{ marginTop: "5%" }} />
