@@ -7,6 +7,7 @@ import {
   Dimensions,
   TouchableOpacity,
   ScrollView,
+  TextInput,
 } from "react-native";
 
 export default function EditarQuotidino() {
@@ -24,9 +25,17 @@ export default function EditarQuotidino() {
       </View>
 
       <View style={styles.textBoxContainer}>
-        <Text style={styles.TextBox}>Bragança</Text>
-        <Text style={styles.TextBox}>Vinhais</Text>
-      </View>
+          <TextInput
+            style={styles.TextBox} // Estilo para o TextInput
+            placeholder="Bragança"
+            placeholderTextColor="white"
+          />
+          <TextInput
+            style={styles.TextBox} // Estilo para o TextInput
+            placeholder="Vinhais"
+            placeholderTextColor="white"
+          />
+        </View>
 
       <View style={{ marginTop: "5%" }} />
 
@@ -35,7 +44,11 @@ export default function EditarQuotidino() {
       </View>
 
       <View style={styles.textBoxContainer}>
-        <Text style={styles.TextBox}>Renault Clio</Text>
+      <TextInput
+            style={styles.TextBox} // Estilo para o TextInput
+            placeholder="Nissan"
+            placeholderTextColor="white"
+          />
       </View>
 
       <View style={{ marginTop: "5%" }} />
@@ -49,12 +62,20 @@ export default function EditarQuotidino() {
       </View>
 
       <View style={styles.textBoxContainer}>
-        <View style={{flexDirection:'row'}}>
-          <Text style={styles.SmallTextBox}>31 KM</Text>
-          <View style={{marginHorizontal: '5%'}} />
-          <Text style={styles.SmallTextBox}>4.8L/100KM</Text>
-        </View>
-      </View>
+  <View style={{ flexDirection: 'row' }}>
+    <TextInput
+      style={styles.SmallTextBox} // Estilo para o TextInput
+      placeholder="31 KM"
+      placeholderTextColor="white"
+    />
+    <View style={{ marginHorizontal: '5%' }} />
+    <TextInput
+      style={styles.SmallTextBox} // Estilo para o TextInput
+      placeholder="4.8L/100KM"
+      placeholderTextColor="white"
+    />
+  </View>
+</View>
 
       <View style={{ marginTop: "5%" }} />
 
@@ -63,8 +84,14 @@ export default function EditarQuotidino() {
       </View>
 
       <View style={styles.textBoxContainer}>
-        <Text style={styles.BigTextBox}>Solabanco a subir</Text>
-      </View>
+  <TextInput
+    style={styles.BigTextBox} // Estilo para o TextInput
+    placeholder="Digite aqui..."
+    placeholderTextColor="white"
+    defaultValue="Solabanco a subir" // Valor inicial do TextInput
+  />
+</View>
+
       
 
       <View style={{ marginTop: "10%" }} />
