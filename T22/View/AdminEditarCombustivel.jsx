@@ -7,9 +7,10 @@ import {
   Dimensions,
   TouchableOpacity,
   ScrollView,
+  TextInput,
 } from "react-native";
 
-export default function CriarCombustivel() {
+export default function EditarCombustivel() {
   return (
    
     <View style={styles.container}>
@@ -25,7 +26,11 @@ export default function CriarCombustivel() {
       </View>
 
       <View style={styles.textBoxContainer}>
-        <Text style={styles.TextBox}>Nome</Text>
+      <TextInput
+            style={styles.TextBox} 
+            placeholder="Gasóleo"
+            placeholderTextColor="white"
+          />
       </View>
 
       <View style={{ marginTop: "20%" }} />
@@ -35,8 +40,12 @@ export default function CriarCombustivel() {
       </View>
 
       <View style={styles.textBoxContainer}>
-        <Text style={styles.TextBox}>-Escolher-</Text>
-      </View>
+      <TextInput
+            style={styles.TextBox} 
+            placeholder="-Escolher-"
+            placeholderTextColor="white"
+          />
+     </View>
 
       
 
