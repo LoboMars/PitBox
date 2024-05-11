@@ -108,9 +108,9 @@ const styles = StyleSheet.create({
     marginLeft: "24%",
   },
   icon: {
-    width: "22%",
-    height: "15%",
-    marginLeft: "38%",
-    marginTop: "2%",
+    width: "30%",
+    height: "25%",
+    marginLeft: "35%",
+    marginTop: "4%",
   },
 });
