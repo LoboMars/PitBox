@@ -9,15 +9,16 @@ import RegistarViatura from './View/RegistarViatura';
 import EditarViatura from './View/EditarViatura';
 import EditarAssistencia from './View/EditarAssistencia';
 import EditarQuotidino from './View/EditarQuotidiano';
-import CriarViatura from './View/CriarViatura';
-import CriarOficina from './View/CriarOficina';
-import CriarCombustivel from './View/CriarCombustivel';
-import EditarOficina from './View/EditarOficina';
+import CriarViatura from './View/AdminCriarViatura';
+import CriarOficina from './View/AdminCriarOficina';
+import CriarCombustivel from './View/AdminCriarCombustivel';
+import EditarOficina from './View/AdminEditarOficina';
+import EditarCombustivel from './View/AdminEditarCombustivel';
 
 export default function App() {
   return (
     <View style={styles.container}>
-       <CriarCombustivel/>
+       <EditarCombustivel/>
       <StatusBar style="auto" />
     </View>
   );
