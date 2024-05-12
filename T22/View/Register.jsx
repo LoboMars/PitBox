@@ -57,6 +57,7 @@ export default function Register() {
           </TouchableOpacity>
 
       </ScrollView>
+
       <Image source={Logo} style={styles.logo} />
       <View style={styles.line} />
       <View>
