@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
 
   smallText: {
     color: "white",
-    fontSize: 15,
+    fontSize: 16,
     fontWeight: "bold",
     textAlign: "left",
     marginLeft: "8%",

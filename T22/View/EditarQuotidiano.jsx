@@ -15,7 +15,7 @@ export default function EditarQuotidino() {
    
     <View style={styles.container}>
     <ScrollView  contentContainerStyle={styles.scrollView}> 
-      <Text style={styles.BigText}>Registar Quotidiano</Text>
+      <Text style={styles.BigText}>Editar Quotidiano</Text>
       
       <View style={{ marginTop: "5%" }}/>
       <View style={styles.line} />
@@ -155,7 +155,7 @@ const styles = StyleSheet.create({
 
   smallText: {
     color: "white",
-    fontSize: 15,
+    fontSize: 16,
     fontWeight: "bold",
     textAlign: "left",
     marginLeft: "8%",

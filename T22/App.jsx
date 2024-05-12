@@ -15,6 +15,7 @@ import CriarCombustivel from './View/AdminCriarCombustivel';
 import EditarOficina from './View/AdminEditarOficina';
 import EditarCombustivel from './View/AdminEditarCombustivel';
 import MainPage from './MainPage';
+import EditarTipoViatura from './View/AdminEditarTipoViatura';
 
 export default function App() {
   return (
