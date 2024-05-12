@@ -1,4 +1,4 @@
-import { StatusBar } from "expo-status-bar";
+import { StatusBar, } from "expo-status-bar";
 import {
   StyleSheet,
   Text,
@@ -9,55 +9,53 @@ import {
   ScrollView,
   TextInput,
 } from "react-native";
+import IconUpload from '../Image/upload.png'
+import Carro from '../Image/carPurple.png'
 
-export default function EditarCombustivel() {
+export default function CriarViatura() {
   return (
    
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollView}>
         <View />
-        <Text style={styles.BigText}>Editar Combustivel</Text>
+        <Text style={styles.BigText}>Editar Tipo  Viatura</Text>
 
         <View style={{ marginTop: "5%" }} />
         <View style={styles.line} />
-        <View style={{ marginBottom: "5%" }} />
+        <View style={{ marginTop: "5%" }} />
 
         <View style={styles.textBoxContainer}>
-          <Text style={styles.smallText}>Nome do Combustivel:</Text>
+          <Text style={styles.smallText}>Nome da Viatura:</Text>
         </View>
 
         <View style={styles.textBoxContainer}>
           <TextInput
-            style={styles.TextBox}
-            defaultValue="Gasóleo"
+            style={styles.TextBox} // Estilo para o TextInput
             placeholder="Nome"
-            placeholderTextColor="#9F9BA8"
-          />
+            defaultValue="Carro"
+            placeholderTextColor="#9F9BA8" />
         </View>
 
-        <View style={{ marginTop: "15%" }} />
+        <View style={{ marginTop: "8%" }} />
 
         <View style={styles.textBoxContainer}>
-          <Text style={styles.smallText}>Combustivel fossil/renovavel:</Text>
+          <Text style={styles.smallText}>Icon:</Text>
         </View>
 
-        <View style={styles.textBoxContainer}>
-          <TextInput
-            style={styles.TextBox}
-            placeholder="-Escolher-"
-            placeholderTextColor="#9F9BA8"
-          />
+        <View style={{alignItems: 'center'}}>
+          <TouchableOpacity onPress={() => alert("Edit Button Clicked.")} style={styles.Edit}>
+            <Image source={Carro} style={{width:'100%', height:'100%'}}/>
+          </TouchableOpacity>
         </View>
 
 
-
-        <View style={{ marginTop: "65%" }} />
+        <View style={{ marginTop: "70%" }} />
         <View style={styles.line} />
-        <View style={{ marginBottom: "2%" }} />
+        <View style={{ marginTop: "2%" }} />
 
         <TouchableOpacity>
           <View style={styles.textBoxContainer}>
-            <Text style={styles.BTNOrange}>Aplicar</Text>
+            <Text style={styles.BTNOrange}>Criar</Text>
           </View>
         </TouchableOpacity>
 
@@ -66,6 +64,7 @@ export default function EditarCombustivel() {
             <Text style={styles.Cancelar}>Cancelar</Text>
           </View>
         </TouchableOpacity>
+
       </ScrollView>
 
     </View>
@@ -73,8 +72,20 @@ export default function EditarCombustivel() {
 }
 
 const styles = StyleSheet.create({
+
+  Edit: {
+    marginTop: "5%",
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: "50%",
+    height: "50%",
+    backgroundColor: "#1C1D21",
+    borderRadius: 15,
+    paddingVertical: "5%",
+    paddingHorizontal: "5%",
+  },
   scrollView: {
-    paddingTop: '10%', 
+    paddingTop: '10%',
   },
   container: {
     width: "100%",
@@ -98,6 +109,7 @@ const styles = StyleSheet.create({
   line: {
     backgroundColor: "#EC853B",
     height: 3,
+    borderRadius: 1,
     width: "94%",
     marginLeft: "3%",
     marginBottom: "5%",
@@ -127,7 +139,7 @@ const styles = StyleSheet.create({
     borderColor: "#9F9BA8",
     marginTop: "5%",
     borderRadius: 15,
-    paddingVertical: 15,
+    paddingVertical: "4%",
     paddingHorizontal: 25,
     fontSize: 18,
     textAlign: "left",
@@ -179,7 +191,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#EC853B",
     color: "white",
     borderRadius: 15,
-    paddingVertical: 15,
+    paddingVertical: "4%",
     paddingHorizontal: 55,
     fontSize: 22,
     fontWeight: "bold",
@@ -191,10 +203,11 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: "#EC853B",
     borderRadius: 15,
-    paddingVertical: 15,
+    paddingVertical: "4%",
     paddingHorizontal: 75,
     fontSize: 18,
     fontWeight: "bold",
     textAlign: "center",
   },
 });
+    

@@ -14,11 +14,12 @@ import CriarOficina from './View/AdminCriarOficina';
 import CriarCombustivel from './View/AdminCriarCombustivel';
 import EditarOficina from './View/AdminEditarOficina';
 import EditarCombustivel from './View/AdminEditarCombustivel';
+import EditarTipoViatura from './View/AdminEditarTipoViatura';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <EditarOficina/>
+      <EditarTipoViatura/>
       <StatusBar style="auto" />
     </View>
   );
