@@ -6,7 +6,8 @@ import {
   Image,
   Dimensions,
   TouchableOpacity,
-  TextInput, // Importando TextInput do react-native
+  TextInput,
+  ScrollView, 
 } from "react-native";
 import Logo from "../Image/Logo.png";
 import Icon from "../Image/Icon.png";
@@ -19,100 +20,70 @@ export default function Register() {
 
   return (
     <View style={styles.container}>
-      <ScrollView> 
-          <View style={{ marginTop: "2%" }}/>
+      <ScrollView contentContainerStyle={styles.scrollView}> 
+            <Image source={Logo} style={styles.logo} />
+            
+            <View style={{ marginTop: "5%" }}/>
 
-          <Image source={Logo} style={styles.logo} />
+            <View style={styles.line} />
+          
+            <Text style={styles.BigText}>Registrar</Text>
 
-          <View style={{ marginTop: "2%" }}/>
+            <Image source={Icon} style={styles.icon} />
 
-          <View style={styles.line} />
-
-          <Text style={styles.BigText}>Registar</Text>
-
-          <View style={{ marginTop: "5%" }}/>
-
-          <Image source={Icon} style={styles.icon} />
-
-          <View style={{ marginTop: "5%" }}/>
-
-
-          <View style={styles.textBoxContainer}>
-              <Text style={styles.TextBox}>Email</Text>
-              <Text style={styles.TextBox}>Nome</Text>
-              <Text style={styles.TextBox}>Palavra-passe</Text>
-              <Text style={styles.TextBox}>Confirmar palavra-passe</Text>
-          </View>
-
-          <TouchableOpacity>
-            <View style={styles.textBoxLogin}>
-              <Text style={styles.BTNpurple}>Registar Conta</Text>
+            <View style={styles.textBoxContainer}>
+              <TextInput
+                style={styles.TextBox}
+                onChangeText={(text) => setEmail(text)}
+                value={email}
+                placeholder="Email"
+                placeholderTextColor="#9F9BA8"
+              />
+              <TextInput
+                style={styles.TextBox}
+                onChangeText={(text) => setNome(text)}
+                value={nome}
+                placeholder="Nome"
+                placeholderTextColor="#9F9BA8"
+              />
+              <TextInput
+                style={styles.TextBox}
+                onChangeText={(text) => setSenha(text)}
+                value={senha}
+                placeholder="Palavra-passe"
+                placeholderTextColor="#9F9BA8"
+                secureTextEntry={true} // Para ocultar a senha
+              />
+              <TextInput
+                style={styles.TextBox}
+                onChangeText={(text) => setNsenha(text)}
+                value={nsenha}
+                placeholder="Palavra-passe"
+                placeholderTextColor="#9F9BA8"
+                secureTextEntry={true} // Para ocultar a senha
+              />
             </View>
-          </TouchableOpacity>
-
-          <TouchableOpacity>
-            <View style={styles.textBoxLogin}>
-              <Text style={[styles.textPurple, { paddingTop: "5%" }]}>Já tem uma conta?</Text>
-            </View>
-          </TouchableOpacity>
-
+            <TouchableOpacity>
+              <View style={styles.textBoxLogin}>
+                <Text style={styles.BTNpurple}>Registrar Conta</Text>
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <View style={styles.textBoxLogin}>
+                <Text style={[styles.textPurple, { paddingTop: "5%" }]}>
+                  Já tem uma conta?
+                </Text>
+              </View>
+            </TouchableOpacity>
       </ScrollView>
-
-      <Image source={Logo} style={styles.logo} />
-      <View style={styles.line} />
-      <View>
-        <Text style={styles.BigText}>Registrar</Text>
-        <Image source={Icon} style={styles.icon} />
-        <View style={styles.textBoxContainer}>
-          <TextInput
-            style={styles.TextBox}
-            onChangeText={(text) => setEmail(text)}
-            value={email}
-            placeholder="Email"
-            placeholderTextColor="#9F9BA8"
-          />
-          <TextInput
-            style={styles.TextBox}
-            onChangeText={(text) => setNome(text)}
-            value={nome}
-            placeholder="Nome"
-            placeholderTextColor="#9F9BA8"
-          />
-          <TextInput
-            style={styles.TextBox}
-            onChangeText={(text) => setSenha(text)}
-            value={senha}
-            placeholder="Palavra-passe"
-            placeholderTextColor="#9F9BA8"
-            secureTextEntry={true} // Para ocultar a senha
-          />
-          <TextInput
-            style={styles.TextBox}
-            onChangeText={(text) => setNsenha(text)}
-            value={nsenha}
-            placeholder="Palavra-passe"
-            placeholderTextColor="#9F9BA8"
-            secureTextEntry={true} // Para ocultar a senha
-          />
-        </View>
-        <TouchableOpacity>
-          <View style={styles.textBoxLogin}>
-            <Text style={styles.BTNpurple}>Registrar Conta</Text>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <View style={styles.textBoxLogin}>
-            <Text style={[styles.textPurple, { paddingTop: "5%" }]}>
-              Já tem uma conta?
-            </Text>
-          </View>
-        </TouchableOpacity>
-      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  scrollView: {
+    paddingTop: '5%', 
+  },
   container: {
     width: "100%",
     flex: 1,
@@ -177,14 +148,12 @@ const styles = StyleSheet.create({
   logo: {
     width: "50%",
     height: "10%",
-    paddingBottom: "5%",
-    marginTop: "5%",
     marginLeft: "24%",
   },
   icon: {
-    width: "30%",
+    width: "40%",
     height: "25%",
-    marginLeft: "35%",
+    marginLeft: "32%",
     marginTop: "4%",
   },
 });
