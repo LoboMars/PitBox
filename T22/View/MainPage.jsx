@@ -1,3 +1,4 @@
+import React from "react";
 import { StatusBar } from "expo-status-bar";
 import {
   StyleSheet,
@@ -6,26 +7,44 @@ import {
   Image,
   TouchableOpacity,
   ScrollView,
-  TextInput,
-  inputValue,
 } from "react-native";
 
-import EditarPerfil from '../Image/EditarPerfil.png'
-import LogOut from '../Image/LogOut.png'
+import EditarPerfil from "../Image/EditarPerfil.png";
+import LogOut from "../Image/LogOut.png";
 
 export default function MainPage() {
+  const handleLogout = () => {
+    alert("Logout button pressed!");
+  };
+
+  const handleEditar = () => {
+    alert("Editar button pressed!");
+  };
+
   return (
     <View style={styles.container}>
-        
-      <ScrollView contentContainerStyle={styles.scrollView}> 
+      <ScrollView contentContainerStyle={styles.scrollView}>
+        <View style={styles.imageContainer}>
+          <TouchableOpacity onPress={handleLogout} style={{paddingLeft:'5%'}}>
+            <Image source={LogOut} style={styles.logo} />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={handleLogout}>
+            <Image source={EditarPerfil} style={styles.logo2} />
+          </TouchableOpacity>
+        </View>
 
-            <View style={{ marginTop: "5%" }}/>
+        <View style={{ marginTop: "10%" }} />
 
-            <View style={styles.imageContainer}>
-            <Image source={LogOut} style={styles.logo}/>
-            <Image source={EditarPerfil} style={styles.logo2}/>
-            </View>
-            
+        <View>
+          <Text style={styles.BigText}>Bem Vindo,</Text>
+        </View>
+        <View>
+          <Text style={styles.BigTextP}>Lebron</Text>
+        </View>
+
+        <View style={{ marginTop: "10%" }} />
+
+        <View style={styles.container2}></View>
       </ScrollView>
     </View>
   );
@@ -33,9 +52,9 @@ export default function MainPage() {
 
 const styles = StyleSheet.create({
   scrollView: {
-    paddingTop: '10%', 
+    paddingTop: "10%",
   },
-  
+
   container: {
     width: "100%",
     flex: 1,
@@ -43,17 +62,31 @@ const styles = StyleSheet.create({
   },
 
   imageContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingHorizontal: '5%',
-    width: '100%',
+    flexDirection: "row",
+    justifyContent: "space-between", 
+    paddingHorizontal: "10%",
+    width: "100%",
   },
   logo: {
-    width: '20%',
-    aspectRatio: 1,
-  }, 
+    width: 50,
+    height: 60,
+  },
+
   logo2: {
-    width: '30%',
-    aspectRatio: 1,
-  }, 
+    width: 65,
+    height: 65,
+  },
+
+  BigText: {
+    color: "white",
+    fontSize: 35,
+    fontWeight: "bold",
+    textAlign: "center",
+  },
+  BigTextP: {
+    color: "#6D4EE5",
+    fontSize: 35,
+    fontWeight: "bold",
+    textAlign: "center",
+  },
 });
