@@ -14,83 +14,93 @@ export default function EditarOficina() {
   return (
    
     <View style={styles.container}>
-    <ScrollView  contentContainerStyle={styles.scrollView}> 
-    <View style={{ marginTop: "5%" }}/>
-      <Text style={styles.BigText}>Editar Oficina</Text>
-      
-      <View style={{ marginTop: "5%" }}/>
-      <View style={styles.line} />
+      <ScrollView contentContainerStyle={styles.scrollView}>
+        <View />
+        <Text style={styles.BigText}>Editar Oficina</Text>
 
-      <View style={styles.textBoxContainer}>
-        <Text style={styles.smallText}>Informações da Oficina:</Text>
-      </View>
+        <View style={{ marginTop: "5%" }} />
+        <View style={styles.line} />
+        <View style={{ marginBottom: "5%" }} />
 
-      <View style={styles.textBoxContainer}>
-      <TextInput
-            style={styles.TextBox} // Estilo para o TextInput
-            placeholder="Los Santos"
-            placeholderTextColor="white"/>
-        <TextInput
-            style={styles.TextBox} // Estilo para o TextInput
-            placeholder="Rio Tinto"
-            placeholderTextColor="white"/>
-        <TextInput
-            style={styles.TextBox} // Estilo para o TextInput
-            placeholder="961854254"
-            placeholderTextColor="white"
-            keyboardType="numeric"
-            />    
-      </View>
+        <View style={styles.textBoxContainer}>
+          <Text style={styles.smallText}>Informações da Oficina:</Text>
+        </View>
 
-      <View style={{ marginTop: "5%" }} />
-
-      <View style={styles.textBoxContainer}>
-        <Text style={styles.smallText}>Horario Funcionamento:</Text>
-      </View>
-
-      <View style={styles.textBoxContainer}>
-        <View style={{flexDirection:'row'}}>
-        <TextInput
-            style={styles.SmallTextBox} // Estilo para o TextInput
-            placeholder="09:00"
-            placeholderTextColor="white"/>
-          <View style={{marginHorizontal: '5%'}} />
+        <View style={styles.textBoxContainer}>
           <TextInput
-            style={styles.SmallTextBox} // Estilo para o TextInput
-            placeholder="17:00"
-            placeholderTextColor="white"/>
+            style={styles.TextBox} // Estilo para o TextInput
+            placeholder="Nome"
+            defaultValue="Los Santos"
+            placeholderTextColor="#9F9BA8" />
+          <TextInput
+            style={styles.TextBox} // Estilo para o TextInput
+            placeholder="Morada"
+            defaultValue="Rio Tinto"
+            placeholderTextColor="#9F9BA8" />
+          <TextInput
+            style={styles.TextBox} // Estilo para o TextInput
+            placeholder="Telefone"
+            defaultValue="961854254"
+            placeholderTextColor="#9F9BA8"
+            keyboardType="numeric"
+          />
         </View>
-      </View>
 
-      <View style={{ marginTop: "5%" }} />
+        <View style={{ marginTop: "5%" }} />
 
-      <View style={styles.textBoxContainer}>
-      <TextInput
+        <View style={styles.textBoxContainer}>
+          <Text style={styles.smallText}>Horario Funcionamento:</Text>
+        </View>
+
+        <View style={styles.textBoxContainer}>
+          <View style={{ flexDirection: 'row' }}>
+            <TextInput
+              style={styles.SmallTextBox} // Estilo para o TextInput
+              placeholder="Abertura"
+              defaultValue="09:00"
+              placeholderTextColor="#9F9BA8" />
+            <View style={{ marginHorizontal: '5%' }} />
+            <TextInput
+              style={styles.SmallTextBox} // Estilo para o TextInput
+              placeholder="Encerramento"
+              defaultValue="17:00"
+              placeholderTextColor="#9F9BA8" />
+          </View>
+        </View>
+
+        <View style={styles.textBoxContainer}>
+          <TextInput
             style={styles.TextBoxCenter} // Estilo para o TextInput
-            placeholder="Segunda - Sexta"
-            placeholderTextColor="white"/>
-      </View>
-      
-
-      <View style={{ marginTop: "10%" }} />
-      <View style={styles.line} />
-      <View style={{ marginTop: "5%" }} />
-
-      <TouchableOpacity>
-        <View style={styles.textBoxContainer}>
-          <Text style={styles.BTNOrange}>Aplicar</Text>
+            defaultValue="Segunda - Sexta"
+            placeholder="Dia[1]-Dia[X]"
+            placeholderTextColor="#9F9BA8" />
         </View>
-      </TouchableOpacity>
-
-      <TouchableOpacity>
-        <View style={styles.textBoxContainer}>
-          <Text style={styles.Cancelar}>Cancelar</Text>
-        </View>
-      </TouchableOpacity>
-
-      <View style={{ marginTop: "5%" }} />
 
       </ScrollView>
+
+      <View style={{ marginTop: "5%" }} />
+
+      <View>
+
+        <View style={styles.line} />
+        <View style={{ marginBottom: "2%" }} />
+
+        <TouchableOpacity>
+          <View style={styles.textBoxContainer}>
+            <Text style={styles.BTNOrange}>Aplicar</Text>
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity>
+          <View style={styles.textBoxContainer}>
+            <Text style={styles.Cancelar}>Cancelar</Text>
+          </View>
+        </TouchableOpacity>
+
+        <View style={{ marginTop: "10%" }} />
+
+      </View>
+
     </View>
   );
 }
@@ -122,10 +132,11 @@ const styles = StyleSheet.create({
   line: {
     backgroundColor: "#EC853B",
     height: 3,
-    width: "100%",
+    borderRadius: 1,
+    width: "94%",
+    marginLeft: "3%",
     marginBottom: "5%",
   },
-
   BigText: {
     color: "white",
     fontSize: 30,
@@ -135,7 +146,7 @@ const styles = StyleSheet.create({
 
   smallText: {
     color: "white",
-    fontSize: 15,
+    fontSize: 16,
     fontWeight: "bold",
     textAlign: "left",
     marginLeft: "8%",
@@ -144,13 +155,13 @@ const styles = StyleSheet.create({
   TextBox: {
     width: "100%",
     color: "white",
-    backgroundColor: "#383343",
+    backgroundColor: "#2D2A2F",
     borderWidth: 1,
-    borderColor: "white",
+    borderColor: "#9F9BA8",
     marginTop: "5%",
     borderRadius: 15,
     paddingVertical: 15,
-    paddingHorizontal: 40,
+    paddingHorizontal: 25,
     fontSize: 18,
     textAlign: "left",
   },
@@ -158,9 +169,9 @@ const styles = StyleSheet.create({
   TextBoxCenter: {
     width: "100%",
     color: "white",
-    backgroundColor: "#383343",
+    backgroundColor: "#2D2A2F",
     borderWidth: 1,
-    borderColor: "white",
+    borderColor: "#9F9BA8",
     marginTop: "5%",
     borderRadius: 15,
     paddingVertical: 15,
@@ -172,9 +183,9 @@ const styles = StyleSheet.create({
   SmallTextBox: {
     width: "45%",
     color: "white",
-    backgroundColor: "#383343",
+    backgroundColor: "#2D2A2F",
     borderWidth: 1,
-    borderColor: "white",
+    borderColor: "#9F9BA8",
     marginTop: "5%",
     borderRadius: 15,
     paddingVertical: 15,
@@ -201,7 +212,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#EC853B",
     color: "white",
     borderRadius: 15,
-    paddingVertical: 25,
+    paddingVertical: 15,
     paddingHorizontal: 55,
     fontSize: 22,
     fontWeight: "bold",
@@ -210,10 +221,10 @@ const styles = StyleSheet.create({
   Cancelar: {
     marginTop: "5%",
     color: "#EC853B",
-    borderWidth: 1,
+    borderWidth: 2,
     borderColor: "#EC853B",
     borderRadius: 15,
-    paddingVertical: 25,
+    paddingVertical: 15,
     paddingHorizontal: 75,
     fontSize: 18,
     fontWeight: "bold",

@@ -15,11 +15,13 @@ import CriarCombustivel from './View/AdminCriarCombustivel';
 import EditarOficina from './View/AdminEditarOficina';
 import EditarCombustivel from './View/AdminEditarCombustivel';
 import MainPage from './View/MainPage';
+import EditarTipoViatura from './View/AdminEditarTipoViatura';
+
 
 export default function App() {
   return (
     <View style={styles.container}>
-        <MainPage/>
+        <RegistarViatura/>
       <StatusBar style="auto" />
     </View>
   );

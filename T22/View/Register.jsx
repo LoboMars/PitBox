@@ -1,11 +1,25 @@
-import { StatusBar } from "expo-status-bar";
-import {StyleSheet,Text,View,Image,TouchableOpacity, ScrollView,} from "react-native";
+import React, { useState } from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  Dimensions,
+  TouchableOpacity,
+  TextInput, // Importando TextInput do react-native
+} from "react-native";
 import Logo from "../Image/Logo.png";
 import Icon from "../Image/Icon.png";
 
 export default function Register() {
+  const [email, setEmail] = useState(""); 
+  const [nome, setNome] = useState(""); 
+  const [senha, setSenha] = useState(""); 
+  const [nsenha, setNsenha] = useState("");
+
   return (
     <View style={styles.container}>
+<<<<<<< HEAD
       <ScrollView> 
           <View style={{ marginTop: "2%" }}/>
 
@@ -44,6 +58,58 @@ export default function Register() {
           </TouchableOpacity>
 
       </ScrollView>
+=======
+      <Image source={Logo} style={styles.logo} />
+      <View style={styles.line} />
+      <View>
+        <Text style={styles.BigText}>Registrar</Text>
+        <Image source={Icon} style={styles.icon} />
+        <View style={styles.textBoxContainer}>
+          <TextInput
+            style={styles.TextBox}
+            onChangeText={(text) => setEmail(text)}
+            value={email}
+            placeholder="Email"
+            placeholderTextColor="#9F9BA8"
+          />
+          <TextInput
+            style={styles.TextBox}
+            onChangeText={(text) => setNome(text)}
+            value={nome}
+            placeholder="Nome"
+            placeholderTextColor="#9F9BA8"
+          />
+          <TextInput
+            style={styles.TextBox}
+            onChangeText={(text) => setSenha(text)}
+            value={senha}
+            placeholder="Palavra-passe"
+            placeholderTextColor="#9F9BA8"
+            secureTextEntry={true} // Para ocultar a senha
+          />
+          <TextInput
+            style={styles.TextBox}
+            onChangeText={(text) => setNsenha(text)}
+            value={nsenha}
+            placeholder="Palavra-passe"
+            placeholderTextColor="#9F9BA8"
+            secureTextEntry={true} // Para ocultar a senha
+          />
+        </View>
+        <TouchableOpacity>
+          <View style={styles.textBoxLogin}>
+            <Text style={styles.BTNpurple}>Registrar Conta</Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <View style={styles.textBoxLogin}>
+            <Text style={[styles.textPurple, { paddingTop: "5%" }]}>
+              Já tem uma conta?
+            </Text>
+          </View>
+        </TouchableOpacity>
+      </View>
+>>>>>>> 94026fa4e45e80a7ba6e960f9298dc6ef5961681
     </View>
   );
 }
@@ -77,14 +143,12 @@ const styles = StyleSheet.create({
     marginBottom: "5%",
     marginTop: "2%",
   },
-
   BigText: {
     color: "white",
     fontSize: 30,
     fontWeight: "bold",
     textAlign: "center",
   },
-
   TextBox: {
     color: "#9F9BA8",
     backgroundColor: "#383343",
@@ -93,12 +157,11 @@ const styles = StyleSheet.create({
     marginTop: "8%",
     borderRadius: 15,
     paddingVertical: 15,
-    paddingHorizontal: 50,
+    paddingHorizontal: 20,
     fontSize: 13,
     textAlign: "left",
     marginLeft: "5%",
   },
-
   BTNpurple: {
     marginTop: "10%",
     backgroundColor: "#6D4EE5",
@@ -110,7 +173,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
   },
-
   textBoxLogin: {
     alignItems: "center",
   },
@@ -119,11 +181,12 @@ const styles = StyleSheet.create({
     height: "10%",
     paddingBottom: "5%",
     marginTop: "5%",
-    marginLeft: "25%",
+    marginLeft: "24%",
   },
   icon: {
-    width: "25%",
-    height: "15%",
-    marginLeft:'38%'
+    width: "30%",
+    height: "25%",
+    marginLeft: "35%",
+    marginTop: "4%",
   },
 });

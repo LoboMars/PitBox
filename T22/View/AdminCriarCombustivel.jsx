@@ -14,60 +14,60 @@ export default function CriarCombustivel() {
   return (
    
     <View style={styles.container}>
-    <ScrollView  contentContainerStyle={styles.scrollView}> 
-    <View style={{ marginTop: "5%" }} />
-      <Text style={styles.BigText}>Criar Combustivel</Text>
-      
-      <View style={{ marginTop: "5%" }}/>
-      <View style={styles.line} />
 
-      <View style={styles.textBoxContainer}>
-        <Text style={styles.smallText}>Nome do Combustivel:</Text>
-      </View>
+        <View />
+        <Text style={styles.BigText}>Criar Combustivel</Text>
 
-      <View style={styles.textBoxContainer}>
-      <TextInput
-            style={styles.TextBox} 
+        <View style={{ marginTop: "5%" }} />
+        <View style={styles.line} />
+        <View style={{ marginBottom: "5%" }} />
+
+        <View style={styles.textBoxContainer}>
+          <Text style={styles.smallText}>Nome do Combustivel:</Text>
+        </View>
+
+        <View style={styles.textBoxContainer}>
+          <TextInput
+            style={styles.TextBox}
             placeholder="Nome"
-            placeholderTextColor="white"
+            placeholderTextColor="#9F9BA8"
           />
-      </View>
+        </View>
 
-      <View style={{ marginTop: "20%" }} />
+        <View style={{ marginTop: "15%" }} />
 
-      <View style={styles.textBoxContainer}>
-        <Text style={styles.smallText}>Combustivel fossil/renovavel:</Text>
-      </View>
+        <View style={styles.textBoxContainer}>
+          <Text style={styles.smallText}>Combustivel fossil/renovavel:</Text>
+        </View>
 
-      <View style={styles.textBoxContainer}>
-      <TextInput
-            style={styles.TextBox} 
+        <View style={styles.textBoxContainer}>
+          <TextInput
+            style={styles.TextBox}
             placeholder="-Escolher-"
-            placeholderTextColor="white"
+            placeholderTextColor="#9F9BA8"
           />
-     </View>
-
-      
-
-      <View style={{ marginTop: "20%" }} />
-      <View style={styles.line} />
-      <View style={{ marginTop: "15%" }} />
-
-      <TouchableOpacity>
-        <View style={styles.textBoxContainer}>
-          <Text style={styles.BTNOrange}>Criar</Text>
         </View>
-      </TouchableOpacity>
 
-      <TouchableOpacity>
-        <View style={styles.textBoxContainer}>
-          <Text style={styles.Cancelar}>Cancelar</Text>
-        </View>
-      </TouchableOpacity>
 
-      <View style={{ marginTop: "5%" }} />
 
-      </ScrollView>
+        <View style={{ marginTop: "65%" }} />
+        <View style={styles.line} />
+        <View style={{ marginBottom: "2%" }} />
+
+        <TouchableOpacity>
+          <View style={styles.textBoxContainer}>
+            <Text style={styles.BTNOrange}>Criar</Text>
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity>
+          <View style={styles.textBoxContainer}>
+            <Text style={styles.Cancelar}>Cancelar</Text>
+          </View>
+        </TouchableOpacity>
+
+
+      <View style ={{marginBottom: "5%"}}/>
     </View>
   );
 }
@@ -89,7 +89,6 @@ const styles = StyleSheet.create({
     marginLeft: "8%",
   },
 
-
   textWhite: {
     color: "white",
   },
@@ -99,11 +98,14 @@ const styles = StyleSheet.create({
   line: {
     backgroundColor: "#EC853B",
     height: 3,
-    width: "100%",
+    borderRadius: 1,
+    width: "94%",
+    marginLeft: "3%",
     marginBottom: "5%",
   },
 
   BigText: {
+    marginTop: '2%',
     color: "white",
     fontSize: 30,
     fontWeight: "bold",
@@ -112,7 +114,7 @@ const styles = StyleSheet.create({
 
   smallText: {
     color: "white",
-    fontSize: 15,
+    fontSize: 16,
     fontWeight: "bold",
     textAlign: "left",
     marginLeft: "8%",
@@ -120,14 +122,14 @@ const styles = StyleSheet.create({
 
   TextBox: {
     width: "100%",
-    color: "#9F9BA8",
-    backgroundColor: "#383343",
+    color: "white",
+    backgroundColor: "#2D2A2F",
     borderWidth: 1,
     borderColor: "#9F9BA8",
     marginTop: "5%",
     borderRadius: 15,
-    paddingVertical: 15,
-    paddingHorizontal: 40,
+    paddingVertical: "4%",
+    paddingHorizontal: 25,
     fontSize: 18,
     textAlign: "left",
   },
@@ -178,7 +180,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#EC853B",
     color: "white",
     borderRadius: 15,
-    paddingVertical: 25,
+    paddingVertical: "4%",
     paddingHorizontal: 55,
     fontSize: 22,
     fontWeight: "bold",
@@ -187,10 +189,10 @@ const styles = StyleSheet.create({
   Cancelar: {
     marginTop: "5%",
     color: "#EC853B",
-    borderWidth: 1,
+    borderWidth: 2,
     borderColor: "#EC853B",
     borderRadius: 15,
-    paddingVertical: 25,
+    paddingVertical: "4%",
     paddingHorizontal: 75,
     fontSize: 18,
     fontWeight: "bold",
