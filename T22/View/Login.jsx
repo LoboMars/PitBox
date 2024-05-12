@@ -11,8 +11,18 @@ export default function Login() {
                 <Text style={styles.BigText}>Login</Text>
           </View>
             <View style={styles.textBoxContainer}>
-                <Text style={styles.TextBox}>Nome</Text>
-                <Text style={styles.TextBox}>Palavra-passe</Text>
+            <TextInput
+            style={styles.TextBox}
+            value={nome}
+            placeholder="Nome"
+            placeholderTextColor="#9F9BA8"/>                
+          <TextInput
+            style={styles.TextBox}
+            value={senha}
+            placeholder="Palavra-passe"
+            placeholderTextColor="#9F9BA8"
+            secureTextEntry={true} 
+          />
             </View>
             <TouchableOpacity>
             <View style={styles.textBoxLogin}>
