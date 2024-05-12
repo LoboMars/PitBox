@@ -10,8 +10,8 @@ import {
   inputValue,
 } from "react-native";
 
-import EditarPerfil from '../T22/Image/EditarPerfil.png'
-import LogOut from '../T22/Image/LogOut.png'
+import EditarPerfil from '../Image/EditarPerfil.png'
+import LogOut from '../Image/LogOut.png'
 
 export default function MainPage() {
   return (
