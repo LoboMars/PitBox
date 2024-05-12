@@ -8,25 +8,29 @@ import Logo from '../Image/Logo.png'
 export default function OScreen() {
     return (
       <View style={styles.container}>
-        <View style={{paddingBottom: '5%'}}>
-          <Image source={Logo} style={styles.Logo}/>
+        <View style={styles.content}>
+          <View style={{ paddingBottom: '5%' }}>
+            <Image source={Logo} style={styles.Logo} />
+          </View>
+          <Text style={styles.textWhite}>Conserto <Text style={styles.textPurple}>rápido</Text>, serviço de <Text style={styles.textPurple}>qualidade</Text>.</Text>
+          <Text style={styles.textWhite}>A nossa App é a chave</Text>
+          <Image source={OScreenP} style={styles.homeIm} />
+          <View>
+            <TouchableOpacity>
+              <View>
+                <Text style={styles.Login}>Login</Text>
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <View>
+                <Text style={styles.Register}>Register</Text>
+              </View>
+            </TouchableOpacity>
+          </View>
         </View>
-        <Text style={styles.textWhite}>Conserto <Text style={styles.textPurple}>rápido</Text>, serviço de <Text style={styles.textPurple}>qualidade</Text>.</Text>
-        <Text style={styles.textWhite}>A nossa App é a chave</Text>
-        <Image  source={OScreenP} style={styles.homeIm}/>
-        <View>
-          <TouchableOpacity>
-            <View>
-            <Text style={styles.Login}>Login</Text>
-            </View>
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <View>
-            <Text style={styles.Register}>Register</Text>
-            </View>
-          </TouchableOpacity>
+        <View style={styles.footer}>
+          <Text style={styles.textGray}>@ 2024 PitBox, Inc. All rights reserved</Text>
         </View>
-        <Text style={styles.textGray}>@ 2024 PitBox, Inc. All rights reserved</Text>
       </View>
     );
   }
@@ -36,9 +40,16 @@ const styles = StyleSheet.create({
     width: '100%' ,
     flex: 1,
     backgroundColor: '#232427',
+  },
+  content:{
+    flex: 20,
+    paddingTop: '15%',
     alignItems: 'center',
     justifyContent: 'flex-start',
-    paddingTop: '10%',
+  },
+  footer:{
+    flex: 1,
+    alignItems: 'center',
   },
   textGray:{
     color: "#9F9BA8",
@@ -54,6 +65,7 @@ const styles = StyleSheet.create({
     color: 'white',
     borderWidth: 1,
     borderColor: 'white',
+    borderWidth: 2,
     borderRadius: 15,
     paddingVertical: 25,
     paddingHorizontal: 75,
@@ -62,7 +74,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   Register: {
-    marginTop: '15%',
+    marginTop: '10%',
     backgroundColor: '#6D4EE5',
     color: 'white',
     paddingVertical: 25,
@@ -73,7 +85,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   homeIm: {
-    marginTop: '1%',
+    marginTop: '4%',
     width: '100%',
     height: '40%',
   },
