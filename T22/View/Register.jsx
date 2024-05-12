@@ -1,35 +1,49 @@
 import { StatusBar } from "expo-status-bar";
-import {StyleSheet,Text,View,Image,Dimensions,TouchableOpacity} from "react-native";
+import {StyleSheet,Text,View,Image,TouchableOpacity, ScrollView,} from "react-native";
 import Logo from "../Image/Logo.png";
 import Icon from "../Image/Icon.png";
 
 export default function Register() {
   return (
     <View style={styles.container}>
-      <Image source={Logo} style={styles.logo} />
-      <View style={styles.line} />
-      <View>
+      <ScrollView> 
+      <View style={{ marginTop: "2%" }}/>
+
+        <Image source={Logo} style={styles.logo} />
+
+        <View style={{ marginTop: "2%" }}/>
+
+        <View style={styles.line} />
+
         <Text style={styles.BigText}>Registar</Text>
+
+        <View style={{ marginTop: "5%" }}/>
+
         <Image source={Icon} style={styles.icon} />
+
+        <View style={{ marginTop: "5%" }}/>
+
+
         <View style={styles.textBoxContainer}>
-        <Text style={styles.TextBox}>Email</Text>
-          <Text style={styles.TextBox}>Nome</Text>
-          <Text style={styles.TextBox}>Palavra-passe</Text>
-          <Text style={styles.TextBox}>Confirmar palavra-passe</Text>
+            <Text style={styles.TextBox}>Email</Text>
+            <Text style={styles.TextBox}>Nome</Text>
+            <Text style={styles.TextBox}>Palavra-passe</Text>
+            <Text style={styles.TextBox}>Confirmar palavra-passe</Text>
         </View>
+
         <TouchableOpacity>
           <View style={styles.textBoxLogin}>
             <Text style={styles.BTNpurple}>Registar Conta</Text>
           </View>
         </TouchableOpacity>
+
         <TouchableOpacity>
-        <View style={styles.textBoxLogin}>
-          <Text style={[styles.textPurple, { paddingTop: "5%" }]}>
-            Já tem uma conta?
-          </Text>
-        </View>
+          <View style={styles.textBoxLogin}>
+            <Text style={[styles.textPurple, { paddingTop: "5%" }]}>Já tem uma conta?</Text>
+          </View>
         </TouchableOpacity>
-      </View>
+
+      </ScrollView>
     </View>
   );
 }
@@ -105,12 +119,11 @@ const styles = StyleSheet.create({
     height: "10%",
     paddingBottom: "5%",
     marginTop: "5%",
-    marginLeft: "24%",
+    marginLeft: "25%",
   },
   icon: {
-    width: "30%",
-    height: "25%",
-    marginLeft: "35%",
-    marginTop: "4%",
+    width: "25%",
+    height: "15%",
+    marginLeft:'38%'
   },
 });
