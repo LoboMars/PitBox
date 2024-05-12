@@ -19,46 +19,6 @@ export default function Register() {
 
   return (
     <View style={styles.container}>
-<<<<<<< HEAD
-      <ScrollView> 
-          <View style={{ marginTop: "2%" }}/>
-
-          <Image source={Logo} style={styles.logo} />
-
-          <View style={{ marginTop: "2%" }}/>
-
-          <View style={styles.line} />
-
-          <Text style={styles.BigText}>Registar</Text>
-
-          <View style={{ marginTop: "5%" }}/>
-
-          <Image source={Icon} style={styles.icon} />
-
-          <View style={{ marginTop: "5%" }}/>
-
-
-          <View style={styles.textBoxContainer}>
-              <Text style={styles.TextBox}>Email</Text>
-              <Text style={styles.TextBox}>Nome</Text>
-              <Text style={styles.TextBox}>Palavra-passe</Text>
-              <Text style={styles.TextBox}>Confirmar palavra-passe</Text>
-          </View>
-
-          <TouchableOpacity>
-            <View style={styles.textBoxLogin}>
-              <Text style={styles.BTNpurple}>Registar Conta</Text>
-            </View>
-          </TouchableOpacity>
-
-          <TouchableOpacity>
-            <View style={styles.textBoxLogin}>
-              <Text style={[styles.textPurple, { paddingTop: "5%" }]}>Já tem uma conta?</Text>
-            </View>
-          </TouchableOpacity>
-
-      </ScrollView>
-=======
       <Image source={Logo} style={styles.logo} />
       <View style={styles.line} />
       <View>
@@ -109,7 +69,6 @@ export default function Register() {
           </View>
         </TouchableOpacity>
       </View>
->>>>>>> 94026fa4e45e80a7ba6e960f9298dc6ef5961681
     </View>
   );
 }
