@@ -14,7 +14,7 @@ import CriarOficina from './View/AdminCriarOficina';
 import CriarCombustivel from './View/AdminCriarCombustivel';
 import EditarOficina from './View/AdminEditarOficina';
 import EditarCombustivel from './View/AdminEditarCombustivel';
-import MainPage from './MainPage';
+import MainPage from './View/MainPage';
 
 export default function App() {
   return (
