@@ -1,4 +1,4 @@
-import { StatusBar } from "expo-status-bar";
+import React, { useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -7,97 +7,136 @@ import {
   Dimensions,
   TouchableOpacity,
   ScrollView,
+  TextInput,
+  Picker, // Importar Picker do React Native
 } from "react-native";
 
 export default function RegistarViatura() {
+  const [tipoViatura, setTipoViatura] = useState("-Escolher-"); // Estado para controlar a seleção do tipo de viatura
+  const [combustivel, setCombustivel] = useState("-Escolher-"); // Estado para controlar a seleção do tipo de combustível
+
   return (
-   
     <View style={styles.container}>
-    <ScrollView  contentContainerStyle={styles.scrollView}> 
-      <Text style={styles.BigText}>Registar Viatura</Text>
-      
-      <View style={{ marginTop: "5%" }}/>
-      <View style={styles.line} />
+      <ScrollView contentContainerStyle={styles.scrollView}>
+        <Text style={styles.BigText}>Registar Viatura</Text>
 
-      <View style={styles.textBoxContainer}>
-        <Text style={styles.smallText}>Tipo de Viatura:</Text>
-      </View>
+        <View style={{ marginTop: "5%" }} />
+        <View style={styles.line} />
 
-      <View style={styles.textBoxContainer}>
-        <Text style={styles.TextBox}>-Escolher-</Text>
-      </View>
-
-      <View style={{ marginTop: "5%" }} />
-
-      <View style={styles.textBoxContainer}>
-        <Text style={styles.smallText}>Informação sobre a Viatura:</Text>
-      </View>
-
-      <View style={styles.textBoxContainer}>
-        <Text style={styles.TextBox}>Marca</Text>
-        <Text style={styles.TextBox}>Modelo</Text>
-      </View>
-
-      <View style={{ marginTop: "5%" }} />
-
-      <View style={styles.textBoxContainer}>
-        <View style={{flexDirection:'row'}}>
-          <Text style={styles.smallText}>Data de Fabrico:</Text>
-          <View style={{marginHorizontal: '5%'}} />
-          <Text style={styles.smallText}>Matricula:</Text>
-        </View>
-      </View>
-
-      <View style={styles.textBoxContainer}>
-        <View style={{flexDirection:'row'}}>
-          <Text style={styles.SmallTextBox}>DD/MM/YYYY</Text>
-          <View style={{marginHorizontal: '5%'}} />
-          <Text style={styles.SmallTextBox}>##-##-##</Text>
-        </View>
-      </View>
-
-      <View style={{ marginTop: "5%" }} />
-
-
-      <View style={{ marginTop: "5%" }} />
-
-      <View style={styles.textBoxContainer}>
-        <Text style={styles.smallText}>Cor da Viatura:</Text>
-      </View>
-
-      <View style={styles.textBoxContainer}>
-        <Text style={styles.TextBox}>Cor</Text>
-      </View>
-
-      <View style={{ marginTop: "5%" }} />
-
-      <View style={styles.textBoxContainer}>
-        <Text style={styles.smallText}>Combustivel:</Text>
-      </View>
-
-      <View style={styles.textBoxContainer}>
-        <Text style={styles.TextBox}>-Escolher-</Text>
-      </View>
-      
-
-      <View style={{ marginTop: "10%" }} />
-      <View style={styles.line} />
-      <View style={{ marginTop: "5%" }} />
-
-      <TouchableOpacity>
         <View style={styles.textBoxContainer}>
-          <Text style={styles.BTNpurple}>Registar</Text>
+          <Text style={styles.smallText}>Tipo de Viatura:</Text>
         </View>
-      </TouchableOpacity>
 
-      <TouchableOpacity>
         <View style={styles.textBoxContainer}>
-          <Text style={styles.Cancelar}>Cancelar</Text>
+          <Picker
+            style={styles.TextBox}
+            selectedValue={tipoViatura}
+            onValueChange={(itemValue, itemIndex) => setTipoViatura(itemValue)}
+          >
+            <Picker.Item label="-Escolher-" value="-Escolher-" />
+            <Picker.Item label="Carro" value="Carro" />
+            <Picker.Item label="Moto" value="Moto" />
+          </Picker>
         </View>
-      </TouchableOpacity>
 
-      <View style={{ marginTop: "5%" }} />
+        <View style={{ marginTop: "5%" }} />
 
+       
+
+        <View style={{ marginTop: "5%" }} />
+
+        <View style={styles.textBoxContainer}>
+          <Text style={styles.smallText}>Informação sobre a Viatura:</Text>
+        </View>
+
+        <View style={styles.textBoxContainer}>
+        <TextInput
+            style={styles.TextBox}
+            placeholder="Marca"
+            placeholderTextColor="#9F9BA8"/>       
+        <TextInput
+            style={styles.TextBox}
+            placeholder="Modelo"
+            placeholderTextColor="#9F9BA8"/>         
+        </View>
+
+        <View style={{ marginTop: "5%" }} />
+
+        <View style={styles.textBoxContainer}>
+          <View style={{ flexDirection: "row" }}>
+            <Text style={styles.smallText}>Data de Fabrico:</Text>
+            <View style={{ marginHorizontal: "5%" }} />
+            <Text style={styles.smallText}>Matricula:</Text>
+          </View>
+        </View>
+
+        <View style={styles.textBoxContainer}>
+          <View style={{ flexDirection: "row" }}>
+          <TextInput
+            style={styles.SmallTextBox} // Estilo para o TextInput
+            placeholder="DD/MM/YYYY"
+            keyboardType="numeric"
+            placeholderTextColor="white"
+          />
+            <View style={{ marginHorizontal: "5%" }} />
+            <TextInput
+            style={styles.SmallTextBox} // Estilo para o TextInput
+            placeholder="##-##-##"
+            placeholderTextColor="white"
+          />
+            </View>
+        </View>
+
+        <View style={{ marginTop: "5%" }} />
+
+        <View style={{ marginTop: "5%" }} />
+
+        <View style={styles.textBoxContainer}>
+          <Text style={styles.smallText}>Cor da Viatura:</Text>
+        </View>
+
+        <View style={styles.textBoxContainer}>
+        <TextInput
+            style={styles.TextBox}
+            placeholder="Cor"
+            placeholderTextColor="#9F9BA8"/>  
+        </View>
+
+        <View style={{ marginTop: "5%" }} />
+
+        <View style={styles.textBoxContainer}>
+          <Text style={styles.smallText}>Combustivel:</Text>
+        </View>
+
+        <View style={styles.textBoxContainer}>
+          <Picker
+            style={styles.TextBox}
+            selectedValue={combustivel}
+            onValueChange={(itemValue, itemIndex) => setCombustivel(itemValue)}
+          >
+            <Picker.Item label="-Escolher-" value="-Escolher-" />
+            <Picker.Item label="Gasolina" value="Gasolina" />
+            <Picker.Item label="Diesel" value="Diesel" />
+          </Picker>
+        </View>
+
+        <View style={{ marginTop: "10%" }} />
+        <View style={styles.line} />
+        <View style={{ marginTop: "5%" }} />
+
+        <TouchableOpacity>
+          <View style={styles.textBoxContainer}>
+            <Text style={styles.BTNpurple}>Registar</Text>
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity>
+          <View style={styles.textBoxContainer}>
+            <Text style={styles.Cancelar}>Cancelar</Text>
+          </View>
+        </TouchableOpacity>
+
+        <View style={{ marginTop: "5%" }} />
       </ScrollView>
     </View>
   );
@@ -105,7 +144,7 @@ export default function RegistarViatura() {
 
 const styles = StyleSheet.create({
   scrollView: {
-    paddingTop: '10%', 
+    paddingTop: "10%",
   },
   container: {
     width: "100%",
