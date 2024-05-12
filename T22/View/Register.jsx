@@ -19,7 +19,6 @@ export default function Register() {
 
   return (
     <View style={styles.container}>
-<<<<<<< HEAD
       <ScrollView> 
           <View style={{ marginTop: "2%" }}/>
 
@@ -58,7 +57,6 @@ export default function Register() {
           </TouchableOpacity>
 
       </ScrollView>
-=======
       <Image source={Logo} style={styles.logo} />
       <View style={styles.line} />
       <View>
@@ -109,7 +107,6 @@ export default function Register() {
           </View>
         </TouchableOpacity>
       </View>
->>>>>>> 94026fa4e45e80a7ba6e960f9298dc6ef5961681
     </View>
   );
 }
