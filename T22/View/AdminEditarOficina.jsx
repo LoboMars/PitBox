@@ -20,6 +20,7 @@ export default function EditarOficina() {
       
       <View style={{ marginTop: "5%" }}/>
       <View style={styles.line} />
+      <View style={{ marginBottom: "5%" }}/>
 
       <View style={styles.textBoxContainer}>
         <Text style={styles.smallText}>Informações da Oficina:</Text>
@@ -146,7 +147,7 @@ const styles = StyleSheet.create({
     color: "white",
     backgroundColor: "#383343",
     borderWidth: 1,
-    borderColor: "white",
+    borderColor: "#9F9BA8",
     marginTop: "5%",
     borderRadius: 15,
     paddingVertical: 15,
@@ -160,7 +161,7 @@ const styles = StyleSheet.create({
     color: "white",
     backgroundColor: "#383343",
     borderWidth: 1,
-    borderColor: "white",
+    borderColor: "#9F9BA8",
     marginTop: "5%",
     borderRadius: 15,
     paddingVertical: 15,
@@ -174,7 +175,7 @@ const styles = StyleSheet.create({
     color: "white",
     backgroundColor: "#383343",
     borderWidth: 1,
-    borderColor: "white",
+    borderColor: "#9F9BA8",
     marginTop: "5%",
     borderRadius: 15,
     paddingVertical: 15,

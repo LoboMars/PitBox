@@ -16,10 +16,11 @@ export default function EditarCombustivel() {
     <View style={styles.container}>
     <ScrollView  contentContainerStyle={styles.scrollView}> 
     <View style={{ marginTop: "5%" }} />
-      <Text style={styles.BigText}>Criar Combustivel</Text>
+      <Text style={styles.BigText}>Editar Combustivel</Text>
       
       <View style={{ marginTop: "5%" }}/>
       <View style={styles.line} />
+      <View style={{ marginBottom: "5%" }}/>
 
       <View style={styles.textBoxContainer}>
         <Text style={styles.smallText}>Nome do Combustivel:</Text>
@@ -27,13 +28,14 @@ export default function EditarCombustivel() {
 
       <View style={styles.textBoxContainer}>
       <TextInput
-            style={styles.TextBox} 
-            placeholder="Gasóleo"
-            placeholderTextColor="white"
+            style={styles.TextBox}
+            defaultValue="Gasóleo" 
+            placeholder="Nome"
+            placeholderTextColor="#9F9BA8"
           />
       </View>
 
-      <View style={{ marginTop: "20%" }} />
+      <View style={{ marginTop: "20%" }}/>
 
       <View style={styles.textBoxContainer}>
         <Text style={styles.smallText}>Combustivel fossil/renovavel:</Text>
@@ -43,7 +45,7 @@ export default function EditarCombustivel() {
       <TextInput
             style={styles.TextBox} 
             placeholder="-Escolher-"
-            placeholderTextColor="white"
+            placeholderTextColor="#9F9BA8"
           />
      </View>
 
@@ -120,7 +122,7 @@ const styles = StyleSheet.create({
 
   TextBox: {
     width: "100%",
-    color: "#9F9BA8",
+    color: "white",
     backgroundColor: "#383343",
     borderWidth: 1,
     borderColor: "#9F9BA8",

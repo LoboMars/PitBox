@@ -20,6 +20,7 @@ export default function CriarCombustivel() {
       
       <View style={{ marginTop: "5%" }}/>
       <View style={styles.line} />
+      <View style={{ marginBottom: "5%" }}/>
 
       <View style={styles.textBoxContainer}>
         <Text style={styles.smallText}>Nome do Combustivel:</Text>
@@ -29,7 +30,7 @@ export default function CriarCombustivel() {
       <TextInput
             style={styles.TextBox} 
             placeholder="Nome"
-            placeholderTextColor="white"
+            placeholderTextColor="#9F9BA8"
           />
       </View>
 
@@ -43,7 +44,7 @@ export default function CriarCombustivel() {
       <TextInput
             style={styles.TextBox} 
             placeholder="-Escolher-"
-            placeholderTextColor="white"
+            placeholderTextColor="#9F9BA8"
           />
      </View>
 
@@ -51,7 +52,7 @@ export default function CriarCombustivel() {
 
       <View style={{ marginTop: "20%" }} />
       <View style={styles.line} />
-      <View style={{ marginTop: "15%" }} />
+      <View style={{ marginTop: "5%" }} />
 
       <TouchableOpacity>
         <View style={styles.textBoxContainer}>
@@ -120,7 +121,7 @@ const styles = StyleSheet.create({
 
   TextBox: {
     width: "100%",
-    color: "#9F9BA8",
+    color: "white",
     backgroundColor: "#383343",
     borderWidth: 1,
     borderColor: "#9F9BA8",

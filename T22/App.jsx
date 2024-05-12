@@ -18,7 +18,7 @@ import EditarCombustivel from './View/AdminEditarCombustivel';
 export default function App() {
   return (
     <View style={styles.container}>
-       <Register/>
+      <EditarOficina/>
       <StatusBar style="auto" />
     </View>
   );
