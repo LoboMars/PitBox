@@ -31,7 +31,7 @@ export default function EditarAssistencia() {
 
         <ScrollView>
 
-        <View style={{ marginTop: "5%" }} />
+        <View style={{ marginTop: "3%" }} />
 
           <View style={styles.textBoxContainer}>
             <Text style={styles.smallText}>Viatura:</Text>
@@ -40,7 +40,7 @@ export default function EditarAssistencia() {
           <View style={styles.textBoxContainer}>
             <TextInput
               style={styles.TextBox}
-              placeholder="Marca-Modelo"
+              placeholder="Ferrari 458 Italia"
               placeholderTextColor="white" />
           </View>
 
@@ -53,7 +53,7 @@ export default function EditarAssistencia() {
           <View style={styles.textBoxContainer}>
             <TextInput
               style={styles.TextBox} // Estilo para o TextInput
-              placeholder="Nome"
+              placeholder="Hot Wheels"
               placeholderTextColor="white" />
           </View>
 
@@ -66,7 +66,7 @@ export default function EditarAssistencia() {
           <View style={styles.textBoxContainer}>
             <TextInput
               style={styles.TextBox}
-              placeholder="DD/MM/YYYY"
+              placeholder="29/02/2024"
               placeholderTextColor="white" />
           </View>
 
@@ -79,7 +79,7 @@ export default function EditarAssistencia() {
 
               <TextInput
                 style={styles.SmallTextBox}
-                placeholder="0$"
+                placeholder="420.00€"
                 placeholderTextColor="white"
                 keyboardType="numeric"
                 mask="$[999999]" />
@@ -94,16 +94,18 @@ export default function EditarAssistencia() {
             <View style={styles.textBoxContainer}>
               <TextInput
                 style={styles.TextBox} // Estilo para o TextInput
-                placeholder="Revisão"
+                placeholder="Revisão Periódica"
                 placeholderTextColor="white" />
               <TextInput
                 style={styles.BigTextBox} // Estilo para o TextInput
-                placeholder="..."
+                placeholder="Blah blah blah blah.."
                 placeholderTextColor="white"
                 multiline={true} />
             </View>
 
           </View>
+
+          <View style={{ marginBottom: "5%" }} />
 
         </ScrollView>
       </View>
@@ -210,7 +212,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     paddingVertical: 15,
     paddingHorizontal: 15,
-    fontSize: 15,
+    fontSize: 18,
     textAlign: "right",
   },
 
@@ -224,7 +226,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     textAlign: 'start',
     paddingVertical: 10,
-    paddingHorizontal: 35,
+    paddingHorizontal: 25,
     fontSize: 18,
   },
 

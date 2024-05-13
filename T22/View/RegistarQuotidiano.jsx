@@ -7,26 +7,48 @@ import {
   Dimensions,
   TouchableOpacity,
   ScrollView,
+  TextInput,
+  inputValue,
 } from "react-native";
 
-export default function RegistarQuotidino() {
-  return (
-   
-    <View style={styles.container}>
-    <ScrollView  contentContainerStyle={styles.scrollView}> 
-      <Text style={styles.BigText}>Registar Quotidiano</Text>
-      
-      <View style={{ marginTop: "5%" }}/>
-      <View style={styles.line} />
 
-      <View style={styles.textBoxContainer}>
+export default function EditarAssistencia() {
+  return (
+
+    <View style={styles.container}>
+
+      <View style={styles.header}>
+
+        <Text style={styles.BigText}>Registar Quotidiano</Text>
+
+        <View style={{ marginTop: "5%" }} />
+        <View style={styles.line} />
+
+      </View>
+
+
+      <View style={styles.content}>
+
+        <ScrollView>
+
+        <View style={{ marginTop: "3%" }} />
+
+        <View style={styles.textBoxContainer}>
         <Text style={styles.smallText}>Viagem:</Text>
       </View>
 
       <View style={styles.textBoxContainer}>
-        <Text style={styles.TextBox}>Local Partida</Text>
-        <Text style={styles.TextBox}>Local Chegada</Text>
-      </View>
+          <TextInput
+            style={styles.TextBox} // Estilo para o TextInput
+            placeholder="Local de Partida"
+            placeholderTextColor="#9F9BA8"
+          />
+          <TextInput
+            style={styles.TextBox} // Estilo para o TextInput
+            placeholder="Local de Chegada"
+            placeholderTextColor="#9F9BA8"
+          />
+        </View>
 
       <View style={{ marginTop: "5%" }} />
 
@@ -35,7 +57,11 @@ export default function RegistarQuotidino() {
       </View>
 
       <View style={styles.textBoxContainer}>
-        <Text style={styles.TextBox}>-Escolher-</Text>
+      <TextInput
+            style={styles.TextBox} // Estilo para o TextInput
+            placeholder="-Escolher- "
+            placeholderTextColor="#9F9BA8"
+          />
       </View>
 
       <View style={{ marginTop: "5%" }} />
@@ -49,12 +75,20 @@ export default function RegistarQuotidino() {
       </View>
 
       <View style={styles.textBoxContainer}>
-        <View style={{flexDirection:'row'}}>
-          <Text style={styles.SmallTextBox}>KM</Text>
-          <View style={{marginHorizontal: '5%'}} />
-          <Text style={styles.SmallTextBox}>L/100KM</Text>
-        </View>
-      </View>
+  <View style={{ flexDirection: 'row' }}>
+    <TextInput
+      style={styles.SmallTextBox} // Estilo para o TextInput
+      placeholder="Km"
+      placeholderTextColor="#9F9BA8"
+    />
+    <View style={{ marginHorizontal: '5%' }} />
+    <TextInput
+      style={styles.SmallTextBox} // Estilo para o TextInput
+      placeholder="Litros"
+      placeholderTextColor="#9F9BA8"
+    />
+  </View>
+</View>
 
       <View style={{ marginTop: "5%" }} />
 
@@ -63,36 +97,51 @@ export default function RegistarQuotidino() {
       </View>
 
       <View style={styles.textBoxContainer}>
-        <Text style={styles.BigTextBox}>-Nenhum-</Text>
+              <TextInput
+                style={styles.BigTextBox} // Estilo para o TextInput
+                placeholder="-Nenhum- "
+                placeholderTextColor="#9F9BA8"
+                multiline={true} />
+</View>
+
+        </ScrollView>
       </View>
-      
 
-      <View style={{ marginTop: "10%" }} />
-      <View style={styles.line} />
-      <View style={{ marginTop: "5%" }} />
 
-      <TouchableOpacity>
-        <View style={styles.textBoxContainer}>
-          <Text style={styles.BTNpurple}>Registar</Text>
-        </View>
-      </TouchableOpacity>
+      <View style={styles.footer}>
 
-      <TouchableOpacity>
-        <View style={styles.textBoxContainer}>
-          <Text style={styles.Cancelar}>Cancelar</Text>
-        </View>
-      </TouchableOpacity>
+        <View style={styles.line} />
 
-      <View style={{ marginTop: "5%" }} />
+        <TouchableOpacity>
+          <View style={styles.textBoxContainer}>
+            <Text style={styles.BTNpurple}>Registar</Text>
+          </View>
+        </TouchableOpacity>
 
-      </ScrollView>
+        <TouchableOpacity>
+          <View style={styles.textBoxContainer}>
+            <Text style={styles.Cancelar}>Cancelar</Text>
+          </View>
+        </TouchableOpacity>
+
+      </View>
+
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  scrollView: {
-    paddingTop: '10%', 
+  header: {
+    flex: 1,
+    marginTop: "10%",
+  },
+  content: {
+    flex: 7,
+  },
+  footer: {
+    flex: 2,
+    marginTop: "3%",
+    marginBottom: "10%",
   },
   container: {
     width: "100%",
@@ -115,7 +164,9 @@ const styles = StyleSheet.create({
   line: {
     backgroundColor: "#6D4EE5",
     height: 3,
-    width: "100%",
+    borderRadius: 1,
+    width: "94%",
+    marginLeft: "3%",
     marginBottom: "5%",
   },
 
@@ -136,51 +187,51 @@ const styles = StyleSheet.create({
 
   TextBox: {
     width: "100%",
-    color: "#9F9BA8",
-    backgroundColor: "#383343",
+    color: "white",
+    backgroundColor: "#2D2A2F",
     borderWidth: 1,
     borderColor: "#9F9BA8",
     marginTop: "5%",
     borderRadius: 15,
     paddingVertical: 15,
-    paddingHorizontal: 40,
+    paddingHorizontal: 25,
     fontSize: 18,
     textAlign: "left",
   },
 
   SmallTextBox: {
     width: "45%",
-    color: "#9F9BA8",
-    backgroundColor: "#383343",
+    color: "white",
+    backgroundColor: "#2D2A2F",
     borderWidth: 1,
     borderColor: "#9F9BA8",
     marginTop: "5%",
     borderRadius: 15,
     paddingVertical: 15,
     paddingHorizontal: 15,
-    fontSize: 15,
-    textAlign: "center",
+    fontSize: 18,
+    textAlign: "left",
   },
 
   BigTextBox: {
     width: "100%",
-    color: "#9F9BA8",
-    backgroundColor: "#383343",
+    color: "white",
+    backgroundColor: "#2D2A2F",
     borderWidth: 1,
     borderColor: "#9F9BA8",
     marginTop: "5%",
     borderRadius: 15,
-    paddingVertical: 100,
-    paddingHorizontal: 40,
+    textAlign: 'start',
+    paddingVertical: 10,
+    paddingHorizontal: 25,
     fontSize: 18,
-    textAlign: "center",
   },
 
   BTNpurple: {
     backgroundColor: "#6D4EE5",
     color: "white",
     borderRadius: 15,
-    paddingVertical: 25,
+    paddingVertical: 15,
     paddingHorizontal: 55,
     fontSize: 22,
     fontWeight: "bold",
@@ -189,13 +240,14 @@ const styles = StyleSheet.create({
   Cancelar: {
     marginTop: "5%",
     color: "#6D4EE5",
-    borderWidth: 1,
+    borderWidth: 3,
     borderColor: "#6D4EE5",
     borderRadius: 15,
-    paddingVertical: 25,
+    paddingVertical: 15,
     paddingHorizontal: 75,
     fontSize: 18,
     fontWeight: "bold",
     textAlign: "center",
   },
+
 });

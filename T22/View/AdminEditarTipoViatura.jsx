@@ -176,7 +176,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     paddingVertical: 15,
     paddingHorizontal: 15,
-    fontSize: 15,
+    fontSize: 18,
     textAlign: "center",
   },
 

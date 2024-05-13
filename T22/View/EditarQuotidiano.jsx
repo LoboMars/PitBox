@@ -8,32 +8,47 @@ import {
   TouchableOpacity,
   ScrollView,
   TextInput,
+  inputValue,
 } from "react-native";
 
-export default function EditarQuotidino() {
-  return (
-   
-    <View style={styles.container}>
-    <ScrollView  contentContainerStyle={styles.scrollView}> 
-      <Text style={styles.BigText}>Editar Quotidiano</Text>
-      
-      <View style={{ marginTop: "5%" }}/>
-      <View style={styles.line} />
 
-      <View style={styles.textBoxContainer}>
+export default function EditarAssistencia() {
+  return (
+
+    <View style={styles.container}>
+
+      <View style={styles.header}>
+
+        <Text style={styles.BigText}>Editar Quotidiano</Text>
+
+        <View style={{ marginTop: "5%" }} />
+        <View style={styles.line} />
+
+      </View>
+
+
+      <View style={styles.content}>
+
+        <ScrollView>
+
+        <View style={{ marginTop: "3%" }} />
+
+        <View style={styles.textBoxContainer}>
         <Text style={styles.smallText}>Viagem:</Text>
       </View>
 
       <View style={styles.textBoxContainer}>
           <TextInput
             style={styles.TextBox} // Estilo para o TextInput
-            placeholder="Bragança"
-            placeholderTextColor="white"
+            placeholder="Local de Partida"
+            defaultValue="Bragança"
+            placeholderTextColor="#9F9BA8"
           />
           <TextInput
             style={styles.TextBox} // Estilo para o TextInput
-            placeholder="Vinhais"
-            placeholderTextColor="white"
+            placeholder="Local de Chegada"
+            defaultValue="Vinhais"
+            placeholderTextColor="#9F9BA8"
           />
         </View>
 
@@ -46,8 +61,9 @@ export default function EditarQuotidino() {
       <View style={styles.textBoxContainer}>
       <TextInput
             style={styles.TextBox} // Estilo para o TextInput
-            placeholder="Renaul Clio"
-            placeholderTextColor="white"
+            defaultValue="Renaul Clio"
+            placeholder="-Escolher- "
+            placeholderTextColor="#9F9BA8"
           />
       </View>
 
@@ -65,14 +81,16 @@ export default function EditarQuotidino() {
   <View style={{ flexDirection: 'row' }}>
     <TextInput
       style={styles.SmallTextBox} // Estilo para o TextInput
-      placeholder="31 KM"
-      placeholderTextColor="white"
+      defaultValue="31 Km"
+      placeholder="Km"
+      placeholderTextColor="#9F9BA8"
     />
     <View style={{ marginHorizontal: '5%' }} />
     <TextInput
       style={styles.SmallTextBox} // Estilo para o TextInput
-      placeholder="4.8L/100KM"
-      placeholderTextColor="white"
+      defaultValue="4.8L/100KM"
+      placeholder="Litros"
+      placeholderTextColor="#9F9BA8"
     />
   </View>
 </View>
@@ -84,42 +102,54 @@ export default function EditarQuotidino() {
       </View>
 
       <View style={styles.textBoxContainer}>
-  <TextInput
-    style={styles.BigTextBox} // Estilo para o TextInput
-    placeholder="Digite aqui..."
-    placeholderTextColor="white"
-    defaultValue="Solabanco a subir" // Valor inicial do TextInput
-  />
-</View>
+              <TextInput
+                style={styles.BigTextBox} // Estilo para o TextInput
+                defaultValue="Solabanco ao subir montanhas altas e magras, levantas ou não levantas, ah caraças.qweqewwqqaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaqqqqqqq."
+                placeholder="-Nenhum- "
+                placeholderTextColor="#9F9BA8"
+                multiline={true} />
+      </View>
 
-      
+      <View style={{ marginBottom: "3%" }} />
 
-      <View style={{ marginTop: "10%" }} />
-      <View style={styles.line} />
-      <View style={{ marginTop: "5%" }} />
+        </ScrollView>
+      </View>
 
-      <TouchableOpacity>
-        <View style={styles.textBoxContainer}>
-          <Text style={styles.BTNpurple}>Aplicar</Text>
-        </View>
-      </TouchableOpacity>
 
-      <TouchableOpacity>
-        <View style={styles.textBoxContainer}>
-          <Text style={styles.Cancelar}>Cancelar</Text>
-        </View>
-      </TouchableOpacity>
+      <View style={styles.footer}>
 
-      <View style={{ marginTop: "5%" }} />
+        <View style={styles.line} />
 
-      </ScrollView>
+        <TouchableOpacity>
+          <View style={styles.textBoxContainer}>
+            <Text style={styles.BTNpurple}>Aplicar</Text>
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity>
+          <View style={styles.textBoxContainer}>
+            <Text style={styles.Cancelar}>Cancelar</Text>
+          </View>
+        </TouchableOpacity>
+
+      </View>
+
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  scrollView: {
-    paddingTop: '10%', 
+  header: {
+    flex: 1,
+    marginTop: "10%",
+  },
+  content: {
+    flex: 7,
+  },
+  footer: {
+    flex: 2,
+    marginTop: "3%",
+    marginBottom: "10%",
   },
   container: {
     width: "100%",
@@ -142,7 +172,9 @@ const styles = StyleSheet.create({
   line: {
     backgroundColor: "#6D4EE5",
     height: 3,
-    width: "100%",
+    borderRadius: 1,
+    width: "94%",
+    marginLeft: "3%",
     marginBottom: "5%",
   },
 
@@ -164,13 +196,13 @@ const styles = StyleSheet.create({
   TextBox: {
     width: "100%",
     color: "white",
-    backgroundColor: "#383343",
+    backgroundColor: "#2D2A2F",
     borderWidth: 1,
     borderColor: "#9F9BA8",
     marginTop: "5%",
     borderRadius: 15,
     paddingVertical: 15,
-    paddingHorizontal: 40,
+    paddingHorizontal: 25,
     fontSize: 18,
     textAlign: "left",
   },
@@ -178,36 +210,36 @@ const styles = StyleSheet.create({
   SmallTextBox: {
     width: "45%",
     color: "white",
-    backgroundColor: "#383343",
+    backgroundColor: "#2D2A2F",
     borderWidth: 1,
     borderColor: "#9F9BA8",
     marginTop: "5%",
     borderRadius: 15,
     paddingVertical: 15,
     paddingHorizontal: 15,
-    fontSize: 15,
-    textAlign: "center",
+    fontSize: 18,
+    textAlign: "left",
   },
 
   BigTextBox: {
     width: "100%",
     color: "white",
-    backgroundColor: "#383343",
+    backgroundColor: "#2D2A2F",
     borderWidth: 1,
     borderColor: "#9F9BA8",
     marginTop: "5%",
     borderRadius: 15,
+    textAlign: 'start',
     paddingVertical: 10,
-    paddingHorizontal: 40,
+    paddingHorizontal: 25,
     fontSize: 18,
-    textAlign: "left",
   },
 
   BTNpurple: {
     backgroundColor: "#6D4EE5",
     color: "white",
     borderRadius: 15,
-    paddingVertical: 25,
+    paddingVertical: 15,
     paddingHorizontal: 55,
     fontSize: 22,
     fontWeight: "bold",
@@ -216,13 +248,14 @@ const styles = StyleSheet.create({
   Cancelar: {
     marginTop: "5%",
     color: "#6D4EE5",
-    borderWidth: 1,
+    borderWidth: 3,
     borderColor: "#6D4EE5",
     borderRadius: 15,
-    paddingVertical: 25,
+    paddingVertical: 15,
     paddingHorizontal: 75,
     fontSize: 18,
     fontWeight: "bold",
     textAlign: "center",
   },
+
 });

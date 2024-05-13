@@ -26,7 +26,7 @@ import Viatura from './View/Viaturas';
 export default function App() {
   return (
     <View style={styles.container}>
-        <ListaDeCombustiveis/>
+        <EditarViatura/>
       <StatusBar style="auto" />
     </View>
   );
