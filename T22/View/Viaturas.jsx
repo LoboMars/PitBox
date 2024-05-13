@@ -37,9 +37,9 @@ export default function Viatura() {
     <View style={styles.container}>  
     <ScrollView > 
           <View style={styles.container1}>
-            <View style={{ marginTop: "8%" }}/>
+            <View style={{ marginTop: "5%" }}/>
             <Text style={styles.BigText}>As suas Viatura</Text>
-            <View style={{ marginTop: "8%" }}/>
+            <View style={{ marginTop: "5%" }}/>
             <View style={styles.line} />
 
             <View style={styles.textBoxContainer}>
@@ -47,6 +47,10 @@ export default function Viatura() {
             </View>
 
             <View style={{ marginTop: "5%" }}/>
+
+            <View style={styles.textBoxContainer}>
+              <Text style={styles.BigTextBox}>Viatura1</Text>
+            </View>
 
             <View style={styles.textBoxContainer}>
               <Text style={styles.BigTextBox}>Viatura1</Text>
@@ -72,7 +76,7 @@ export default function Viatura() {
 
       <View style={styles.container2}>
 
-              <View style={{ marginTop: "5%" }}/>
+              <View style={{ marginTop: "4%" }}/>
 
             <View style={styles.imageContainer}>
               <TouchableOpacity onPress={handleHome} style={{paddingLeft:'5%'}}>
@@ -89,7 +93,7 @@ export default function Viatura() {
               </TouchableOpacity>
             </View>
 
-              <View style={{ paddingTop: "6%" }} />
+            <View style={{ marginTop: "2%" }}/>
 
       </View>
           
@@ -102,13 +106,14 @@ export default function Viatura() {
 const styles = StyleSheet.create({
   container: {
     width: "100%",
+    height:'100%',
     textAlign: "center",
     justifyContent: "center",
   },
 
   container1: {
     width: "100%",
-    flex: 7,
+    flex: 15,
     backgroundColor: "#2D2A2F",
     textAlign: "center",
     justifyContent: "center",
@@ -116,7 +121,7 @@ const styles = StyleSheet.create({
 
   container2: {
     width: "100%",
-    flex: 1,
+    flex: 2,
     backgroundColor: "#1C1D21",
     textAlign: "center",
     justifyContent: "center",

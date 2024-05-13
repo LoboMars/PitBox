@@ -49,7 +49,7 @@ export default function MainPage() {
             <Text style={styles.BigTextP}>Lebron</Text>
           </View>
 
-          <View style={{ paddingTop: "25%" }} />
+          <View style={{ marginTop: "20%" }} />
 
         </View>
         
@@ -73,11 +73,11 @@ export default function MainPage() {
 
           </View>
 
-          <View style={{ paddingTop: "5%" }} />
+          <View style={{ marginTop: "15%" }} />
         </View>
 
         <View style={styles.container3}> 
-          <View style={{ marginTop: "7%" }}/>
+          <View style={{ marginTop: "4%" }}/>
             <View style={styles.imageContainer2}>
               <TouchableOpacity onPress={handleLogout} style={{paddingLeft:'5%'}}>
                 <Image source={Home} style={styles.logo2} />
@@ -92,7 +92,7 @@ export default function MainPage() {
                 <Image source={Eventos} style={styles.logo2} />
               </TouchableOpacity>
             </View>
-            <View style={{ paddingTop: "10%" }} />
+            <View style={{ paddingTop: "2%" }} />
         </View>
 
       </ScrollView>
@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
 
   container3: {
     width: "100%",
-    flex: 3,
+    flex: 2,
     backgroundColor: "#1C1D21",
   },
 
