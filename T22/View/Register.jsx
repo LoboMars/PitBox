@@ -20,7 +20,7 @@ export default function Register() {
 
   return (
     <View style={styles.container}>
-      <ScrollView contentContainerStyle={styles.scrollView}> 
+        <ScrollView contentContainerStyle={styles.scrollView}> 
             <Image source={Logo} style={styles.logo} />
             
             <View style={{ marginTop: "5%" }}/>
@@ -63,6 +63,7 @@ export default function Register() {
                 secureTextEntry={true} // Para ocultar a senha
               />
             </View>
+            
             <TouchableOpacity>
               <View style={styles.textBoxLogin}>
                 <Text style={styles.BTNpurple}>Registrar Conta</Text>

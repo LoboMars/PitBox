@@ -28,16 +28,16 @@ export default function Login() {
             <View style={styles.textBoxLogin}>
                 <Text style={styles.BTNpurple}>Login</Text>
             </View>
-            </TouchableOpacity>
-            <View style={{paddingTop: '10%',flexDirection:'row'}} >
-                <View style={styles.line2} />
-                <Text style={styles.textGray}>OU</Text>
-                <View style={styles.line2} />
-            </View>
-            <TouchableOpacity>
-            <View style={styles.textBoxLogin}>
-                 <Text style={styles.Register}>Registar Conta</Text>
-           </View>
+              </TouchableOpacity>
+              <View style={{paddingTop: '10%',flexDirection:'row'}} >
+                  <View style={styles.line2} />
+                  <Text style={styles.textGray}>OU</Text>
+                  <View style={styles.line2} />
+              </View>
+              <TouchableOpacity>
+                  <View style={styles.textBoxLogin}>
+                      <Text style={styles.Register}>Registar Conta</Text>
+                </View>
             </TouchableOpacity>
         </View>
       );
