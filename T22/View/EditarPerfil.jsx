@@ -9,7 +9,7 @@ import {
   ScrollView,
   TextInput,
 } from "react-native";
-import Carro from '../Image/carPurple.png'
+import Lebron from '../Image/labron.png'
 
 export default function CriarViatura() {
   return (
@@ -17,7 +17,7 @@ export default function CriarViatura() {
     <View style={styles.container}>
 
         <View style ={styles.header}>
-          <Text style={styles.BigText}>Editar Tipo  Viatura</Text>
+          <Text style={styles.BigText}>Editar Perfil</Text>
 
           <View style={{ marginTop: "5%" }} />
           <View style={styles.line} />
@@ -26,39 +26,43 @@ export default function CriarViatura() {
        
       <View style={styles.content}>
 
+        <View style={{height: "30%", marginBottom: "5%", alignItems: 'center'}}>
+          <TouchableOpacity  style={styles.clickable}>
+            <Image source={Lebron} style={styles.ProfilePic}/>
+          </TouchableOpacity>
+        </View>
+       
         <View style={styles.textBoxContainer}>
-            <Text style={styles.smallText}>Nome da Viatura:</Text>
+            <Text style={styles.smallText}>Email:</Text>
           </View>
 
           <View style={styles.textBoxContainer}>
             <TextInput
-              style={styles.TextBox} // Estilo para o TextInput
-              placeholder="Nome"
-              defaultValue="Carro"
-              placeholderTextColor="#9F9BA8" />
+              style={styles.TextBox}
+              defaultValue="uaremysunshine@gmail.com"/>
           </View>
 
           <View style={{ marginTop: "8%" }} />
 
           <View style={styles.textBoxContainer}>
-            <Text style={styles.smallText}>Icon:</Text>
+            <Text style={styles.smallText}>Palavra-Passe:</Text>
           </View>
 
-          <View style={{marginTop: "5%", height: "40%", alignItems: 'center'}}>
-              <TouchableOpacity onPress={() => alert("Edit Button Clicked.")} style={styles.Edit}>
-                <Image source={Carro} style={{width:'80%', height:'80%'}}/>
-              </TouchableOpacity>
+          <View style={styles.textBoxContainer}>
+            <TextInput
+              style={styles.TextBox}
+              secureTextEntry={true}
+              defaultValue="Bababoey"/>
           </View>
-      </View>
+
+    </View>
         
 
       <View style={styles.footer}>
-          <View style={styles.line} />
-          <View style={{ marginTop: "2%" }} />
 
           <TouchableOpacity>
             <View style={styles.textBoxContainer}>
-              <Text style={styles.BTNOrange}>Aplicar</Text>
+              <Text style={styles.BTNPurple}>Alterar</Text>
             </View>
           </TouchableOpacity>
 
@@ -87,6 +91,18 @@ const styles = StyleSheet.create({
     flex: 2,
     marginBottom: "10%",
   },
+  ProfilePic:{
+    height: "100%",
+    width: "100%",
+    borderRadius: "50%",
+  },
+  clickable:{
+    height: "100%",
+    width: "40%",
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: "50%",
+  },
   Edit: {
     alignItems: 'center',
     justifyContent: 'center',
@@ -114,7 +130,7 @@ const styles = StyleSheet.create({
     color: "#6D4EE5",
   },
   line: {
-    backgroundColor: "#EC853B",
+    backgroundColor: "#6D4EE5",
     height: 3,
     borderRadius: 1,
     width: "94%",
@@ -194,8 +210,8 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
 
-  BTNOrange: {
-    backgroundColor: "#EC853B",
+  BTNPurple: {
+    backgroundColor: "#6D4EE5",
     color: "white",
     borderRadius: 15,
     paddingVertical: "4%",
@@ -206,9 +222,9 @@ const styles = StyleSheet.create({
   },
   Cancelar: {
     marginTop: "5%",
-    color: "#EC853B",
+    color: "#6D4EE5",
     borderWidth: 2,
-    borderColor: "#EC853B",
+    borderColor: "#6D4EE5",
     borderRadius: 15,
     paddingVertical: "4%",
     paddingHorizontal: 75,
