@@ -49,7 +49,7 @@ export default function MainPage() {
             <Text style={styles.BigTextP}>Lebron</Text>
           </View>
 
-          <View style={{ paddingTop: "40%" }} />
+          <View style={{ paddingTop: "33%" }} />
 
         </View>
         
@@ -71,26 +71,28 @@ export default function MainPage() {
            <Text style={styles.BigTextLeft}>Novo Evento</Text>
            </View>
 
+           <View style={{ paddingTop: "10%" }} />
 
           </View>
         </View>
 
         <View style={styles.container3}> 
-        <View style={{ marginTop: "5%" }} />
-          <View style={styles.imageContainer2}>
-            <TouchableOpacity onPress={handleLogout} style={{paddingLeft:'5%'}}>
-              <Image source={Home} style={styles.logo2} />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={handleLogout}>
-              <Image source={Viaturas} style={styles.logo2} />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={handleLogout} style={{paddingLeft:'5%'}}>
-              <Image source={Assistencias} style={styles.logo2} />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={handleLogout}>
-              <Image source={Eventos} style={styles.logo2} />
-            </TouchableOpacity>
-          </View>
+          <View style={{ marginTop: "5%" }} />
+            <View style={styles.imageContainer2}>
+              <TouchableOpacity onPress={handleLogout} style={{paddingLeft:'5%'}}>
+                <Image source={Home} style={styles.logo2} />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={handleLogout}>
+                <Image source={Viaturas} style={styles.logo2} />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={handleLogout} style={{paddingLeft:'5%'}}>
+                <Image source={Assistencias} style={styles.logo2} />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={handleLogout}>
+                <Image source={Eventos} style={styles.logo2} />
+              </TouchableOpacity>
+            </View>
+            <View style={{ paddingTop: "5%" }} />
         </View>
 
       </ScrollView>
