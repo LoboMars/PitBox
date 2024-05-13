@@ -17,11 +17,12 @@ import EditarCombustivel from './View/AdminEditarCombustivel';
 import MainPage from './View/MainPage';
 import EditarTipoViatura from './View/AdminEditarTipoViatura';
 import ListaDeCombustiveis from './View/Assuasviaturas';
+import DetalhesViatura from './View/DetalhesViatura';
 
 export default function App() {
   return (
     <View style={styles.container}>
-        <ListaDeCombustiveis/>
+        <DetalhesViatura/>
       <StatusBar style="auto" />
     </View>
   );
@@ -34,4 +35,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
+
 });
