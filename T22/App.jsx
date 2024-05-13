@@ -21,7 +21,7 @@ import EditarTipoViatura from './View/AdminEditarTipoViatura';
 export default function App() {
   return (
     <View style={styles.container}>
-       <MainPage/>
+       <Login/>
       <StatusBar style="auto" />
     </View>
   );
