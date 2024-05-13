@@ -17,74 +17,98 @@ import Assistencias from '../Image/Assistencias.png'
 
 export default function Viatura() {
 
-    const handleLogout = () => {
-        alert("Logout button pressed!");
+    const handleHome = () => {
+        alert("Home button pressed!");
       };
     
-      const handleEditar = () => {
+      const handleViatura = () => {
+        alert("Editar button pressed!");
+      };
+
+      const handleAssistencias = () => {
+        alert("Editar button pressed!");
+      };
+
+      const handleEventos = () => {
         alert("Editar button pressed!");
       };
   return (
    
-    <View style={styles.container}>
-    <ScrollView  contentContainerStyle={styles.scrollView}> 
-      <Text style={styles.BigText}>As suas Viatura</Text>
+    <View style={styles.container}>  
+    <ScrollView > 
+          <View style={styles.container1}>
+            <View style={{ marginTop: "8%" }}/>
+            <Text style={styles.BigText}>As suas Viatura</Text>
+            <View style={{ marginTop: "8%" }}/>
+            <View style={styles.line} />
+
+            <View style={styles.textBoxContainer}>
+              <Text style={styles.SmallTextBox}>pesquisar por viaturas</Text>
+            </View>
+
+            <View style={{ marginTop: "5%" }}/>
+
+            <View style={styles.textBoxContainer}>
+              <Text style={styles.BigTextBox}>Viatura1</Text>
+            </View>
+
+            <View style={styles.textBoxContainer}>
+              <Text style={styles.BigTextBox}>Viatura1</Text>
+            </View>
+
+            <View style={styles.textBoxContainer}>
+              <Text style={styles.BigTextBox}>Viatura1</Text>
+            </View>
+
+            <View style={styles.textBoxContainer}>
+              <Text style={styles.BigTextBox}>Viatura1</Text>
+            </View>
+
+
+            <View style={{ marginTop: "10%" }}/>
+
+          </View>
       
-      <View style={{ marginTop: "5%" }}/>
-      <View style={styles.line} />
 
-      <View style={styles.textBoxContainer}>
-        <Text style={styles.SmallTextBox}>pesquisar por viaturas</Text>
-      </View>
+      <View style={styles.container2}>
 
-      <View style={styles.textBoxContainer}>
-        <Text style={styles.BigTextBox}>Viatura1</Text>
-      </View>
+              <View style={{ marginTop: "5%" }}/>
 
-      <View style={styles.textBoxContainer}>
-        <Text style={styles.BigTextBox}>Viatura1</Text>
-      </View>
-
-      <View style={styles.textBoxContainer}>
-        <Text style={styles.BigTextBox}>Viatura1</Text>
-      </View>
-
-      <View style={styles.textBoxContainer}>
-        <Text style={styles.BigTextBox}>Viatura1</Text>
-      </View>
-
-        <View style={styles.container}>
-        <View style={{ marginTop: "7%" }}/>
             <View style={styles.imageContainer}>
-              <TouchableOpacity onPress={handleLogout} style={{paddingLeft:'5%'}}>
+              <TouchableOpacity onPress={handleHome} style={{paddingLeft:'5%'}}>
                 <Image source={Home} style={styles.logo2} />
               </TouchableOpacity>
-              <TouchableOpacity onPress={handleLogout}>
+              <TouchableOpacity onPress={handleViatura}>
                 <Image source={Viaturas} style={styles.logo2} />
               </TouchableOpacity>
-              <TouchableOpacity onPress={handleLogout} style={{paddingLeft:'5%'}}>
+              <TouchableOpacity onPress={handleAssistencias} style={{paddingLeft:'5%'}}>
                 <Image source={Assistencias} style={styles.logo2} />
               </TouchableOpacity>
-              <TouchableOpacity onPress={handleLogout}>
+              <TouchableOpacity onPress={handleEventos}>
                 <Image source={Eventos} style={styles.logo2} />
               </TouchableOpacity>
             </View>
-        <View style={{ paddingTop: "10%" }} />
-    </View>
+
+              <View style={{ paddingTop: "6%" }} />
+
+      </View>
           
 
-      </ScrollView>
-    </View>
+    </ScrollView>
+  </View>
   );
 }
 
 const styles = StyleSheet.create({
-  scrollView: {
-    paddingTop: '10%', 
-  },
   container: {
     width: "100%",
-    flex: 1,
+    textAlign: "center",
+    justifyContent: "center",
+  },
+
+  container1: {
+    width: "100%",
+    flex: 7,
     backgroundColor: "#2D2A2F",
     textAlign: "center",
     justifyContent: "center",
