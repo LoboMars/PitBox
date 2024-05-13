@@ -17,13 +17,16 @@ import EditarCombustivel from './View/AdminEditarCombustivel';
 import MainPage from './View/MainPage';
 import EditarTipoViatura from './View/AdminEditarTipoViatura';
 import ListaDeCombustiveis from './View/Assuasviaturas';
+import DetalhesViatura from './View/DetalhesViatura';
+import DetalhesAssistencia from './View/DetalhesAssistencias';
+import DetalhesQuotodiano from './View/DetalhesQuotidiano';
 import EditarPerfil from './View/EditarPerfil';
 import Viatura from './View/Viaturas';
 
 export default function App() {
   return (
     <View style={styles.container}>
-        <EditarAssistencia/>
+        <ListaDeCombustiveis/>
       <StatusBar style="auto" />
     </View>
   );
@@ -36,4 +39,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
+
 });
