@@ -5,7 +5,7 @@ import Car  from '../Image/carPurple.png'
 import Apagar  from  '../Image/Apagar.png'
 import Editar from '../Image/Editar.png'
 
-export default function DetalhesViatura() {
+export default function DetalhesAssistencia() {
   return (
     <View style={styles.container}>
       <Image
@@ -17,7 +17,7 @@ export default function DetalhesViatura() {
             <View style={styles.Box}>
 
                 <View style={styles.Title}>
-                    <Text style={styles.textPurple}>Viatura</Text>
+                    <Text style={styles.textPurple}>Assistencia Mecanica</Text>
                     <Text style={styles.textWhite}>Renault Clio</Text>
 
                     <View style={{marginTop: "15%"}}/>

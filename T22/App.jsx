@@ -18,11 +18,12 @@ import MainPage from './View/MainPage';
 import EditarTipoViatura from './View/AdminEditarTipoViatura';
 import ListaDeCombustiveis from './View/Assuasviaturas';
 import DetalhesViatura from './View/DetalhesViatura';
+import DetalhesAssistencia from './View/DetalhesAssistencias';
 
 export default function App() {
   return (
     <View style={styles.container}>
-        <DetalhesViatura/>
+        <DetalhesAssistencia/>
       <StatusBar style="auto" />
     </View>
   );
