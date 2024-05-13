@@ -22,11 +22,12 @@ import DetalhesAssistencia from './View/DetalhesAssistencias';
 import DetalhesQuotodiano from './View/DetalhesQuotidiano';
 import EditarPerfil from './View/EditarPerfil';
 import Viatura from './View/Viaturas';
+import Tipoviatura from './View/AdminTipoviatura';
 
 export default function App() {
   return (
     <View style={styles.container}>
-        <EditarViatura/>
+        <Tipoviatura/>
       <StatusBar style="auto" />
     </View>
   );

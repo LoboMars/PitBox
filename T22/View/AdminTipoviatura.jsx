@@ -14,7 +14,7 @@ import Home from '../Image/Home.png';
 import Viaturas from '../Image/Viaturas.png';
 import Assistencias from '../Image/Assistencias.png';
 import Tresp from '../Image/3P.png'
-
+import apagar from '../Image/Apagar.png'
 
 export default function Tipoviatura() {
   const [data, setData] = useState([
@@ -65,8 +65,9 @@ export default function Tipoviatura() {
           <View style={styles.item}> 
              <Image source={carPurple} style={styles.icon} />
             <Text style={styles.itemText}>{item.name}</Text>
-            <TouchableOpacity onPress={info}>
-            <Image source={Tresp} style={styles.logo3} />
+            <TouchableOpacity onPress={info} style={{flexDirection: "row",alignItems: "center",}}>
+            <Image source={Tresp} style={styles.logo4} />
+            <Image source={apagar} style={styles.logo3}/>
             </TouchableOpacity>
           </View>
         )}
@@ -202,6 +203,12 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     width: 42,
     height: 42,
+  },
+  logo4: {
+    alignSelf: 'center',
+    width: 42,
+    height: 42,
+    marginRight: 10,
   },
   BigText: {
     color: "white",
