@@ -23,11 +23,12 @@ import DetalhesQuotodiano from './View/DetalhesQuotidiano';
 import EditarPerfil from './View/EditarPerfil';
 import Viatura from './View/Viaturas';
 import Tipoviatura from './View/AdminTipoviatura';
+import Tipocombustivel from './View/AdminTipoCombustiveis';
 
 export default function App() {
   return (
     <View style={styles.container}>
-        <Tipoviatura/>
+        <Tipocombustivel/>
       <StatusBar style="auto" />
     </View>
   );
