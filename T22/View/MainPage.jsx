@@ -77,7 +77,7 @@ export default function MainPage() {
         </View>
 
         <View style={styles.container3}> 
-          <View style={{ marginTop: "7%" }} />
+          <View style={{ marginTop: "7%" }}/>
             <View style={styles.imageContainer2}>
               <TouchableOpacity onPress={handleLogout} style={{paddingLeft:'5%'}}>
                 <Image source={Home} style={styles.logo2} />
