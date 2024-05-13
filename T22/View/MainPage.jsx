@@ -28,6 +28,7 @@ export default function MainPage() {
   return (
     <View style={styles.container}>
 
+
       <View style={styles.container1}>
 
 
@@ -74,18 +75,22 @@ export default function MainPage() {
               <Text style={styles.BigTextLeft}>Novo Evento</Text>
             </View>
 
-           <View style={{ paddingTop: "10%" }} />
-
-          </View>
+          </ScrollView>
         </View>
 
-        <View style={styles.container3}> 
-          <View style={{ marginTop: "5%" }} />
-            <View style={styles.imageContainer2}>
-              <TouchableOpacity onPress={handleLogout} style={{paddingLeft:'5%'}}>
-                <Image source={Home} style={styles.logo2} />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={handleLogout}>
+      </View>
+
+        <View style={styles.container3}>
+
+          <View style={styles.imageContainer2}>
+            <TouchableOpacity onPress={handleLogout}>
+              <View>
+                <Image source={Home} style={styles.logo2}/>
+                <Text style={{color: "#6D4EE5", fontWeight: "500"}}>Home</Text>
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={handleLogout}>
+              <View>
                 <Image source={Viaturas} style={styles.logo2} />
                 <Text style={{color: "#9F9BA8", fontWeight: "500"}}>Viaturas</Text>
               </View>
@@ -99,9 +104,10 @@ export default function MainPage() {
             <TouchableOpacity onPress={handleLogout}>
               <View>
                 <Image source={Eventos} style={styles.logo2} />
-              </TouchableOpacity>
-            </View>
-            <View style={{ paddingTop: "5%" }} />
+                <Text style={{color: "#9F9BA8", fontWeight: "500"}}>Eventos</Text>
+              </View>
+            </TouchableOpacity>
+          </View>
         </View>
 
     </View>
@@ -109,10 +115,6 @@ export default function MainPage() {
 }
 
 const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: "#2D2A2F",
-    paddingTop: "5%",
-  },
 
   container: {
     width: "100%",
@@ -135,8 +137,7 @@ const styles = StyleSheet.create({
   },
 
   container3: {
-    width: "100%",
-    flex: 2,
+    flex: 1,
     backgroundColor: "#1C1D21",
     justifyContent: 'center',
   },
