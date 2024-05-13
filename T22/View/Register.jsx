@@ -6,8 +6,8 @@ import {
   Image,
   Dimensions,
   TouchableOpacity,
-  TextInput,
-  ScrollView, 
+  ScrollView,
+  TextInput, // Importando TextInput do react-native
 } from "react-native";
 import Logo from "../Image/Logo.png";
 import Icon from "../Image/Icon.png";
@@ -20,6 +20,7 @@ export default function Register() {
 
   return (
     <View style={styles.container}>
+
         <ScrollView contentContainerStyle={styles.scrollView}> 
             <Image source={Logo} style={styles.logo} />
             
@@ -77,14 +78,62 @@ export default function Register() {
               </View>
             </TouchableOpacity>
       </ScrollView>
+
+      <Image source={Logo} style={styles.logo} />
+      <View style={styles.line} />
+      <View>
+        <Text style={styles.BigText}>Registrar</Text>
+        <Image source={Icon} style={styles.icon} />
+        <View style={styles.textBoxContainer}>
+          <TextInput
+            style={styles.TextBox}
+            onChangeText={(text) => setEmail(text)}
+            value={email}
+            placeholder="Email"
+            placeholderTextColor="#9F9BA8"
+          />
+          <TextInput
+            style={styles.TextBox}
+            onChangeText={(text) => setNome(text)}
+            value={nome}
+            placeholder="Nome"
+            placeholderTextColor="#9F9BA8"
+          />
+          <TextInput
+            style={styles.TextBox}
+            onChangeText={(text) => setSenha(text)}
+            value={senha}
+            placeholder="Palavra-passe"
+            placeholderTextColor="#9F9BA8"
+            secureTextEntry={true} // Para ocultar a senha
+          />
+          <TextInput
+            style={styles.TextBox}
+            onChangeText={(text) => setNsenha(text)}
+            value={nsenha}
+            placeholder="Palavra-passe"
+            placeholderTextColor="#9F9BA8"
+            secureTextEntry={true} // Para ocultar a senha
+          />
+        </View>
+        <TouchableOpacity>
+          <View style={styles.textBoxLogin}>
+            <Text style={styles.BTNpurple}>Registrar Conta</Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <View style={styles.textBoxLogin}>
+            <Text style={[styles.textPurple, { paddingTop: "5%" }]}>
+              Já tem uma conta?
+            </Text>
+          </View>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  scrollView: {
-    paddingTop: '5%', 
-  },
   container: {
     width: "100%",
     flex: 1,
@@ -149,12 +198,14 @@ const styles = StyleSheet.create({
   logo: {
     width: "50%",
     height: "10%",
+    paddingBottom: "5%",
+    marginTop: "5%",
     marginLeft: "24%",
   },
   icon: {
-    width: "40%",
+    width: "30%",
     height: "25%",
-    marginLeft: "32%",
+    marginLeft: "35%",
     marginTop: "4%",
   },
 });
