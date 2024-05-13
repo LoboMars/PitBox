@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { forwardRef, useState } from "react";
 import { View, 
   FlatList, 
   StyleSheet, 
@@ -8,7 +8,12 @@ import { View,
   ScrollView,
   Image,
 } from "react-native";
-import carPurple from "../Image/carPurple.png"
+import carPurple from "../Image/carPurple.png";
+import Eventos from '../Image/Eventos.png';
+import Home from '../Image/Home.png';
+import Viaturas from '../Image/Viaturas.png';
+import Assistencias from '../Image/Assistencias.png';
+import Tresp from '../Image/3P.png'
 
 
 export default function ListaDeCombustiveis() {
@@ -19,6 +24,12 @@ export default function ListaDeCombustiveis() {
     { id: "4", name: "Combustível 4" },
     { id: "5", name: "Combustível 5" },
   ]);
+  const handleLogout = () => {
+    alert("Logout button pressed!");
+  };
+  const info = () => {
+    alert("bla bla bla");
+  };
 
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -33,8 +44,8 @@ export default function ListaDeCombustiveis() {
 
   return (
     <View style={styles.container}>
-      <ScrollView  contentContainerStyle={styles.scrollView}>
-      <Text style={styles.BigText}>As suas Viatura</Text>
+
+      <Text style={[styles.BigText,{marginTop: 30}]}>As suas Viatura</Text>
       
       <View style={{ marginTop: "5%" }}/>
       <View style={styles.line} />
@@ -45,23 +56,57 @@ export default function ListaDeCombustiveis() {
         onChangeText={(text) => setSearchTerm(text)}
         value={searchTerm}
       />
+      <ScrollView  contentContainerStyle={styles.scrollView}>
+      
       <FlatList
         style={styles.flatList}
         contentContainerStyle={styles.flatListContent}
         data={filteredData}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <View style={styles.item}>
+          <View style={styles.item}> 
              <Image source={carPurple} style={styles.icon} />
             <Text style={styles.itemText}>{item.name}</Text>
-            <TouchableOpacity style={styles.editButton} onPress={() => handleEdit(item.id)}>
-              <Text style={styles.editButtonText}>...</Text>
+            <TouchableOpacity onPress={info}>
+            <Image source={Tresp} style={styles.logo3} />
             </TouchableOpacity>
           </View>
         )}
       />
       </ScrollView>
+    <View style={styles.container3}>
+
+      <View style={styles.imageContainer2}>
+        <TouchableOpacity onPress={handleLogout}>
+          <View>
+            <Image source={Home} style={styles.logo2}/>
+            <Text style={{color: "#6D4EE5", fontWeight: "500"}}>Home</Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={handleLogout}>
+          <View>
+            <Image source={Viaturas} style={styles.logo2} />
+            <Text style={{color: "#9F9BA8", fontWeight: "500"}}>Viaturas</Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={handleLogout}>
+          <View>
+            <Image source={Assistencias} style={styles.logo2} />
+            <Text style={{color: "#9F9BA8", fontWeight: "500", textAlign: 'center'}}>Assistências</Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={handleLogout}>
+          <View>
+            <Image source={Eventos} style={styles.logo2} />
+            <Text style={{color: "#9F9BA8", fontWeight: "500"}}>Eventos</Text>
+          </View>
+        </TouchableOpacity>
+</View>
+</View>
+
+
     </View>
+       
   );
 }
 
@@ -76,6 +121,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     width: "100%",
     paddingTop: 20,
+    //marginTop: "5%"
   },
   BigText: {
     color: "white",
@@ -111,40 +157,64 @@ const styles = StyleSheet.create({
   },
   item: {
     backgroundColor: "#1C1D21",
-    padding: 20,
+    padding: 27,
     marginBottom: 10,
     borderRadius: 15,
-    width: "100%", // Ajusta a largura dos itens da lista para ocupar toda a tela
+    width: "90%", // Ajusta a largura dos itens da lista para ocupar toda a tela
     flexDirection: "row",
-    justifyContent: "center",
+    justifyContent:"space-between",
     alignItems: "center",
-   
-
+    marginLeft:"5%",
+  
   },
   itemText: {
     color: "white",
     fontSize: 18,
     fontWeight: "bold",
     marginLeft:"5%"
-
-
-  },
-  editButton: {
-    backgroundColor: "#EC853B",
-    borderRadius: 10,
-    paddingVertical: 8,
-    paddingHorizontal: 15,
-    marginLeft:"50%"
-  },
-  editButtonText: {
-    color: "white",
-    fontSize: 16,
-    fontWeight: "bold",
   },
   icon: {
     width: "15%",
     height: "100%",
     marginLeft: "0%",
     marginTop: "1%",
+  },
+  container: {
+    width: "100%",
+    height:'100%',
+    flex: 1,
+    backgroundColor: "#232427",
+  },
+  container3: {
+    flex: 1,
+    backgroundColor: "#1C1D21",
+    justifyContent: 'center',
+  },
+  imageContainer2: {
+    flexDirection: "row",
+    justifyContent: "space-between", 
+    paddingHorizontal: "5%",
+  },
+  logo2: {
+    alignSelf: 'center',
+    width: 32,
+    height: 32,
+  },
+  logo3: {
+    alignSelf: 'center',
+    width: 42,
+    height: 42,
+  },
+  BigText: {
+    color: "white",
+    fontSize: 35,
+    fontWeight: "bold",
+    textAlign: "center",
+  },
+  BigTextP: {
+    color: "#6D4EE5",
+    fontSize: 35,
+    fontWeight: "bold",
+    textAlign: "center",
   },
 });
