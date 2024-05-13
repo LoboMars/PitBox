@@ -30,6 +30,7 @@ export default function MainPage() {
       <ScrollView contentContainerStyle={styles.scrollView}>
 
         <View style={styles.container1}> 
+        <View style={{ marginTop: "5%" }} />
           <View style={styles.imageContainer}>
             <TouchableOpacity onPress={handleLogout} style={{paddingLeft:'5%'}}>
               <Image source={LogOut} style={styles.logo} />
@@ -39,7 +40,7 @@ export default function MainPage() {
             </TouchableOpacity>
           </View>
 
-          <View style={{ marginTop: "10%" }} />
+          <View style={{ paddingTop: "10%" }} />
 
           <View>
             <Text style={styles.BigText}>Bem Vindo,</Text>
@@ -48,7 +49,7 @@ export default function MainPage() {
             <Text style={styles.BigTextP}>Lebron</Text>
           </View>
 
-          <View style={{ marginTop: "40%" }} />
+          <View style={{ paddingTop: "40%" }} />
 
         </View>
         
