@@ -17,11 +17,13 @@ import EditarCombustivel from './View/AdminEditarCombustivel';
 import MainPage from './View/MainPage';
 import EditarTipoViatura from './View/AdminEditarTipoViatura';
 import ListaDeCombustiveis from './View/Assuasviaturas';
+import EditarPerfil from './View/EditarPerfil';
+import Viatura from './View/Viaturas';
 
 export default function App() {
   return (
     <View style={styles.container}>
-        <ListaDeCombustiveis/>
+        <EditarAssistencia/>
       <StatusBar style="auto" />
     </View>
   );

@@ -14,119 +14,135 @@ import {
 
 export default function EditarAssistencia() {
   return (
-   
+
     <View style={styles.container}>
-    <ScrollView  contentContainerStyle={styles.scrollView}> 
-      <Text style={styles.BigText}>Editar Assistencia</Text>
-      
-      <View style={{ marginTop: "5%" }}/>
-      <View style={styles.line} />
- 
-      <View style={styles.textBoxContainer}>
-        <Text style={styles.smallText}>Viatura:</Text>
-      </View>
 
-      <View style={styles.textBoxContainer}>
-      <TextInput
-            style={styles.TextBox} // Estilo para o TextInput
-            placeholder="Marca-Modelo"
-            placeholderTextColor="white"
-          />
-      </View>
-      
+      <View style={styles.header}>
 
-      <View style={{ marginTop: "5%" }} />
+        <Text style={styles.BigText}>Editar Assistencia</Text>
 
-      <View style={styles.textBoxContainer}>
-        <Text style={styles.smallText}>Oficina:</Text>
-      </View>
+        <View style={{ marginTop: "5%" }} />
+        <View style={styles.line} />
 
-      <View style={styles.textBoxContainer}>
-     <TextInput
-            style={styles.TextBox} // Estilo para o TextInput
-            placeholder="Nome"
-            placeholderTextColor="white"
-      />      
-      </View>
-
-      <View style={{ marginTop: "5%" }} />
-
-      <View style={styles.textBoxContainer}>
-        <Text style={styles.smallText}>Data da Assistência:</Text>
-      </View>
-
-      <View style={styles.textBoxContainer}>
-      <TextInput
-            style={styles.TextBox} // Estilo para o TextInput
-            placeholder="DD/MM/YYYY"
-            placeholderTextColor="white"
-          />
-      </View>
-
-      <View style={{ marginTop: "5%" }} />
-
-      <View style={styles.textBoxContainer}>
-        <View style={{flexDirection:'row',alignItems: 'center'}}>
-            <Text style={styles.smallText}>Valor da Fatura:</Text>
-          <View style={{marginHorizontal: '5%'}} />
-          <TextInput
-            style={styles.SmallTextBox}
-            placeholder="0$"
-            placeholderTextColor="white"
-            keyboardType="numeric"
-            mask="$[999999]"
-          />
-        </View>
       </View>
 
 
-      <View style={{ marginTop: "5%" }} />
+      <View style={styles.content}>
 
-      <View style={styles.textBoxContainer}>
-        <Text style={styles.smallText}>Detalhes:</Text>
+        <ScrollView>
+
+        <View style={{ marginTop: "5%" }} />
+
+          <View style={styles.textBoxContainer}>
+            <Text style={styles.smallText}>Viatura:</Text>
+          </View>
+
+          <View style={styles.textBoxContainer}>
+            <TextInput
+              style={styles.TextBox}
+              placeholder="Marca-Modelo"
+              placeholderTextColor="white" />
+          </View>
+
+          <View style={{ marginTop: "5%" }} />
+
+          <View style={styles.textBoxContainer}>
+            <Text style={styles.smallText}>Oficina:</Text>
+          </View>
+
+          <View style={styles.textBoxContainer}>
+            <TextInput
+              style={styles.TextBox} // Estilo para o TextInput
+              placeholder="Nome"
+              placeholderTextColor="white" />
+          </View>
+
+          <View style={{ marginTop: "5%" }} />
+
+          <View style={styles.textBoxContainer}>
+            <Text style={styles.smallText}>Data da Assistência:</Text>
+          </View>
+
+          <View style={styles.textBoxContainer}>
+            <TextInput
+              style={styles.TextBox}
+              placeholder="DD/MM/YYYY"
+              placeholderTextColor="white" />
+          </View>
+
+          <View style={{ marginTop: "5%" }} />
+
+          <View style={styles.textBoxContainer}>
+            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+              <Text style={styles.smallText}>Valor da Fatura:</Text>
+              <View style={{ marginHorizontal: '5%' }} />
+
+              <TextInput
+                style={styles.SmallTextBox}
+                placeholder="0$"
+                placeholderTextColor="white"
+                keyboardType="numeric"
+                mask="$[999999]" />
+            </View>
+
+            <View style={{ marginTop: "5%" }} />
+
+            <View style={styles.textBoxContainer}>
+              <Text style={styles.smallText}>Detalhes:</Text>
+            </View>
+
+            <View style={styles.textBoxContainer}>
+              <TextInput
+                style={styles.TextBox} // Estilo para o TextInput
+                placeholder="Revisão"
+                placeholderTextColor="white" />
+              <TextInput
+                style={styles.BigTextBox} // Estilo para o TextInput
+                placeholder="..."
+                placeholderTextColor="white"
+                multiline={true} />
+            </View>
+
+          </View>
+
+        </ScrollView>
       </View>
 
-      <View style={styles.textBoxContainer}>
-      <TextInput
-            style={styles.TextBox} // Estilo para o TextInput
-            placeholder="Revisão"
-            placeholderTextColor="white"
-      />      
-       <TextInput
-            style={styles.BigTextBox} // Estilo para o TextInput
-            placeholder="..."
-            placeholderTextColor="white"
-            multiline={true}
-      />            
+
+      <View style={styles.footer}>
+
+        <View style={styles.line} />
+
+        <TouchableOpacity>
+          <View style={styles.textBoxContainer}>
+            <Text style={styles.BTNpurple}>Aplicar</Text>
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity>
+          <View style={styles.textBoxContainer}>
+            <Text style={styles.Cancelar}>Cancelar</Text>
+          </View>
+        </TouchableOpacity>
+
       </View>
-      
 
-      <View style={{ marginTop: "10%" }} />
-      <View style={styles.line} />
-      <View style={{ marginTop: "5%" }} />
-
-      <TouchableOpacity>
-        <View style={styles.textBoxContainer}>
-          <Text style={styles.BTNpurple}>Aplicar</Text>
-        </View>
-      </TouchableOpacity>
-
-      <TouchableOpacity>
-        <View style={styles.textBoxContainer}>
-          <Text style={styles.Cancelar}>Cancelar</Text>
-        </View>
-      </TouchableOpacity>
-
-      <View style={{ marginTop: "5%" }} />
-
-      </ScrollView>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  scrollView: {
-    paddingTop: '10%', 
+  header: {
+    flex: 1,
+    marginTop: "10%",
+  },
+  content: {
+    flex: 7,
+  },
+  footer: {
+    flex: 2,
+    marginTop: "3%",
+    marginBottom: "10%",
   },
   container: {
     width: "100%",
@@ -149,7 +165,9 @@ const styles = StyleSheet.create({
   line: {
     backgroundColor: "#6D4EE5",
     height: 3,
-    width: "100%",
+    borderRadius: 1,
+    width: "94%",
+    marginLeft: "3%",
     marginBottom: "5%",
   },
 
@@ -171,13 +189,13 @@ const styles = StyleSheet.create({
   TextBox: {
     width: "100%",
     color: "white",
-    backgroundColor: "#383343",
+    backgroundColor: "#2D2A2F",
     borderWidth: 1,
     borderColor: "#9F9BA8",
     marginTop: "5%",
     borderRadius: 15,
     paddingVertical: 15,
-    paddingHorizontal: 40,
+    paddingHorizontal: 25,
     fontSize: 18,
     textAlign: "left",
   },
@@ -185,7 +203,7 @@ const styles = StyleSheet.create({
   SmallTextBox: {
     width: "45%",
     color: "white",
-    backgroundColor: "#383343",
+    backgroundColor: "#2D2A2F",
     borderWidth: 1,
     borderColor: "#9F9BA8",
     marginTop: "5%",
@@ -199,7 +217,7 @@ const styles = StyleSheet.create({
   BigTextBox: {
     width: "100%",
     color: "white",
-    backgroundColor: "#383343",
+    backgroundColor: "#2D2A2F",
     borderWidth: 1,
     borderColor: "#9F9BA8",
     marginTop: "5%",
@@ -214,7 +232,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#6D4EE5",
     color: "white",
     borderRadius: 15,
-    paddingVertical: 25,
+    paddingVertical: 15,
     paddingHorizontal: 55,
     fontSize: 22,
     fontWeight: "bold",
@@ -223,14 +241,14 @@ const styles = StyleSheet.create({
   Cancelar: {
     marginTop: "5%",
     color: "#6D4EE5",
-    borderWidth: 1,
+    borderWidth: 3,
     borderColor: "#6D4EE5",
     borderRadius: 15,
-    paddingVertical: 25,
+    paddingVertical: 15,
     paddingHorizontal: 75,
     fontSize: 18,
     fontWeight: "bold",
     textAlign: "center",
   },
- 
+
 });
