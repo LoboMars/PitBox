@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity, TextInput } from "react-native";
+import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity, TextInput,ScrollView } from "react-native";
 import MainDesfoque from '../Image/MainDesfoque.png'
 import Car  from '../Image/carPurple.png'
 import Apagar  from  '../Image/Apagar.png'
@@ -18,7 +18,7 @@ export default function DetalhesAssistencia() {
 
                 <View style={styles.Title}>
                     <Text style={styles.textPurple}>Assistencia Mecanica</Text>
-                    <Text style={styles.textWhite}>Renault Clio</Text>
+                    <Text style={styles.textWhite}>Ferrari 458 Italia</Text>
 
                     <View style={{marginTop: "15%"}}/>
 
@@ -30,26 +30,27 @@ export default function DetalhesAssistencia() {
                  <View style={{marginTop: "15%"}}/>
 
                 </View>
+                <ScrollView style={styles.scrollView}>
+                    <View style={styles.Boddy}>
+                            <Text style={styles.Smalltextwhite}>Oficina:  <Text style={styles.Smalltextgrey}>Hot Wheels</Text> </Text>
+                            <View style={{marginTop: "5%"}}/>
+                            <Text style={styles.Smalltextwhite}>Data:  <Text style={styles.Smalltextgrey}>29/02/2024</Text> </Text>
+                            <View style={{marginTop: "5%"}}/>
+                            <Text style={styles.Smalltextwhite}>Tipo de Assistência:  <Text style={styles.Smalltextgrey}>Revisão periodica</Text> </Text>
+                            <View style={{marginTop: "5%"}}/>
+                            <Text style={styles.Smalltextwhite}>Procedimento:  <Text style={styles.Smalltextgrey}>Yapping Yapping.. </Text> </Text>
+                            <View style={{marginTop: "5%"}}/>
+                            <Text style={styles.Smalltextwhite}>Descrição:  <Text style={styles.Smalltextgrey}>Yapping Yapping  Yapping Yapping Yapping Yapping Yapping Yapping Yapping Yapping</Text> </Text>
+                            <View style={{marginTop: "15%"}}/>
+                        </View>
+                </ScrollView>
             
-                <View style={styles.Boddy}>
-                    <Text style={styles.Smalltextwhite}>Tipo:  <Text style={styles.Smalltextgrey}>carro</Text> </Text>
-                    <View style={{marginTop: "5%"}}/>
-                    <Text style={styles.Smalltextwhite}>Data de fabrico:  <Text style={styles.Smalltextgrey}>01/01/2008</Text> </Text>
-                    <View style={{marginTop: "5%"}}/>
-                    <Text style={styles.Smalltextwhite}>Cor:  <Text style={styles.Smalltextgrey}>preto</Text> </Text>
-                    <View style={{marginTop: "5%"}}/>
-                    <Text style={styles.Smalltextwhite}>Combustível:  <Text style={styles.Smalltextgrey}>Gasoleo</Text> </Text>
-                    <View style={{marginTop: "5%"}}/>
-                    <Text style={styles.Smalltextwhite}>Matricula:  <Text style={styles.Smalltextgrey}>37-82-XN</Text> </Text>
-                    <View style={{marginTop: "15%"}}/>
-                </View>
-
             </View>
 
             <View style={styles.textBoxContainer}>
                     <View style={{marginTop: "15%"}}/>
                 <View style={{flexDirection:'row'}}>
-                    <View style={{marginHorizontal: '2%'}} />
+                    <View style={{marginHorizontal: '3%'}} />
 
                         <TouchableOpacity>
                             <Image
@@ -73,6 +74,7 @@ export default function DetalhesAssistencia() {
                     </TouchableOpacity>
                 </View>
             </View>
+
         </View>
         
        
@@ -87,6 +89,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  scrollView: {
+    maxHeight: 200,
+  },
   backgroundImage: {
     resizeMode: "cover",
     position: "absolute",
@@ -99,11 +104,13 @@ const styles = StyleSheet.create({
   },
   
   Box: {
+    width: "90%",
     color: "#9F9BA8",
     backgroundColor: "#383343",
     borderRadius: 15,
     paddingVertical: 20,
-    paddingHorizontal: 60,
+    paddingHorizontal: 29,
+    marginLeft:'5%'
   },
 
   SmallBox: {
@@ -131,7 +138,7 @@ const styles = StyleSheet.create({
 
   textWhite: {
     color: "white",
-    fontSize: 35,
+    fontSize: 30,
   },
 
   Smalltextgrey: {
