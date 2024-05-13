@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity, TextInput 
 import MainDesfoque from '../Image/MainDesfoque.png'
 import Car  from '../Image/carPurple.png'
 import Apagar  from  '../Image/Apagar.png'
+import Editar from '../Image/Editar.png'
 
 export default function DetalhesViatura() {
   return (
@@ -46,21 +47,32 @@ export default function DetalhesViatura() {
             </View>
 
             <View style={styles.textBoxContainer}>
-            <View style={{marginTop: "15%"}}/>
+                    <View style={{marginTop: "15%"}}/>
                 <View style={{flexDirection:'row'}}>
-                    <View style={{marginHorizontal: '8%'}} />
+                    <View style={{marginHorizontal: '2%'}} />
+
+                        <TouchableOpacity>
+                            <Image
+                                source={Apagar}
+                                style={styles.IconSmall}
+                                /> 
+                        </TouchableOpacity>
+   
+                    <View style={{marginHorizontal: '7%'}} />
+
+                    <TouchableOpacity>
+                        <Text style={styles.SmallBox}>OK</Text>
+                    </TouchableOpacity>
+
+                    <View style={{marginHorizontal: '7%'}} />
+                    <TouchableOpacity>
                         <Image
-                        source={Apagar}
-                        style={styles.IconSmall}
-                        /> 
-                    <View style={{marginHorizontal: '8%'}} />
-                    <Text style={styles.Smalltextwhite}>OK:</Text>
-                    <View style={{marginHorizontal: '8%'}} />
-                    <Text style={styles.Smalltextwhite}>Icon:</Text>
+                            source={Editar}
+                            style={styles.IconSmall}
+                            /> 
+                    </TouchableOpacity>
                 </View>
             </View>
-
-
         </View>
         
        
@@ -83,7 +95,7 @@ const styles = StyleSheet.create({
   },
 
   textBoxContainer: {
-    marginBottom: "20%",
+    marginBottom: "1%",
   },
   
   Box: {
@@ -92,8 +104,20 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     paddingVertical: 20,
     paddingHorizontal: 60,
-
   },
+
+  SmallBox: {
+    color: "#9F9BA8",
+    backgroundColor: "#383343",
+    borderRadius: 15,
+    paddingVertical: 15,
+    paddingHorizontal: 40,
+    color: "white",
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+
+  
 
   Title: {
     alignItems: "center",
