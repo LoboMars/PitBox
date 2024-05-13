@@ -19,11 +19,12 @@ import EditarTipoViatura from './View/AdminEditarTipoViatura';
 import ListaDeCombustiveis from './View/Assuasviaturas';
 import DetalhesViatura from './View/DetalhesViatura';
 import DetalhesAssistencia from './View/DetalhesAssistencias';
+import DetalhesQuotodiano from './View/DetalhesQuotidiano';
 
 export default function App() {
   return (
     <View style={styles.container}>
-        <DetalhesAssistencia/>
+      <DetalhesQuotodiano/>
       <StatusBar style="auto" />
     </View>
   );

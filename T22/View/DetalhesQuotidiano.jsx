@@ -1,11 +1,11 @@
 import React from "react";
 import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity, TextInput } from "react-native";
 import MainDesfoque from '../Image/MainDesfoque.png'
-import Car  from '../Image/carPurple.png'
+import Direcao  from '../Image/Direcao.png'
 import Apagar  from  '../Image/Apagar.png'
 import Editar from '../Image/Editar.png'
 
-export default function DetalhesViatura() {
+export default function DetalhesQuotidiano() {
   return (
     <View style={styles.container}>
       <Image
@@ -17,13 +17,13 @@ export default function DetalhesViatura() {
             <View style={styles.Box}>
 
                 <View style={styles.Title}>
-                    <Text style={styles.textPurple}>Viatura</Text>
-                    <Text style={styles.textWhite}>Renault Clio</Text>
+                    <Text style={styles.textPurple}>Eventos do Quotidiano</Text>
+                    <Text style={styles.textWhite}>Bragança - Mirandela </Text>
 
                     <View style={{marginTop: "15%"}}/>
 
                     <Image
-                    source={Car}
+                    source={Direcao}
                     style={styles.Icon}
                 /> 
 
@@ -32,15 +32,15 @@ export default function DetalhesViatura() {
                 </View>
             
                 <View style={styles.Boddy}>
-                    <Text style={styles.Smalltextwhite}>Tipo:  <Text style={styles.Smalltextgrey}>carro</Text> </Text>
+                    <Text style={styles.Smalltextwhite}>Tipo:  <Text style={styles.Smalltextgrey}>Viagem Média</Text> </Text>
                     <View style={{marginTop: "5%"}}/>
-                    <Text style={styles.Smalltextwhite}>Data de fabrico:  <Text style={styles.Smalltextgrey}>01/01/2008</Text> </Text>
+                    <Text style={styles.Smalltextwhite}>Viatura:  <Text style={styles.Smalltextgrey}>Renault Clio</Text> </Text>
                     <View style={{marginTop: "5%"}}/>
-                    <Text style={styles.Smalltextwhite}>Cor:  <Text style={styles.Smalltextgrey}>preto</Text> </Text>
+                    <Text style={styles.Smalltextwhite}>Nº Kilometros:  <Text style={styles.Smalltextgrey}>62KM</Text> </Text>
                     <View style={{marginTop: "5%"}}/>
-                    <Text style={styles.Smalltextwhite}>Combustível:  <Text style={styles.Smalltextgrey}>Gasolina</Text> </Text>
+                    <Text style={styles.Smalltextwhite}>Consumo Médio:  <Text style={styles.Smalltextgrey}>5.3L</Text> </Text>
                     <View style={{marginTop: "5%"}}/>
-                    <Text style={styles.Smalltextwhite}>Matricula:  <Text style={styles.Smalltextgrey}>37-82-XN</Text> </Text>
+                    <Text style={styles.Smalltextwhite}>Comportamento Invulgar:  <Text style={styles.Smalltextgrey}>-Nenhum-</Text> </Text>
                     <View style={{marginTop: "15%"}}/>
                 </View>
 
@@ -99,11 +99,13 @@ const styles = StyleSheet.create({
   },
   
   Box: {
+    width: "95%",
     color: "#9F9BA8",
     backgroundColor: "#383343",
     borderRadius: 15,
     paddingVertical: 20,
-    paddingHorizontal: 60,
+    paddingHorizontal: 29,
+    marginLeft:'2%'
   },
 
   SmallBox: {
@@ -131,7 +133,7 @@ const styles = StyleSheet.create({
 
   textWhite: {
     color: "white",
-    fontSize: 35,
+    fontSize: 23,
   },
 
   Smalltextgrey: {
@@ -147,14 +149,14 @@ const styles = StyleSheet.create({
 
   textPurple: {
     color: "#6D4EE5",
-    fontSize: 25,
+    fontSize: 20,
   },
 
 
 
   Icon: {
-    width: 150,
-    height: 150,
+    width: 170,
+    height: 100,
   },
 
   IconSmall: {
