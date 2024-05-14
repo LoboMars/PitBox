@@ -39,7 +39,8 @@ export default function DetalhesOfinias() {
                     <View style={{marginTop: "5%"}}/>
                     <Text style={styles.Smalltextwhite}>Contacto:  <Text style={styles.Smalltextgrey}>276647832</Text> </Text>
                     <View style={{marginTop: "5%"}}/>
-                    <Text style={styles.Smalltextwhite}>Horarios:  <Text style={styles.Smalltextgrey}>9:00-18:00 Segunda-Sexta</Text> </Text>
+                    <Text style={styles.Smalltextwhite}>Horarios: </Text>
+                    <Text style={styles.Smalltextgrey}>9:00-18:00 Segunda-Sexta</Text>
                     <View style={{marginTop: "5%"}}/>
                 </View>
 
@@ -101,8 +102,8 @@ const styles = StyleSheet.create({
     color: "#9F9BA8",
     backgroundColor: "#383343",
     borderRadius: 15,
-    paddingVertical: 20,
-    paddingHorizontal: 60,
+    paddingVertical: 30,
+    paddingHorizontal: 70,
   },
 
   SmallBox: {
@@ -115,8 +116,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
   },
-
-  
 
   Title: {
     alignItems: "center",
