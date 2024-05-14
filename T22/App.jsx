@@ -34,12 +34,13 @@ import EliminarOficina from './View/AdminiEliminarOficina';
 import EliminarCombustivel from './View/AdminEliminarCombustivel';
 import AdminEditarPerfil from './View/AdminEditarPerfil';
 import Seuseventos from './View/Osseuseventos';
+import Assit from './View/AssuasAssistencias';
 
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Seuseventos/>
+      <Login/>
       <StatusBar style="auto" />
     </View>
   );

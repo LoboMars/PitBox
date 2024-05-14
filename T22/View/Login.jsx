@@ -1,8 +1,15 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Image, Dimensions,TouchableOpacity, TextInput } from "react-native";
+import { StyleSheet, Text, View, Image, Dimensions,TouchableOpacity, TextInput, Switch  } from "react-native";
 import Logo from '../Image/Logo.png'
+import React, { useState } from 'react';
+
 
 export default function Login() {
+  const [isEnabled, setIsEnabled] = useState(false);
+
+  const toggleSwitch = () => {
+    setIsEnabled(previousState => !previousState);
+  };
   return (
   <View style={styles.container}>
     <Image source={Logo} style={styles.logo} />
@@ -25,6 +32,18 @@ export default function Login() {
       placeholderTextColor="#9F9BA8"
       secureTextEntry={true}
     />
+
+    <View style={styles.switch1}>
+
+    <Switch
+    trackColor={{ false: "#EFF4FF", true: "#6D4EE5" }}
+    thumbColor={isEnabled ? "#EFF4FF" : "#EFF4FF"}
+    ios_backgroundColor="#EFF4FF"
+    onValueChange={toggleSwitch}
+    value={isEnabled}
+    />
+    <Text style={styles.textswtch}>lembra-me</Text>
+    </View>
 
   <View style={{ marginBottom: '20%' }} />
 
@@ -151,5 +170,18 @@ const styles = StyleSheet.create({
     width: '50%',
     height: '10%',
     marginLeft:'23%'
+  },
+  switch1: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: '10%', // Ajuste conforme necessário
+  },
+  textswtch:{
+  marginLeft: "3%",
+  color: "white",
+  fontSize: 21,
+  fontWeight: "bold",
+
   },
 });
