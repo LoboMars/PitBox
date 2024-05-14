@@ -25,11 +25,14 @@ import Viatura from './View/Viaturas';
 import Tipoviatura from './View/AdminTipoviatura';
 import Tipocombustivel from './View/AdminTipoCombustiveis';
 import Oficinas from './View/AdminOficinas';
+import EliminarViatura from './View/ElimirarViatura';
+import EliminarAssistencia from './View/EliminarAssistencia';
+import EliminarEvento from './View/EliminarEvento';
 
 export default function App() {
   return (
     <View style={styles.container}>
-        <Oficinas/>
+       <EliminarEvento/>
       <StatusBar style="auto" />
     </View>
   );
