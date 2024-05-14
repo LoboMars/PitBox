@@ -16,6 +16,7 @@ export default function CriarCombustivel() {
     <View style={styles.container}>
 
         <View />
+        <View style={{ marginTop: "10%" }} />
         <Text style={styles.BigText}>Criar Combustivel</Text>
 
         <View style={{ marginTop: "5%" }} />
@@ -50,7 +51,7 @@ export default function CriarCombustivel() {
 
 
 
-        <View style={{ marginTop: "65%" }} />
+        <View style={{ marginTop: "55%" }} />
         <View style={styles.line} />
         <View style={{ marginBottom: "2%" }} />
 
