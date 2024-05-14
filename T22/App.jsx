@@ -39,7 +39,7 @@ import Seuseventos from './View/Osseuseventos';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Seuseventos/>
+      <Tipoviatura/>
       <StatusBar style="auto" />
     </View>
   );
