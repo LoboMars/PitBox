@@ -16,7 +16,7 @@ import Assistencias from '../Image/Assistencias.png';
 import Tresp from '../Image/3P.png'
 
 
-export default function ListaDeCombustiveis() {
+export default function Suasviaturas() {
   const [data, setData] = useState([
     { id: "1", name: "Combustível 1" },
     { id: "2", name: "Combustível 2" },

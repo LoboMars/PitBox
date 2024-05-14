@@ -16,7 +16,7 @@ import EditarOficina from './View/AdminEditarOficina';
 import EditarCombustivel from './View/AdminEditarCombustivel';
 import MainPage from './View/MainPage';
 import EditarTipoViatura from './View/AdminEditarTipoViatura';
-import ListaDeCombustiveis from './View/Assuasviaturas';
+import Suasviaturas from './View/Assuasviaturas';
 import DetalhesViatura from './View/DetalhesViatura';
 import DetalhesAssistencia from './View/DetalhesAssistencias';
 import DetalhesQuotodiano from './View/DetalhesQuotidiano';
@@ -30,11 +30,12 @@ import EliminarAssistencia from './View/EliminarAssistencia';
 import EliminarEvento from './View/EliminarEvento';
 import DetalhesOfinias from './View/AdminDetalhesOficina';
 import AdminMainPage from './View/AdminMainPage';
+import Assit from './View/AssuasAssistencias';
 
 export default function App() {
   return (
     <View style={styles.container}>
-        <Tipocombustivel/>
+        <Tipoviatura/>
       <StatusBar style="auto" />
     </View>
   );

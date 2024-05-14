@@ -63,13 +63,13 @@ export default function Tipocombustivel() {
             <Text style={styles.itemDescription}>{item.info}</Text>
             </View>
             <View style={styles.buttonContainer}>
-    <TouchableOpacity onPress={info}>
-      <Image source={Edit} style={styles.logo4} />
-    </TouchableOpacity>
-    <TouchableOpacity>
-      <Image source={apagar} style={styles.logo3}/>
-    </TouchableOpacity>
-  </View>
+            <TouchableOpacity onPress={info}>
+            <Image source={Edit} style={styles.logo4} />
+            </TouchableOpacity>
+            <TouchableOpacity>
+            <Image source={apagar} style={styles.logo3}/>
+             </TouchableOpacity>
+            </View>
           </View>
         )}
       />

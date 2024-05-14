@@ -14,14 +14,13 @@ import Home from '../Image/Home.png';
 import Viaturas from '../Image/Viaturas.png';
 import Assistencias from '../Image/Assistencias.png';
 import Tresp from '../Image/3P.png'
-import apagar from '../Image/Apagar.png'
-import Edit from '../Image/editarAdmin.png'
 
-export default function Tipoviatura() {
+
+export default function Assit() {
   const [data, setData] = useState([
-    { id: "1", name: "Carro" },
-    { id: "2", name: "Mota" },
-    { id: "3", name: "Carrinha" },
+    { id: "1", name: "Renault Clio", info:'Avaria  - 600$', tipo:'Carro' },
+    { id: "2", name: "Ferrari 458..." ,info:'Revisão Periódica  -  420,00€', tipo:'Carro' },
+
   ]);
   const handleLogout = () => {
     alert("Logout button pressed!");
@@ -32,29 +31,56 @@ export default function Tipoviatura() {
 
   const [searchTerm, setSearchTerm] = useState("");
 
-  const handleEdit = (id) => {
-    // Lógica para editar o item com o ID fornecido
-    console.log("Editar item com ID:", id);
-  };
+
 
   const filteredData = data.filter((item) =>
     item.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
+  const handleButton1 = () => {
+    setSearchTerm("Renault");
+  };
+
+  const handleButton2 = () => {
+    setSearchTerm("Ferrari");
+  };
+
+  const handleButton3 = () => {
+    console.log("Botão 3 pressionado!");
+  };
 
   return (
     <View style={styles.container}>
 
-      <Text style={[styles.BigText,{marginTop: 30}]}>Tipos de Viatura</Text>
+      <Text style={[styles.BigText,{marginTop: 30}]}>As suas Assistencias</Text>
       
       <View style={{ marginTop: "5%" }}/>
       <View style={styles.line} />
       <TextInput
         style={styles.searchBar}
-        placeholder="Pesquisar..."
+        placeholder="Pesquisar por assistências..."
         placeholderTextColor="#9F9BA8"
         onChangeText={(text) => setSearchTerm(text)}
         value={searchTerm}
       />
+        <Text style={styles.smallText}>Tipo de Viatura:</Text>
+
+        <View style={styles.buttonContainer}>
+    <TouchableOpacity onPress={handleButton1}>
+      <View style={styles.button1}>
+        <Text style={styles.buttonText}>Carro</Text>
+      </View>
+    </TouchableOpacity>
+    <TouchableOpacity onPress={handleButton2}>
+      <View style={styles.button2}>
+        <Text style={styles.buttonText}>Carrinha</Text>
+      </View>
+    </TouchableOpacity>
+    <TouchableOpacity onPress={handleButton3}>
+      <View style={styles.button3}>
+        <Text style={styles.buttonText}>Moto</Text>
+      </View>
+    </TouchableOpacity>
+  </View>
       <ScrollView  contentContainerStyle={styles.scrollView}>
       
       <FlatList
@@ -65,15 +91,15 @@ export default function Tipoviatura() {
         renderItem={({ item }) => (
           <View style={styles.item}> 
              <Image source={carPurple} style={styles.icon} />
+             <View style={styles.itemContent}>
+            <View style={styles.descriptionContainer}>
             <Text style={styles.itemText}>{item.name}</Text>
-            <View style={styles.buttonContainer}>
-            <TouchableOpacity onPress={info}>
-            <Image source={Edit} style={styles.logo4} />
-            </TouchableOpacity>
-            <TouchableOpacity>
-            <Image source={apagar} style={styles.logo3}/>
-             </TouchableOpacity>
+            <Text style={styles.itemDescription}>{item.info}</Text>
             </View>
+            </View>
+            <TouchableOpacity onPress={info} style={styles.buttonn}>
+            <Image source={Tresp} style={styles.logo3} />
+            </TouchableOpacity>
           </View>
         )}
       />
@@ -119,13 +145,15 @@ const styles = StyleSheet.create({
     paddingTop: '5%', 
   },
   container: {
+    width: "100%",
+    height:'100%',
+    backgroundColor: "#232427",
     flex: 1,
     backgroundColor: "#2D2A2F",
     justifyContent: "center",
     paddingTop: 20,
-    width: "100%",
-    height:'100%',
-    backgroundColor: "#232427",
+    //marginTop: "5%"
+    
   },
   BigText: {
     color: "white",
@@ -134,7 +162,7 @@ const styles = StyleSheet.create({
     textAlign:"center",
   },
   line: {
-    backgroundColor: "#EC853B",
+    backgroundColor: "#6D4EE5",
     height: 3,
     width: "100%",
     marginBottom: "5%",
@@ -155,36 +183,38 @@ const styles = StyleSheet.create({
     width: "100%", // Ajusta a largura da FlatList para ocupar toda a tela
   },
   flatListContent: {
-    justifyContent: "flex-start",
-    width:"100%",
+    //justifyContent: "flex-start",
+    //width:"100%",
     //backgroundColor:"1C1D21",
   },
   item: {
     backgroundColor: "#1C1D21",
-    padding: 27,
+    padding: 15,
     marginBottom: 10,
     borderRadius: 15,
-    width: "90%", // Ajusta a largura dos itens da lista para ocupar toda a tela
+    width: "90%",
     flexDirection: "row",
-    justifyContent:"space-between",
     alignItems: "center",
-    marginLeft:"5%",
-  
+    //justifyContent: "space-between",
+    marginLeft: "5%",
+  },
+  itemContent: {
+    flex:1,
+    //alignItems: "center",
+    
   },
   itemText: {
     color: "white",
     fontSize: 18,
     fontWeight: "bold",
-    marginLeft:"5%"
+    marginLeft: 20,
   },
   icon: {
-    width: "15%",
-    height: "100%",
-    marginLeft: "0%",
-    marginTop: "1%",
+    width: 50, 
+    height: 50, 
   },
   container3: {
-    flex: 0.4,
+    flex: 0.3,
     backgroundColor: "#1C1D21",
     justifyContent: 'center',
   },
@@ -199,15 +229,10 @@ const styles = StyleSheet.create({
     height: 32,
   },
   logo3: {
-    alignSelf: 'center',
     width: 42,
     height: 42,
-  },
-  logo4: {
-    alignSelf: 'center',
-    width: 42,
-    height: 42,
-    marginRight: 10,
+    marginBottom:10,
+    marginLeft: 'auto'
   },
   BigText: {
     color: "white",
@@ -215,13 +240,55 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
   },
-  BigTextP: {
-    color: "#6D4EE5",
-    fontSize: 35,
-    fontWeight: "bold",
-    textAlign: "center",
-  },
   buttonContainer: {
+    flexDirection: 'row',
+    paddingHorizontal: '2%',
+    marginTop: 20,
+  },
+  button1: {
+    backgroundColor: '#383343',
+    paddingVertical: 6.5,
+    paddingHorizontal: 15,
+    borderRadius: 20,
+    marginLeft:10, 
+  },
+  button2: {
+    backgroundColor: '#383343',
+    paddingVertical: 6.5,
+    paddingHorizontal: 15,
+    borderRadius: 20,
+    marginLeft:10,
+  },
+  button3: {
+    backgroundColor: '#383343',
+    paddingVertical: 6.5,
+    paddingHorizontal: 15,
+    borderRadius: 20,
+    marginLeft:10,
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  smallText: {
+    color: "white",
+    fontSize: 16,
+    fontWeight: "bold",
+    textAlign: "left",
+    marginLeft: "8%",
+  },
+  descriptionContainer: {
+    marginTop: 5,
+    flex: 1,
+  }, 
+  itemDescription: {
+    color: "white",
+    fontSize: 14,
+    marginTop: 5,
+    marginLeft:20,
+  },
+  buttonn: {
     flexDirection: "row",
   },
 });
