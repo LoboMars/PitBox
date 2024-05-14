@@ -33,12 +33,13 @@ import AdminMainPage from './View/AdminMainPage';
 import EliminarTipo from './View/AdminEliminarTipo';
 import EliminarOficina from './View/AdminiEliminarOficina';
 import EliminarCombustivel from './View/AdminEliminarCombustivel';
+import AdminEditarPerfil from './View/AdminEditarPerfil';
 
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <EliminarCombustivel/>
+      <AdminEditarPerfil/>
       <StatusBar style="auto" />
     </View>
   );
