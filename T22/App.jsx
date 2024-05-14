@@ -30,11 +30,12 @@ import EliminarAssistencia from './View/EliminarAssistencia';
 import EliminarEvento from './View/EliminarEvento';
 import DetalhesOfinias from './View/AdminDetalhesOficina';
 import AdminMainPage from './View/AdminMainPage';
+import EliminarTipo from './View/AdminEliminarTipo';
 
 export default function App() {
   return (
     <View style={styles.container}>
-       <DetalhesOfinias/>
+      <EliminarTipo/>
       <StatusBar style="auto" />
     </View>
   );

@@ -34,33 +34,33 @@ export default function MainPage() {
 
 
       <View style={styles.container1}>
+          <View style={{ paddingTop: "5%" }} />
 
-      <View style={{ paddingTop: "5%" }} />
-
-        <View style={styles.imageContainer}>
-          <TouchableOpacity onPress={handleLogout} style={{ paddingLeft: '3%' }}>
-            <View>
-              <Image source={LogOut} style={styles.logo}/>
-              <Text style={{color: "#C33434", fontWeight: "700", fontSize: 11, marginTop: "10%"}}>LogOut</Text>
-            </View>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={handleLogout}>
-            <View>
-              <Image source={EditarPerfil} style={styles.editarPerf}/>
-              <Text style={{color: "#9F9BA8", fontWeight: "700", fontSize: 11, marginTop: "10%"}}>Editar Perfil</Text>
-            </View>
-          </TouchableOpacity>
-        </View>
+          <View style={styles.imageContainer}>
+            <TouchableOpacity onPress={handleLogout} style={{ paddingLeft: '3%' }}>
+              <View>
+                <Image source={LogOut} style={styles.logo}/>
+                <Text style={{color: "#C33434", fontWeight: "700", fontSize: 11, marginTop: "10%"}}>LogOut</Text>
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={handleLogout}>
+              <View>
+                <Image source={EditarPerfil} style={styles.editarPerf}/>
+                <Text style={{color: "#9F9BA8", fontWeight: "700", fontSize: 11, marginTop: "10%"}}>Editar Perfil</Text>
+              </View>
+            </TouchableOpacity>
+          </View>
       </View>
 
 
       <View style={styles.container2}>
 
-      <View style={{ paddingTop: "10%" }} />
+        <View style={{ paddingTop: "10%" }} />
 
         <View>
           <Text style={styles.BigText}>Bem Vindo,</Text>
         </View>
+
         <View>
           <Text style={styles.BigTextO}>Jorge Jesus<Text style={styles.BigTextW}>.</Text></Text>
         </View>
