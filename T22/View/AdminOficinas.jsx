@@ -13,8 +13,8 @@ import Eventos from '../Image/Eventos.png';
 import Home from '../Image/Home.png';
 import Viaturas from '../Image/Viaturas.png';
 import Assistencias from '../Image/Assistencias.png';
-import Tresp from '../Image/3P.png'
-
+import Tresp from '../Image/3P.png';
+import adicionar from '../Image/Adicionar.png';
 
 export default function Oficinas() {
   const [data, setData] = useState([
@@ -73,6 +73,11 @@ export default function Oficinas() {
           </View>
         )}
       />
+      <TouchableOpacity>
+        <View style={styles.Adicionar}>
+        <Image source={adicionar} style={styles.logo3} />
+        </View>
+      </TouchableOpacity>
       </ScrollView>
     <View style={styles.container3}>
 
@@ -224,5 +229,23 @@ const styles = StyleSheet.create({
     fontSize: 14,
     marginLeft: "5%",
     width: 100,
+  },
+  Adicionar: {
+    width:'90%',
+    color: '#383343',
+    borderColor: '#6D4EE5',
+    borderWidth: 4,
+    borderRadius: 15,
+    paddingVertical: 35,
+    paddingHorizontal: 25,
+    fontSize: 18,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    alignSelf: "center"
+  },
+  logo3: {
+    alignSelf: 'center',
+    width: 42,
+    height: 42,
   },
 });

@@ -14,6 +14,7 @@ import Viaturas from '../Image/Viaturas.png';
 import Assistencias from '../Image/Assistencias.png';
 import Edit from '../Image/editarAdmin.png'
 import apagar from '../Image/Apagar.png'
+import adicionar from '../Image/Adicionar.png';
 
 export default function Tipocombustivel() {
   const [data, setData] = useState([
@@ -73,6 +74,11 @@ export default function Tipocombustivel() {
           </View>
         )}
       />
+          <TouchableOpacity>
+        <View style={styles.Adicionar}>
+        <Image source={adicionar} style={styles.logo3} />
+        </View>
+      </TouchableOpacity>
       </ScrollView>
     <View style={styles.container3}>
 
@@ -232,5 +238,23 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     flexDirection: "row",
+  },
+  Adicionar: {
+    width:'95%',
+    color: '#383343',
+    borderColor: '#6D4EE5',
+    borderWidth: 4,
+    borderRadius: 15,
+    paddingVertical: 35,
+    paddingHorizontal: 25,
+    fontSize: 18,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    alignSelf: "center"
+  },
+  logo3: {
+    alignSelf: 'center',
+    width: 42,
+    height: 42,
   },
 });
