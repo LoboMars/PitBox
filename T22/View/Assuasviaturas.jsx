@@ -18,11 +18,10 @@ import Tresp from '../Image/3P.png'
 
 export default function Suasviaturas() {
   const [data, setData] = useState([
-    { id: "1", name: "Combustível 1" },
-    { id: "2", name: "Combustível 2" },
-    { id: "3", name: "Combustível 3" },
-    { id: "4", name: "Combustível 4" },
-    { id: "5", name: "Combustível 5" },
+    { id: "1", name: "Renault" },
+    { id: "2", name: "Kawasaki" },
+    { id: "3", name: "Ferrari" },
+    { id: "4", name: "Toyota" },
   ]);
   const handleLogout = () => {
     alert("Logout button pressed!");
@@ -67,7 +66,7 @@ export default function Suasviaturas() {
           <View style={styles.item}> 
              <Image source={carPurple} style={styles.icon} />
             <Text style={styles.itemText}>{item.name}</Text>
-            <TouchableOpacity onPress={info}>
+            <TouchableOpacity onPress={info} style={styles.buttonn}>
             <Image source={Tresp} style={styles.logo3} />
             </TouchableOpacity>
           </View>
@@ -162,7 +161,6 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     width: "90%", // Ajusta a largura dos itens da lista para ocupar toda a tela
     flexDirection: "row",
-    justifyContent:"space-between",
     alignItems: "center",
     marginLeft:"5%",
   
@@ -217,4 +215,9 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
   },
+  buttonn: { 
+    flex: 1, 
+    flexDirection: "row", 
+    justifyContent: "flex-end" 
+  }
 });
