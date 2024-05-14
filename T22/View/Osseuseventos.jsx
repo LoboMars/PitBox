@@ -9,8 +9,8 @@ import { View,
   Image,
 } from "react-native";
 import carPurple from "../Image/carPurple.png";
-import Eventos from '../Image/Eventos.png';
-import Home from '../Image/Home.png';
+import Eventos from '../Image/eventospintado.png';
+import Home from '../Image/homeUnselected.png';
 import Viaturas from '../Image/Viaturas.png';
 import Assistencias from '../Image/Assistencias.png';
 import Tresp from '../Image/3P.png'
@@ -81,7 +81,7 @@ export default function Seuseventos() {
         <TouchableOpacity onPress={handleLogout}>
           <View>
             <Image source={Home} style={styles.logo2}/>
-            <Text style={{color: "#6D4EE5", fontWeight: "500"}}>Home</Text>
+            <Text style={{color: "#9F9BA8", fontWeight: "500"}}>Home</Text>
           </View>
         </TouchableOpacity>
         <TouchableOpacity onPress={handleLogout}>
@@ -99,7 +99,7 @@ export default function Seuseventos() {
         <TouchableOpacity onPress={handleLogout}>
           <View>
             <Image source={Eventos} style={styles.logo2} />
-            <Text style={{color: "#9F9BA8", fontWeight: "500"}}>Eventos</Text>
+            <Text style={{color: "#6D4EE5", fontWeight: "500"}}>Eventos</Text>
           </View>
         </TouchableOpacity>
 </View>
