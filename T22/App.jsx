@@ -38,7 +38,7 @@ import AdminEditarPerfil from './View/AdminEditarPerfil';
 export default function App() {
   return (
     <View style={styles.container}>
-     <OScreen/>
+      <Suasviaturas/>
       <StatusBar style="auto" />
     </View>
   );
