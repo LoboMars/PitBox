@@ -238,6 +238,9 @@ const styles = StyleSheet.create({
     height: "100%",
     width: "100%",
     borderRadius: 100,
+    borderWidth: 1,
+    borderColor: '#6D4EE5',
+    borderWidth: 3,
   },
 
   clickable:{
