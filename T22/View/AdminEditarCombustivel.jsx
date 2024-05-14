@@ -52,9 +52,9 @@ export default function EditarCombustivel() {
 
 
 
-        <View style={{ marginTop: "65%" }} />
+        <View style={{ marginTop: "45%" }} />
         <View style={styles.line} />
-        <View style={{ marginBottom: "2%" }} />
+        <View style={{ marginBottom: "5%" }} />
 
         <TouchableOpacity>
           <View style={styles.textBoxContainer}>

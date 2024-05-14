@@ -22,20 +22,34 @@ import DetalhesAssistencia from './View/DetalhesAssistencias';
 import DetalhesQuotodiano from './View/DetalhesQuotidiano';
 import EditarPerfil from './View/EditarPerfil';
 import Viatura from './View/Viaturas';
-import Tipoviatura from './View/AdminTipoviatura';
+import Tipoviatura from './View/AdminTipoviatura';      //melhorar
 import Tipocombustivel from './View/AdminTipoCombustiveis';
 import Oficinas from './View/AdminOficinas';
 import EliminarViatura from './View/ElimirarViatura';
 import EliminarAssistencia from './View/EliminarAssistencia';
 import EliminarEvento from './View/EliminarEvento';
+<<<<<<< HEAD
 import DetalhesOfinias from './View/AdminDetalhesOficina';
 import AdminMainPage from './View/AdminMainPage';
 import Assit from './View/AssuasAssistencias';
+=======
+import DetalhesOficinas from './View/AdminDetalhesOficina';
+import AdminMainPage from './View/AdminMainPage';               //Alterar  
+import EliminarTipo from './View/AdminEliminarTipo';
+import EliminarOficina from './View/AdminiEliminarOficina';
+import EliminarCombustivel from './View/AdminEliminarCombustivel';
+import AdminEditarPerfil from './View/AdminEditarPerfil';
+
+>>>>>>> 8676f1b6404a09fd2140cca2766406e7fc60aa67
 
 export default function App() {
   return (
     <View style={styles.container}>
+<<<<<<< HEAD
         <Tipoviatura/>
+=======
+      <Tipoviatura/>
+>>>>>>> 8676f1b6404a09fd2140cca2766406e7fc60aa67
       <StatusBar style="auto" />
     </View>
   );
