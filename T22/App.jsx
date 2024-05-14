@@ -28,11 +28,12 @@ import Oficinas from './View/AdminOficinas';
 import EliminarViatura from './View/ElimirarViatura';
 import EliminarAssistencia from './View/EliminarAssistencia';
 import EliminarEvento from './View/EliminarEvento';
+import DetalhesOfinias from './View/AdminDetalhesOficina';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Register/>
+      <DetalhesOfinias/>
       <StatusBar style="auto" />
     </View>
   );
