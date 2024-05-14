@@ -40,11 +40,7 @@ import AsSuasAssistencias from './View/AssuasAssistencias';
 export default function App() {
   return (
     <View style={styles.container}>
-<<<<<<< HEAD
       <Tipocombustivel/>
-=======
-      <Oficinas/>
->>>>>>> e5c00cde9ab62fa7ebbecceb473b81683846a7f1
       <StatusBar style="auto" />
     </View>
   );
