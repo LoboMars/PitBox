@@ -34,11 +34,7 @@ import AdminMainPage from './View/AdminMainPage';
 export default function App() {
   return (
     <View style={styles.container}>
-<<<<<<< HEAD
         <Tipocombustivel/>
-=======
-       <DetalhesOfinias/>
->>>>>>> 48ede3c7a8f06433fc0dcbdbacfbbcbe3cb2482b
       <StatusBar style="auto" />
     </View>
   );
