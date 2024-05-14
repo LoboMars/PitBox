@@ -9,12 +9,12 @@ import { View,
   Image,
 } from "react-native";
 import carPurple from "../Image/carPurple.png";
-import Eventos from '../Image/Eventos.png';
-import Home from '../Image/Home.png';
-import Viaturas from '../Image/Viaturas.png';
-import Assistencias from '../Image/Assistencias.png';
-import Tresp from '../Image/3P.png';
+import Home from '../Image/homeUnselected.png';
+import TipoViaturas from '../Image/cad.png';
+import Oficina from '../Image/oficinaOrange 1.png'
+import Combustiveis from '../Image/combustivel.png';
 import adicionar from '../Image/Adicionar.png';
+import Tresp from '../Image/3P.png'
 
 export default function Oficinas() {
   const [data, setData] = useState([
@@ -85,25 +85,25 @@ export default function Oficinas() {
         <TouchableOpacity onPress={handleLogout}>
           <View>
             <Image source={Home} style={styles.logo2}/>
-            <Text style={{color: "#6D4EE5", fontWeight: "500"}}>Home</Text>
+            <Text style={{color: "#9F9BA8", fontWeight: "500"}}>Home</Text>
           </View>
         </TouchableOpacity>
         <TouchableOpacity onPress={handleLogout}>
           <View>
-            <Image source={Viaturas} style={styles.logo2} />
-            <Text style={{color: "#9F9BA8", fontWeight: "500"}}>Viaturas</Text>
+            <Image source={TipoViaturas} style={styles.logo2} />
+            <Text style={{color: "#9F9BA8", fontWeight: "500"}}>Tipo Viatura</Text>
           </View>
         </TouchableOpacity>
         <TouchableOpacity onPress={handleLogout}>
           <View>
-            <Image source={Assistencias} style={styles.logo2} />
-            <Text style={{color: "#9F9BA8", fontWeight: "500", textAlign: 'center'}}>Assistências</Text>
+            <Image source={Oficina} style={styles.logo2} />
+            <Text style={{color: "#EC853B", fontWeight: "500", textAlign: 'center'}}>Oficina</Text>
           </View>
         </TouchableOpacity>
         <TouchableOpacity onPress={handleLogout}>
           <View>
-            <Image source={Eventos} style={styles.logo2} />
-            <Text style={{color: "#9F9BA8", fontWeight: "500"}}>Eventos</Text>
+            <Image source={Combustiveis} style={styles.logo2} />
+            <Text style={{color: "#9F9BA8", fontWeight: "500"}}>Combustível</Text>
           </View>
         </TouchableOpacity>
         </View>
@@ -233,7 +233,7 @@ const styles = StyleSheet.create({
   Adicionar: {
     width:'90%',
     color: '#383343',
-    borderColor: '#6D4EE5',
+    borderColor: '#EC853B',
     borderWidth: 4,
     borderRadius: 15,
     paddingVertical: 35,
