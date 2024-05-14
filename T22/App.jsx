@@ -34,7 +34,7 @@ import AdminMainPage from './View/AdminMainPage';
 export default function App() {
   return (
     <View style={styles.container}>
-       <MainPage/>
+       <DetalhesOfinias/>
       <StatusBar style="auto" />
     </View>
   );
