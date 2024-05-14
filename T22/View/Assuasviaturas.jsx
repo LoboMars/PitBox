@@ -75,7 +75,7 @@ export default function Suasviaturas() {
 
       <TouchableOpacity>
         <View style={styles.Adicionar}>
-        <Image source={adicionar} style={styles.logo3} />
+          <Image source={adicionar} style={styles.logo3} />
         </View>
       </TouchableOpacity>
 
@@ -163,6 +163,7 @@ const styles = StyleSheet.create({
     width: "100%",
     marginBottom: "5%",
   },
+  
   searchBar: {
     backgroundColor: "#383343",
     color: "white",

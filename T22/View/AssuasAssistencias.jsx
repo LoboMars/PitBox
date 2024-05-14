@@ -13,10 +13,11 @@ import Eventos from '../Image/Eventos.png';
 import Home from '../Image/Home.png';
 import Viaturas from '../Image/Viaturas.png';
 import Assistencias from '../Image/Assistencias.png';
-import Tresp from '../Image/3P.png'
+import Tresp from '../Image/3P.png';
+import adicionar from '../Image/Adicionar.png'
 
 
-export default function Assit() {
+export default function AsSuasAssistencias() {
   const [data, setData] = useState([
     { id: "1", name: "Renault Clio", info:'Avaria  - 600$', tipo:'Carro' },
     { id: "2", name: "Ferrari 458..." ,info:'Revisão Periódica  -  420,00€', tipo:'Carro' },
@@ -103,6 +104,14 @@ export default function Assit() {
           </View>
         )}
       />
+
+      <TouchableOpacity>
+        <View style={styles.Adicionar}>
+        <Image source={adicionar} style={styles.logoAdd} />
+        </View>
+      </TouchableOpacity>
+
+
       </ScrollView>
     <View style={styles.container3}>
 
@@ -155,6 +164,29 @@ const styles = StyleSheet.create({
     //marginTop: "5%"
     
   },
+
+  Adicionar: {
+    width:'90%',
+    color: '#383343',
+    borderColor: '#6D4EE5',
+    borderWidth: 4,
+    borderRadius: 15,
+    paddingVertical: 35,
+    paddingHorizontal: 25,
+    fontSize: 18,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    alignSelf: "center"
+  },
+
+  logoAdd: {
+    alignSelf: 'center',
+    width: 42,
+    height: 42,
+  },
+
+  
+
   BigText: {
     color: "white",
     fontSize: 30,
@@ -214,7 +246,7 @@ const styles = StyleSheet.create({
     height: 50, 
   },
   container3: {
-    flex: 0.3,
+    flex: 0.5,
     backgroundColor: "#1C1D21",
     justifyContent: 'center',
   },
