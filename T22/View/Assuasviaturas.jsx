@@ -14,6 +14,7 @@ import Home from '../Image/Home.png';
 import Viaturas from '../Image/Viaturas.png';
 import Assistencias from '../Image/Assistencias.png';
 import Tresp from '../Image/3P.png'
+import adicionar from '../Image/Adicionar.png'
 
 
 export default function Suasviaturas() {
@@ -43,7 +44,6 @@ export default function Suasviaturas() {
 
   return (
     <View style={styles.container}>
-
       <Text style={[styles.BigText,{marginTop: 30}]}>As suas Viatura</Text>
       
       <View style={{ marginTop: "5%" }}/>
@@ -55,7 +55,7 @@ export default function Suasviaturas() {
         onChangeText={(text) => setSearchTerm(text)}
         value={searchTerm}
       />
-      <ScrollView  contentContainerStyle={styles.scrollView}>
+    <ScrollView  contentContainerStyle={styles.scrollView}>
       
       <FlatList
         style={styles.flatList}
@@ -72,9 +72,16 @@ export default function Suasviaturas() {
           </View>
         )}
       />
-      </ScrollView>
-    <View style={styles.container3}>
 
+      <TouchableOpacity>
+        <View style={styles.Adicionar}>
+        <Image source={adicionar} style={styles.logo3} />
+        </View>
+      </TouchableOpacity>
+
+    </ScrollView>
+
+    <View style={styles.container3}>
       <View style={styles.imageContainer2}>
         <TouchableOpacity onPress={handleLogout}>
           <View>
@@ -115,19 +122,41 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
+    height:'100%',
     backgroundColor: "#2D2A2F",
     //alignItems: "center",
     justifyContent: "center",
     width: "100%",
-    paddingTop: 20,
     //marginTop: "5%"
   },
+
+  container3: {
+    flex: 2,
+    backgroundColor: "#1C1D21",
+    justifyContent: 'center',
+  },
+
   BigText: {
     color: "white",
     fontSize: 30,
     fontWeight: "bold",
     textAlign:"center",
   },
+
+  Adicionar: {
+    width:'90%',
+    color: '#383343',
+    borderColor: '#6D4EE5',
+    borderWidth: 4,
+    borderRadius: 15,
+    paddingVertical: 35,
+    paddingHorizontal: 25,
+    fontSize: 18,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    alignSelf: "center"
+  },
+
   line: {
     backgroundColor: "#6D4EE5",
     height: 3,
@@ -140,7 +169,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#9F9BA8",
     borderRadius: 15,
-    paddingHorizontal: 5,
+    paddingHorizontal: 15,
     paddingVertical: 15,
     marginBottom: 20,
     width: "85%",
@@ -177,17 +206,7 @@ const styles = StyleSheet.create({
     marginLeft: "0%",
     marginTop: "1%",
   },
-  container: {
-    width: "100%",
-    height:'100%',
-    flex: 1,
-    backgroundColor: "#232427",
-  },
-  container3: {
-    flex: 1,
-    backgroundColor: "#1C1D21",
-    justifyContent: 'center',
-  },
+
   imageContainer2: {
     flexDirection: "row",
     justifyContent: "space-between", 
