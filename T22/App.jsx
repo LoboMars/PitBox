@@ -40,7 +40,7 @@ import Assit from './View/AssuasAssistencias';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Tipoviatura/>
+      <Tipocombustivel/>
       <StatusBar style="auto" />
     </View>
   );
