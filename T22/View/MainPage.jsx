@@ -15,6 +15,7 @@ import Eventos from '../Image/Eventos.png';
 import Home from '../Image/Home.png';
 import Viaturas from '../Image/Viaturas.png';
 import Assistencias from '../Image/Assistencias.png'
+import Lebron from '../Image/labron.png'
 
 export default function MainPage() {
   const handleLogout = () => {
@@ -50,6 +51,8 @@ export default function MainPage() {
       </View>
 
 
+
+
       <View style={styles.container2}>
 
         <View>
@@ -58,23 +61,32 @@ export default function MainPage() {
         <View>
           <Text style={styles.BigTextP}>Lebron<Text style={styles.BigTextW}>.</Text></Text>
         </View>
-
-        <View style={{ paddingTop: "10%" }} />
+        <View style={{ paddingTop: "5%" }} />
+        <View style={{height: "21%", alignItems: 'center'}}>
+          <View  style={styles.clickable}>
+            <Image source={Lebron} style={styles.ProfilePic}/>
+          </View >
+        </View>
 
         <View style={styles.textBoxContainer}>
           <ScrollView>
+          <TouchableOpacity onPress={handleLogout}>
             <View style={styles.TextBox}>
               <Text style={styles.BigTextLeft}>Nova Viatura</Text>
             </View>
+            </TouchableOpacity>
 
-
+            <TouchableOpacity onPress={handleLogout}>
             <View style={styles.TextBox}>
               <Text style={styles.BigTextLeft}>Nova Assistência</Text>
             </View>
-
+            </TouchableOpacity>
+            
+            <TouchableOpacity onPress={handleLogout}>
             <View style={styles.TextBox}>
               <Text style={styles.BigTextLeft}>Novo Evento</Text>
             </View>
+            </TouchableOpacity>
 
           </ScrollView>
         </View>
@@ -175,6 +187,7 @@ const styles = StyleSheet.create({
     width: 38,
     height: 38,
   },
+
   logo2: {
     alignSelf: 'center',
     width: 32,
@@ -213,11 +226,25 @@ const styles = StyleSheet.create({
     backgroundColor: "#383343",
     marginTop: "8%",
     borderRadius: 15,
-    paddingVertical: 30,
+    paddingVertical: 25,
     paddingHorizontal: 20,
     fontSize: 13,
     textAlign: "left",
     marginLeft: "5%",
     marginRight: "5%",
+  },
+
+  ProfilePic:{
+    height: "100%",
+    width: "100%",
+    borderRadius: 100,
+  },
+
+  clickable:{
+    height: "100%",
+    width: "33%",
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 100,
   },
 });
