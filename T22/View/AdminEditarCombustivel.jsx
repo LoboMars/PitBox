@@ -44,6 +44,7 @@ export default function EditarCombustivel() {
         <View style={styles.textBoxContainer}>
           <TextInput
             style={styles.TextBox}
+            defaultValue="fossil"
             placeholder="-Escolher-"
             placeholderTextColor="#9F9BA8"
           />
