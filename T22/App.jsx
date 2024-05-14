@@ -29,7 +29,7 @@ import Oficinas from './View/AdminOficinas';
 export default function App() {
   return (
     <View style={styles.container}>
-        <Oficinas/>
+        <Tipocombustivel/>
       <StatusBar style="auto" />
     </View>
   );

@@ -8,19 +8,18 @@ import { View,
   ScrollView,
   Image,
 } from "react-native";
-import carPurple from "../Image/carPurple.png";
 import Eventos from '../Image/Eventos.png';
 import Home from '../Image/Home.png';
 import Viaturas from '../Image/Viaturas.png';
 import Assistencias from '../Image/Assistencias.png';
-import Tresp from '../Image/3P.png'
+import Edit from '../Image/editarAdmin.png'
 import apagar from '../Image/Apagar.png'
 
 export default function Tipocombustivel() {
   const [data, setData] = useState([
-    { id: "1", name: "Hidrogénio", info:'Fossil'},
+    { id: "1", name: "Hidrogénio", info:'Renovavel'},
     { id: "2", name: "Gasóleo colorido",info:'Fossil'},
-    { id: "3", name: "Gasolina" },
+    { id: "3", name: "Gasolina", info:'Fossil' },
   ]);
   const handleLogout = () => {
     alert("Logout button pressed!");
@@ -31,10 +30,6 @@ export default function Tipocombustivel() {
 
   const [searchTerm, setSearchTerm] = useState("");
 
-  const handleEdit = (id) => {
-    // Lógica para editar o item com o ID fornecido
-    console.log("Editar item com ID:", id);
-  };
 
   const filteredData = data.filter((item) =>
     item.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -43,7 +38,7 @@ export default function Tipocombustivel() {
   return (
     <View style={styles.container}>
 
-      <Text style={[styles.BigText,{marginTop: 30}]}>Tipos de Combustivel</Text>
+      <Text style={[styles.BigText,{marginTop: 40}]}>Tipos de Combustivel</Text>
       
       <View style={{ marginTop: "5%" }}/>
       <View style={styles.line} />
@@ -63,12 +58,18 @@ export default function Tipocombustivel() {
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <View style={styles.item}>
+            <View style={styles.descriptionContainer}>
             <Text style={styles.itemText}>{item.name}</Text>
-           {/*  <View><Text style={styles.itemText}>{item.info}</Text></View>*/}
-            <TouchableOpacity onPress={info} style={{flexDirection: "row",alignItems: "center",}}>
-            <Image source={Tresp} style={styles.logo4} />
-            <Image source={apagar} style={styles.logo3}/>
-            </TouchableOpacity>
+            <Text style={styles.itemDescription}>{item.info}</Text>
+            </View>
+            <View style={styles.buttonContainer}>
+    <TouchableOpacity onPress={info}>
+      <Image source={Edit} style={styles.logo4} />
+    </TouchableOpacity>
+    <TouchableOpacity>
+      <Image source={apagar} style={styles.logo3}/>
+    </TouchableOpacity>
+  </View>
           </View>
         )}
       />
@@ -144,33 +145,32 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     marginBottom: 20,
     width: "85%",
-    alignSelf: "center", // Centraliza a barra de pesquisa
+    alignSelf: "center", 
   },
   flatList: {
-    width: "100%", // Ajusta a largura da FlatList para ocupar toda a tela
+    width: "100%", 
   },
   flatListContent: {
     justifyContent: "flex-start",
     width:"100%",
-    //backgroundColor:"1C1D21",
+    
   },
   item: {
     backgroundColor: "#1C1D21",
     padding: 27,
     marginBottom: 10,
     borderRadius: 15,
-    width: "90%", // Ajusta a largura dos itens da lista para ocupar toda a tela
+    width: "95%", 
     flexDirection: "row",
-    justifyContent:"space-between",
+    justifyContent: "space-between",
     alignItems: "center",
-    marginLeft:"5%",
-  
+    marginLeft: "2.5%", 
   },
   itemText: {
     color: "white",
     fontSize: 18,
     fontWeight: "bold",
-    marginLeft:"5%"
+    marginLeft:"0%"
   },
   icon: {
     width: "15%",
@@ -185,7 +185,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#232427",
   },
   container3: {
-    flex: 1,
+    flex: 0.4,
     backgroundColor: "#1C1D21",
     justifyContent: 'center',
   },
@@ -200,15 +200,13 @@ const styles = StyleSheet.create({
     height: 32,
   },
   logo3: {
-    alignSelf: 'center',
     width: 42,
     height: 42,
+    marginLeft: 10,
   },
   logo4: {
-    alignSelf: 'center',
     width: 42,
     height: 42,
-    marginRight: 10,
   },
   BigText: {
     color: "white",
@@ -221,5 +219,18 @@ const styles = StyleSheet.create({
     fontSize: 35,
     fontWeight: "bold",
     textAlign: "center",
+  },
+  descriptionContainer: {
+    marginTop: 5,
+    flex: 1,
+  }, 
+  itemDescription: {
+    color: "white",
+    fontSize: 14,
+    marginLeft: "0%",
+    width: 100,
+  },
+  buttonContainer: {
+    flexDirection: "row",
   },
 });
