@@ -36,13 +36,13 @@ export default function MainPage() {
           <TouchableOpacity onPress={handleLogout} style={{ paddingLeft: '2%' }}>
             <View>
               <Image source={LogOut} style={styles.logo}/>
-              <Text style={{color: "#C33434", fontWeight: "700"}}>LogOut</Text>
+              <Text style={{color: "#C33434", fontWeight: "700", fontSize: 11, marginTop: "10%"}}>LogOut</Text>
             </View>
           </TouchableOpacity>
           <TouchableOpacity onPress={handleLogout}>
             <View>
-              <Image source={EditarPerfil} style={styles.logo}/>
-              <Text style={{color: "#9F9BA8", fontWeight: "700"}}>Editar Perfil</Text>
+              <Image source={EditarPerfil} style={styles.editarPerf}/>
+              <Text style={{color: "#9F9BA8", fontWeight: "700", fontSize: 11, marginTop: "10%"}}>Editar Perfil</Text>
             </View>
           </TouchableOpacity>
         </View>
@@ -163,10 +163,18 @@ const styles = StyleSheet.create({
 
   logo: {
     alignSelf: 'center',
-    width: 40,
-    height: 40,
+    width: 38,
+    height: 38,
   },
+  iconText:{
 
+  },
+  editarPerf:{
+    marginLeft: "15%",
+    alignSelf: 'center',
+    width: 38,
+    height: 38,
+  },
   logo2: {
     alignSelf: 'center',
     width: 32,
