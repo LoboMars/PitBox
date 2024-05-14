@@ -14,33 +14,37 @@ import CriarOficina from './View/AdminCriarOficina';
 import CriarCombustivel from './View/AdminCriarCombustivel';
 import EditarOficina from './View/AdminEditarOficina';
 import EditarCombustivel from './View/AdminEditarCombustivel';
-import MainPage from './View/MainPage';                     //falta colocar imagens
+import MainPage from './View/MainPage';                    
 import EditarTipoViatura from './View/AdminEditarTipoViatura';
 import Suasviaturas from './View/Assuasviaturas';           
 import DetalhesViatura from './View/DetalhesViatura';
 import DetalhesAssistencia from './View/DetalhesAssistencias';
 import DetalhesQuotodiano from './View/DetalhesQuotidiano';
 import EditarPerfil from './View/EditarPerfil';
-import Tipoviatura from './View/AdminTipoviatura';      //melhorar
+import Tipoviatura from './View/AdminTipoviatura';      
 import Tipocombustivel from './View/AdminTipoCombustiveis';
 import Oficinas from './View/AdminOficinas';
 import EliminarViatura from './View/ElimirarViatura';
 import EliminarAssistencia from './View/EliminarAssistencia';
 import EliminarEvento from './View/EliminarEvento';
 import DetalhesOficinas from './View/AdminDetalhesOficina';
-import AdminMainPage from './View/AdminMainPage';               //Alterar  
+import AdminMainPage from './View/AdminMainPage';               
 import EliminarTipo from './View/AdminEliminarTipo';
 import EliminarOficina from './View/AdminiEliminarOficina';
 import EliminarCombustivel from './View/AdminEliminarCombustivel';
 import AdminEditarPerfil from './View/AdminEditarPerfil';
 import Seuseventos from './View/Osseuseventos';
-import Assit from './View/AssuasAssistencias';
+import AsSuasAssistencias from './View/AssuasAssistencias';
 
 
 export default function App() {
   return (
     <View style={styles.container}>
+<<<<<<< HEAD
       <Tipocombustivel/>
+=======
+      <Oficinas/>
+>>>>>>> e5c00cde9ab62fa7ebbecceb473b81683846a7f1
       <StatusBar style="auto" />
     </View>
   );
