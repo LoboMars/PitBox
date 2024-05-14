@@ -31,9 +31,10 @@ export default function MainPage() {
 
       <View style={styles.container1}>
 
+      <View style={{ paddingTop: "5%" }} />
 
         <View style={styles.imageContainer}>
-          <TouchableOpacity onPress={handleLogout} style={{ paddingLeft: '2%' }}>
+          <TouchableOpacity onPress={handleLogout} style={{ paddingLeft: '3%' }}>
             <View>
               <Image source={LogOut} style={styles.logo}/>
               <Text style={{color: "#C33434", fontWeight: "700", fontSize: 11, marginTop: "10%"}}>LogOut</Text>

@@ -32,7 +32,7 @@ import EliminarEvento from './View/EliminarEvento';
 export default function App() {
   return (
     <View style={styles.container}>
-       <EliminarEvento/>
+       <MainPage/>
       <StatusBar style="auto" />
     </View>
   );
