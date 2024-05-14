@@ -16,7 +16,7 @@ import EditarOficina from './View/AdminEditarOficina';
 import EditarCombustivel from './View/AdminEditarCombustivel';
 import MainPage from './View/MainPage';                     //falta colocar imagens
 import EditarTipoViatura from './View/AdminEditarTipoViatura';
-import Suasviaturas from './View/Assuasviaturas';           //melhorar
+import Suasviaturas from './View/Assuasviaturas';           
 import DetalhesViatura from './View/DetalhesViatura';
 import DetalhesAssistencia from './View/DetalhesAssistencias';
 import DetalhesQuotodiano from './View/DetalhesQuotidiano';
