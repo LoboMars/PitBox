@@ -10,8 +10,8 @@ import { View,
 } from "react-native";
 import carPurple from "../Image/carPurple.png";
 import Eventos from '../Image/Eventos.png';
-import Home from '../Image/Home.png';
-import Viaturas from '../Image/Viaturas.png';
+import Home from '../Image/homeUnselected.png';
+import Viaturas from '../Image/ViaturaPurple.png';
 import Assistencias from '../Image/Assistencias.png';
 import Tresp from '../Image/3P.png'
 import adicionar from '../Image/Adicionar.png'
@@ -86,13 +86,13 @@ export default function Suasviaturas() {
         <TouchableOpacity onPress={handleLogout}>
           <View>
             <Image source={Home} style={styles.logo2}/>
-            <Text style={{color: "#6D4EE5", fontWeight: "500"}}>Home</Text>
+            <Text style={{color: "#9F9BA8", fontWeight: "500"}}>Home</Text>
           </View>
         </TouchableOpacity>
         <TouchableOpacity onPress={handleLogout}>
           <View>
             <Image source={Viaturas} style={styles.logo2} />
-            <Text style={{color: "#9F9BA8", fontWeight: "500"}}>Viaturas</Text>
+            <Text style={{color: "#6D4EE5", fontWeight: "500"}}>Viaturas</Text>
           </View>
         </TouchableOpacity>
         <TouchableOpacity onPress={handleLogout}>
