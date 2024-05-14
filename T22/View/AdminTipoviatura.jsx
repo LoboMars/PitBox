@@ -9,10 +9,10 @@ import { View,
   Image,
 } from "react-native";
 import carPurple from "../Image/carPurple.png";
-import Eventos from '../Image/Eventos.png';
-import Home from '../Image/Home.png';
-import Viaturas from '../Image/Viaturas.png';
-import Assistencias from '../Image/Assistencias.png';
+import Combustiveis from '../Image/combustivel.png';
+import Home from '../Image/homeUnselected.png';
+import TipoViaturas from '../Image/cadSelect.png';
+import Oficinas from '../Image/OficinaIcon.png'
 import Tresp from '../Image/3P.png'
 import apagar from '../Image/Apagar.png'
 import Edit from '../Image/editarAdmin.png'
@@ -22,6 +22,13 @@ export default function Tipoviatura() {
     { id: "1", name: "Carro" },
     { id: "2", name: "Mota" },
     { id: "3", name: "Carrinha" },
+    { id: "4", name: "Trotinete" },
+    { id: "5", name: "Skate" },
+    { id: "6", name: "Overboard" },
+    { id: "7", name: "Avião" },
+    { id: "8", name: "Jet" },
+    { id: "9", name: "Barco" },
+    { id: "10", name: "Tríciclo" },
   ]);
   const handleLogout = () => {
     alert("Logout button pressed!");
@@ -44,69 +51,90 @@ export default function Tipoviatura() {
   return (
     <View style={styles.container}>
 
-      <Text style={[styles.BigText,{marginTop: 30}]}>Tipos de Viatura</Text>
-      
-      <View style={{ marginTop: "5%" }}/>
-      <View style={styles.line} />
+      <View style ={styles.container1}>
+          <Text style={styles.BigText}>Tipos de Viatura</Text>
+
+          <View style={{ marginTop: "5%" }} />
+          <View style={styles.line} />
+
+      </View>
+
+
+    <View style={styles.container2}>
+
       <TextInput
         style={styles.searchBar}
-        placeholder="Pesquisar..."
+        placeholder="Pesquisar tipos de viatura.."
         placeholderTextColor="#9F9BA8"
         onChangeText={(text) => setSearchTerm(text)}
         value={searchTerm}
       />
+
       <ScrollView  contentContainerStyle={styles.scrollView}>
       
-      <FlatList
-        style={styles.flatList}
-        contentContainerStyle={styles.flatListContent}
-        data={filteredData}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <View style={styles.item}> 
-            <Image source={carPurple} style={styles.icon} />
-            <Text style={styles.itemText}>{item.name}</Text>
-            <View style={styles.buttonContainer}>
-            <TouchableOpacity onPress={info}>
-            <Image source={Edit} style={styles.logo4} />
-            </TouchableOpacity>
-            <TouchableOpacity>
-            <Image source={apagar} style={styles.logo3}/>
+        <FlatList
+          style={styles.flatList}
+          contentContainerStyle={styles.flatListContent}
+          data={filteredData}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => (
+            <View style={styles.item}> 
+              <Image source={carPurple} style={styles.icon} />
+
+              <Text style={styles.itemText}>{item.name}</Text>
+              <View style={styles.buttonContainer}>
+
+              <TouchableOpacity onPress={info}>
+              <Image source={Edit} style={styles.logo4} />
+              </TouchableOpacity>
+
+              <TouchableOpacity>
+              <Image source={apagar} style={styles.logo3}/>
              </TouchableOpacity>
             </View>
           </View>
-        )}
-      />
+        )}/>
+
       </ScrollView>
+
+    </View>
+
+
     <View style={styles.container3}>
 
       <View style={styles.imageContainer2}>
-        <TouchableOpacity onPress={handleLogout}>
-          <View>
-            <Image source={Home} style={styles.logo2}/>
-            <Text style={{color: "#6D4EE5", fontWeight: "500"}}>Home</Text>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={handleLogout}>
-          <View>
-            <Image source={Viaturas} style={styles.logo2} />
-            <Text style={{color: "#9F9BA8", fontWeight: "500"}}>Viaturas</Text>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={handleLogout}>
-          <View>
-            <Image source={Assistencias} style={styles.logo2} />
-            <Text style={{color: "#9F9BA8", fontWeight: "500", textAlign: 'center'}}>Assistências</Text>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={handleLogout}>
-          <View>
-            <Image source={Eventos} style={styles.logo2} />
-            <Text style={{color: "#9F9BA8", fontWeight: "500"}}>Eventos</Text>
-          </View>
-        </TouchableOpacity>
-</View>
-</View>
+
+        <TouchableOpacity onPress={handleLogout} style={{marginLeft: "4%"}}>
+              <View>
+                <Image source={Home} style={styles.logo2}/>
+                <Text style={{color: "#9F9BA8", fontWeight: "500",  fontSize: 11, marginTop: "5%"}}>Home</Text>
+              </View>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={handleLogout}>
+              <View>
+                <Image source={TipoViaturas} style={styles.logo2} />
+                <Text style={{color: "#EC853B", fontWeight: "500",  fontSize: 11, marginTop: "5%"}}>Tipos Viaturas</Text>
+              </View>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={handleLogout}>
+              <View>
+                <Image source={Oficinas} style={styles.logo2} />
+                <Text style={{color: "#9F9BA8", fontWeight: "500",  fontSize: 11, marginTop: "5%"}}>oficinas</Text>
+              </View>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={handleLogout} style={{marginRight: "2%"}}>
+              <View>
+                <Image source={Combustiveis} style={styles.logo2} />
+                <Text style={{color: "#9F9BA8", fontWeight: "500", fontSize: 11, marginTop: "5%"}}>Combustíveis</Text>
+              </View>
+            </TouchableOpacity>
+
+        </View>
+
+    </View>
 
 
     </View>
@@ -115,8 +143,23 @@ export default function Tipoviatura() {
 }
 
 const styles = StyleSheet.create({
-  scrollView: {
-    paddingTop: '5%', 
+  container1: {
+    marginTop: "10%",
+    flex: 1,
+    justifyContent: 'center',
+  },
+
+  container2: {
+    flex: 8,
+    marginTop: "5%",
+    marginBottom: "1%",
+    backgroundColor: "#232427",
+  },
+
+  container3: {
+    flex: 1,
+    backgroundColor: "#1C1D21",
+    justifyContent: 'center',
   },
   container: {
     flex: 1,
@@ -136,20 +179,22 @@ const styles = StyleSheet.create({
   line: {
     backgroundColor: "#EC853B",
     height: 3,
-    width: "100%",
+    borderRadius: 1,
+    width: "94%",
+    marginLeft: "3%",
     marginBottom: "5%",
   },
   searchBar: {
     backgroundColor: "#383343",
     color: "white",
-    borderWidth: 1,
-    borderColor: "#9F9BA8",
-    borderRadius: 15,
-    paddingHorizontal: 5,
+    fontSize: 20,
+    borderRadius: 20,
+    paddingHorizontal: 25,
     paddingVertical: 15,
     marginBottom: 20,
-    width: "85%",
+    width: "90%",
     alignSelf: "center", // Centraliza a barra de pesquisa
+    marginBottom: "7%",
   },
   flatList: {
     width: "100%", // Ajusta a largura da FlatList para ocupar toda a tela
@@ -169,7 +214,7 @@ const styles = StyleSheet.create({
     //justifyContent:"space-between",
     alignItems: "center",
     marginLeft:"5%",
-  
+    marginBottom:"4%",
   },
   itemText: {
     color: "white",
@@ -182,11 +227,6 @@ const styles = StyleSheet.create({
     height: "100%",
     marginLeft: "0%",
     marginTop: "1%",
-  },
-  container3: {
-    flex: 0.4,
-    backgroundColor: "#1C1D21",
-    justifyContent: 'center',
   },
   imageContainer2: {
     flexDirection: "row",
