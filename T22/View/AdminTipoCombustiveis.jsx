@@ -243,7 +243,7 @@ const styles = StyleSheet.create({
   Adicionar: {
     width:'95%',
     color: '#383343',
-    borderColor: '#6D4EE5',
+    borderColor: '#EC853B',
     borderWidth: 4,
     borderRadius: 15,
     paddingVertical: 35,
