@@ -1,0 +1,163 @@
+import React from "react";
+import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity, TextInput } from "react-native";
+import MainDesfoque from '../Image/MainDesfoque.png'
+
+import Oficina  from '../Image/Oficina.png'
+import Apagar  from  '../Image/Apagar.png'
+import Editar from '../Image/editarAdmin.png'
+
+export default function DetalhesOfinias() {
+  return (
+    <View style={styles.container}>
+      <Image
+        source={MainDesfoque}
+        style={styles.backgroundImage}
+      />
+
+        <View style={styles.textBoxContainer}>
+            <View style={styles.Box}>
+
+                <View style={styles.Title}>
+                    <Text style={styles.textOrange}>Oficina</Text>
+                    <Text style={styles.textWhite}>Los Santos</Text>
+
+                    <View style={{marginTop: "15%"}}/>
+
+                    <Image
+                    source={Oficina}
+                    style={styles.Icon}
+                /> 
+
+                 <View style={{marginTop: "15%"}}/>
+
+                </View>
+            
+                <View style={styles.Boddy}>
+                    <Text style={styles.Smalltextwhite}>Nome:  <Text style={styles.Smalltextgrey}>Los Santos</Text> </Text>
+                    <View style={{marginTop: "5%"}}/>
+                    <Text style={styles.Smalltextwhite}>Morada:  <Text style={styles.Smalltextgrey}>Rio Tinto</Text> </Text>
+                    <View style={{marginTop: "5%"}}/>
+                    <Text style={styles.Smalltextwhite}>Contacto:  <Text style={styles.Smalltextgrey}>276647832</Text> </Text>
+                    <View style={{marginTop: "5%"}}/>
+                    <Text style={styles.Smalltextwhite}>Horarios: </Text>
+                    <Text style={styles.Smalltextgrey}>9:00-18:00 Segunda-Sexta</Text>
+                    <View style={{marginTop: "5%"}}/>
+                </View>
+
+            </View>
+
+            <View style={styles.textBoxContainer}>
+                    <View style={{marginTop: "15%"}}/>
+                <View style={{flexDirection:'row'}}>
+                    <View style={{marginHorizontal: '2%'}} />
+
+                        <TouchableOpacity>
+                            <Image
+                                source={Apagar}
+                                style={styles.IconSmall}
+                                /> 
+                        </TouchableOpacity>
+   
+                    <View style={{marginHorizontal: '7%'}} />
+
+                    <TouchableOpacity>
+                        <Text style={styles.SmallBox}>OK</Text>
+                    </TouchableOpacity>
+
+                    <View style={{marginHorizontal: '7%'}} />
+                    <TouchableOpacity>
+                        <Image
+                            source={Editar}
+                            style={styles.IconSmall}
+                            /> 
+                    </TouchableOpacity>
+                </View>
+            </View>
+        </View>
+        
+       
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    width: "100%",
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  backgroundImage: {
+    resizeMode: "cover",
+    position: "absolute",
+    width: "100%",
+    height: "100%",
+  },
+
+  textBoxContainer: {
+    marginBottom: "1%",
+  },
+  
+  Box: {
+    color: "#9F9BA8",
+    backgroundColor: "#383343",
+    borderRadius: 15,
+    paddingVertical: 30,
+    paddingHorizontal: 70,
+  },
+
+  SmallBox: {
+    color: "#9F9BA8",
+    backgroundColor: "#383343",
+    borderRadius: 15,
+    paddingVertical: 15,
+    paddingHorizontal: 40,
+    color: "white",
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+
+  Title: {
+    alignItems: "center",
+    textAlign: "center",
+  },
+
+  Boddy: {
+    textAlign: "left",
+    justifyContent: "left",
+  },
+
+  textWhite: {
+    color: "white",
+    fontSize: 35,
+  },
+
+  Smalltextgrey: {
+    color: "grey",
+    fontSize: 15,
+  },
+
+  Smalltextwhite: {
+    color: "white",
+    fontSize: 15,
+    fontWeight: "bold",
+  },
+
+  textOrange: {
+    color: "#EC853B",
+    fontSize: 25,
+  },
+
+
+
+  Icon: {
+    width: 150,
+    height: 150,
+  },
+
+  IconSmall: {
+    width: 50,
+    height: 50,
+  },
+
+});

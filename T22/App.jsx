@@ -25,11 +25,20 @@ import Viatura from './View/Viaturas';
 import Tipoviatura from './View/AdminTipoviatura';
 import Tipocombustivel from './View/AdminTipoCombustiveis';
 import Oficinas from './View/AdminOficinas';
+import EliminarViatura from './View/ElimirarViatura';
+import EliminarAssistencia from './View/EliminarAssistencia';
+import EliminarEvento from './View/EliminarEvento';
+import DetalhesOfinias from './View/AdminDetalhesOficina';
+import AdminMainPage from './View/AdminMainPage';
 
 export default function App() {
   return (
     <View style={styles.container}>
+<<<<<<< HEAD
         <Tipocombustivel/>
+=======
+       <DetalhesOfinias/>
+>>>>>>> 48ede3c7a8f06433fc0dcbdbacfbbcbe3cb2482b
       <StatusBar style="auto" />
     </View>
   );
