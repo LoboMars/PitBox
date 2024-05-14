@@ -9,12 +9,13 @@ import { View,
   Image,
 } from "react-native";
 import Eventos from '../Image/Eventos.png';
-import Home from '../Image/Home.png';
-import Viaturas from '../Image/Viaturas.png';
-import Assistencias from '../Image/Assistencias.png';
+import Home from '../Image/homeUnselected.png';
+import Cad from '../Image/cad.png';
+import oficina from '../Image/OficinaIcon.png';
 import Edit from '../Image/editarAdmin.png'
 import apagar from '../Image/Apagar.png'
 import adicionar from '../Image/Adicionar.png';
+import Gota from '../Image/combustivelLaranja.png';
 
 export default function Tipocombustivel() {
   const [data, setData] = useState([
@@ -76,7 +77,7 @@ export default function Tipocombustivel() {
       />
           <TouchableOpacity>
         <View style={styles.Adicionar}>
-        <Image source={adicionar} style={styles.logo3} />
+        <Image source={adicionar} style={styles.logoAdd} />
         </View>
       </TouchableOpacity>
       </ScrollView>
@@ -86,25 +87,25 @@ export default function Tipocombustivel() {
         <TouchableOpacity onPress={handleLogout}>
           <View>
             <Image source={Home} style={styles.logo2}/>
-            <Text style={{color: "#6D4EE5", fontWeight: "500"}}>Home</Text>
+            <Text style={{color: "#9F9BA8", fontWeight: "500"}}>Home</Text>
           </View>
         </TouchableOpacity>
         <TouchableOpacity onPress={handleLogout}>
           <View>
-            <Image source={Viaturas} style={styles.logo2} />
-            <Text style={{color: "#9F9BA8", fontWeight: "500"}}>Viaturas</Text>
+            <Image source={Cad} style={styles.logo2} />
+            <Text style={{color: "#9F9BA8", fontWeight: "500"}}>Tipos Viatura</Text>
           </View>
         </TouchableOpacity>
         <TouchableOpacity onPress={handleLogout}>
           <View>
-            <Image source={Assistencias} style={styles.logo2} />
-            <Text style={{color: "#9F9BA8", fontWeight: "500", textAlign: 'center'}}>Assistências</Text>
+            <Image source={oficina} style={styles.logo2} />
+            <Text style={{color: "#9F9BA8", fontWeight: "500", textAlign: 'center'}}>Oficinas</Text>
           </View>
         </TouchableOpacity>
         <TouchableOpacity onPress={handleLogout}>
           <View>
-            <Image source={Eventos} style={styles.logo2} />
-            <Text style={{color: "#9F9BA8", fontWeight: "500"}}>Eventos</Text>
+            <Image source={Gota} style={styles.logo2} />
+            <Text style={{color: "#EC853B", fontWeight: "500"}}>Combustíveis</Text>
           </View>
         </TouchableOpacity>
 </View>
@@ -191,7 +192,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#232427",
   },
   container3: {
-    flex: 0.4,
+    flex: 1,
     backgroundColor: "#1C1D21",
     justifyContent: 'center',
   },
@@ -252,7 +253,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     alignSelf: "center"
   },
-  logo3: {
+  logoAdd: {
     alignSelf: 'center',
     width: 42,
     height: 42,
