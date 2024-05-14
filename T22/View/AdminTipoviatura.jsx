@@ -16,6 +16,8 @@ import Oficinas from '../Image/OficinaIcon.png'
 import Tresp from '../Image/3P.png'
 import apagar from '../Image/Apagar.png'
 import Edit from '../Image/editarAdmin.png'
+import adicionar from '../Image/Adicionar.png';
+
 
 export default function Tipoviatura() {
   const [data, setData] = useState([
@@ -94,6 +96,11 @@ export default function Tipoviatura() {
             </View>
           </View>
         )}/>
+        <TouchableOpacity>
+        <View style={styles.Adicionar}>
+        <Image source={adicionar} style={styles.logo3} />
+        </View>
+      </TouchableOpacity>
 
       </ScrollView>
 
@@ -266,5 +273,23 @@ const styles = StyleSheet.create({
     flex: 1, 
     flexDirection: "row", 
     justifyContent: "flex-end" 
+  },
+  Adicionar: {
+    width:'90%',
+    color: '#383343',
+    borderColor: '#6D4EE5',
+    borderWidth: 4,
+    borderRadius: 15,
+    paddingVertical: 35,
+    paddingHorizontal: 25,
+    fontSize: 18,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    alignSelf: "center"
+  },
+  logo3: {
+    alignSelf: 'center',
+    width: 42,
+    height: 42,
   },
 });
