@@ -86,10 +86,10 @@ export default function Register() {
 const styles = StyleSheet.create({
   container: {
     width: "100%",
+    height:'100%',
     flex: 1,
     backgroundColor: "#232427",
     textAlign: "center",
-    justifyContent: "flex-start",
     paddingTop: "5%",
   },
   textBoxContainer: {
@@ -146,16 +146,16 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   logo: {
-    width: "50%",
-    height: "10%",
+    width: 160,
+    height: 50,
     paddingBottom: "5%",
     marginTop: "5%",
-    marginLeft: "24%",
+    marginLeft: "27%",
   },
   icon: {
-    width: "40%",
-    height: "25%",
-    marginLeft: "32%",
+    width: 90,
+    height: 90,
+    marginLeft: "39%",
     marginTop: "4%",
   },
 });
