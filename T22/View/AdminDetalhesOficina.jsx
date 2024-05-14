@@ -6,7 +6,7 @@ import Oficina  from '../Image/Oficina.png'
 import Apagar  from  '../Image/Apagar.png'
 import Editar from '../Image/editarAdmin.png'
 
-export default function DetalhesOfinias() {
+export default function DetalhesOficinas() {
   return (
     <View style={styles.container}>
       <Image
@@ -49,7 +49,7 @@ export default function DetalhesOfinias() {
             <View style={styles.textBoxContainer}>
                     <View style={{marginTop: "15%"}}/>
                 <View style={{flexDirection:'row'}}>
-                    <View style={{marginHorizontal: '2%'}} />
+                    <View style={{marginHorizontal: '1%'}} />
 
                         <TouchableOpacity>
                             <Image
@@ -102,8 +102,8 @@ const styles = StyleSheet.create({
     color: "#9F9BA8",
     backgroundColor: "#383343",
     borderRadius: 15,
-    paddingVertical: 30,
-    paddingHorizontal: 70,
+    paddingVertical: 20,
+    paddingHorizontal: 60,
   },
 
   SmallBox: {

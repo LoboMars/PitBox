@@ -28,14 +28,17 @@ import Oficinas from './View/AdminOficinas';
 import EliminarViatura from './View/ElimirarViatura';
 import EliminarAssistencia from './View/EliminarAssistencia';
 import EliminarEvento from './View/EliminarEvento';
-import DetalhesOfinias from './View/AdminDetalhesOficina';
+import DetalhesOficinas from './View/AdminDetalhesOficina';
 import AdminMainPage from './View/AdminMainPage';
 import EliminarTipo from './View/AdminEliminarTipo';
+import EliminarOficina from './View/AdminiEliminarOficina';
+import EliminarCombustivel from './View/AdminEliminarCombustivel';
+
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <EliminarTipo/>
+      <EliminarCombustivel/>
       <StatusBar style="auto" />
     </View>
   );
