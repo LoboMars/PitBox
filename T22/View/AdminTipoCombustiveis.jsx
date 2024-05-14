@@ -76,7 +76,7 @@ export default function Tipocombustivel() {
       </ScrollView>
     <View style={styles.container3}>
 
-      <View style={styles.imageContainer2}>
+        <View style={styles.imageContainer2}>
         <TouchableOpacity onPress={handleLogout}>
           <View>
             <Image source={Home} style={styles.logo2}/>
