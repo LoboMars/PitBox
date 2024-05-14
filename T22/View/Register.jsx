@@ -20,8 +20,7 @@ export default function Register() {
 
   return (
     <View style={styles.container}>
-
-        <ScrollView contentContainerStyle={styles.scrollView}> 
+        <ScrollView> 
             <Image source={Logo} style={styles.logo} />
             
             <View style={{ marginTop: "5%" }}/>
@@ -59,7 +58,7 @@ export default function Register() {
                 style={styles.TextBox}
                 onChangeText={(text) => setNsenha(text)}
                 value={nsenha}
-                placeholder="Palavra-passe"
+                placeholder="Confirmar Palavra-passe"
                 placeholderTextColor="#9F9BA8"
                 secureTextEntry={true} // Para ocultar a senha
               />
@@ -70,6 +69,7 @@ export default function Register() {
                 <Text style={styles.BTNpurple}>Registrar Conta</Text>
               </View>
             </TouchableOpacity>
+
             <TouchableOpacity>
               <View style={styles.textBoxLogin}>
                 <Text style={[styles.textPurple, { paddingTop: "5%" }]}>
@@ -77,6 +77,7 @@ export default function Register() {
                 </Text>
               </View>
             </TouchableOpacity>
+
       </ScrollView>
       </View>
   );
@@ -152,9 +153,9 @@ const styles = StyleSheet.create({
     marginLeft: "24%",
   },
   icon: {
-    width: "30%",
+    width: "40%",
     height: "25%",
-    marginLeft: "35%",
+    marginLeft: "32%",
     marginTop: "4%",
   },
 });

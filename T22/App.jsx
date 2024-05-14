@@ -28,12 +28,13 @@ import Oficinas from './View/AdminOficinas';
 import EliminarViatura from './View/ElimirarViatura';
 import EliminarAssistencia from './View/EliminarAssistencia';
 import EliminarEvento from './View/EliminarEvento';
+import DetalhesOfinias from './View/AdminDetalhesOficina';
 import AdminMainPage from './View/AdminMainPage';
 
 export default function App() {
   return (
     <View style={styles.container}>
-       <AdminMainPage/>
+       <MainPage/>
       <StatusBar style="auto" />
     </View>
   );

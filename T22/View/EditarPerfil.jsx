@@ -9,6 +9,7 @@ import {
   ScrollView,
   TextInput,
 } from "react-native";
+
 import Lebron from '../Image/labron.png'
 
 export default function CriarViatura() {
@@ -55,10 +56,10 @@ export default function CriarViatura() {
               defaultValue="Bababoey"/>
           </View>
 
-    </View>
+      </View>
         
 
-      <View style={styles.footer}>
+        <View style={styles.footer}>
 
           <TouchableOpacity>
             <View style={styles.textBoxContainer}>
@@ -73,7 +74,7 @@ export default function CriarViatura() {
           </TouchableOpacity>
         </View>
 
-    </View>
+     </View>
   );
 }
 
@@ -94,22 +95,16 @@ const styles = StyleSheet.create({
   ProfilePic:{
     height: "100%",
     width: "100%",
-    borderRadius: "50%",
+    borderRadius: 100,
   },
   clickable:{
     height: "100%",
     width: "40%",
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: "50%",
+    borderRadius: 100,
   },
-  Edit: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: "50%",
-    backgroundColor: "#1C1D21",
-    borderRadius: 15,
-  },
+
   container: {
     width: "100%",
     flex: 1,
@@ -168,47 +163,6 @@ const styles = StyleSheet.create({
     textAlign: "left",
   },
 
-  TextBoxCenter: {
-    width: "100%",
-    color: "white",
-    backgroundColor: "#383343",
-    borderWidth: 1,
-    borderColor: "white",
-    marginTop: "5%",
-    borderRadius: 15,
-    paddingVertical: 15,
-    paddingHorizontal: 40,
-    fontSize: 18,
-    textAlign: "center",
-  },
-
-  SmallTextBox: {
-    width: "45%",
-    color: "white",
-    backgroundColor: "#383343",
-    borderWidth: 1,
-    borderColor: "white",
-    marginTop: "5%",
-    borderRadius: 15,
-    paddingVertical: 15,
-    paddingHorizontal: 15,
-    fontSize: 18,
-    textAlign: "center",
-  },
-
-  BigTextBox: {
-    width: "100%",
-    color: "white",
-    backgroundColor: "#383343",
-    borderWidth: 1,
-    borderColor: "white",
-    marginTop: "5%",
-    borderRadius: 15,
-    paddingVertical: 100,
-    paddingHorizontal: 40,
-    fontSize: 18,
-    textAlign: "center",
-  },
 
   BTNPurple: {
     backgroundColor: "#6D4EE5",
