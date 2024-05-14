@@ -64,7 +64,7 @@ export default function Tipoviatura() {
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <View style={styles.item}> 
-             <Image source={carPurple} style={styles.icon} />
+            <Image source={carPurple} style={styles.icon} />
             <Text style={styles.itemText}>{item.name}</Text>
             <View style={styles.buttonContainer}>
             <TouchableOpacity onPress={info}>
@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     width: "90%", // Ajusta a largura dos itens da lista para ocupar toda a tela
     flexDirection: "row",
-    justifyContent:"space-between",
+    //justifyContent:"space-between",
     alignItems: "center",
     marginLeft:"5%",
   
@@ -223,5 +223,8 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     flexDirection: "row",
+    flex: 1, 
+    flexDirection: "row", 
+    justifyContent: "flex-end" 
   },
 });
