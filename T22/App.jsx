@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import OScreen from './View/OScreen';
 import Login from './View/Login';
-import Register from './View/Register';
+import Register from './View/Register';           //problema
 import RegistarQuotidino from './View/RegistarQuotidiano'
 import RegistarAssistencia from './View/RegistarAssistencia';
 import RegistarViatura from './View/RegistarViatura';
@@ -14,14 +14,13 @@ import CriarOficina from './View/AdminCriarOficina';
 import CriarCombustivel from './View/AdminCriarCombustivel';
 import EditarOficina from './View/AdminEditarOficina';
 import EditarCombustivel from './View/AdminEditarCombustivel';
-import MainPage from './View/MainPage';
+import MainPage from './View/MainPage';                     //falta colocar imagens
 import EditarTipoViatura from './View/AdminEditarTipoViatura';
-import Suasviaturas from './View/Assuasviaturas';
+import Suasviaturas from './View/Assuasviaturas';           //melhorar
 import DetalhesViatura from './View/DetalhesViatura';
 import DetalhesAssistencia from './View/DetalhesAssistencias';
 import DetalhesQuotodiano from './View/DetalhesQuotidiano';
 import EditarPerfil from './View/EditarPerfil';
-import Viatura from './View/Viaturas';
 import Tipoviatura from './View/AdminTipoviatura';      //melhorar
 import Tipocombustivel from './View/AdminTipoCombustiveis';
 import Oficinas from './View/AdminOficinas';
@@ -39,7 +38,7 @@ import AdminEditarPerfil from './View/AdminEditarPerfil';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Tipoviatura/>
+     <OScreen/>
       <StatusBar style="auto" />
     </View>
   );

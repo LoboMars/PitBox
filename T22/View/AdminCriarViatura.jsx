@@ -49,16 +49,16 @@ export default function CriarViatura() {
         </View>
 
 
-        <View style={{ marginTop: "70%" }} />
+        <View style={{ marginTop: "50%" }} />
         <View style={styles.line} />
-        <View style={{ marginTop: "2%" }} />
+        <View style={{ marginTop: "5%" }} />
 
         <TouchableOpacity>
           <View style={styles.textBoxContainer}>
             <Text style={styles.BTNOrange}>Criar</Text>
           </View>
         </TouchableOpacity>
-
+        <View style={{ marginTop: "5%" }} />
         <TouchableOpacity>
           <View style={styles.textBoxContainer}>
             <Text style={styles.Cancelar}>Cancelar</Text>
