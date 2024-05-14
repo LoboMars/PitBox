@@ -7,14 +7,18 @@ import {
   Image,
   TouchableOpacity,
   ScrollView,
+  ImageBackground,
 } from "react-native";
 
 import EditarPerfil from "../Image/EditarPerfil.png";
 import LogOut from "../Image/LogOut.png";
-import Eventos from '../Image/Eventos.png';
-import Home from '../Image/Home.png';
-import Viaturas from '../Image/Viaturas.png';
-import Assistencias from '../Image/Assistencias.png'
+import Combustiveis from '../Image/combustivel.png';
+import Home from '../Image/HomeAD.png';
+import TipoViaturas from '../Image/cad.png';
+import Oficinas from '../Image/oficina.png'
+import CriarTipoVeiculo from "../Image/Criar Tipo Veiculo.png";
+import CriarOficina from "../Image/criar oficina.png";
+import CriarCombustivel from "../Image/criar combustivel.png";
 
 export default function MainPage() {
   const handleLogout = () => {
@@ -52,31 +56,39 @@ export default function MainPage() {
 
       <View style={styles.container2}>
 
+      <View style={{ paddingTop: "10%" }} />
+
         <View>
           <Text style={styles.BigText}>Bem Vindo,</Text>
         </View>
         <View>
-          <Text style={styles.BigTextP}>Lebron<Text style={styles.BigTextW}>.</Text></Text>
+          <Text style={styles.BigTextO}>Jorge Jesus<Text style={styles.BigTextW}>.</Text></Text>
         </View>
 
-        <View style={{ paddingTop: "10%" }} />
+        <View style={{ paddingTop: "25%" }} />
 
         <View style={styles.textBoxContainer}>
-          <ScrollView>
-            <View style={styles.TextBox}>
-              <Text style={styles.BigTextLeft}>Nova Viatura</Text>
-            </View>
 
+            <TouchableOpacity>
+              <ImageBackground source={CriarTipoVeiculo} resizeMode="center" style={styles.button}>
+                <Text style={{color: "white", fontSize: 30, fontWeight: "bold"}}>Criar Tipo de</Text>
+                <Text style={{color: "white", fontSize: 30, fontWeight: "bold"}}>Viatura</Text>
+              </ImageBackground>
+            </TouchableOpacity>
 
-            <View style={styles.TextBox}>
-              <Text style={styles.BigTextLeft}>Nova Assistência</Text>
-            </View>
+            <TouchableOpacity>
+              <ImageBackground source={CriarOficina} resizeMode="center" style={styles.button}>
+                <Text style={{color: "white", fontSize: 30, fontWeight: "bold"}}>Criar Oficina</Text>
+              </ImageBackground>
+            </TouchableOpacity>
 
-            <View style={styles.TextBox}>
-              <Text style={styles.BigTextLeft}>Novo Evento</Text>
-            </View>
+            <TouchableOpacity>
+              <ImageBackground source={CriarCombustivel} resizeMode="center" style={styles.button}>
+                <Text style={{color: "white", fontSize: 30, fontWeight: "bold"}}>Criar Tipo de</Text>
+                <Text style={{color: "white", fontSize: 30, fontWeight: "bold"}}>Viatura</Text>
+              </ImageBackground>
+            </TouchableOpacity>
 
-          </ScrollView>
         </View>
 
       </View>
@@ -84,28 +96,28 @@ export default function MainPage() {
         <View style={styles.container3}>
 
           <View style={styles.imageContainer2}>
-            <TouchableOpacity onPress={handleLogout}>
+            <TouchableOpacity onPress={handleLogout} style={{marginLeft: "4%"}}>
               <View>
                 <Image source={Home} style={styles.logo2}/>
-                <Text style={{color: "#6D4EE5", fontWeight: "500"}}>Home</Text>
+                <Text style={{color: "#EC853B", fontWeight: "500",  fontSize: 11, marginTop: "5%"}}>Home</Text>
               </View>
             </TouchableOpacity>
             <TouchableOpacity onPress={handleLogout}>
               <View>
-                <Image source={Viaturas} style={styles.logo2} />
-                <Text style={{color: "#9F9BA8", fontWeight: "500"}}>Viaturas</Text>
+                <Image source={TipoViaturas} style={styles.logo2} />
+                <Text style={{color: "#9F9BA8", fontWeight: "500",  fontSize: 11, marginTop: "5%"}}>Tipos Viaturas</Text>
               </View>
             </TouchableOpacity>
             <TouchableOpacity onPress={handleLogout}>
               <View>
-                <Image source={Assistencias} style={styles.logo2} />
-                <Text style={{color: "#9F9BA8", fontWeight: "500", textAlign: 'center'}}>Assistências</Text>
+                <Image source={Oficinas} style={styles.logo2} />
+                <Text style={{color: "#9F9BA8", fontWeight: "500",  fontSize: 11, marginTop: "5%"}}>oficinas</Text>
               </View>
             </TouchableOpacity>
-            <TouchableOpacity onPress={handleLogout}>
+            <TouchableOpacity onPress={handleLogout} style={{marginRight: "2%"}}>
               <View>
-                <Image source={Eventos} style={styles.logo2} />
-                <Text style={{color: "#9F9BA8", fontWeight: "500"}}>Eventos</Text>
+                <Image source={Combustiveis} style={styles.logo2} />
+                <Text style={{color: "#9F9BA8", fontWeight: "500", fontSize: 11, marginTop: "5%"}}>Combustíveis</Text>
               </View>
             </TouchableOpacity>
           </View>
@@ -159,7 +171,7 @@ const styles = StyleSheet.create({
   imageContainer2: {
     flexDirection: "row",
     justifyContent: "space-between", 
-    paddingHorizontal: "5%",
+    paddingHorizontal: "4%",
   },
 
   logo: {
@@ -180,24 +192,20 @@ const styles = StyleSheet.create({
     width: 32,
     height: 32,
   },
-
-
   BigText: {
     color: "white",
     fontSize: 35,
     fontWeight: "bold",
     textAlign: "center",
   },
-
   BigTextLeft: {
     color: "white",
     fontSize: 25,
     fontWeight: "bold",
     textAlign: "left",
   },
-
-  BigTextP: {
-    color: "#6D4EE5",
+  BigTextO: {
+    color: "#EC853B",
     fontSize: 35,
     fontWeight: "bold",
     textAlign: "center",
@@ -220,4 +228,11 @@ const styles = StyleSheet.create({
     marginLeft: "5%",
     marginRight: "5%",
   },
+  button:{
+    color: "#9F9BA8",
+    paddingVertical: 30,
+    paddingHorizontal: 20,
+    marginLeft: "5%",
+    marginRight: "5%",
+  }
 });
