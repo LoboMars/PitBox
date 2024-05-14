@@ -18,8 +18,8 @@ import Tresp from '../Image/3P.png'
 
 export default function Oficinas() {
   const [data, setData] = useState([
-    { id: "1", name: "Los Santos" },
-    { id: "2", name: "D•T Precision Auto Sh..." },
+    { id: "1", name: "Los Santos", info: 'rio tinto tel:276584123' },
+    { id: "2", name: "D•T Precision Auto Sh...", info: 'Leiria tel:246852486' },
     
   ]);
   const handleLogout = () => {
@@ -63,7 +63,10 @@ export default function Oficinas() {
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <View style={styles.item}> 
+            <View style={styles.descriptionContainer}>
             <Text style={styles.itemText}>{item.name}</Text>
+            <Text style={styles.itemDescription}>{item.info}</Text>
+            </View>
             <TouchableOpacity onPress={info}>
             <Image source={Tresp} style={styles.logo3} />
             </TouchableOpacity>
@@ -98,8 +101,8 @@ export default function Oficinas() {
             <Text style={{color: "#9F9BA8", fontWeight: "500"}}>Eventos</Text>
           </View>
         </TouchableOpacity>
-</View>
-</View>
+        </View>
+        </View>
 
 
     </View>
@@ -178,12 +181,11 @@ const styles = StyleSheet.create({
   },
   container: {
     width: "100%",
-    height:'100%',
     flex: 1,
     backgroundColor: "#232427",
   },
   container3: {
-    flex: 1,
+    flex: 0.3,
     backgroundColor: "#1C1D21",
     justifyContent: 'center',
   },
@@ -213,5 +215,14 @@ const styles = StyleSheet.create({
     fontSize: 35,
     fontWeight: "bold",
     textAlign: "center",
+  },
+  descriptionContainer: {
+    marginTop: 5, 
+  },
+  itemDescription: {
+    color: "white",
+    fontSize: 14,
+    marginLeft: "5%",
+    width: 100,
   },
 });
