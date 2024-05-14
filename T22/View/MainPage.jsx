@@ -70,10 +70,10 @@ export default function MainPage() {
 
         <View style={styles.textBoxContainer}>
           <ScrollView>
-          <TouchableOpacity onPress={handleLogout}>
-            <View style={styles.TextBox}>
-              <Text style={styles.BigTextLeft}>Nova Viatura</Text>
-            </View>
+            <TouchableOpacity onPress={handleLogout}>
+              <View style={styles.TextBox}>
+                <Text style={styles.BigTextLeft}>Nova Viatura</Text>
+              </View>
             </TouchableOpacity>
 
             <TouchableOpacity onPress={handleLogout}>

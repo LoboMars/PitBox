@@ -65,28 +65,26 @@ export default function MainPage() {
           <Text style={styles.BigTextO}>Jorge Jesus<Text style={styles.BigTextW}>.</Text></Text>
         </View>
 
-        <View style={{ paddingTop: "25%" }} />
+        <View style={{ paddingTop: "10%" }} />
 
         <View style={styles.textBoxContainer}>
 
-            <TouchableOpacity>
-              <ImageBackground source={CriarTipoVeiculo} resizeMode="center" style={styles.button}>
-                <Text style={{color: "white", fontSize: 30, fontWeight: "bold"}}>Criar Tipo de</Text>
-                <Text style={{color: "white", fontSize: 30, fontWeight: "bold"}}>Viatura</Text>
-              </ImageBackground>
+            <TouchableOpacity onPress={handleLogout}>
+              <View style={styles.TextBox}>
+                <Text style={styles.BigTextLeft}>Criar Tipo de Viatura</Text>
+              </View>
             </TouchableOpacity>
 
-            <TouchableOpacity>
-              <ImageBackground source={CriarOficina} resizeMode="center" style={styles.button}>
-                <Text style={{color: "white", fontSize: 30, fontWeight: "bold"}}>Criar Oficina</Text>
-              </ImageBackground>
+            <TouchableOpacity onPress={handleLogout}>
+              <View style={styles.TextBox}>
+                <Text style={styles.BigTextLeft}>Criar Oficina</Text>
+              </View>
             </TouchableOpacity>
 
-            <TouchableOpacity>
-              <ImageBackground source={CriarCombustivel} resizeMode="center" style={styles.button}>
-                <Text style={{color: "white", fontSize: 30, fontWeight: "bold"}}>Criar Tipo de</Text>
-                <Text style={{color: "white", fontSize: 30, fontWeight: "bold"}}>Viatura</Text>
-              </ImageBackground>
+            <TouchableOpacity onPress={handleLogout}>
+              <View style={styles.TextBox}>
+                <Text style={styles.BigTextLeft}>Criar Combustível</Text>
+              </View>
             </TouchableOpacity>
 
         </View>
