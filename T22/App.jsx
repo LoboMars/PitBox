@@ -34,11 +34,7 @@ import AdminMainPage from './View/AdminMainPage';
 export default function App() {
   return (
     <View style={styles.container}>
-<<<<<<< HEAD
        <DetalhesOfinias/>
-=======
-       <AdminMainPage/>
->>>>>>> 1b19c4b4d58e562694dee710fdc294e23a9c29ee
       <StatusBar style="auto" />
     </View>
   );
