@@ -15,7 +15,7 @@ import LogOut from "../Image/LogOut.png";
 import Combustiveis from '../Image/combustivel.png';
 import Home from '../Image/HomeAD.png';
 import TipoViaturas from '../Image/cad.png';
-import Oficinas from '../Image/oficina.png'
+import Oficinas from '../Image/OficinaIcon.png'
 import CriarTipoVeiculo from "../Image/Criar Tipo Veiculo.png";
 import CriarOficina from "../Image/criar oficina.png";
 import CriarCombustivel from "../Image/criar combustivel.png";
