@@ -37,7 +37,7 @@ export default function Viatura() {
     <View style={styles.container}>  
     <ScrollView > 
           <View style={styles.container1}>
-            <View style={{ marginTop: "5%" }}/>
+            <View style={{ marginTop: "14%" }}/>
             <Text style={styles.BigText}>As suas Viatura</Text>
             <View style={{ marginTop: "5%" }}/>
             <View style={styles.line} />
@@ -79,16 +79,16 @@ export default function Viatura() {
               <View style={{ marginTop: "4%" }}/>
 
             <View style={styles.imageContainer}>
-              <TouchableOpacity onPress={handleHome} style={{paddingLeft:'5%'}}>
+              <TouchableOpacity onPress={handleHome} style={{paddingLeft:'4%'}}>
                 <Image source={Home} style={styles.logo2} />
               </TouchableOpacity>
               <TouchableOpacity onPress={handleViatura}>
                 <Image source={Viaturas} style={styles.logo2} />
               </TouchableOpacity>
-              <TouchableOpacity onPress={handleAssistencias} style={{paddingLeft:'5%'}}>
+              <TouchableOpacity onPress={handleAssistencias} style={{paddingLeft:'2%'}}>
                 <Image source={Assistencias} style={styles.logo2} />
               </TouchableOpacity>
-              <TouchableOpacity onPress={handleEventos}>
+              <TouchableOpacity onPress={handleEventos} style={{paddingRight:'3%'}}>
                 <Image source={Eventos} style={styles.logo2} />
               </TouchableOpacity>
             </View>
@@ -215,8 +215,8 @@ const styles = StyleSheet.create({
   },
 
   logo2: {
-    width: 65,
-    height: 65,
+    width: 45,
+    height: 45,
   },
 
   imageContainer: {

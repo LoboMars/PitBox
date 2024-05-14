@@ -22,14 +22,14 @@ import DetalhesAssistencia from './View/DetalhesAssistencias';
 import DetalhesQuotodiano from './View/DetalhesQuotidiano';
 import EditarPerfil from './View/EditarPerfil';
 import Viatura from './View/Viaturas';
-import Tipoviatura from './View/AdminTipoviatura';
+import Tipoviatura from './View/AdminTipoviatura';      //melhorar
 import Tipocombustivel from './View/AdminTipoCombustiveis';
 import Oficinas from './View/AdminOficinas';
 import EliminarViatura from './View/ElimirarViatura';
 import EliminarAssistencia from './View/EliminarAssistencia';
 import EliminarEvento from './View/EliminarEvento';
 import DetalhesOficinas from './View/AdminDetalhesOficina';
-import AdminMainPage from './View/AdminMainPage';
+import AdminMainPage from './View/AdminMainPage';               //Alterar  
 import EliminarTipo from './View/AdminEliminarTipo';
 import EliminarOficina from './View/AdminiEliminarOficina';
 import EliminarCombustivel from './View/AdminEliminarCombustivel';
@@ -39,7 +39,7 @@ import AdminEditarPerfil from './View/AdminEditarPerfil';
 export default function App() {
   return (
     <View style={styles.container}>
-      <AdminEditarPerfil/>
+      <Tipoviatura/>
       <StatusBar style="auto" />
     </View>
   );
