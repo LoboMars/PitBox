@@ -17,13 +17,13 @@ import adicionar from '../Image/Adicionar.png';
 import Tresp from '../Image/3P.png'
 
 import { collection, query, where, getDocs } from "firebase/firestore";
-import { db } from “./firebase.config";
+import { db } from "./firebase.config";
 
 
 export default function Oficinas() {
   const [data, setData] = useState([]);
 
-  const getdata = async =>{
+  const getdata = async _  =>{
     const post = collection(db, "tabela");
     const postSnapshot = await getDocs (post);
     const postList = postSnapshot.docs.map(doc => doc.data());
