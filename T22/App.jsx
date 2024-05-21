@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import OScreen from './View/OScreen';
 import Login from './View/Login';
-import Register from './View/Register';           //problema
+import Register from './View/Register';           
 import RegistarQuotidino from './View/RegistarQuotidiano'
 import RegistarAssistencia from './View/RegistarAssistencia';
 import RegistarViatura from './View/RegistarViatura';

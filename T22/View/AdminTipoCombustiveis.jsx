@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#9F9BA8",
     borderRadius: 15,
-    paddingHorizontal: 5,
+    paddingHorizontal: 15,
     paddingVertical: 15,
     marginBottom: 20,
     width: "85%",
@@ -243,7 +243,7 @@ const styles = StyleSheet.create({
   Adicionar: {
     width:'95%',
     color: '#383343',
-    borderColor: '#6D4EE5',
+    borderColor: '#EC853B',
     borderWidth: 4,
     borderRadius: 15,
     paddingVertical: 35,
