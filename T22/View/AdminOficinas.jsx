@@ -43,7 +43,7 @@ export default function Oficinas() {
     console.log("Editar item com ID:", id);
   };
 
-  const filteredData = data.filter((item) =>
+  const filteredData = getdata.filter((item) =>
     item.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
