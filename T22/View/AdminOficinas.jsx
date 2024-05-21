@@ -16,12 +16,19 @@ import Combustiveis from '../Image/combustivel.png';
 import adicionar from '../Image/Adicionar.png';
 import Tresp from '../Image/3P.png'
 
+import { collection, query, where, getDocs } from "firebase/firestore";
+import { db } from “./firebase.config";
+
+
 export default function Oficinas() {
-  const [data, setData] = useState([
-    { id: "1", name: "Los Santos", info: 'rio tinto tel:276584123' },
-    { id: "2", name: "D•T Precision Auto Sh...", info: 'Leiria tel:246852486' },
-    
-  ]);
+  const [data, setData] = useState([]);
+
+  const getdata = async =>{
+    const post = collection(db, "tabela");
+    const postSnapshot = await getDocs (post);
+    const postList = postSnapshot.docs.map(doc => doc.data());
+    setPost(postList);
+  }
   const handleLogout = () => {
     alert("Logout button pressed!");
   };

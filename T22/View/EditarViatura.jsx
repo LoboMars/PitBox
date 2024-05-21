@@ -12,7 +12,7 @@ import {
 } from "react-native";
 
 
-export default function EditarAssistencia() {
+export default function EditarViatura() {
   return (
 
     <View style={styles.container}>
