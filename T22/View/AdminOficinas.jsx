@@ -1,58 +1,48 @@
-import React, { forwardRef, useState } from "react";
-import { View, 
-  FlatList, 
-  StyleSheet, 
-  Text, 
-  TextInput, 
-  TouchableOpacity, 
-  ScrollView,
-  Image,
-} from "react-native";
-import carPurple from "../Image/carPurple.png";
+import React, { useState, useEffect } from "react";
+import { View, FlatList, StyleSheet, Text, TextInput, TouchableOpacity, ScrollView, Image } from "react-native";
 import Home from '../Image/homeUnselected.png';
 import TipoViaturas from '../Image/cad.png';
-import Oficina from '../Image/oficinaOrange 1.png'
+import Oficina from '../Image/oficinaOrange 1.png';
 import Combustiveis from '../Image/combustivel.png';
 import adicionar from '../Image/Adicionar.png';
-import Tresp from '../Image/3P.png'
-
-import { collection, query, where, getDocs } from "firebase/firestore";
-import { db } from "./firebase.config";
-
+import Tresp from '../Image/3P.png';
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../firebase.config"; 
 
 export default function Oficinas() {
   const [data, setData] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
-  const getdata = async _  =>{
-    const post = collection(db, "tabela");
-    const postSnapshot = await getDocs (post);
-    const postList = postSnapshot.docs.map(doc => doc.data());
-    setPost(postList);
-  }
+  useEffect(() => {
+    const getData = async () => {
+      const postCollection = collection(db, "oficina");
+      const postSnapshot = await getDocs(postCollection);
+      const postList = postSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      setData(postList);
+    };
+    getData();
+  }, []);
+
   const handleLogout = () => {
     alert("Logout button pressed!");
   };
+
   const info = () => {
     alert("bla bla bla");
   };
 
-  const [searchTerm, setSearchTerm] = useState("");
-
   const handleEdit = (id) => {
-    // Lógica para editar o item com o ID fornecido
     console.log("Editar item com ID:", id);
   };
 
-  const filteredData = getdata.filter((item) =>
-    item.name.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredData = data.filter((item) =>
+    (item.nome ? item.nome.toLowerCase().includes(searchTerm.toLowerCase()) : false)
   );
 
   return (
     <View style={styles.container}>
-
-      <Text style={[styles.BigText,{marginTop: 30}]}>Oficinas</Text>
-      
-      <View style={{ marginTop: "5%" }}/>
+      <Text style={[styles.BigText, { marginTop: 30 }]}>Oficinas</Text>
+      <View style={{ marginTop: "5%" }} />
       <View style={styles.line} />
       <TextInput
         style={styles.searchBar}
@@ -61,85 +51,79 @@ export default function Oficinas() {
         onChangeText={(text) => setSearchTerm(text)}
         value={searchTerm}
       />
-      <ScrollView  contentContainerStyle={styles.scrollView}>
-      
-      <FlatList
-        style={styles.flatList}
-        contentContainerStyle={styles.flatListContent}
-        data={filteredData}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <View style={styles.item}> 
-            <View style={styles.descriptionContainer}>
-            <Text style={styles.itemText}>{item.name}</Text>
-            <Text style={styles.itemDescription}>{item.info}</Text>
+      <ScrollView contentContainerStyle={styles.scrollView}>
+        <FlatList
+          style={styles.flatList}
+          contentContainerStyle={styles.flatListContent}
+          data={filteredData}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => (
+            <View style={styles.item}>
+              <View style={styles.descriptionContainer}>
+                <Text style={styles.itemText}>{item.nome}</Text>
+                <Text style={styles.itemDescription}>{item.morada}</Text>
+                <Text style={styles.itemDescription}>{item.telemovel}</Text>
+              </View>
+              <TouchableOpacity onPress={info}>
+                <Image source={Tresp} style={styles.logo3} />
+              </TouchableOpacity>
             </View>
-            <TouchableOpacity onPress={info}>
-            <Image source={Tresp} style={styles.logo3} />
-            </TouchableOpacity>
+          )}
+        />
+        <TouchableOpacity>
+          <View style={styles.Adicionar}>
+            <Image source={adicionar} style={styles.logo3} />
           </View>
-        )}
-      />
-      <TouchableOpacity>
-        <View style={styles.Adicionar}>
-        <Image source={adicionar} style={styles.logo3} />
-        </View>
-      </TouchableOpacity>
+        </TouchableOpacity>
       </ScrollView>
-    <View style={styles.container3}>
-
-      <View style={styles.imageContainer2}>
-        <TouchableOpacity onPress={handleLogout}>
-          <View>
-            <Image source={Home} style={styles.logo2}/>
-            <Text style={{color: "#9F9BA8", fontWeight: "500"}}>Home</Text>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={handleLogout}>
-          <View>
-            <Image source={TipoViaturas} style={styles.logo2} />
-            <Text style={{color: "#9F9BA8", fontWeight: "500"}}>Tipo Viatura</Text>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={handleLogout}>
-          <View>
-            <Image source={Oficina} style={styles.logo2} />
-            <Text style={{color: "#EC853B", fontWeight: "500", textAlign: 'center'}}>Oficina</Text>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={handleLogout}>
-          <View>
-            <Image source={Combustiveis} style={styles.logo2} />
-            <Text style={{color: "#9F9BA8", fontWeight: "500"}}>Combustível</Text>
-          </View>
-        </TouchableOpacity>
+      <View style={styles.container3}>
+        <View style={styles.imageContainer2}>
+          <TouchableOpacity onPress={handleLogout}>
+            <View>
+              <Image source={Home} style={styles.logo2} />
+              <Text style={{ color: "#9F9BA8", fontWeight: "500" }}>Home</Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={handleLogout}>
+            <View>
+              <Image source={TipoViaturas} style={styles.logo2} />
+              <Text style={{ color: "#9F9BA8", fontWeight: "500" }}>Tipo Viatura</Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={handleLogout}>
+            <View>
+              <Image source={Oficina} style={styles.logo2} />
+              <Text style={{ color: "#EC853B", fontWeight: "500", textAlign: 'center' }}>Oficina</Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={handleLogout}>
+            <View>
+              <Image source={Combustiveis} style={styles.logo2} />
+              <Text style={{ color: "#9F9BA8", fontWeight: "500" }}>Combustível</Text>
+            </View>
+          </TouchableOpacity>
         </View>
-        </View>
-
-
+      </View>
     </View>
-       
   );
 }
 
 const styles = StyleSheet.create({
   scrollView: {
-    paddingTop: '5%', 
+    paddingTop: '5%',
   },
   container: {
     flex: 1,
     backgroundColor: "#2D2A2F",
-    //alignItems: "center",
     justifyContent: "center",
     width: "100%",
     paddingTop: 20,
-    //marginTop: "5%"
   },
   BigText: {
     color: "white",
     fontSize: 30,
     fontWeight: "bold",
-    textAlign:"center",
+    textAlign: "center",
   },
   line: {
     backgroundColor: "#EC853B",
@@ -157,44 +141,31 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     marginBottom: 20,
     width: "85%",
-    alignSelf: "center", // Centraliza a barra de pesquisa
+    alignSelf: "center",
   },
   flatList: {
-    width: "100%", // Ajusta a largura da FlatList para ocupar toda a tela
+    width: "100%",
   },
   flatListContent: {
     justifyContent: "flex-start",
-    width:"100%",
-    //backgroundColor:"1C1D21",
+    width: "100%",
   },
   item: {
     backgroundColor: "#1C1D21",
     padding: 27,
     marginBottom: 10,
     borderRadius: 15,
-    width: "90%", // Ajusta a largura dos itens da lista para ocupar toda a tela
+    width: "90%",
     flexDirection: "row",
-    justifyContent:"space-between",
+    justifyContent: "space-between",
     alignItems: "center",
-    marginLeft:"5%",
-  
+    marginLeft: "5%",
   },
   itemText: {
     color: "white",
     fontSize: 18,
     fontWeight: "bold",
-    marginLeft:"5%"
-  },
-  icon: {
-    width: "15%",
-    height: "100%",
-    marginLeft: "0%",
-    marginTop: "1%",
-  },
-  container: {
-    width: "100%",
-    flex: 1,
-    backgroundColor: "#232427",
+    marginLeft: "5%",
   },
   container3: {
     flex: 0.5,
@@ -203,7 +174,7 @@ const styles = StyleSheet.create({
   },
   imageContainer2: {
     flexDirection: "row",
-    justifyContent: "space-between", 
+    justifyContent: "space-between",
     paddingHorizontal: "5%",
   },
   logo2: {
@@ -229,7 +200,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   descriptionContainer: {
-    marginTop: 5, 
+    marginTop: 5,
   },
   itemDescription: {
     color: "white",
@@ -238,7 +209,7 @@ const styles = StyleSheet.create({
     width: 100,
   },
   Adicionar: {
-    width:'90%',
+    width: '90%',
     color: '#383343',
     borderColor: '#EC853B',
     borderWidth: 4,
@@ -248,11 +219,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     textAlign: 'center',
-    alignSelf: "center"
-  },
-  logo3: {
-    alignSelf: 'center',
-    width: 42,
-    height: 42,
+    alignSelf: "center",
   },
 });
