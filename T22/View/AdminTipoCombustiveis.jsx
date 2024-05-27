@@ -1,4 +1,4 @@
-import React, { forwardRef, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { View, 
   FlatList, 
   StyleSheet, 
@@ -16,25 +16,34 @@ import Edit from '../Image/editarAdmin.png'
 import apagar from '../Image/Apagar.png'
 import adicionar from '../Image/Adicionar.png';
 import Gota from '../Image/combustivelLaranja.png';
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../firebase.config"; 
 
 export default function Tipocombustivel() {
-  const [data, setData] = useState([
-    { id: "1", name: "Hidrogénio", info:'Renovavel'},
-    { id: "2", name: "Gasóleo colorido",info:'Fossil'},
-    { id: "3", name: "Gasolina", info:'Fossil' },
-  ]);
+  const [data, setData] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  useEffect(() => {
+    const getData = async () => {
+      const postCollection = collection(db, "tipocobustives");
+      const postSnapshot = await getDocs(postCollection);
+      const postList = postSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      console.log(postList); // Adicione esta linha para depurar
+      setData(postList);
+    };
+    getData();
+  }, []);
+
+
   const handleLogout = () => {
     alert("Logout button pressed!");
   };
-  const info = () => {
-    alert("bla bla bla");
+  const info = (infoText) => {
+    alert(infoText);
   };
 
-  const [searchTerm, setSearchTerm] = useState("");
-
-
   const filteredData = data.filter((item) =>
-    item.name.toLowerCase().includes(searchTerm.toLowerCase())
+    (item.nome?.toLowerCase() || "").includes(searchTerm.toLowerCase())
   );
 
   return (
@@ -61,11 +70,11 @@ export default function Tipocombustivel() {
         renderItem={({ item }) => (
           <View style={styles.item}>
             <View style={styles.descriptionContainer}>
-            <Text style={styles.itemText}>{item.name}</Text>
+            <Text style={styles.itemText}>{item.nome}</Text>
             <Text style={styles.itemDescription}>{item.info}</Text>
             </View>
             <View style={styles.buttonContainer}>
-            <TouchableOpacity onPress={info}>
+            <TouchableOpacity onPress={() => info(item.info)}>
             <Image source={Edit} style={styles.logo4} />
             </TouchableOpacity>
             <TouchableOpacity>
