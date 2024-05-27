@@ -9,7 +9,7 @@ import {
   ScrollView,
   TextInput,
 } from "react-native";
-import IconUpload from '../Image/upload.png'
+//import IconUpload from 'C:\Users\andre\OneDrive\Ambiente de Trabalho\T22\t22\Image'
 
 export default function CriarViatura() {
   return (
