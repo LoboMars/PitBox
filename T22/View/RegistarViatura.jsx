@@ -1,4 +1,7 @@
 import { StatusBar } from "expo-status-bar";
+import React, { forwardRef, useState, useEffect } from "react";
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, addDoc } from "firebase/firestore";
 import {
   StyleSheet,
   Text,
@@ -11,147 +14,158 @@ import {
   inputValue,
 } from "react-native";
 
+const firebaseConfig = {
+  apiKey: "AIzaSyD7uWXmn3g-xHnnlnNvFnLYZy9VuL3jNAE",
+  authDomain: "dmt22-42830.firebaseapp.com",
+  databaseURL: "https://dmt22-42830-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "dmt22-42830",
+  storageBucket: "dmt22-42830.appspot.com",
+  messagingSenderId: "783747663389",
+  appId: "1:783747663389:web:96b563107c020626d3a8f4",
+  measurementId: "G-HLP5HY5LYZ"
+};
+
+
+const app = initializeApp(firebaseConfig);
+
+const db = getFirestore(app);
+
 
 export default function RegistarViatura() {
+  const [Marca, setMarca] = useState('');
+  const [Modelo, setModelo] = useState('');
+  const [Matricula, setMatricula] = useState('');
+  const [Tipo_Viatura, setTipo_Viatura] = useState('');
+  const [Data_fabrico, setData_fabrico] = useState('');
+  const [Combustivel, setCombustivel] = useState('');
+  const [Cor, setCor] = useState('');
+
+  const registerCar = async () => {
+    try {
+      await addDoc(collection(db, "viatura"), {
+        Marca,
+        Modelo,
+        Matricula,
+        Tipo_Viatura,
+        Data_fabrico,
+        Combustivel,
+        Cor,
+      });
+      console.log('Car registered successfully!');
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
+  };
+
   return (
-
     <View style={styles.container}>
-
       <View style={styles.header}>
-
         <Text style={styles.BigText}>Registar Viatura</Text>
-
         <View style={{ marginTop: "5%" }} />
         <View style={styles.line} />
-
       </View>
-
 
       <View style={styles.content}>
-
         <ScrollView>
-
-        <View style={{ paddingTop: "5%" }} />
-
-
-        <View style={styles.textBoxContainer}>
-        <Text style={styles.smallText}>Tipo de Viatura:</Text>
-      </View>
-
-      <View style={styles.textBoxContainer}>
-      <TextInput 
-        style={styles.TextBox}
-        placeholder="-Escolher-"
-        placeholderTextColor={"#9F9BA8"}
-        />
-      </View>
-
-      <View style={{ marginTop: "5%" }} />
-
-      <View style={styles.textBoxContainer}>
-        <Text style={styles.smallText}>Informação sobre a Viatura:</Text>
-      </View>
-
-      <View style={styles.textBoxContainer}>
-      <TextInput 
-        style={styles.TextBox}
-        placeholder="Marca"
-        placeholderTextColor={"#9F9BA8"}
-        />
-
-        <TextInput 
-        style={styles.TextBox}
-        placeholder="Modelo"
-        placeholderTextColor={"#9F9BA8"}
-        />
-      </View>
-
-      <View style={{ marginTop: "5%" }} />
-
-      <View style={styles.textBoxContainer}>
-        <View style={{flexDirection:'row'}}>
-          <Text style={styles.smallText}>Data de Fabrico:</Text>
-          <View style={{marginHorizontal: '5%'}} />
-          <Text style={styles.smallText}>Matricula:</Text>
-        </View>
-      </View>
-
-      <View style={styles.textBoxContainer}>
-        <View style={{flexDirection:'row'}}>
-        <TextInput 
-        style={styles.SmallTextBox}
-        placeholder="DD/MM/YYYY"
-        placeholderTextColor={"#9F9BA8"}
-        />
-
-          <View style={{marginHorizontal: '5%'}} />
-
-        <TextInput 
-        style={styles.SmallTextBox}
-        placeholder="##-##-##"
-        placeholderTextColor={"#9F9BA8"}
-        />
-        </View>
-      </View>
-
-      <View style={{ marginTop: "5%" }} />
-
-
-
-      <View style={{ marginTop: "5%" }} />
-
-      <View style={styles.textBoxContainer}>
-        <Text style={styles.smallText}>Cor da Viatura:</Text>
-      </View>
-
-      <View style={styles.textBoxContainer}>
-      <TextInput 
-        style={styles.TextBox}
-        placeholder="Cor"
-        placeholderTextColor={"#9F9BA8"}
-        />
-      </View>
-
-      <View style={{ marginTop: "5%" }} />
-
-      <View style={styles.textBoxContainer}>
-        <Text style={styles.smallText}>Combustivel:</Text>
-      </View>
-
-      <View style={styles.textBoxContainer}>
-        <TextInput 
-        style={styles.TextBox}
-        placeholder="-Escolher-"
-        placeholderTextColor={"#9F9BA8"}
-        />
-      </View>
-
-      <View style={{ marginBottom: "5%" }} />
-      
+          <View style={{ paddingTop: "5%" }} />
+          <View style={styles.textBoxContainer}>
+            <Text style={styles.smallText}>Tipo de Viatura:</Text>
+            <TextInput
+              style={styles.TextBox}
+              placeholder="-Escolher-"
+              placeholderTextColor={"#9F9BA8"}
+              value={Tipo_Viatura}
+              onChangeText={setTipo_Viatura}
+            />
+          </View>
+          <View style={{ marginTop: "5%" }} />
+          <View style={styles.textBoxContainer}>
+            <Text style={styles.smallText}>Informação sobre a Viatura:</Text>
+            <TextInput
+              style={styles.TextBox}
+              placeholder="Marca"
+              placeholderTextColor={"#9F9BA8"}
+              value={Marca}
+              onChangeText={setMarca}
+            />
+            <TextInput
+              style={styles.TextBox}
+              placeholder="Modelo"
+              placeholderTextColor={"#9F9BA8"}
+              value={Modelo}
+              onChangeText={setModelo}
+            />
+          </View>
+          <View style={{ marginTop: "5%" }} />
+          <View style={styles.textBoxContainer}>
+            <View style={{ flexDirection: 'row' }}>
+              <Text style={styles.smallText}>Data de Fabrico:</Text>
+              <View style={{ marginHorizontal: '5%' }} />
+              <Text style={styles.smallText}>Matricula:</Text>
+            </View>
+          </View>
+          <View style={styles.textBoxContainer}>
+            <View style={{ flexDirection: 'row' }}>
+              <TextInput
+                style={styles.SmallTextBox}
+                placeholder="DD/MM/YYYY"
+                placeholderTextColor={"#9F9BA8"}
+                value={Data_fabrico}
+                onChangeText={setData_fabrico}
+              />
+              <View style={{ marginHorizontal: '5%' }} />
+              <TextInput
+                style={styles.SmallTextBox}
+                placeholder="##-##-##"
+                placeholderTextColor={"#9F9BA8"}
+                value={Matricula}
+                onChangeText={setMatricula}
+              />
+            </View>
+          </View>
+          <View style={{ marginTop: "5%" }} />
+          <View style={styles.textBoxContainer}>
+            <Text style={styles.smallText}>Cor da Viatura:</Text>
+            <TextInput
+              style={styles.TextBox}
+              placeholder="Cor"
+              placeholderTextColor={"#9F9BA8"}
+              value={Cor}
+              onChangeText={setCor}
+            />
+          </View>
+          <View style={{ marginTop: "5%" }} />
+          <View style={styles.textBoxContainer}>
+            <Text style={styles.smallText}>Combustivel:</Text>
+            <TextInput
+              style={styles.TextBox}
+              placeholder="-Escolher-"
+              placeholderTextColor={"#9F9BA8"}
+              value={Combustivel}
+              onChangeText={setCombustivel}
+            />
+          </View>
+          <View style={{ marginBottom: "5%" }} />
         </ScrollView>
       </View>
 
       <View style={styles.footer}>
-
         <View style={styles.line} />
-
-        <TouchableOpacity>
+        <TouchableOpacity onPress={registerCar}>
           <View style={styles.textBoxContainer}>
             <Text style={styles.BTNpurple}>Registar</Text>
           </View>
         </TouchableOpacity>
-
         <TouchableOpacity>
           <View style={styles.textBoxContainer}>
             <Text style={styles.Cancelar}>Cancelar</Text>
           </View>
         </TouchableOpacity>
-
       </View>
-
     </View>
   );
 }
+
 
 const styles = StyleSheet.create({
   header: {

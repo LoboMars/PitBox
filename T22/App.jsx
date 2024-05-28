@@ -37,11 +37,11 @@ import Seuseventos from './View/Osseuseventos';
 import AsSuasAssistencias from './View/AssuasAssistencias';
 
 
+
 export default function App() {
   return (
     <View style={styles.container}>
-      <Seuseventos/>
-      //test
+      <RegistarAssistencia/>
       <StatusBar style="auto" />
     </View>
   );

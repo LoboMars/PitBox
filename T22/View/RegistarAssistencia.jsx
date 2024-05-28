@@ -1,4 +1,7 @@
 import { StatusBar } from "expo-status-bar";
+import React, { forwardRef, useState, useEffect } from "react";
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, addDoc } from "firebase/firestore";
 import {
   StyleSheet,
   Text,
@@ -11,8 +14,51 @@ import {
   inputValue,
 } from "react-native";
 
+const firebaseConfig = {
+  apiKey: "AIzaSyD7uWXmn3g-xHnnlnNvFnLYZy9VuL3jNAE",
+  authDomain: "dmt22-42830.firebaseapp.com",
+  databaseURL: "https://dmt22-42830-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "dmt22-42830",
+  storageBucket: "dmt22-42830.appspot.com",
+  messagingSenderId: "783747663389",
+  appId: "1:783747663389:web:96b563107c020626d3a8f4",
+  measurementId: "G-HLP5HY5LYZ"
+};
+
+
+const app = initializeApp(firebaseConfig);
+
+const db = getFirestore(app);
+
+
+
 
 export default function EditarAssistencia() {
+  const [Data, setData] = useState('');
+  const [Detalhe_mais, setDetalhe_mais] = useState('');
+  const [Detalhes, setDetalhes] = useState('');
+  const [Fatura_Valor, setFatura_Valor] = useState('');
+  const [Oficina, setOficina] = useState('');
+  const [Tipo, setTipo] = useState('');
+  const [Viatura, setViatura] = useState('');
+
+  const registerAssistencia = async () => {
+    try {
+      await addDoc(collection(db, "Assistencias"), {
+        Data,
+        Detalhe_mais,
+        Detalhes,
+        Fatura_Valor,
+        Oficina,
+        Tipo,
+        Viatura,
+      });
+      console.log('Car registered successfully!');
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
+  };
+
   return (
 
     <View style={styles.container}>
@@ -41,7 +87,10 @@ export default function EditarAssistencia() {
             <TextInput
               style={styles.TextBox}
               placeholder="-Escolher-"
-              placeholderTextColor="#9F9BA8" />
+              placeholderTextColor="#9F9BA8" 
+              value={Viatura}
+              onChangeText={setViatura}
+              />
           </View>
 
           <View style={{ marginTop: "5%" }} />
@@ -54,7 +103,10 @@ export default function EditarAssistencia() {
             <TextInput
               style={styles.TextBox} // Estilo para o TextInput
               placeholder="-Escolher-"
-              placeholderTextColor="#9F9BA8" />
+              placeholderTextColor="#9F9BA8"
+              value={Oficina}
+              onChangeText={setOficina}
+              />
           </View>
 
           <View style={{ marginTop: "5%" }} />
@@ -67,7 +119,10 @@ export default function EditarAssistencia() {
             <TextInput
               style={styles.TextBox}
               placeholder="DD/MM/YYYY"
-              placeholderTextColor="#9F9BA8" />
+              placeholderTextColor="#9F9BA8" 
+              value={Data}
+              onChangeText={setData}
+              />
           </View>
 
           <View style={{ marginTop: "5%" }} />
@@ -82,7 +137,10 @@ export default function EditarAssistencia() {
                 placeholder="00.00€"
                 placeholderTextColor="#9F9BA8"
                 keyboardType="numeric"
-                mask="$[999999]" />
+                mask="$[999999]" 
+                value={Fatura_Valor}
+                onChangeText={setFatura_Valor}
+                />
             </View>
 
             <View style={{ marginTop: "5%" }} />
@@ -95,12 +153,18 @@ export default function EditarAssistencia() {
               <TextInput
                 style={styles.TextBox} // Estilo para o TextInput
                 placeholder="Tipo de Assistência"
-                placeholderTextColor="#9F9BA8" />
+                placeholderTextColor="#9F9BA8"
+                value={Detalhes}
+                onChangeText={setDetalhes}
+                 />
               <TextInput
                 style={styles.BigTextBox} // Estilo para o TextInput
                 placeholder="..."
                 placeholderTextColor="#9F9BA8"
-                multiline={true} />
+                multiline={true}
+                value={Detalhe_mais}
+                onChangeText={setDetalhe_mais} 
+                />
             </View>
 
           </View>
@@ -113,8 +177,8 @@ export default function EditarAssistencia() {
 
         <View style={styles.line} />
 
-        <TouchableOpacity>
-          <View style={styles.textBoxContainer}>
+        <TouchableOpacity onPress={registerAssistencia}>
+          <View style={styles.textBoxContainer} >
             <Text style={styles.BTNpurple}>Registar</Text>
           </View>
         </TouchableOpacity>
