@@ -40,7 +40,7 @@ import AsSuasAssistencias from './View/AssuasAssistencias';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Suasviaturas/>
+      <Seuseventos/>
       <StatusBar style="auto" />
     </View>
   );
