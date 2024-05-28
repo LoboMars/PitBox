@@ -1,4 +1,4 @@
-import React, { forwardRef, useState } from "react";
+import React, { forwardRef, useState,useEffect } from "react";
 import { View, 
   FlatList, 
   StyleSheet, 
@@ -14,15 +14,24 @@ import Home from '../Image/homeUnselected.png';
 import Viaturas from '../Image/Viaturas.png';
 import Assistencias from '../Image/assistencia.png';
 import Tresp from '../Image/3P.png';
-import adicionar from '../Image/Adicionar.png'
+import adicionar from '../Image/Adicionar.png';
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../firebase.config"; 
 
 
 export default function AsSuasAssistencias() {
-  const [data, setData] = useState([
-    { id: "1", name: "Renault Clio", info:'Avaria  - 600$', tipo:'Carro' },
-    { id: "2", name: "Ferrari 458..." ,info:'Revisão Periódica  -  420,00€', tipo:'Carro' },
+  const [data, setData] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
-  ]);
+  useEffect(() => {
+    const getData = async () => {
+      const postCollection = collection(db, "Assistencias");
+      const postSnapshot = await getDocs(postCollection);
+      const postList = postSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      setData(postList);
+    };
+    getData();
+  }, []);
   const handleLogout = () => {
     alert("Logout button pressed!");
   };
@@ -30,13 +39,11 @@ export default function AsSuasAssistencias() {
     alert("bla bla bla");
   };
 
-  const [searchTerm, setSearchTerm] = useState("");
-
-
 
   const filteredData = data.filter((item) =>
-    item.name.toLowerCase().includes(searchTerm.toLowerCase())
+    item.Viatura.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
   const handleButton1 = () => {
     setSearchTerm("Renault");
   };
@@ -94,8 +101,8 @@ export default function AsSuasAssistencias() {
              <Image source={carPurple} style={styles.icon} />
              <View style={styles.itemContent}>
             <View style={styles.descriptionContainer}>
-            <Text style={styles.itemText}>{item.name}</Text>
-            <Text style={styles.itemDescription}>{item.info}</Text>
+            <Text style={styles.itemText}>{item.Viatura}</Text>
+            <Text style={styles.itemDescription}>{item.Detalhes}</Text>
             </View>
             </View>
             <TouchableOpacity onPress={info} style={styles.buttonn}>

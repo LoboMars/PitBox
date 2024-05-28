@@ -1,4 +1,4 @@
-import React, { forwardRef, useState } from "react";
+import React, { forwardRef, useState, useEffect } from "react";
 import { View, 
   FlatList, 
   StyleSheet, 
@@ -13,16 +13,27 @@ import Eventos from '../Image/eventospintado.png';
 import Home from '../Image/homeUnselected.png';
 import Viaturas from '../Image/Viaturas.png';
 import Assistencias from '../Image/Assistencias.png';
-import Tresp from '../Image/3P.png'
+import Tresp from '../Image/3P.png';
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../firebase.config"; 
 
 
 export default function Seuseventos() {
-  const [data, setData] = useState([
-    { id: "1", name: "Bragança -> Mirandela", info:'Viagem Média  -  62 Km' },
-    { id: "1", name: "Mirandela -> Porto", info:'Viagem Longa  -  156 Km' },
-    { id: "3", name: "Casa -> Hospital", info:'Viagem Curta  -  2.2 Km' },
 
-  ]);
+  const [data, setData] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  useEffect(() => {
+    const getData = async () => {
+      const postCollection = collection(db, "Evento");
+      const postSnapshot = await getDocs(postCollection);
+      const postList = postSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      setData(postList);
+    };
+    getData();
+  }, []);
+
+
   const handleLogout = () => {
     alert("Logout button pressed!");
   };
@@ -30,7 +41,6 @@ export default function Seuseventos() {
     alert("bla bla bla");
   };
 
-  const [searchTerm, setSearchTerm] = useState("");
 
   const handleEdit = (id) => {
     // Lógica para editar o item com o ID fornecido
@@ -38,8 +48,10 @@ export default function Seuseventos() {
   };
 
   const filteredData = data.filter((item) =>
-    item.name.toLowerCase().includes(searchTerm.toLowerCase())
+    item.Partida.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    item.Chegada.toLowerCase().includes(searchTerm.toLowerCase())
   );
+  
 
   return (
     <View style={styles.container}>
@@ -65,8 +77,12 @@ export default function Seuseventos() {
         renderItem={({ item }) => (
           <View style={styles.item}> 
             <View style={styles.descriptionContainer}>
-            <Text style={styles.itemText}>{item.name}</Text>
-            <Text style={styles.itemDescription}>{item.info}</Text>
+            <Text style={styles.itemText}>
+              {item.Partida} 
+              <Text style={styles.arrowText}>  --</Text>   
+              <Text style={styles.itemText}>{item.Chegada}</Text>
+            </Text>
+            <Text style={styles.itemDescription}>{item.Comportamento}</Text>
             </View>
             <TouchableOpacity onPress={info} style={styles.buttonn}>
             <Image source={Tresp} style={styles.logo3} />
@@ -188,7 +204,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#232427",
   },
   container3: {
-    flex: 0.4,
+    flex: 0.3,
     backgroundColor: "#1C1D21",
     justifyContent: 'center',
   },

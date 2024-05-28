@@ -1,4 +1,4 @@
-import React, { forwardRef, useState } from "react";
+import React, { forwardRef, useState, useEffect } from "react";
 import { View, 
   FlatList, 
   StyleSheet, 
@@ -13,17 +13,28 @@ import Eventos from '../Image/Eventos.png';
 import Home from '../Image/homeUnselected.png';
 import Viaturas from '../Image/ViaturaPurple.png';
 import Assistencias from '../Image/Assistencias.png';
-import Tresp from '../Image/3P.png'
-import adicionar from '../Image/Adicionar.png'
+import Tresp from '../Image/3P.png';
+import adicionar from '../Image/Adicionar.png';
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../firebase.config"; 
 
 
 export default function Suasviaturas() {
-  const [data, setData] = useState([
-    { id: "1", name: "Renault" },
-    { id: "2", name: "Kawasaki" },
-    { id: "3", name: "Ferrari" },
-    { id: "4", name: "Toyota" },
-  ]);
+
+  const [data, setData] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  useEffect(() => {
+    const getData = async () => {
+      const postCollection = collection(db, "viatura");
+      const postSnapshot = await getDocs(postCollection);
+      const postList = postSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      setData(postList);
+    };
+    getData();
+  }, []);
+
+
   const handleLogout = () => {
     alert("Logout button pressed!");
   };
@@ -31,7 +42,6 @@ export default function Suasviaturas() {
     alert("bla bla bla");
   };
 
-  const [searchTerm, setSearchTerm] = useState("");
 
   const handleEdit = (id) => {
     // Lógica para editar o item com o ID fornecido
@@ -39,12 +49,12 @@ export default function Suasviaturas() {
   };
 
   const filteredData = data.filter((item) =>
-    item.name.toLowerCase().includes(searchTerm.toLowerCase())
+    item.Marca.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
     <View style={styles.container}>
-      <Text style={[styles.BigText,{marginTop: 30}]}>As suas Viatura</Text>
+      <Text style={[styles.BigText,{marginTop: '10%'}]}>As suas Viatura</Text>
       
       <View style={{ marginTop: "5%" }}/>
       <View style={styles.line} />
@@ -65,7 +75,10 @@ export default function Suasviaturas() {
         renderItem={({ item }) => (
           <View style={styles.item}> 
              <Image source={carPurple} style={styles.icon} />
-            <Text style={styles.itemText}>{item.name}</Text>
+             <View style={styles.textContainer}>
+              <Text style={styles.itemText}>{item.Marca}</Text>
+              <Text style={styles.itemText2}>{item.Modelo}</Text>
+            </View>
             <TouchableOpacity onPress={info} style={styles.buttonn}>
             <Image source={Tresp} style={styles.logo3} />
             </TouchableOpacity>
@@ -107,11 +120,11 @@ export default function Suasviaturas() {
             <Text style={{color: "#9F9BA8", fontWeight: "500"}}>Eventos</Text>
           </View>
         </TouchableOpacity>
-</View>
-</View>
-
-
+      </View>
     </View>
+
+
+  </View>
        
   );
 }
@@ -124,14 +137,13 @@ const styles = StyleSheet.create({
     flex: 1,
     height:'100%',
     backgroundColor: "#2D2A2F",
-    //alignItems: "center",
     justifyContent: "center",
     width: "100%",
     //marginTop: "5%"
   },
 
   container3: {
-    flex: 2,
+    flex: 0.5,
     backgroundColor: "#1C1D21",
     justifyContent: 'center',
   },
@@ -141,6 +153,12 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: "bold",
     textAlign:"center",
+  },
+
+  textContainer: {
+    flex: 1, 
+    flexDirection: 'column', 
+    marginLeft: '5%', 
   },
 
   Adicionar: {
@@ -174,22 +192,21 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     marginBottom: 20,
     width: "85%",
-    alignSelf: "center", // Centraliza a barra de pesquisa
+    alignSelf: "center", 
   },
   flatList: {
-    width: "100%", // Ajusta a largura da FlatList para ocupar toda a tela
+    width: "100%", 
   },
   flatListContent: {
     justifyContent: "flex-start",
     width:"100%",
-    //backgroundColor:"1C1D21",
   },
   item: {
     backgroundColor: "#1C1D21",
     padding: 27,
     marginBottom: 10,
     borderRadius: 15,
-    width: "90%", // Ajusta a largura dos itens da lista para ocupar toda a tela
+    width: "90%", 
     flexDirection: "row",
     alignItems: "center",
     marginLeft:"5%",
@@ -201,6 +218,13 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginLeft:"5%"
   },
+
+  itemText2: {
+    color: "white",
+    fontSize: 15,
+    marginLeft:"5%"
+  },
+
   icon: {
     width: "15%",
     height: "100%",
@@ -213,6 +237,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between", 
     paddingHorizontal: "5%",
   },
+  
   logo2: {
     alignSelf: 'center',
     width: 32,
@@ -223,12 +248,7 @@ const styles = StyleSheet.create({
     width: 42,
     height: 42,
   },
-  BigText: {
-    color: "white",
-    fontSize: 35,
-    fontWeight: "bold",
-    textAlign: "center",
-  },
+
   BigTextP: {
     color: "#6D4EE5",
     fontSize: 35,
