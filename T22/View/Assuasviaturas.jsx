@@ -160,6 +160,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column', 
     marginLeft: '5%', 
   },
+  
 
   Adicionar: {
     width:'90%',
