@@ -1,4 +1,7 @@
 import { StatusBar } from "expo-status-bar";
+import React, { forwardRef, useState, useEffect } from "react";
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, addDoc } from "firebase/firestore";
 import {
   StyleSheet,
   Text,
@@ -11,8 +14,47 @@ import {
   inputValue,
 } from "react-native";
 
+const firebaseConfig = {
+  apiKey: "AIzaSyD7uWXmn3g-xHnnlnNvFnLYZy9VuL3jNAE",
+  authDomain: "dmt22-42830.firebaseapp.com",
+  databaseURL: "https://dmt22-42830-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "dmt22-42830",
+  storageBucket: "dmt22-42830.appspot.com",
+  messagingSenderId: "783747663389",
+  appId: "1:783747663389:web:96b563107c020626d3a8f4",
+  measurementId: "G-HLP5HY5LYZ"
+};
+
+
+const app = initializeApp(firebaseConfig);
+
+const db = getFirestore(app);
 
 export default function EditarAssistencia() {
+  const [Chegada, setChegada] = useState('');
+  const [Classificação, setClassificação] = useState('');
+  const [Comportamento, setComportamento] = useState('');
+  const [Consumo, setConsumo] = useState('');
+  const [Nº_Kilometros, setNº_Kilometros] = useState('');
+  const [Partida, setPartida] = useState('');
+  const [Viatura_Usada, setViatura_Usada] = useState('');
+
+  const registerQuotidiano = async () => {
+    try {
+      await addDoc(collection(db, "Evento"), {
+        Chegada,
+        Classificação,
+        Comportamento,
+        Consumo,
+        Nº_Kilometros,
+        Partida,
+        Viatura_Usada,
+      });
+      console.log('Car registered successfully!');
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
+  };
   return (
 
     <View style={styles.container}>
@@ -42,11 +84,15 @@ export default function EditarAssistencia() {
             style={styles.TextBox} // Estilo para o TextInput
             placeholder="Local de Partida"
             placeholderTextColor="#9F9BA8"
+            value={Partida}
+            onChangeText={setPartida}
           />
           <TextInput
             style={styles.TextBox} // Estilo para o TextInput
             placeholder="Local de Chegada"
             placeholderTextColor="#9F9BA8"
+            value={Chegada}
+            onChangeText={setChegada}
           />
         </View>
 
@@ -61,6 +107,8 @@ export default function EditarAssistencia() {
             style={styles.TextBox} // Estilo para o TextInput
             placeholder="-Escolher- "
             placeholderTextColor="#9F9BA8"
+            value={Viatura_Usada}
+            onChangeText={setViatura_Usada}
           />
       </View>
 
@@ -80,12 +128,16 @@ export default function EditarAssistencia() {
       style={styles.SmallTextBox} // Estilo para o TextInput
       placeholder="Km"
       placeholderTextColor="#9F9BA8"
+      value={Nº_Kilometros}
+      onChangeText={setNº_Kilometros}
     />
     <View style={{ marginHorizontal: '5%' }} />
     <TextInput
       style={styles.SmallTextBox} // Estilo para o TextInput
       placeholder="Litros"
       placeholderTextColor="#9F9BA8"
+      value={Consumo}
+      onChangeText={setConsumo}
     />
   </View>
 </View>
@@ -101,7 +153,10 @@ export default function EditarAssistencia() {
                 style={styles.BigTextBox} // Estilo para o TextInput
                 placeholder="-Nenhum- "
                 placeholderTextColor="#9F9BA8"
-                multiline={true} />
+                multiline={true} 
+                value={Comportamento}
+                onChangeText={setComportamento}
+                />
 </View>
 
         </ScrollView>
@@ -112,7 +167,7 @@ export default function EditarAssistencia() {
 
         <View style={styles.line} />
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress={registerQuotidiano}>
           <View style={styles.textBoxContainer}>
             <Text style={styles.BTNpurple}>Registar</Text>
           </View>
