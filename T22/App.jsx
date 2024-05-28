@@ -41,6 +41,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Seuseventos/>
+      //test
       <StatusBar style="auto" />
     </View>
   );
