@@ -54,7 +54,6 @@ export default function RegistarViatura() {
       console.log('Car registered successfully!');
     } catch (e) {
       console.error("Error adding document: ", e);
-    }
   };
 
   return (
@@ -288,4 +287,4 @@ const styles = StyleSheet.create({
   },
 
 });
-
+}

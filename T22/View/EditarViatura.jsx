@@ -1,4 +1,5 @@
 import { StatusBar } from "expo-status-bar";
+import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   Text,
@@ -11,138 +12,175 @@ import {
   inputValue,
 } from "react-native";
 
+import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { db } from "../firebase.config"; 
+
+
 
 export default function EditarViatura() {
+  const [Tipo_Viatura, setTipo_Viatura] = useState("");
+  const [Marca, setMarca] = useState("");
+  const [Modelo, setModelo] = useState("");
+  const [Data_fabrico, setData_fabrico] = useState("");
+  const [Matricula, setMatricula] = useState("");
+  const [Cor, setCor] = useState("");
+  const [Combustivel, setCombustivel] = useState("");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const docRef = doc(db, "viatura", "1"); 
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        const data = docSnap.data();
+        setTipo_Viatura(data.Tipo_Viatura);
+        setMarca(data.Marca);
+        setModelo(data.Modelo);
+        setData_fabrico(data.Data_fabrico);
+        setMatricula(data.Matricula);
+        setCor(data.Cor);
+        setCombustivel(data.Combustivel);
+      } else {
+        console.log("No such document!");
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const handleUpdate = async () => {
+
+      const docRef = doc(db, "viatura", "1");
+      await updateDoc(docRef, {
+        Tipo_Viatura,
+        Marca,
+        Modelo,
+        Data_fabrico,
+        Matricula,
+        Cor,
+        Combustivel,
+      });
+  };
+
+
   return (
-
     <View style={styles.container}>
-
       <View style={styles.header}>
-
         <Text style={styles.BigText}>Editar Viatura</Text>
-
         <View style={{ marginTop: "5%" }} />
         <View style={styles.line} />
-
       </View>
-
 
       <View style={styles.content}>
-
         <ScrollView>
+          <View style={{ paddingTop: "5%" }} />
 
-        <View style={{ paddingTop: "5%" }} />
+          <View style={styles.textBoxContainer}>
+            <Text style={styles.smallText}>Tipo de Viatura:</Text>
+          </View>
 
+          <View style={styles.textBoxContainer}>
+            <TextInput 
+              style={styles.TextBox}
+              placeholder="-Escolher-"
+              placeholderTextColor={"#9F9BA8"}
+              value={Tipo_Viatura}
+              onChangeText={setTipo_Viatura}
+            />
+          </View>
 
-        <View style={styles.textBoxContainer}>
-        <Text style={styles.smallText}>Tipo de Viatura:</Text>
-      </View>
+          <View style={{ marginTop: "5%" }} />
 
-      <View style={styles.textBoxContainer}>
-      <TextInput 
-        style={styles.TextBox}
-        defaultValue="Mota"
-        placeholder="-Escolher-"
-        placeholderTextColor={"#9F9BA8"}
-        />
-      </View>
+          <View style={styles.textBoxContainer}>
+            <Text style={styles.smallText}>Informação sobre a Viatura:</Text>
+          </View>
 
-      <View style={{ marginTop: "5%" }} />
+          <View style={styles.textBoxContainer}>
+            <TextInput 
+              style={styles.TextBox}
+              placeholder="Marca"
+              placeholderTextColor={"#9F9BA8"}
+              value={Marca}
+              onChangeText={setMarca}
+            />
+            <TextInput 
+              style={styles.TextBox}
+              placeholder="Modelo"
+              placeholderTextColor={"#9F9BA8"}
+              value={Modelo}
+              onChangeText={setModelo}
+            />
+          </View>
 
-      <View style={styles.textBoxContainer}>
-        <Text style={styles.smallText}>Informação sobre a Viatura:</Text>
-      </View>
+          <View style={{ marginTop: "5%" }} />
 
-      <View style={styles.textBoxContainer}>
-      <TextInput 
-        style={styles.TextBox}
-        defaultValue="Kawasaki"
-        placeholder="Marca"
-        placeholderTextColor={"#9F9BA8"}
-        />
+          <View style={styles.textBoxContainer}>
+            <View style={{flexDirection:'row'}}>
+              <Text style={styles.smallText}>Data de Fabrico:</Text>
+              <View style={{marginHorizontal: '5%'}} />
+              <Text style={styles.smallText}>Matricula:</Text>
+            </View>
+          </View>
 
-        <TextInput 
-        style={styles.TextBox}
-        defaultValue="Ninja"
-        placeholder="Modelo"
-        placeholderTextColor={"#9F9BA8"}
-        />
-      </View>
+          <View style={styles.textBoxContainer}>
+            <View style={{flexDirection:'row'}}>
+              <TextInput 
+                style={styles.SmallTextBox}
+                placeholder="DD/MM/YYYY"
+                placeholderTextColor={"#9F9BA8"}
+                value={Data_fabrico}
+                onChangeText={setData_fabrico}
+              />
+              <View style={{marginHorizontal: '5%'}} />
+              <TextInput 
+                style={styles.SmallTextBox}
+                placeholder="##-##-##"
+                placeholderTextColor={"#9F9BA8"}
+                value={Matricula}
+                onChangeText={setMatricula}
+              />
+            </View>
+          </View>
 
-      <View style={{ marginTop: "5%" }} />
+          <View style={{ marginTop: "5%" }} />
 
-      <View style={styles.textBoxContainer}>
-        <View style={{flexDirection:'row'}}>
-          <Text style={styles.smallText}>Data de Fabrico:</Text>
-          <View style={{marginHorizontal: '5%'}} />
-          <Text style={styles.smallText}>Matricula:</Text>
-        </View>
-      </View>
+          <View style={styles.textBoxContainer}>
+            <Text style={styles.smallText}>Cor da Viatura:</Text>
+          </View>
 
-      <View style={styles.textBoxContainer}>
-        <View style={{flexDirection:'row'}}>
-        <TextInput 
-        style={styles.SmallTextBox}
-        defaultValue="17/09/2020"
-        placeholder="DD/MM/YYYY"
-        placeholderTextColor={"#9F9BA8"}
-        />
+          <View style={styles.textBoxContainer}>
+            <TextInput 
+              style={styles.TextBox}
+              placeholder="Cor"
+              placeholderTextColor={"#9F9BA8"}
+              value={Cor}
+              onChangeText={setCor}
+            />
+          </View>
 
-          <View style={{marginHorizontal: '5%'}} />
+          <View style={{ marginTop: "5%" }} />
 
-        <TextInput 
-        style={styles.SmallTextBox}
-        defaultValue="63-HI-40"
-        placeholder="##-##-##"
-        placeholderTextColor={"#9F9BA8"}
-        />
-        </View>
-      </View>
+          <View style={styles.textBoxContainer}>
+            <Text style={styles.smallText}>Combustivel:</Text>
+          </View>
 
-      <View style={{ marginTop: "5%" }} />
+          <View style={styles.textBoxContainer}>
+            <TextInput 
+              style={styles.TextBox}
+              placeholder="-Escolher-"
+              placeholderTextColor={"#9F9BA8"}
+              value={Combustivel}
+              onChangeText={setCombustivel}
+            />
+          </View>
 
-
-
-      <View style={{ marginTop: "5%" }} />
-
-      <View style={styles.textBoxContainer}>
-        <Text style={styles.smallText}>Cor da Viatura:</Text>
-      </View>
-
-      <View style={styles.textBoxContainer}>
-      <TextInput 
-        style={styles.TextBox}
-        defaultValue="Verde"
-        placeholder="Cor"
-        placeholderTextColor={"#9F9BA8"}
-        />
-      </View>
-
-      <View style={{ marginTop: "5%" }} />
-
-      <View style={styles.textBoxContainer}>
-        <Text style={styles.smallText}>Combustivel:</Text>
-      </View>
-
-      <View style={styles.textBoxContainer}>
-        <TextInput 
-        style={styles.TextBox}
-        defaultValue="Gasolina 98"
-        placeholder="-Escolher-"
-        placeholderTextColor={"#9F9BA8"}
-        />
-      </View>
-
-      <View style={{ marginBottom: "5%" }} />
-      
+          <View style={{ marginBottom: "5%" }} />
         </ScrollView>
       </View>
 
       <View style={styles.footer}>
-
         <View style={styles.line} />
-
-        <TouchableOpacity>
+        <TouchableOpacity onPress={handleUpdate}>
           <View style={styles.textBoxContainer}>
             <Text style={styles.BTNpurple}>Aplicar</Text>
           </View>
@@ -153,9 +191,7 @@ export default function EditarViatura() {
             <Text style={styles.Cancelar}>Cancelar</Text>
           </View>
         </TouchableOpacity>
-
       </View>
-
     </View>
   );
 }

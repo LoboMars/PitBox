@@ -1,4 +1,5 @@
 import { StatusBar } from "expo-status-bar";
+import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   Text,
@@ -10,9 +11,52 @@ import {
   TextInput,
   inputValue,
 } from "react-native";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { db } from "../firebase.config"; 
+
 
 
 export default function EditarAssistencia() {
+  const [Partida, setPartida] = useState("");
+  const [Chegada, setChegada] = useState("");
+  const [Comportamento, setComportamento] = useState("");
+  const [Consumo, setConsumo] = useState("");
+  const [Nº_Kilometros, setNº_Kilometros] = useState("");
+  const [Viatura_Usada, setViatura_Usada] = useState("");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const docRef = doc(db, "Evento", "1"); 
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        const data = docSnap.data();
+        setPartida(data.Partida);
+        setChegada(data.Chegada);
+        setComportamento(data.Comportamento);
+        setConsumo(data.Consumo);
+        setNº_Kilometros(data.Nº_Kilometros);
+        setViatura_Usada(data.Viatura_Usada);
+      } else {
+        console.log("No such document!");
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const handleUpdate = async () => {
+
+      const docRef = doc(db, "Evento", "1");
+      await updateDoc(docRef, {
+        Partida,
+        Chegada,
+        Comportamento,
+        Consumo,
+        Nº_Kilometros,
+        Viatura_Usada,
+      });
+  };
   return (
 
     <View style={styles.container}>
@@ -41,14 +85,16 @@ export default function EditarAssistencia() {
           <TextInput
             style={styles.TextBox} // Estilo para o TextInput
             placeholder="Local de Partida"
-            defaultValue="Bragança"
             placeholderTextColor="#9F9BA8"
+            value={Partida}
+            onChangeText={setPartida}
           />
           <TextInput
             style={styles.TextBox} // Estilo para o TextInput
             placeholder="Local de Chegada"
-            defaultValue="Vinhais"
             placeholderTextColor="#9F9BA8"
+            value={Chegada}
+            onChangeText={setChegada}
           />
         </View>
 
@@ -61,9 +107,10 @@ export default function EditarAssistencia() {
       <View style={styles.textBoxContainer}>
       <TextInput
             style={styles.TextBox} // Estilo para o TextInput
-            defaultValue="Renaul Clio"
             placeholder="-Escolher- "
             placeholderTextColor="#9F9BA8"
+            value={Viatura_Usada}
+            onChangeText={setViatura_Usada}
           />
       </View>
 
@@ -81,16 +128,18 @@ export default function EditarAssistencia() {
   <View style={{ flexDirection: 'row' }}>
     <TextInput
       style={styles.SmallTextBox} // Estilo para o TextInput
-      defaultValue="31 Km"
       placeholder="Km"
       placeholderTextColor="#9F9BA8"
+      value={Nº_Kilometros}
+      onChangeText={setNº_Kilometros}
     />
     <View style={{ marginHorizontal: '5%' }} />
     <TextInput
       style={styles.SmallTextBox} // Estilo para o TextInput
-      defaultValue="4.8L/100KM"
       placeholder="Litros"
       placeholderTextColor="#9F9BA8"
+      value={Consumo}
+      onChangeText={setConsumo}
     />
   </View>
 </View>
@@ -104,10 +153,13 @@ export default function EditarAssistencia() {
       <View style={styles.textBoxContainer}>
               <TextInput
                 style={styles.BigTextBox} // Estilo para o TextInput
-                defaultValue="Solabanco ao subir montanhas altas e magras, levantas ou não levantas, ah caraças.qweqewwqqaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaqqqqqqq."
                 placeholder="-Nenhum- "
                 placeholderTextColor="#9F9BA8"
-                multiline={true} />
+                multiline={true} 
+                value={Comportamento}
+                onChangeText={setComportamento}
+                
+                />
       </View>
 
       <View style={{ marginBottom: "3%" }} />
@@ -120,7 +172,7 @@ export default function EditarAssistencia() {
 
         <View style={styles.line} />
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress={handleUpdate}>
           <View style={styles.textBoxContainer}>
             <Text style={styles.BTNpurple}>Aplicar</Text>
           </View>
