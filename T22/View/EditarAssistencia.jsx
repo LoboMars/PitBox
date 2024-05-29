@@ -1,4 +1,5 @@
 import { StatusBar } from "expo-status-bar";
+import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   Text,
@@ -11,8 +12,55 @@ import {
   inputValue,
 } from "react-native";
 
+import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { db } from "../firebase.config"; 
+
+
 
 export default function EditarAssistencia() {
+  const [Data, setData] = useState("");
+  const [Detalhe_mais, setDetalhe_mais] = useState("");
+  const [Detalhes, setDetalhes] = useState("");
+  const [Fatura_Valor, setFatura_Valor] = useState("");
+  const [Oficina, setOficina] = useState("");
+  const [Tipo, setTipo] = useState("");
+  const [Viatura, setViatura] = useState("");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const docRef = doc(db, "Assistencias", "1"); 
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        const data = docSnap.data();
+        setData(data.Data);
+        setDetalhe_mais(data.Detalhe_mais);
+        setDetalhes(data.Detalhes);
+        setFatura_Valor(data.Fatura_Valor);
+        setOficina(data.Oficina);
+        setTipo(data.Tipo);
+        setViatura(data.Viatura);
+      } else {
+        console.log("No such document!");
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const handleUpdate = async () => {
+
+      const docRef = doc(db, "Assistencias", "1");
+      await updateDoc(docRef, {
+        Data,
+        Detalhe_mais,
+        Detalhes,
+        Fatura_Valor,
+        Oficina,
+        Tipo,
+        Viatura,
+      });
+  };
   return (
 
     <View style={styles.container}>
@@ -40,8 +88,10 @@ export default function EditarAssistencia() {
           <View style={styles.textBoxContainer}>
             <TextInput
               style={styles.TextBox}
-              placeholder="Ferrari 458 Italia"
-              placeholderTextColor="white" />
+              placeholderTextColor="white" 
+              value={Viatura}
+              onChangeText={setViatura}
+              />
           </View>
 
           <View style={{ marginTop: "5%" }} />
@@ -53,8 +103,10 @@ export default function EditarAssistencia() {
           <View style={styles.textBoxContainer}>
             <TextInput
               style={styles.TextBox} // Estilo para o TextInput
-              placeholder="Hot Wheels"
-              placeholderTextColor="white" />
+              placeholderTextColor="white" 
+              value={Oficina}
+              onChangeText={setOficina}
+              />
           </View>
 
           <View style={{ marginTop: "5%" }} />
@@ -66,8 +118,10 @@ export default function EditarAssistencia() {
           <View style={styles.textBoxContainer}>
             <TextInput
               style={styles.TextBox}
-              placeholder="29/02/2024"
-              placeholderTextColor="white" />
+              placeholderTextColor="white" 
+              value={Data}
+              onChangeText={setData}
+              />
           </View>
 
           <View style={{ marginTop: "5%" }} />
@@ -79,10 +133,12 @@ export default function EditarAssistencia() {
 
               <TextInput
                 style={styles.SmallTextBox}
-                placeholder="420.00€"
                 placeholderTextColor="white"
                 keyboardType="numeric"
-                mask="$[999999]" />
+                mask="$[999999]" 
+                value={Fatura_Valor}
+                onChangeText={setFatura_Valor}
+                />
             </View>
 
             <View style={{ marginTop: "5%" }} />
@@ -94,12 +150,15 @@ export default function EditarAssistencia() {
             <View style={styles.textBoxContainer}>
               <TextInput
                 style={styles.TextBox} // Estilo para o TextInput
-                placeholder="Revisão Periódica"
-                placeholderTextColor="white" />
+                placeholderTextColor="white" 
+                value={Detalhes}
+                onChangeText={setDetalhes}
+                />
               <TextInput
                 style={styles.BigTextBox} // Estilo para o TextInput
-                placeholder="Blah blah blah blah.."
                 placeholderTextColor="white"
+                value={Detalhe_mais}
+                onChangeText={setDetalhe_mais}
                 multiline={true} />
             </View>
 
@@ -115,7 +174,7 @@ export default function EditarAssistencia() {
 
         <View style={styles.line} />
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress={handleUpdate}>
           <View style={styles.textBoxContainer}>
             <Text style={styles.BTNpurple}>Aplicar</Text>
           </View>
