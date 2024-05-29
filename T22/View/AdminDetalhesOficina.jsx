@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity, TextInput } from "react-native";
 import MainDesfoque from '../Image/MainDesfoque.png'
-import Oficina  from '../Image/oficina.png'
+//import Oficina  from '../Image/oficina.png'
 import Apagar  from  '../Image/Apagar.png'
 import Editar from '../Image/editarAdmin.png'
 

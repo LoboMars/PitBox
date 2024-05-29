@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import {
   StyleSheet,
@@ -8,74 +9,99 @@ import {
   TouchableOpacity,
   ScrollView,
   TextInput,
+  Alert,
 } from "react-native";
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "../firebase.config";
 
 export default function CriarCombustivel() {
+  const [nome, setNome] = useState("");
+  const [tipo, setTipo] = useState("");
+
+  const handleCreate = async () => {
+    if (!nome || !tipo) {
+      Alert.alert("Erro", "Por favor, preencha todos os campos");
+      return;
+    }
+
+    try {
+      await addDoc(collection(db, "tipocobustives"), {
+        nome: nome,
+        tipo: tipo,
+      });
+      Alert.alert("Sucesso", "Combustível criado com sucesso");
+      setNome("");
+      setTipo("");
+    } catch (error) {
+      console.error("Erro ao criar combustível: ", error);
+      Alert.alert("Erro", "Não foi possível criar o combustível");
+    }
+  };
+
   return (
-   
     <View style={styles.container}>
+      <View />
+      <View style={{ marginTop: "10%" }} />
+      <Text style={styles.BigText}>Criar Combustivel</Text>
 
-        <View />
-        <View style={{ marginTop: "10%" }} />
-        <Text style={styles.BigText}>Criar Combustivel</Text>
+      <View style={{ marginTop: "5%" }} />
+      <View style={styles.line} />
+      <View style={{ marginBottom: "5%" }} />
 
-        <View style={{ marginTop: "5%" }} />
-        <View style={styles.line} />
-        <View style={{ marginBottom: "5%" }} />
+      <View style={styles.textBoxContainer}>
+        <Text style={styles.smallText}>Nome do Combustivel:</Text>
+      </View>
 
+      <View style={styles.textBoxContainer}>
+        <TextInput
+          style={styles.TextBox}
+          placeholder="Nome"
+          placeholderTextColor="#9F9BA8"
+          value={nome}
+          onChangeText={setNome}
+        />
+      </View>
+
+      <View style={{ marginTop: "15%" }} />
+
+      <View style={styles.textBoxContainer}>
+        <Text style={styles.smallText}>Combustivel fossil/renovavel:</Text>
+      </View>
+
+      <View style={styles.textBoxContainer}>
+        <TextInput
+          style={styles.TextBox}
+          placeholder="-Escolher-"
+          placeholderTextColor="#9F9BA8"
+          value={tipo}
+          onChangeText={setTipo}
+        />
+      </View>
+
+      <View style={{ marginTop: "55%" }} />
+      <View style={styles.line} />
+      <View style={{ marginBottom: "2%" }} />
+
+      <TouchableOpacity onPress={handleCreate}>
         <View style={styles.textBoxContainer}>
-          <Text style={styles.smallText}>Nome do Combustivel:</Text>
+          <Text style={styles.BTNOrange}>Criar</Text>
         </View>
+      </TouchableOpacity>
 
+      <TouchableOpacity>
         <View style={styles.textBoxContainer}>
-          <TextInput
-            style={styles.TextBox}
-            placeholder="Nome"
-            placeholderTextColor="#9F9BA8"
-          />
+          <Text style={styles.Cancelar}>Cancelar</Text>
         </View>
+      </TouchableOpacity>
 
-        <View style={{ marginTop: "15%" }} />
-
-        <View style={styles.textBoxContainer}>
-          <Text style={styles.smallText}>Combustivel fossil/renovavel:</Text>
-        </View>
-
-        <View style={styles.textBoxContainer}>
-          <TextInput
-            style={styles.TextBox}
-            placeholder="-Escolher-"
-            placeholderTextColor="#9F9BA8"
-          />
-        </View>
-
-
-
-        <View style={{ marginTop: "55%" }} />
-        <View style={styles.line} />
-        <View style={{ marginBottom: "2%" }} />
-
-        <TouchableOpacity>
-          <View style={styles.textBoxContainer}>
-            <Text style={styles.BTNOrange}>Criar</Text>
-          </View>
-        </TouchableOpacity>
-
-        <TouchableOpacity>
-          <View style={styles.textBoxContainer}>
-            <Text style={styles.Cancelar}>Cancelar</Text>
-          </View>
-        </TouchableOpacity>
-
-
-      <View style ={{marginBottom: "5%"}}/>
+      <View style={{ marginBottom: "5%" }} />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   scrollView: {
-    paddingTop: '10%', 
+    paddingTop: '10%',
   },
   container: {
     width: "100%",
@@ -89,7 +115,6 @@ const styles = StyleSheet.create({
     alignItems: "left",
     marginLeft: "8%",
   },
-
   textWhite: {
     color: "white",
   },
@@ -104,7 +129,6 @@ const styles = StyleSheet.create({
     marginLeft: "3%",
     marginBottom: "5%",
   },
-
   BigText: {
     marginTop: '2%',
     color: "white",
@@ -112,7 +136,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
   },
-
   smallText: {
     color: "white",
     fontSize: 16,
@@ -120,7 +143,6 @@ const styles = StyleSheet.create({
     textAlign: "left",
     marginLeft: "8%",
   },
-
   TextBox: {
     width: "100%",
     color: "white",
@@ -134,7 +156,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     textAlign: "left",
   },
-
   TextBoxCenter: {
     width: "100%",
     color: "white",
@@ -148,7 +169,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     textAlign: "center",
   },
-
   SmallTextBox: {
     width: "45%",
     color: "white",
@@ -162,7 +182,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     textAlign: "center",
   },
-
   BigTextBox: {
     width: "100%",
     color: "white",
@@ -176,7 +195,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     textAlign: "center",
   },
-
   BTNOrange: {
     backgroundColor: "#EC853B",
     color: "white",
