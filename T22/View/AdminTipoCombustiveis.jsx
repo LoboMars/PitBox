@@ -202,7 +202,7 @@ const styles = StyleSheet.create({
     marginTop: "1%",
   },
   container3: {
-    flex: 1,
+    flex: 0.4,
     backgroundColor: "#1C1D21",
     justifyContent: 'center',
   },

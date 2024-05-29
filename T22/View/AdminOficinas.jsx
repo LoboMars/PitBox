@@ -15,7 +15,7 @@ export default function Oficinas() {
 
   useEffect(() => {
     const getData = async () => {
-      const postCollection = collection(db, "oficina");
+      const postCollection = collection(db, "oficinas");
       const postSnapshot = await getDocs(postCollection);
       const postList = postSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
       setData(postList);
@@ -62,7 +62,7 @@ export default function Oficinas() {
               <View style={styles.descriptionContainer}>
                 <Text style={styles.itemText}>{item.nome}</Text>
                 <Text style={styles.itemDescription}>{item.morada}</Text>
-                <Text style={styles.itemDescription}>{item.telemovel}</Text>
+                <Text style={styles.itemDescription}>{item.telefone}</Text>
               </View>
               <TouchableOpacity onPress={info}>
                 <Image source={Tresp} style={styles.logo3} />
