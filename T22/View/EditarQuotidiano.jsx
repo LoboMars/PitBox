@@ -46,7 +46,6 @@ export default function EditarAssistencia() {
   }, []);
 
   const handleUpdate = async () => {
-
       const docRef = doc(db, "Evento", "1");
       await updateDoc(docRef, {
         Partida,

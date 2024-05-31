@@ -9,13 +9,10 @@ import {
   TouchableOpacity,
   ScrollView,
   TextInput,
-  inputValue,
 } from "react-native";
 
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "../firebase.config"; 
-
-
 
 export default function EditarViatura() {
   const [Tipo_Viatura, setTipo_Viatura] = useState("");
@@ -28,7 +25,7 @@ export default function EditarViatura() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const docRef = doc(db, "viatura", "1"); 
+      const docRef = doc(db, "viatura", "2"); 
       const docSnap = await getDoc(docRef);
 
       if (docSnap.exists()) {
@@ -49,8 +46,7 @@ export default function EditarViatura() {
   }, []);
 
   const handleUpdate = async () => {
-
-      const docRef = doc(db, "viatura", "1");
+      const docRef = doc(db, "viatura", "2");
       await updateDoc(docRef, {
         Tipo_Viatura,
         Marca,

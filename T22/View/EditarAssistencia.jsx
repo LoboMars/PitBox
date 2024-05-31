@@ -20,10 +20,9 @@ import { db } from "../firebase.config";
 export default function EditarAssistencia() {
   const [Data, setData] = useState("");
   const [Detalhe_mais, setDetalhe_mais] = useState("");
-  const [Detalhes, setDetalhes] = useState("");
+  const [Tipo_Assistencia, setTipo_Assistencia] = useState("");
   const [Fatura_Valor, setFatura_Valor] = useState("");
   const [Oficina, setOficina] = useState("");
-  const [Tipo, setTipo] = useState("");
   const [Viatura, setViatura] = useState("");
 
   useEffect(() => {
@@ -35,10 +34,9 @@ export default function EditarAssistencia() {
         const data = docSnap.data();
         setData(data.Data);
         setDetalhe_mais(data.Detalhe_mais);
-        setDetalhes(data.Detalhes);
+        setTipo_Assistencia(data.Tipo_Assistencia);
         setFatura_Valor(data.Fatura_Valor);
         setOficina(data.Oficina);
-        setTipo(data.Tipo);
         setViatura(data.Viatura);
       } else {
         console.log("No such document!");
@@ -49,15 +47,13 @@ export default function EditarAssistencia() {
   }, []);
 
   const handleUpdate = async () => {
-
       const docRef = doc(db, "Assistencias", "1");
       await updateDoc(docRef, {
         Data,
         Detalhe_mais,
-        Detalhes,
+        Tipo_Assistencia,
         Fatura_Valor,
         Oficina,
-        Tipo,
         Viatura,
       });
   };
@@ -151,8 +147,8 @@ export default function EditarAssistencia() {
               <TextInput
                 style={styles.TextBox} // Estilo para o TextInput
                 placeholderTextColor="white" 
-                value={Detalhes}
-                onChangeText={setDetalhes}
+                value={Tipo_Assistencia}
+                onChangeText={setTipo_Assistencia}
                 />
               <TextInput
                 style={styles.BigTextBox} // Estilo para o TextInput
