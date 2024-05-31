@@ -41,9 +41,22 @@ export default function AsSuasAssistencias() {
         alert("bla bla bla");
       };
 
+
       const filteredData = data.filter((item) => 
         item.Viatura.toLowerCase().includes(searchTerm.toLowerCase()) 
       );
+
+  const handleButton1 = () => {
+    setSearchTerm(item.Viatura);
+  };
+
+  const handleButton2 = () => {
+    setSearchTerm(item.Detalhes);
+  };
+
+  const handleButton3 = () => {
+    console.log("Botão 3 pressionado!");
+  };
 
   return (
     <View style={styles.container}>
