@@ -29,7 +29,7 @@ export default function Tipocombustivel() {
         const postCollection = collection(db, "tipocobustives");
         const postSnapshot = await getDocs(postCollection);
         const postList = postSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-        console.log("Data from Firestore:", postList); // Verifique se todos os dados são recuperados
+        console.log("Data from Firestore:", postList); 
         setData(postList);
       } catch (error) {
         console.error("Error getting documents: ", error);
