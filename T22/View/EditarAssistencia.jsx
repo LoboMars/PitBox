@@ -19,7 +19,7 @@ import { db } from "../firebase.config";
 
 export default function EditarAssistencia() {
   const [Data, setData] = useState("");
-  const [Detalhe_mais, setDetalhe_mais] = useState("");
+  const [Descricao, setDescricao] = useState("");
   const [Tipo_Assistencia, setTipo_Assistencia] = useState("");
   const [Fatura_Valor, setFatura_Valor] = useState("");
   const [Oficina, setOficina] = useState("");
@@ -33,7 +33,7 @@ export default function EditarAssistencia() {
       if (docSnap.exists()) {
         const data = docSnap.data();
         setData(data.Data);
-        setDetalhe_mais(data.Detalhe_mais);
+        setDescricao(data.Descricao);
         setTipo_Assistencia(data.Tipo_Assistencia);
         setFatura_Valor(data.Fatura_Valor);
         setOficina(data.Oficina);
@@ -50,7 +50,7 @@ export default function EditarAssistencia() {
       const docRef = doc(db, "Assistencias", "1");
       await updateDoc(docRef, {
         Data,
-        Detalhe_mais,
+        Descricao,
         Tipo_Assistencia,
         Fatura_Valor,
         Oficina,
@@ -153,8 +153,8 @@ export default function EditarAssistencia() {
               <TextInput
                 style={styles.BigTextBox} // Estilo para o TextInput
                 placeholderTextColor="white"
-                value={Detalhe_mais}
-                onChangeText={setDetalhe_mais}
+                value={Descricao}
+                onChangeText={setDescricao}
                 multiline={true} />
             </View>
 

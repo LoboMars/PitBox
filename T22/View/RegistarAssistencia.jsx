@@ -35,21 +35,21 @@ const db = getFirestore(app);
 
 export default function EditarAssistencia() {
   const [Data, setData] = useState('');
-  const [Detalhe_mais, setDetalhe_mais] = useState('');
+  const [Descricao, setDescricao] = useState('');
   const [Tipo_Assistencia, setTipo_Assistencia] = useState('');
   const [Fatura_Valor, setFatura_Valor] = useState('');
   const [Oficina, setOficina] = useState('');
   const [Viatura, setViatura] = useState('');
 
   const registerAssistencia = async () => {
-    if (!Data || !Detalhe_mais || !Tipo_Assistencia || !Fatura_Valor || !Oficina  || !Viatura) {
+    if (!Data || !Descricao || !Tipo_Assistencia || !Fatura_Valor || !Oficina  || !Viatura) {
       Alert.alert("Erro", "Por favor, preencha todos os campos");
       return;
     }
     try {
       await addDoc(collection(db, "Assistencias"), {
         Data,
-        Detalhe_mais,
+        Descricao,
         Tipo_Assistencia,
         Fatura_Valor,
         Oficina,
@@ -164,8 +164,8 @@ export default function EditarAssistencia() {
                 placeholder="..."
                 placeholderTextColor="#9F9BA8"
                 multiline={true}
-                value={Detalhe_mais}
-                onChangeText={setDetalhe_mais} 
+                value={Descricao}
+                onChangeText={setDescricao} 
                 />
             </View>
 
