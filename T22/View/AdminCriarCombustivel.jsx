@@ -25,7 +25,7 @@ export default function CriarCombustivel() {
     }
 
     try {
-      await addDoc(collection(db, "tipocobustives"), {
+      await addDoc(collection(db, "tipoCombustivel"), {
         nome: nome,
         tipo: tipo,
       });
@@ -41,7 +41,7 @@ export default function CriarCombustivel() {
   return (
     <View style={styles.container}>
       <View />
-      <View style={{ marginTop: "10%" }} />
+      <View style={{ marginTop: "5%" }} />
       <Text style={styles.BigText}>Criar Combustivel</Text>
 
       <View style={{ marginTop: "5%" }} />
