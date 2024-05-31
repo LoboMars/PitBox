@@ -1,4 +1,5 @@
 import { StatusBar, } from "expo-status-bar";
+import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   Text,
@@ -11,7 +12,38 @@ import {
 } from "react-native";
 import Carro from '../Image/carPurple.png'
 
+import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { db } from "../firebase.config"; 
+
+
 export default function CriarViatura() {
+  const [nome, setnome] = useState("");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const docRef = doc(db, "ADviaturas", "wRKsE5uQ8KaJAWTR1i8o"); 
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        const data = docSnap.data();
+        setnome(data.nome);
+
+      } else {
+        console.log("No such document!");
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const handleUpdate = async () => {
+    const docRef = doc(db, "ADviaturas", "wRKsE5uQ8KaJAWTR1i8o");
+    await updateDoc(docRef, {
+      nome,
+    });
+};
+
+
   return (
    
     <View style={styles.container}>
@@ -32,10 +64,11 @@ export default function CriarViatura() {
 
           <View style={styles.textBoxContainer}>
             <TextInput
-              style={styles.TextBox} // Estilo para o TextInput
-              placeholder="Nome"
-              defaultValue="Carro"
-              placeholderTextColor="#9F9BA8" />
+              style={styles.TextBox} 
+              placeholderTextColor="#9F9BA8" 
+              value={nome}
+              onChangeText={setnome}
+              />
           </View>
 
           <View style={{ marginTop: "8%" }} />
@@ -51,12 +84,11 @@ export default function CriarViatura() {
           </View>
       </View>
         
-
       <View style={styles.footer}>
           <View style={styles.line} />
           <View style={{ marginTop: "2%" }} />
 
-          <TouchableOpacity>
+          <TouchableOpacity onPress={handleUpdate}>
             <View style={styles.textBoxContainer}>
               <Text style={styles.BTNOrange}>Aplicar</Text>
             </View>
@@ -68,7 +100,6 @@ export default function CriarViatura() {
            </View>
           </TouchableOpacity>
         </View>
-
     </View>
   );
 }
