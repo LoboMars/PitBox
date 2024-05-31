@@ -83,7 +83,7 @@ export default function EditarCombustivel() {
               onValueChange={(itemValue, itemIndex) => setTipo(itemValue)}
             >
               <Picker.Item label="Fóssil" value="fossil" />
-              <Picker.Item label="Renovável" value="renewable" />
+              <Picker.Item label="Renovável" value="renovavel" />
             </Picker>
         </View>
 
