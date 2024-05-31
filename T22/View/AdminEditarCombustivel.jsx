@@ -14,36 +14,36 @@ import {
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "../firebase.config"; 
 
+import { Picker } from '@react-native-picker/picker';
+
 export default function EditarCombustivel() {
-
-  const [Nome, setNome] = useState("");
-  const [Tipo, setTipo] = useState("");
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const docRef = doc(db, "tipoCombustivel", "1"); 
-      const docSnap = await getDoc(docRef);
-
-      if (docSnap.exists()) {
-        const data = docSnap.data();
-        setNome(data.Nome);
-        setTipo(data.Tipo);
-      } else {
-        console.log("No such document!");
-      }
+    const [Nome, setNome] = useState("");
+    const [Tipo, setTipo] = useState("");
+  
+    useEffect(() => {
+      const fetchData = async () => {
+        const docRef = doc(db, "tipoCombustivel", "1"); 
+        const docSnap = await getDoc(docRef);
+  
+        if (docSnap.exists()) {
+          const data = docSnap.data();
+          setNome(data.Nome);
+          setTipo(data.Tipo);
+        } else {
+          console.log("No such document!");
+        }
+      };
+  
+      fetchData();
+    }, []);
+  
+    const handleUpdate = async () => {
+      const docRef = doc(db, "tipoCombustivel", "1");
+      await updateDoc(docRef, {
+        Nome,
+        Tipo,
+      });
     };
-
-    fetchData();
-  }, []);
-
-
-  const handleUpdate = async () => {
-    const docRef = doc(db, "tipoCombustivel", "1");
-    await updateDoc(docRef, {
-      Nome,
-      Tipo,
-    });
-};
 
 
   return (
@@ -77,12 +77,14 @@ export default function EditarCombustivel() {
         </View>
 
         <View style={styles.textBoxContainer}>
-          <TextInput
-            style={styles.TextBox}
-            value={Tipo}
-            onChangeText={setTipo}
-            placeholderTextColor="#9F9BA8"
-          />
+          <Picker
+              selectedValue={Tipo}
+              style={styles.TextBox}
+              onValueChange={(itemValue, itemIndex) => setTipo(itemValue)}
+            >
+              <Picker.Item label="Fóssil" value="fossil" />
+              <Picker.Item label="Renovável" value="renewable" />
+            </Picker>
         </View>
 
 
