@@ -20,41 +20,30 @@ import { db } from "../firebase.config";
 
 
 export default function AsSuasAssistencias() {
-  const [data, setData] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
+      const [data, setData] = useState([]);
+      const [searchTerm, setSearchTerm] = useState("");
 
-  useEffect(() => {
-    const getData = async () => {
-      const postCollection = collection(db, "Assistencias");
-      const postSnapshot = await getDocs(postCollection);
-      const postList = postSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-      setData(postList);
-    };
-    getData();
-  }, []);
-  const handleLogout = () => {
-    alert("Logout button pressed!");
-  };
-  const info = () => {
-    alert("bla bla bla");
-  };
+      useEffect(() => {
+        const getData = async () => {
+          const postCollection = collection(db, "Assistencias");
+          const postSnapshot = await getDocs(postCollection);
+          const postList = postSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+          setData(postList);
+        };
+        getData();
+      }, []);
 
+      const handleLogout = () => {
+        alert("Logout button pressed!");
+      };
 
-  const filteredData = data.filter((item) =>
-    item.Viatura.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+      const info = () => {
+        alert("bla bla bla");
+      };
 
-  const handleButton1 = () => {
-    setSearchTerm("Renault");
-  };
-
-  const handleButton2 = () => {
-    setSearchTerm("Ferrari");
-  };
-
-  const handleButton3 = () => {
-    console.log("Botão 3 pressionado!");
-  };
+      const filteredData = data.filter((item) => 
+        item.Viatura.toLowerCase().includes(searchTerm.toLowerCase()) 
+      );
 
   return (
     <View style={styles.container}>
@@ -73,23 +62,15 @@ export default function AsSuasAssistencias() {
         <Text style={styles.smallText}>Tipo de Viatura:</Text>
 
         <View style={styles.buttonContainer}>
-    <TouchableOpacity onPress={handleButton1}>
-      <View style={styles.button1}>
-        <Text style={styles.buttonText}>Carro</Text>
-      </View>
-    </TouchableOpacity>
-    <TouchableOpacity onPress={handleButton2}>
-      <View style={styles.button2}>
-        <Text style={styles.buttonText}>Carrinha</Text>
-      </View>
-    </TouchableOpacity>
-    <TouchableOpacity onPress={handleButton3}>
-      <View style={styles.button3}>
-        <Text style={styles.buttonText}>Moto</Text>
-      </View>
-    </TouchableOpacity>
-  </View>
-      <ScrollView  contentContainerStyle={styles.scrollView}>
+            <TouchableOpacity>
+              <View style={styles.button1}>
+                <Text style={styles.buttonText}>Carro</Text>
+              </View>
+            </TouchableOpacity>
+        </View>
+
+
+    <ScrollView  contentContainerStyle={styles.scrollView}>
       
       <FlatList
         style={styles.flatList}
