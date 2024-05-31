@@ -4,7 +4,7 @@ import MainDesfoque from '../Image/MainDesfoque.png';
 import Oficina from '../Image/Oficina.png';
 import Apagar from '../Image/Apagar.png';
 import Editar from '../Image/editarAdmin.png';
-import { db } from "../firebaseConfig"; 
+import { db } from "../firebase.config"; 
 import { doc, getDoc, deleteDoc } from "firebase/firestore";
 
 export default function DetalhesOficinas() {
