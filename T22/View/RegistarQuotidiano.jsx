@@ -32,7 +32,6 @@ const db = getFirestore(app);
 
 export default function EditarAssistencia() {
   const [Chegada, setChegada] = useState('');
-  const [Classificação, setClassificação] = useState('');
   const [Comportamento, setComportamento] = useState('');
   const [Consumo, setConsumo] = useState('');
   const [Nº_Kilometros, setNº_Kilometros] = useState('');
@@ -43,7 +42,6 @@ export default function EditarAssistencia() {
     try {
       await addDoc(collection(db, "Evento"), {
         Chegada,
-        Classificação,
         Comportamento,
         Consumo,
         Nº_Kilometros,

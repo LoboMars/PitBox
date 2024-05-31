@@ -54,6 +54,7 @@ export default function RegistarViatura() {
       console.log('Car registered successfully!');
     } catch (e) {
       console.error("Error adding document: ", e);
+    }
   };
 
   return (
@@ -150,7 +151,7 @@ export default function RegistarViatura() {
 
       <View style={styles.footer}>
         <View style={styles.line} />
-        <TouchableOpacity onPress={registerCar}>
+        <TouchableOpacity onPress={registerCar} >
           <View style={styles.textBoxContainer}>
             <Text style={styles.BTNpurple}>Registar</Text>
           </View>
@@ -287,4 +288,4 @@ const styles = StyleSheet.create({
   },
 
 });
-}
+
