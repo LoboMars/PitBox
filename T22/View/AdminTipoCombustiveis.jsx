@@ -26,7 +26,7 @@ export default function Tipocombustivel() {
   useEffect(() => {
     const getData = async () => {
       try {
-        const postCollection = collection(db, "tipocobustives");
+        const postCollection = collection(db, "tipoCombustivel");
         const postSnapshot = await getDocs(postCollection);
         const postList = postSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
         console.log("Data from Firestore:", postList); 
@@ -58,10 +58,10 @@ export default function Tipocombustivel() {
   };
 
   const filteredData = data.filter((item) =>
-    (item.nome?.toLowerCase() || "").includes(searchTerm.toLowerCase())
+    (item.Nome?.toLowerCase() || "").includes(searchTerm.toLowerCase())
   );
 
-  console.log("Filtered Data:", filteredData); // Verifique se os dados são filtrados corretamente
+  console.log("Filtered Data:", filteredData); 
 
   return (
     <View style={styles.container}>
@@ -84,8 +84,8 @@ export default function Tipocombustivel() {
           renderItem={({ item }) => (
             <View style={styles.item}>
               <View style={styles.descriptionContainer}>
-                <Text style={styles.itemText}>{item.nome}</Text>
-                <Text style={styles.itemDescription}>{item.info}</Text>
+                <Text style={styles.itemText}>{item.Nome}</Text>
+                <Text style={styles.itemDescription}>{item.Tipo}</Text>
               </View>
               <View style={styles.buttonContainer}>
                 <TouchableOpacity onPress={() => info(item.info)}>

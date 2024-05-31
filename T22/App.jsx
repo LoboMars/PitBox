@@ -41,7 +41,9 @@ import AsSuasAssistencias from './View/AssuasAssistencias';
 export default function App() {
   return (
     <View style={styles.container}>
+
       <CriarCombustivel/>
+
       <StatusBar style="auto" />
     </View>
   );
