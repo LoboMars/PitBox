@@ -45,11 +45,11 @@ export default function AsSuasAssistencias() {
   );
 
   const handleButton1 = () => {
-    setSearchTerm("Renault");
+    setSearchTerm(item.Viatura);
   };
 
   const handleButton2 = () => {
-    setSearchTerm("Ferrari");
+    setSearchTerm(item.Detalhes);
   };
 
   const handleButton3 = () => {
