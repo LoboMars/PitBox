@@ -41,6 +41,10 @@ export default function RegistarViatura() {
   const [Cor, setCor] = useState('');
 
   const registerCar = async () => {
+    if (!Marca || !Modelo || !Matricula || !Tipo_Viatura || !Data_fabrico || !Combustivel || !Cor) {
+      Alert.alert("Erro", "Por favor, preencha todos os campos");
+      return;
+    }
     try {
       await addDoc(collection(db, "viatura"), {
         Marca,

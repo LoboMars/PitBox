@@ -39,6 +39,10 @@ export default function EditarAssistencia() {
   const [Viatura_Usada, setViatura_Usada] = useState('');
 
   const registerQuotidiano = async () => {
+    if (!Chegada || !Comportamento || !Consumo || !Nº_Kilometros || !Partida || !Viatura_Usada) {
+      Alert.alert("Erro", "Por favor, preencha todos os campos");
+      return;
+    }
     try {
       await addDoc(collection(db, "Evento"), {
         Chegada,

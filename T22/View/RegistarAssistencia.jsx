@@ -39,10 +39,13 @@ export default function EditarAssistencia() {
   const [Detalhes, setDetalhes] = useState('');
   const [Fatura_Valor, setFatura_Valor] = useState('');
   const [Oficina, setOficina] = useState('');
-  const [Tipo, setTipo] = useState('');
   const [Viatura, setViatura] = useState('');
 
   const registerAssistencia = async () => {
+    if (!Data || !Detalhe_mais || !Detalhes || !Fatura_Valor || !Oficina || !Tipo || !Viatura) {
+      Alert.alert("Erro", "Por favor, preencha todos os campos");
+      return;
+    }
     try {
       await addDoc(collection(db, "Assistencias"), {
         Data,
