@@ -13,6 +13,7 @@ import {
 } from "react-native";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../firebase.config";
+import { Picker } from '@react-native-picker/picker';
 
 export default function CriarCombustivel() {
   const [nome, setNome] = useState("");
@@ -69,13 +70,14 @@ export default function CriarCombustivel() {
       </View>
 
       <View style={styles.textBoxContainer}>
-        <TextInput
-          style={styles.TextBox}
-          placeholder="-Escolher-"
-          placeholderTextColor="#9F9BA8"
-          value={tipo}
-          onChangeText={setTipo}
-        />
+      <Picker
+      selectedValue={tipo} 
+      style={styles.TextBox}
+      onValueChange={(itemValue) => setTipo(itemValue)}>
+      <Picker.Item label="Escolher"value=""/>
+      <Picker.Item label="Fóssil" value="fossil" />
+      <Picker.Item label="Renovável" value="renovavel" />
+     </Picker>
       </View>
 
       <View style={{ marginTop: "55%" }} />

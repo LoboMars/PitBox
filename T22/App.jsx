@@ -42,7 +42,7 @@ export default function App() {
   return (
     <View style={styles.container}>
 
-      <EditarCombustivel/>
+      <CriarCombustivel/>
 
       <StatusBar style="auto" />
     </View>
