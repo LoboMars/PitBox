@@ -102,7 +102,7 @@ export default function AsSuasAssistencias() {
              <View style={styles.itemContent}>
             <View style={styles.descriptionContainer}>
             <Text style={styles.itemText}>{item.Viatura}</Text>
-            <Text style={styles.itemDescription}>{item.Detalhes}</Text>
+            <Text style={styles.itemDescription}>{item.Tipo_Assistencia}</Text>
             </View>
             </View>
             <TouchableOpacity onPress={info} style={styles.buttonn}>
