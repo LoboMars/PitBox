@@ -1,11 +1,52 @@
-import React from "react";
+import React, { forwardRef, useState, useEffect } from "react";
 import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity, TextInput } from "react-native";
 import MainDesfoque from '../Image/MainDesfoque.png'
 import Direcao  from '../Image/Direcao.png'
 import Apagar  from  '../Image/Apagar.png'
 import Editar from '../Image/Editar.png'
+import { getDoc, doc, deleteDoc } from "firebase/firestore";
+import { db } from "../firebase.config"; 
 
 export default function DetalhesQuotidiano() {
+
+  const [Chegada, setChegada] = useState("");
+  const [Comportamento, setComportamento] = useState("");
+  const [Consumo, setConsumo] = useState("");
+  const [Kilometros, setKilometros] = useState("");
+  const [Partida, setPartida] = useState("");
+  const [Viatura_Usada, setViatura_Usada] = useState("");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const docRef = doc(db, "Evento", "1"); 
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        const data = docSnap.data();
+        setChegada(data.Chegada);
+        setComportamento(data.Comportamento);
+        setConsumo(data.Consumo);
+        setKilometros(data.Kilometros);
+        setPartida(data.Partida);
+        setViatura_Usada(data.Viatura_Usada);
+      } else {
+        console.log("No such document!");
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const deleteDocument = async () => {
+    try {
+      await deleteDoc(doc(db, "Evento", "1"));
+      console.log('Documento excluído com sucesso.');
+    } catch (error) {
+      console.error('Erro ao excluir documento: ', error);
+    }
+  };
+
+
   return (
     <View style={styles.container}>
       <Image
@@ -18,7 +59,7 @@ export default function DetalhesQuotidiano() {
 
                 <View style={styles.Title}>
                     <Text style={styles.textPurple}>Eventos do Quotidiano</Text>
-                    <Text style={styles.textWhite}>Bragança - Mirandela </Text>
+                    <Text style={styles.textWhite}>{Partida} - {Chegada}</Text>
 
                     <View style={{marginTop: "15%"}}/>
 
@@ -34,13 +75,13 @@ export default function DetalhesQuotidiano() {
                 <View style={styles.Boddy}>
                     <Text style={styles.Smalltextwhite}>Tipo:  <Text style={styles.Smalltextgrey}>Viagem Média</Text> </Text>
                     <View style={{marginTop: "5%"}}/>
-                    <Text style={styles.Smalltextwhite}>Viatura:  <Text style={styles.Smalltextgrey}>Renault Clio</Text> </Text>
+                    <Text style={styles.Smalltextwhite}>Viatura:  <Text style={styles.Smalltextgrey}>{Viatura_Usada}</Text> </Text>
                     <View style={{marginTop: "5%"}}/>
-                    <Text style={styles.Smalltextwhite}>Nº Kilometros:  <Text style={styles.Smalltextgrey}>62KM</Text> </Text>
+                    <Text style={styles.Smalltextwhite}>Nº Kilometros:  <Text style={styles.Smalltextgrey}>{Kilometros}</Text> </Text>
                     <View style={{marginTop: "5%"}}/>
-                    <Text style={styles.Smalltextwhite}>Consumo Médio:  <Text style={styles.Smalltextgrey}>5.3L</Text> </Text>
+                    <Text style={styles.Smalltextwhite}>Consumo Médio:  <Text style={styles.Smalltextgrey}>{Consumo}</Text> </Text>
                     <View style={{marginTop: "5%"}}/>
-                    <Text style={styles.Smalltextwhite}>Comportamento Invulgar:  <Text style={styles.Smalltextgrey}>-Nenhum-</Text> </Text>
+                    <Text style={styles.Smalltextwhite}>Comportamento Invulgar:  <Text style={styles.Smalltextgrey}>{Comportamento}</Text> </Text>
                     <View style={{marginTop: "15%"}}/>
                 </View>
 
@@ -51,7 +92,7 @@ export default function DetalhesQuotidiano() {
                 <View style={{flexDirection:'row'}}>
                     <View style={{marginHorizontal: '2%'}} />
 
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={deleteDocument}>
                             <Image
                                 source={Apagar}
                                 style={styles.IconSmall}
