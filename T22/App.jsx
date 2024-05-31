@@ -41,7 +41,13 @@ import AsSuasAssistencias from './View/AssuasAssistencias';
 export default function App() {
   return (
     <View style={styles.container}>
+<<<<<<< HEAD
       <CriarOficina/>
+=======
+
+      <CriarCombustivel/>
+
+>>>>>>> bcd3fc03f79b06c8a9dc96450730c40df43688ee
       <StatusBar style="auto" />
     </View>
   );
