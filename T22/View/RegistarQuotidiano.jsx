@@ -32,21 +32,23 @@ const db = getFirestore(app);
 
 export default function EditarAssistencia() {
   const [Chegada, setChegada] = useState('');
-  const [Classificação, setClassificação] = useState('');
   const [Comportamento, setComportamento] = useState('');
   const [Consumo, setConsumo] = useState('');
-  const [Nº_Kilometros, setNº_Kilometros] = useState('');
+  const [Kilometros, setKilometros] = useState('');
   const [Partida, setPartida] = useState('');
   const [Viatura_Usada, setViatura_Usada] = useState('');
 
   const registerQuotidiano = async () => {
+    if (!Chegada || !Comportamento || !Consumo || !Kilometros || !Partida || !Viatura_Usada) {
+      Alert.alert("Erro", "Por favor, preencha todos os campos");
+      return;
+    }
     try {
       await addDoc(collection(db, "Evento"), {
         Chegada,
-        Classificação,
         Comportamento,
         Consumo,
-        Nº_Kilometros,
+        Kilometros,
         Partida,
         Viatura_Usada,
       });
@@ -128,8 +130,8 @@ export default function EditarAssistencia() {
       style={styles.SmallTextBox} // Estilo para o TextInput
       placeholder="Km"
       placeholderTextColor="#9F9BA8"
-      value={Nº_Kilometros}
-      onChangeText={setNº_Kilometros}
+      value={Kilometros}
+      onChangeText={setKilometros}
     />
     <View style={{ marginHorizontal: '5%' }} />
     <TextInput

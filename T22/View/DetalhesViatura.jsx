@@ -19,7 +19,7 @@ export default function DetalhesViatura() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const docRef = doc(db, "viatura", " 2"); 
+      const docRef = doc(db, "viatura", "2"); 
       const docSnap = await getDoc(docRef);
 
       if (docSnap.exists()) {

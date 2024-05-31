@@ -21,7 +21,7 @@ export default function EditarAssistencia() {
   const [Chegada, setChegada] = useState("");
   const [Comportamento, setComportamento] = useState("");
   const [Consumo, setConsumo] = useState("");
-  const [Nº_Kilometros, setNº_Kilometros] = useState("");
+  const [Kilometros, setKilometros] = useState("");
   const [Viatura_Usada, setViatura_Usada] = useState("");
 
   useEffect(() => {
@@ -35,7 +35,7 @@ export default function EditarAssistencia() {
         setChegada(data.Chegada);
         setComportamento(data.Comportamento);
         setConsumo(data.Consumo);
-        setNº_Kilometros(data.Nº_Kilometros);
+        setKilometros(data.Kilometros);
         setViatura_Usada(data.Viatura_Usada);
       } else {
         console.log("No such document!");
@@ -46,14 +46,13 @@ export default function EditarAssistencia() {
   }, []);
 
   const handleUpdate = async () => {
-
       const docRef = doc(db, "Evento", "1");
       await updateDoc(docRef, {
         Partida,
         Chegada,
         Comportamento,
         Consumo,
-        Nº_Kilometros,
+        Kilometros,
         Viatura_Usada,
       });
   };
@@ -130,8 +129,8 @@ export default function EditarAssistencia() {
       style={styles.SmallTextBox} // Estilo para o TextInput
       placeholder="Km"
       placeholderTextColor="#9F9BA8"
-      value={Nº_Kilometros}
-      onChangeText={setNº_Kilometros}
+      value={Kilometros}
+      onChangeText={setKilometros}
     />
     <View style={{ marginHorizontal: '5%' }} />
     <TextInput

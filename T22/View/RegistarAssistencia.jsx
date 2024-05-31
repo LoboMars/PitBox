@@ -35,22 +35,24 @@ const db = getFirestore(app);
 
 export default function EditarAssistencia() {
   const [Data, setData] = useState('');
-  const [Detalhe_mais, setDetalhe_mais] = useState('');
-  const [Detalhes, setDetalhes] = useState('');
+  const [Descricao, setDescricao] = useState('');
+  const [Tipo_Assistencia, setTipo_Assistencia] = useState('');
   const [Fatura_Valor, setFatura_Valor] = useState('');
   const [Oficina, setOficina] = useState('');
-  const [Tipo, setTipo] = useState('');
   const [Viatura, setViatura] = useState('');
 
   const registerAssistencia = async () => {
+    if (!Data || !Descricao || !Tipo_Assistencia || !Fatura_Valor || !Oficina  || !Viatura) {
+      Alert.alert("Erro", "Por favor, preencha todos os campos");
+      return;
+    }
     try {
       await addDoc(collection(db, "Assistencias"), {
         Data,
-        Detalhe_mais,
-        Detalhes,
+        Descricao,
+        Tipo_Assistencia,
         Fatura_Valor,
         Oficina,
-        Tipo,
         Viatura,
       });
       console.log('Car registered successfully!');
@@ -154,16 +156,16 @@ export default function EditarAssistencia() {
                 style={styles.TextBox} // Estilo para o TextInput
                 placeholder="Tipo de Assistência"
                 placeholderTextColor="#9F9BA8"
-                value={Detalhes}
-                onChangeText={setDetalhes}
+                value={Tipo_Assistencia}
+                onChangeText={setTipo_Assistencia}
                  />
               <TextInput
                 style={styles.BigTextBox} // Estilo para o TextInput
                 placeholder="..."
                 placeholderTextColor="#9F9BA8"
                 multiline={true}
-                value={Detalhe_mais}
-                onChangeText={setDetalhe_mais} 
+                value={Descricao}
+                onChangeText={setDescricao} 
                 />
             </View>
 

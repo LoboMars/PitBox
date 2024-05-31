@@ -1,4 +1,5 @@
 import { StatusBar } from "expo-status-bar";
+import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   Text,
@@ -10,7 +11,41 @@ import {
   TextInput,
 } from "react-native";
 
+import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { db } from "../firebase.config"; 
+
 export default function EditarCombustivel() {
+
+  const [Nome, setNome] = useState("");
+  const [Tipo, setTipo] = useState("");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const docRef = doc(db, "tipoCombustivel", "1"); 
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        const data = docSnap.data();
+        setNome(data.Nome);
+        setTipo(data.Tipo);
+      } else {
+        console.log("No such document!");
+      }
+    };
+
+    fetchData();
+  }, []);
+
+
+  const handleUpdate = async () => {
+    const docRef = doc(db, "tipoCombustivel", "1");
+    await updateDoc(docRef, {
+      Nome,
+      Tipo,
+    });
+};
+
+
   return (
    
     <View style={styles.container}>
@@ -29,8 +64,8 @@ export default function EditarCombustivel() {
         <View style={styles.textBoxContainer}>
           <TextInput
             style={styles.TextBox}
-            defaultValue="Gasóleo"
-            placeholder="Nome"
+            value={Nome}
+            onChangeText={setNome}
             placeholderTextColor="#9F9BA8"
           />
         </View>
@@ -44,8 +79,8 @@ export default function EditarCombustivel() {
         <View style={styles.textBoxContainer}>
           <TextInput
             style={styles.TextBox}
-            defaultValue="fossil"
-            placeholder="-Escolher-"
+            value={Tipo}
+            onChangeText={setTipo}
             placeholderTextColor="#9F9BA8"
           />
         </View>
@@ -56,7 +91,7 @@ export default function EditarCombustivel() {
         <View style={styles.line} />
         <View style={{ marginBottom: "5%" }} />
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress={handleUpdate}>
           <View style={styles.textBoxContainer}>
             <Text style={styles.BTNOrange}>Aplicar</Text>
           </View>
