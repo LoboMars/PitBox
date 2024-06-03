@@ -10,7 +10,10 @@
   },
   "dependencies": {
     "@expo/metro-runtime": "~3.2.1",
+    "@react-native-firebase/app": "^20.0.0",
+    "@react-native-firebase/auth": "^20.0.0",
     "@react-native-picker/picker": "^2.7.6",
+    "@react-navigation/native": "^6.1.17",
     "expo": "~51.0.5",
     "expo-status-bar": "~1.12.1",
     "firebase": "^10.12.1",

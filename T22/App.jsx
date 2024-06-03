@@ -42,7 +42,7 @@ export default function App() {
   return (
     <View style={styles.container}>
 
-      <AsSuasAssistencias/>
+     <Register/>
 
       <StatusBar style="auto" />
     </View>
