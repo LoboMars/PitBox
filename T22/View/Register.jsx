@@ -42,7 +42,7 @@ export default function Register() {
         email: email,
       });
       console.log('User registered successfully');
-      navigation.navigate('MainPage');
+      navigation.navigate('MainPage', { nome: nome });
     } catch (error) {
       console.log(error);
     }

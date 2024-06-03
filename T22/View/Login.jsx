@@ -2,7 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, Image, Dimensions,TouchableOpacity, TextInput, Switch  } from "react-native";
 import Logo from '../Image/Logo.png';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { app } from "../firebase.config";
+import { app, db } from "../firebase.config"; 
 import { useNavigation } from '@react-navigation/native';
 import { getFirestore, doc, getDoc } from "firebase/firestore";
 import React, { useState, useContext } from 'react';
@@ -21,9 +21,19 @@ export default function Login() {
   const handlePress = async () => {
     try {
       const auth = getAuth(app);
-      await signInWithEmailAndPassword(auth, email, senha);
+      const userCred = await signInWithEmailAndPassword(auth, email, senha);
       console.log('Logged in successfully');
-      navigation.navigate('MainPage');
+      
+      // Fetch user name from Firestore
+      const db = getFirestore(app);
+      const userDocRef = doc(db, "Utilizador", userCred.user.uid);
+      const userDoc = await getDoc(userDocRef);
+      if (userDoc.exists()) {
+        const userName = userDoc.data().nome;
+        navigation.navigate('MainPage', { nome: userName });
+      } else {
+        console.log("No such document!");
+      }
     } catch (error) {
       console.log("Firebase Auth Error:", error.code, error.message);
     }
@@ -47,7 +57,7 @@ export default function Login() {
   <View style={styles.textBoxContainer}>
     <TextInput
       style={styles.TextBox}
-      placeholder="Nome"
+      placeholder="Email"
       placeholderTextColor="#9F9BA8" 
       onChangeText={(text) => setEmail(text)}
       value={email}

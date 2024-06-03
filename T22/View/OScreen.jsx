@@ -3,9 +3,19 @@ import { StyleSheet, Text, View ,Image,TouchableOpacity} from 'react-native';
 import React, {useState} from 'react';
 import OScreenP from '../Image/OScreenP.png'
 import Logo from '../Image/Logo.png'
+import { useNavigation } from '@react-navigation/native';
 
 
 export default function OScreen() {
+  const navigation = useNavigation();
+
+  const handleLogin = () => {
+    navigation.navigate('Login');
+  };
+
+  const handleRegister = () => {
+    navigation.navigate('Register');
+  };
     return (
       <View style={styles.container}>
         <View style={styles.content}>
@@ -16,12 +26,12 @@ export default function OScreen() {
           <Text style={styles.textWhite}>A nossa App é a chave</Text>
           <Image source={OScreenP} style={styles.homeIm} />
           <View>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={handleLogin}>
               <View>
                 <Text style={styles.Login}>Login</Text>
               </View>
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={handleRegister}>
               <View>
                 <Text style={styles.Register}>Register</Text>
               </View>
