@@ -1,26 +1,30 @@
 import React from "react";
-import { StatusBar } from "expo-status-bar";
 import {
   StyleSheet,
   Text,
   View,
   Image,
   TouchableOpacity,
-  ScrollView,
-  ImageBackground,
 } from "react-native";
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+import Tipoviatura from './AdminTipoviatura';  
+import Suasviaturas from './Assuasviaturas';           
+import oficinas from './AdminOficinas';
 
 import EditarPerfil from "../Image/EditarPerfil.png";
 import LogOut from "../Image/LogOut.png";
 import Combustiveis from '../Image/combustivel.png';
 import Home from '../Image/HomeAD.png';
 import TipoViaturas from '../Image/cad.png';
-import Oficinas from '../Image/OficinaIcon.png'
-import CriarTipoVeiculo from "../Image/Criar Tipo Veiculo.png";
-import CriarOficina from "../Image/criar oficina.png";
-import CriarCombustivel from "../Image/criar combustivel.png";
+import Oficinas from '../Image/OficinaIcon.png';
+import LCombustiveis from '../Image/combustivelLaranja.png';
+import LOficinas from '../Image/oficinaOrange 1.png';
+import LTipoViaturas from '../Image/cadSelect.png';
 
-export default function MainPage() {
+const Tab = createBottomTabNavigator();
+
+export default function MainPage({ navigation }) {
   const handleLogout = () => {
     alert("Logout button pressed!");
   };
@@ -30,106 +34,88 @@ export default function MainPage() {
   };
 
   return (
+    
     <View style={styles.container}>
-
-
       <View style={styles.container1}>
-          <View style={{ paddingTop: "5%" }} />
-
-          <View style={styles.imageContainer}>
-            <TouchableOpacity onPress={handleLogout} style={{ paddingLeft: '3%' }}>
-              <View>
-                <Image source={LogOut} style={styles.logo}/>
-                <Text style={{color: "#C33434", fontWeight: "700", fontSize: 11, marginTop: "10%"}}>LogOut</Text>
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={handleLogout}>
-              <View>
-                <Image source={EditarPerfil} style={styles.editarPerf}/>
-                <Text style={{color: "#9F9BA8", fontWeight: "700", fontSize: 11, marginTop: "10%"}}>Editar Perfil</Text>
-              </View>
-            </TouchableOpacity>
-          </View>
+        <View style={{ paddingTop: "5%" }} />
+        <View style={styles.imageContainer}>
+          <TouchableOpacity onPress={handleLogout} style={{ paddingLeft: '3%' }}>
+            <View>
+              <Image source={LogOut} style={styles.logo} />
+              <Text style={{color: "#C33434", fontWeight: "700", fontSize: 11, marginTop: "10%"}}>LogOut</Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={handleEditar}>
+            <View>
+              <Image source={EditarPerfil} style={styles.editarPerf} />
+              <Text style={{color: "#9F9BA8", fontWeight: "700", fontSize: 11, marginTop: "10%"}}>Editar Perfil</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
       </View>
-
-
       <View style={styles.container2}>
-
         <View style={{ paddingTop: "10%" }} />
-
         <View>
           <Text style={styles.BigText}>Bem Vindo,</Text>
         </View>
-
         <View>
           <Text style={styles.BigTextO}>Jorge Jesus<Text style={styles.BigTextW}>.</Text></Text>
         </View>
-
         <View style={{ paddingTop: "10%" }} />
-
         <View style={styles.textBoxContainer}>
-
-            <TouchableOpacity onPress={handleLogout}>
-              <View style={styles.TextBox}>
-                <Text style={styles.BigTextLeft}>Criar Tipo de Viatura</Text>
-              </View>
-            </TouchableOpacity>
-
-            <TouchableOpacity onPress={handleLogout}>
-              <View style={styles.TextBox}>
-                <Text style={styles.BigTextLeft}>Criar Oficina</Text>
-              </View>
-            </TouchableOpacity>
-
-            <TouchableOpacity onPress={handleLogout}>
-              <View style={styles.TextBox}>
-                <Text style={styles.BigTextLeft}>Criar Combustível</Text>
-              </View>
-            </TouchableOpacity>
-
+          <TouchableOpacity onPress={handleLogout}>
+            <View style={styles.TextBox}>
+              <Text style={styles.BigTextLeft}>Criar Tipo de Viatura</Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={handleLogout}>
+            <View style={styles.TextBox}>
+              <Text style={styles.BigTextLeft}>Criar Oficina</Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={handleLogout}>
+            <View style={styles.TextBox}>
+              <Text style={styles.BigTextLeft}>Criar Combustível</Text>
+            </View>
+          </TouchableOpacity>
         </View>
-
       </View>
+      <Tab.Navigator
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, color, size }) => {
+            let iconName;
+            if (route.name === 'TipoViaturas') {
+              iconName = focused ? LTipoViaturas : TipoViaturas;
+            } else if (route.name === 'Oficinas') {
+              iconName = focused ? LOficinas : Oficinas;
+            } else if (route.name === 'Combustiveis') {
+              iconName = focused ? LCombustiveis : Combustiveis;
+            }
+            return <Image source={iconName} style={styles.logo2} />;
+          },
+        })}
+        tabBarOptions={{
+          activeTintColor: '#EC853B',
+          inactiveTintColor: '#9F9BA8',
+        }}
+        tabBarStyle={{
+          backgroundColor: '#1C1D21', 
+          borderTopWidth: 0,
+        }}
 
-        <View style={styles.container3}>
-
-          <View style={styles.imageContainer2}>
-            <TouchableOpacity onPress={handleLogout} style={{marginLeft: "4%"}}>
-              <View>
-                <Image source={Home} style={styles.logo2}/>
-                <Text style={{color: "#EC853B", fontWeight: "500",  fontSize: 11, marginTop: "5%"}}>Home</Text>
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={handleLogout}>
-              <View>
-                <Image source={TipoViaturas} style={styles.logo2} />
-                <Text style={{color: "#9F9BA8", fontWeight: "500",  fontSize: 11, marginTop: "5%"}}>Tipos Viaturas</Text>
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={handleLogout}>
-              <View>
-                <Image source={Oficinas} style={styles.logo2} />
-                <Text style={{color: "#9F9BA8", fontWeight: "500",  fontSize: 11, marginTop: "5%"}}>oficinas</Text>
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={handleLogout} style={{marginRight: "2%"}}>
-              <View>
-                <Image source={Combustiveis} style={styles.logo2} />
-                <Text style={{color: "#9F9BA8", fontWeight: "500", fontSize: 11, marginTop: "5%"}}>Combustíveis</Text>
-              </View>
-            </TouchableOpacity>
-          </View>
-        </View>
-
+      >
+        <Tab.Screen name="TipoViaturas" component={Tipoviatura} />
+        <Tab.Screen name="Oficinas" component={oficinas} />
+        <Tab.Screen name="Combustiveis" component={Suasviaturas} />
+      </Tab.Navigator>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-
   container: {
     width: "100%",
-    height:'100%',
+    height: '100%',
     flex: 1,
     backgroundColor: "#232427",
   },
@@ -154,10 +140,9 @@ const styles = StyleSheet.create({
   },
 
   textBoxContainer: {
-    width: "95%",
-    alignItems: "left",
-    marginLeft: "3%",
-    backgroundColor: "#232427",
+    width: "100%",
+    alignItems: "center",
+    paddingHorizontal: "5%",
   },
 
   imageContainer: {
@@ -177,60 +162,68 @@ const styles = StyleSheet.create({
     width: 38,
     height: 38,
   },
-  iconText:{
 
-  },
-  editarPerf:{
+  editarPerf: {
     alignSelf: 'center',
     width: 38,
     height: 38,
   },
+
   logo2: {
     alignSelf: 'center',
     width: 32,
     height: 32,
   },
+
   BigText: {
     color: "white",
     fontSize: 35,
     fontWeight: "bold",
     textAlign: "center",
   },
+
   BigTextLeft: {
     color: "white",
     fontSize: 25,
     fontWeight: "bold",
     textAlign: "left",
   },
+
   BigTextO: {
     color: "#EC853B",
     fontSize: 35,
     fontWeight: "bold",
     textAlign: "center",
   },
+
   BigTextW: {
     color: "white",
     fontSize: 35,
     fontWeight: "bold",
     textAlign: "center",
   },
+
   TextBox: {
-    color: "#9F9BA8",
     backgroundColor: "#383343",
-    marginTop: "8%",
+    marginVertical: 10,
     borderRadius: 15,
+    paddingVertical: 20,
+    paddingHorizontal: 20,
+    width: "90%",
+    textAlign: "left",
+  },
+
+  textBoxText: {
+    color: "white",
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+
+  button: {
+    color: "#9F9BA8",
     paddingVertical: 30,
     paddingHorizontal: 20,
-    fontSize: 13,
-    textAlign: "left",
     marginLeft: "5%",
     marginRight: "5%",
   },
-  button:{
-    color: "#9F9BA8",
-    paddingVertical: 30,
-    paddingHorizontal: 20,
-    marginLeft: "5%",
-    marginRight: "5%",
-  }
 });
