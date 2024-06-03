@@ -18,6 +18,7 @@ import Assistencias from '../Image/Assistencias.png'
 import Lebron from '../Image/labron.png'
 
 export default function MainPage() {
+ 
   const handleLogout = () => {
     alert("Logout button pressed!");
   };

@@ -11,12 +11,43 @@ import {
 } from "react-native";
 import Logo from "../Image/Logo.png";
 import Icon from "../Image/Icon.png";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
+} from "firebase/auth";
+import { app, db } from "../firebase.config"; 
+import { useNavigation } from '@react-navigation/native';
+import { doc, setDoc } from "firebase/firestore";
 
 export default function Register() {
   const [email, setEmail] = useState(""); 
   const [nome, setNome] = useState(""); 
   const [senha, setSenha] = useState(""); 
   const [nsenha, setNsenha] = useState("");
+
+  const handlePress = async () => {
+    if (senha !== nsenha) {
+      console.log("Passwords do not match");
+      return;
+    }
+
+    try {
+      const auth = getAuth(app);
+      const userCred = await createUserWithEmailAndPassword(auth, email, senha);
+      await sendEmailVerification(userCred.user);
+      await setDoc(doc(db, "Utilizador", userCred.user.uid), {
+        Nome: nome,
+        Mail: email,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+    console.log('Button pressed');
+    console.log('Nome:', nome);
+    console.log('Email:', email);
+    console.log('Password:', senha);
+  };
 
   return (
     <View style={styles.container}>
@@ -64,13 +95,13 @@ export default function Register() {
               />
             </View>
             
-            <TouchableOpacity>
+            <TouchableOpacity onPress={handlePress}>
               <View style={styles.textBoxLogin}>
                 <Text style={styles.BTNpurple}>Registrar Conta</Text>
               </View>
             </TouchableOpacity>
 
-            <TouchableOpacity>
+            <TouchableOpacity  onPress={handleLoginNavigation}>
               <View style={styles.textBoxLogin}>
                 <Text style={[styles.textPurple, { paddingTop: "5%" }]}>
                   Já tem uma conta?
