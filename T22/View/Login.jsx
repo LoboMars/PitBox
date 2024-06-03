@@ -1,15 +1,38 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, Image, Dimensions,TouchableOpacity, TextInput, Switch  } from "react-native";
-import Logo from '../Image/Logo.png'
-import React, { useState } from 'react';
+import Logo from '../Image/Logo.png';
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { app } from "../firebase.config";
+import { useNavigation } from '@react-navigation/native';
+import { getFirestore, doc, getDoc } from "firebase/firestore";
+import React, { useState, useContext } from 'react';
+
 
 
 export default function Login() {
+  const [email, setEmail] = useState(""); 
+  const [senha, setSenha] = useState(""); 
   const [isEnabled, setIsEnabled] = useState(false);
+  const navigation = useNavigation();
 
   const toggleSwitch = () => {
     setIsEnabled(previousState => !previousState);
   };
+  const handlePress = async () => {
+    try {
+      const auth = getAuth(app);
+      await signInWithEmailAndPassword(auth, email, senha);
+      console.log('Logged in successfully');
+      navigation.navigate('MainPage');
+    } catch (error) {
+      console.log("Firebase Auth Error:", error.code, error.message);
+    }
+  };
+
+  const handleRegisterPress = () => {
+    navigation.navigate('Register'); 
+  };
+
   return (
   <View style={styles.container}>
     <Image source={Logo} style={styles.logo} />
@@ -25,12 +48,17 @@ export default function Login() {
     <TextInput
       style={styles.TextBox}
       placeholder="Nome"
-      placeholderTextColor="#9F9BA8" />
+      placeholderTextColor="#9F9BA8" 
+      onChangeText={(text) => setEmail(text)}
+      value={email}
+      />
     <TextInput
       style={styles.TextBox}
       placeholder="Palavra-passe"
       placeholderTextColor="#9F9BA8"
       secureTextEntry={true}
+      onChangeText={(text) => setSenha(text)}
+      value={senha}
     />
 
     <View style={styles.switch1}>
@@ -50,7 +78,7 @@ export default function Login() {
   </View>
 
     <View style={styles.textBoxLogin}>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={handlePress}>
       <Text style={styles.BTNpurple}>Login</Text>
       </TouchableOpacity>
     </View>
@@ -66,7 +94,7 @@ export default function Login() {
   <View style={{ marginBottom: '2%' }} />
       
   <View style={styles.textBoxLogin}>
-    <TouchableOpacity>
+    <TouchableOpacity onPress={handleRegisterPress}>
       <Text style={styles.Register}>Registar Conta</Text>
     </TouchableOpacity>
   </View>
