@@ -35,6 +35,8 @@ import EliminarCombustivel from './View/AdminEliminarCombustivel';
 import AdminEditarPerfil from './View/AdminEditarPerfil';
 import Seuseventos from './View/Osseuseventos';
 import AsSuasAssistencias from './View/AssuasAssistencias';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
