@@ -16,7 +16,7 @@ import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "../firebase.config"; 
 
 
-export default function CriarViatura() {
+export default function EditarViatura() {
   const [nome, setnome] = useState("");
 
   useEffect(() => {
