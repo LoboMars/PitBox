@@ -64,10 +64,6 @@ export default function EditarPerfil() {
     navigation.goBack();
   };
 
-<<<<<<< HEAD
-export default function EditarPerfil() {
-=======
->>>>>>> 8cb9a3a234998e83d8a86480dec5ddcc674f317c
   return (
     <View style={styles.container}>
       <View style={styles.header}>
