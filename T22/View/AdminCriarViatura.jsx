@@ -4,7 +4,7 @@ import { db } from "../firebase.config";
 import { collection, addDoc } from "firebase/firestore";
 import { useNavigation } from "@react-navigation/native";
 
-export default function CriarViatura(navigation ) {
+export default function CriarViatura( ) {
   const [nomeViatura, setNomeViatura] = useState("");
 
   const handleCreate = async () => {

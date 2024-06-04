@@ -4,16 +4,20 @@ import carPurple from "../Image/carPurple.png";
 import Combustiveis from '../Image/combustivel.png';
 import Home from '../Image/homeUnselected.png';
 import TipoViaturas from '../Image/cadSelect.png';
-import Oficinas from '../Image/OficinaIcon.png'
-import apagar from '../Image/Apagar.png'
-import Edit from '../Image/editarAdmin.png'
+import Oficinas from '../Image/OficinaIcon.png';
+import apagar from '../Image/Apagar.png';
+import Edit from '../Image/editarAdmin.png';
 import adicionar from '../Image/Adicionar.png';
 import { db } from "../firebase.config";
 import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
+import { useNavigation } from "@react-navigation/native";
 
 export default function Tipoviatura() {
   const [data, setData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+
+  // Obtendo o objeto de navegação
+  const navigation = useNavigation();
 
   useEffect(() => {
     const getData = async () => {
@@ -21,7 +25,7 @@ export default function Tipoviatura() {
         const postCollection = collection(db, "ADviaturas");
         const postSnapshot = await getDocs(postCollection);
         const postList = postSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-        console.log("Data from Firestore:", postList); // Verifique se todos os dados são recuperados
+        console.log("Data from Firestore:", postList);
         setData(postList);
       } catch (error) {
         console.error("Error getting documents: ", error);
@@ -39,25 +43,25 @@ export default function Tipoviatura() {
   };
 
   const handleEdit = (id) => {
-    // Lógica para editar o item com o ID fornecido
-    console.log("Editar item com ID:", id);
+    // Navegar para a tela de edição com o ID do item a ser editado
+    navigation.navigate("EliminarTipo", { id });
+  };
+
+  const handleDelete = async (id) => {
+    try {
+      await deleteDoc(doc(db, "ADviaturas", id)); // Exclui o documento do Firestore
+      const updatedData = data.filter(item => item.id !== id); // Filtra os dados para excluir o item com o ID correspondente
+      setData(updatedData); // Atualiza os dados
+      alert("Item apagado com sucesso ");
+    } catch (error) {
+      console.error("Error ao apagar: ", error);
+      alert("Erro ao apagar o item.");
+    }
   };
 
   const filteredData = data.filter((item) =>
     item && item.nome && item.nome.toLowerCase().includes(searchTerm.toLowerCase())
   );
-
-  const handleDelete = async (id) => {
-  try {
-    await deleteDoc(doc(db, "ADviaturas", id)); // Exclui o documento do Firestore
-    const updatedData = data.filter(item => item.id !== id); // Filtra os dados para excluir o item com o ID correspondente
-    setData(updatedData); // Atualiza os dados
-    alert("Item apagado com sucesso ");
-  } catch (error) {
-    console.error("Error ao apagar: ", error);
-    alert("Erro ao apagar o item.");
-  }
-};
 
   return (
     <View style={styles.container}>
@@ -87,8 +91,8 @@ export default function Tipoviatura() {
                 <Image source={carPurple} style={styles.icon} />
                 <Text style={styles.itemText}>{item.nome}</Text>
                 <View style={styles.buttonContainer}>
-                  <TouchableOpacity >
-                    <Image  source={Edit} style={styles.logo4} />
+                  <TouchableOpacity onPress={() => handleEdit(item.id)}>
+                    <Image source={Edit} style={styles.logo4} />
                   </TouchableOpacity>
                   <TouchableOpacity onPress={() => handleDelete(item.id)}>
                     <Image source={apagar} style={styles.logo3} />
@@ -97,15 +101,13 @@ export default function Tipoviatura() {
               </View>
             )}
           />
-          <TouchableOpacity >
+          <TouchableOpacity onPress={() => navigation.navigate("CriarViatura")}>
             <View style={styles.Adicionar}>
-              <Image  source={adicionar} style={styles.logo3} />
+              <Image source={adicionar} style={styles.logo3} />
             </View>
           </TouchableOpacity>
         </ScrollView>
       </View>
-
-  
     </View>
   );
 }
@@ -116,14 +118,12 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
   },
-
   container2: {
     flex: 8,
     marginTop: "5%",
     marginBottom: "1%",
     backgroundColor: "#232427",
   },
-
   container3: {
     flex: 1,
     backgroundColor: "#1C1D21",
@@ -161,25 +161,23 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     marginBottom: 20,
     width: "90%",
-    alignSelf: "center", // Centraliza a barra de pesquisa
+    alignSelf: "center",
     marginBottom: "7%",
   },
   flatList: {
-    width: "100%", // Ajusta a largura da FlatList para ocupar toda a tela
+    width: "100%",
   },
   flatListContent: {
     justifyContent: "flex-start",
     width: "100%",
-    //backgroundColor:"1C1D21",
   },
   item: {
     backgroundColor: "#1C1D21",
     padding: 27,
     marginBottom: 10,
     borderRadius: 15,
-    width: "90%", // Ajusta a largura dos itens da lista para ocupar toda a tela
+    width: "90%",
     flexDirection: "row",
-    //justifyContent:"space-between",
     alignItems: "center",
     marginLeft: "5%",
     marginBottom: "4%",
@@ -217,12 +215,6 @@ const styles = StyleSheet.create({
     height: 42,
     marginRight: 10,
   },
-  BigText: {
-    color: "white",
-    fontSize: 35,
-    fontWeight: "bold",
-    textAlign: "center",
-  },
   BigTextP: {
     color: "#6D4EE5",
     fontSize: 35,
@@ -232,7 +224,6 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: "row",
     flex: 1,
-    flexDirection: "row",
     justifyContent: "flex-end"
   },
   Adicionar: {
@@ -247,10 +238,5 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     alignSelf: "center"
-  },
-  logo3: {
-    alignSelf: 'center',
-    width: 42,
-    height: 42,
   },
 });

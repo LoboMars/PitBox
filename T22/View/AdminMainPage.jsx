@@ -6,6 +6,7 @@ import {
   Image,
   TouchableOpacity,
 } from "react-native";
+import { useNavigation } from "@react-navigation/native"; // Import useNavigation
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Tipoviatura from './AdminTipoviatura';  
@@ -22,20 +23,18 @@ import LCombustiveis from '../Image/combustivelLaranja.png';
 import LOficinas from '../Image/oficinaOrange 1.png';
 import LTipoViaturas from '../Image/cadSelect.png';
 
-
-
 export default function AdminMainPage({ navigation }) {
+  
   
   const handleLogout = () => {
     alert("Logout button pressed!");
   };
 
   const handleEditar = () => {
-    alert("Editar button pressed!");
+    navigation.navigate("AdminEditarPerfil");
   };
 
   return (
-    
     <View style={styles.container}>
       <View style={styles.container1}>
         <View style={{ paddingTop: "5%" }} />
@@ -92,90 +91,76 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#232427",
   },
-
   container1: {
     marginTop: "5%",
     flex: 1,
     justifyContent: 'center',
   },
-
   container2: {
     flex: 8,
     marginTop: "5%",
     marginBottom: "5%",
     backgroundColor: "#232427",
   },
-
   container3: {
     flex: 1,
     backgroundColor: "#1C1D21",
     justifyContent: 'center',
   },
-
   textBoxContainer: {
     width: "100%",
     alignItems: "center",
     paddingHorizontal: "5%",
   },
-
   imageContainer: {
     flexDirection: "row",
     justifyContent: "space-between", 
     paddingHorizontal: "6%",
   },
-
   imageContainer2: {
     flexDirection: "row",
     justifyContent: "space-between", 
     paddingHorizontal: "4%",
   },
-
   logo: {
     alignSelf: 'center',
     width: 38,
     height: 38,
   },
-
   editarPerf: {
     alignSelf: 'center',
     width: 38,
     height: 38,
   },
-
   logo2: {
     alignSelf: 'center',
     width: 32,
     height: 32,
   },
-
   BigText: {
     color: "white",
     fontSize: 35,
     fontWeight: "bold",
     textAlign: "center",
   },
-
   BigTextLeft: {
     color: "white",
     fontSize: 25,
     fontWeight: "bold",
     textAlign: "left",
   },
-
   BigTextO: {
     color: "#EC853B",
     fontSize: 35,
     fontWeight: "bold",
     textAlign: "center",
   },
-
   BigTextW: {
     color: "white",
     fontSize: 35,
     fontWeight: "bold",
     textAlign: "center",
   },
-
   TextBox: {
     backgroundColor: "#383343",
     marginVertical: 10,
@@ -185,13 +170,11 @@ const styles = StyleSheet.create({
     width: "90%",
     textAlign: "left",
   },
-
   textBoxText: {
     color: "white",
     fontSize: 20,
     fontWeight: "bold",
   },
-
   button: {
     color: "#9F9BA8",
     paddingVertical: 30,
