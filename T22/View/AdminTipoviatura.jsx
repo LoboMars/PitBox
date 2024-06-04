@@ -105,37 +105,7 @@ export default function Tipoviatura() {
         </ScrollView>
       </View>
 
-      <View style={styles.container3}>
-        <View style={styles.imageContainer2}>
-          <TouchableOpacity onPress={handleLogout} style={{ marginLeft: "4%" }}>
-            <View>
-              <Image source={Home} style={styles.logo2} />
-              <Text style={{ color: "#9F9BA8", fontWeight: "500", fontSize: 11, marginTop: "5%" }}>Home</Text>
-            </View>
-          </TouchableOpacity>
-
-          <TouchableOpacity onPress={handleLogout}>
-            <View>
-              <Image source={TipoViaturas} style={styles.logo2} />
-              <Text style={{ color: "#EC853B", fontWeight: "500", fontSize: 11, marginTop: "5%" }}>Tipos Viaturas</Text>
-            </View>
-          </TouchableOpacity>
-
-          <TouchableOpacity onPress={handleLogout}>
-            <View>
-              <Image source={Oficinas} style={styles.logo2} />
-              <Text style={{ color: "#9F9BA8", fontWeight: "500", fontSize: 11, marginTop: "5%" }}>oficinas</Text>
-            </View>
-          </TouchableOpacity>
-
-          <TouchableOpacity onPress={handleLogout} style={{ marginRight: "2%" }}>
-            <View>
-              <Image source={Combustiveis} style={styles.logo2} />
-              <Text style={{ color: "#9F9BA8", fontWeight: "500", fontSize: 11, marginTop: "5%" }}>Combustíveis</Text>
-            </View>
-          </TouchableOpacity>
-        </View>
-      </View>
+  
     </View>
   );
 }

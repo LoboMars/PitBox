@@ -4,6 +4,11 @@ import { Ionicons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+import {
+  StyleSheet,
+  Image,
+} from "react-native";
+
 import LogOut from "../Image/LogOut.png";
 import Combustiveis from '../Image/combustivel.png';
 import Home from '../Image/HomeAD.png';
@@ -12,6 +17,8 @@ import Oficinas from '../Image/OficinaIcon.png';
 import LCombustiveis from '../Image/combustivelLaranja.png';
 import LOficinas from '../Image/oficinaOrange 1.png';
 import LTipoViaturas from '../Image/cadSelect.png';
+import HomeAD from '../Image/HomeAD.png';
+import homeUnselected from '../Image/homeUnselected.png';
 
 
 import OScreen from '../View/OScreen';
@@ -53,39 +60,46 @@ import AsSuasAssistencias from '../View/AssuasAssistencias';
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
+const styles = StyleSheet.create({
+  logo2: {
+    width: 24,
+    height: 24,
+  },
+});
 
 const TabContainer = () => {
-    return(
+  return (
     <Tab.Navigator
-        screenOptions={({ route }) => ({
-          tabBarIcon: ({ focused, color, size }) => {
-            let iconName;
-            if (route.name === 'TipoViaturas') {
-              iconName = focused ? LTipoViaturas : TipoViaturas;
-            } else if (route.name === 'Oficinas') {
-              iconName = focused ? LOficinas : Oficinas;
-            } else if (route.name === 'Combustiveis') {
-              iconName = focused ? LCombustiveis : Combustiveis;
-            }
-            return <Image source={iconName} style={styles.logo2} />;
-          },
-        })}
-        tabBarOptions={{
-          activeTintColor: '#EC853B',
-          inactiveTintColor: '#9F9BA8',
-        }}
-        tabBarStyle={{
-          backgroundColor: '#1C1D21', 
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused }) => {
+          let iconName;
+          if (route.name === 'AdminMainPage') {
+            iconName = focused ? HomeAD : homeUnselected;
+          } else if (route.name === 'Oficinas') {
+            iconName = focused ? LOficinas : Oficinas;
+          } 
+          else if (route.name === 'TipoViaturas') {
+            iconName = focused ? LTipoViaturas : TipoViaturas;
+          }
+          else if (route.name === 'Combustiveis') {
+            iconName = focused ? LCombustiveis : Combustiveis;
+          }
+          return <Image source={iconName} style={styles.logo2} />;
+        },
+        tabBarActiveTintColor: '#EC853B',
+        tabBarInactiveTintColor: '#9F9BA8',
+        tabBarStyle: {
+          backgroundColor: '#1C1D21',
           borderTopWidth: 0,
-        }}
-
-      >
-        {/* <Tab.Screen name="TipoViaturas" component={Tipoviatura} /> */}
-        {/* <Tab.Screen name="Oficinas" component={oficinas} /> */}
-       {/* k <Tab.Screen name="Combustiveis" component={Suasviaturas} /> */}
-      </Tab.Navigator>
-
-    );
+        },
+      })}
+    >
+      <Tab.Screen name="AdminMainPage" component={AdminMainPage} />
+      <Tab.Screen name="TipoViaturas" component={Tipoviatura} />
+      <Tab.Screen name="Oficinas" component={AdminOficinas} />
+      <Tab.Screen name="Combustiveis" component={Tipocombustivel} />
+    </Tab.Navigator>
+  );
 };
 const RootNavigator = () => {
     return(

@@ -104,34 +104,7 @@ export default function Tipocombustivel() {
           </View>
         </TouchableOpacity>
       </ScrollView>
-      <View style={styles.container3}>
-        <View style={styles.imageContainer2}>
-          <TouchableOpacity onPress={handleLogout}>
-            <View>
-              <Image source={Home} style={styles.logo2}/>
-              <Text style={{color: "#9F9BA8", fontWeight: "500"}}>Home</Text>
-            </View>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={handleLogout}>
-            <View>
-              <Image source={Cad} style={styles.logo2} />
-              <Text style={{color: "#9F9BA8", fontWeight: "500"}}>Tipos Viatura</Text>
-            </View>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={handleLogout}>
-            <View>
-              <Image source={oficina} style={styles.logo2} />
-              <Text style={{color: "#9F9BA8", fontWeight: "500", textAlign: 'center'}}>Oficinas</Text>
-            </View>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={handleLogout}>
-            <View>
-              <Image source={Gota} style={styles.logo2} />
-              <Text style={{color: "#EC853B", fontWeight: "500"}}>Combustíveis</Text>
-            </View>
-          </TouchableOpacity>
-        </View>
-      </View>
+      
     </View>
   );
 }
