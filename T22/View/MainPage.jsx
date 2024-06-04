@@ -47,6 +47,27 @@ export default function MainPage({ route, navigation }) {
     navigation.navigate("RegistarViatura",{ nome, userId });
   }
 
+  const handleRegistarAssistencia= () =>{
+    navigation.navigate("RegistarAssistencia",{ nome, userId });
+  }
+
+  const handleRegistarEvento= () =>{
+    navigation.navigate("RegistarQuotidiano",{ nome, userId });
+  }
+
+  const handleViaturas= () =>{
+    navigation.navigate("Suasviaturas",{ nome, userId });
+  }
+
+  const handleAssistencias= () =>{
+    navigation.navigate("AsSuasAssistencias",{ nome, userId });
+  }
+
+  const handleEventos= () =>{
+    navigation.navigate("Seuseventos",{ nome, userId });
+  }
+
+
   return (
     <View style={styles.container}>
 
@@ -97,13 +118,13 @@ export default function MainPage({ route, navigation }) {
               </View>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={handleLogout}>
+            <TouchableOpacity onPress={handleRegistarAssistencia}>
             <View style={styles.TextBox}>
               <Text style={styles.BigTextLeft}>Nova Assistência</Text>
             </View>
             </TouchableOpacity>
             
-            <TouchableOpacity onPress={handleLogout}>
+            <TouchableOpacity onPress={handleRegistarEvento}>
             <View style={styles.TextBox}>
               <Text style={styles.BigTextLeft}>Novo Evento</Text>
             </View>
@@ -123,19 +144,19 @@ export default function MainPage({ route, navigation }) {
                 <Text style={{color: "#6D4EE5", fontWeight: "500"}}>Home</Text>
               </View>
             </TouchableOpacity>
-            <TouchableOpacity onPress={handleLogout}>
+            <TouchableOpacity onPress={handleViaturas}>
               <View>
                 <Image source={Viaturas} style={styles.logo2} />
                 <Text style={{color: "#9F9BA8", fontWeight: "500"}}>Viaturas</Text>
               </View>
             </TouchableOpacity>
-            <TouchableOpacity onPress={handleLogout}>
+            <TouchableOpacity onPress={handleAssistencias}>
               <View>
                 <Image source={Assistencias} style={styles.logo2} />
                 <Text style={{color: "#9F9BA8", fontWeight: "500", textAlign: 'center'}}>Assistências</Text>
               </View>
             </TouchableOpacity>
-            <TouchableOpacity onPress={handleLogout}>
+            <TouchableOpacity onPress={handleEventos}>
               <View>
                 <Image source={Eventos} style={styles.logo2} />
                 <Text style={{color: "#9F9BA8", fontWeight: "500"}}>Eventos</Text>
