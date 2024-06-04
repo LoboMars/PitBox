@@ -5,10 +5,10 @@ import { createStackNavigator } from '@react-navigation/stack';
 import  RootNavigator from "./navigators/RootNavigator"
 
 export default function App() {
-  
   return (
     <NavigationContainer>
       <RootNavigator />
+      <StatusBar style="auto" />
     </NavigationContainer>
   );
 }

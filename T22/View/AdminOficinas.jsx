@@ -9,7 +9,7 @@ import Tresp from '../Image/3P.png';
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase.config"; 
 
-export default function Oficinas() {
+export default function AdminOficinas() {
   const [data, setData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 

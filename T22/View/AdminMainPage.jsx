@@ -22,9 +22,10 @@ import LCombustiveis from '../Image/combustivelLaranja.png';
 import LOficinas from '../Image/oficinaOrange 1.png';
 import LTipoViaturas from '../Image/cadSelect.png';
 
-const Tab = createBottomTabNavigator();
+
 
 export default function AdminMainPage({ navigation }) {
+  
   const handleLogout = () => {
     alert("Logout button pressed!");
   };
@@ -63,17 +64,17 @@ export default function AdminMainPage({ navigation }) {
         </View>
         <View style={{ paddingTop: "10%" }} />
         <View style={styles.textBoxContainer}>
-          <TouchableOpacity onPress={handleLogout}>
+          <TouchableOpacity onPress={() => navigation.navigate("CriarViatura")}>
             <View style={styles.TextBox}>
               <Text style={styles.BigTextLeft}>Criar Tipo de Viatura</Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress={handleLogout}>
+          <TouchableOpacity onPress={() => navigation.navigate("AdminOficinas")}>
             <View style={styles.TextBox}>
               <Text style={styles.BigTextLeft}>Criar Oficina</Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress={handleLogout}>
+          <TouchableOpacity onPress={() => navigation.navigate("CriarCombustivel")}>
             <View style={styles.TextBox}>
               <Text style={styles.BigTextLeft}>Criar Combustível</Text>
             </View>

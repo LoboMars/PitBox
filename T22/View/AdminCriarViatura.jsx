@@ -60,7 +60,7 @@ export default function CriarViatura() {
           </View>
         </TouchableOpacity>
         <View style={{ marginTop: "5%" }} />
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("AdminMainPage")}>
           <View style={styles.textBoxContainer}>
             <Text style={styles.Cancelar}>Cancelar</Text>
           </View>

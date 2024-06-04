@@ -28,7 +28,7 @@ import DetalhesQuotodiano from '../View/DetalhesQuotidiano';
 import EditarPerfil from '../View/EditarPerfil';
 import Tipoviatura from '../View/AdminTipoviatura';      
 import Tipocombustivel from '../View/AdminTipoCombustiveis';
-import Oficinas from '../View/AdminOficinas';
+import AdminOficinas from '../View/AdminOficinas';
 import EliminarViatura from '../View/ElimirarViatura';
 import EliminarAssistencia from '../View/EliminarAssistencia';
 import EliminarEvento from '../View/EliminarEvento';
@@ -80,7 +80,7 @@ const TabContainer = () => {
 };
 const RootNavigator = () => {
     return(
-      <Stack.Navigator initialRouteName="Login">
+      <Stack.Navigator initialRouteName="AdminMainPage">
       <Stack.Screen
         name="Login"
         component={Login}
@@ -254,6 +254,11 @@ const RootNavigator = () => {
        <Stack.Screen
         name="AsSuasAssistencias"
         component={AsSuasAssistencias}
+        options={{ headerShown: false}}
+      />
+      <Stack.Screen
+        name="AdminOficinas"
+        component={AdminOficinas}
         options={{ headerShown: false}}
       />
       </Stack.Navigator>
