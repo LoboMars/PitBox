@@ -1,19 +1,21 @@
 import React, { useState, useEffect } from "react";
-import { View, 
+import { 
+  View,
   FlatList, 
   StyleSheet, 
   Text, 
   TextInput, 
-  TouchableOpacity, 
+  TouchableOpacity,
   ScrollView,
-  Image,
+  Image 
 } from "react-native";
+import { useNavigation } from "@react-navigation/native"; 
 import Eventos from '../Image/Eventos.png';
 import Home from '../Image/homeUnselected.png';
 import Cad from '../Image/cad.png';
 import oficina from '../Image/OficinaIcon.png';
-import Edit from '../Image/editarAdmin.png'
-import apagar from '../Image/Apagar.png'
+import Edit from '../Image/editarAdmin.png';
+import apagar from '../Image/Apagar.png';
 import adicionar from '../Image/Adicionar.png';
 import Gota from '../Image/combustivelLaranja.png';
 import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
@@ -22,6 +24,7 @@ import { db } from "../firebase.config";
 export default function Tipocombustivel() {
   const [data, setData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const navigation = useNavigation(); // Usando useNavigation para obter navigation
 
   useEffect(() => {
     const getData = async () => {
@@ -40,7 +43,7 @@ export default function Tipocombustivel() {
 
   const handleDelete = async (id) => {
     try {
-      await deleteDoc(doc(db, "tipocobustives", id));
+      await deleteDoc(doc(db, "tipoCombustivel", id)); // Corrigido typo no nome da coleção
       setData((prevData) => prevData.filter((item) => item.id !== id));
       alert("Item deleted successfully!");
     } catch (error) {
@@ -88,7 +91,7 @@ export default function Tipocombustivel() {
                 <Text style={styles.itemDescription}>{item.Tipo}</Text>
               </View>
               <View style={styles.buttonContainer}>
-                <TouchableOpacity onPress={() => info(item.info)}>
+                <TouchableOpacity onPress={() => navigation.navigate("EditarCombustivel", { id: item.id })}>
                   <Image source={Edit} style={styles.logo4} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => handleDelete(item.id)}>
@@ -98,40 +101,12 @@ export default function Tipocombustivel() {
             </View>
           )}
         />
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("CriarCombustivel")}>
           <View style={styles.Adicionar}>
             <Image source={adicionar} style={styles.logoAdd} />
           </View>
         </TouchableOpacity>
       </ScrollView>
-      <View style={styles.container3}>
-        <View style={styles.imageContainer2}>
-          <TouchableOpacity onPress={handleLogout}>
-            <View>
-              <Image source={Home} style={styles.logo2}/>
-              <Text style={{color: "#9F9BA8", fontWeight: "500"}}>Home</Text>
-            </View>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={handleLogout}>
-            <View>
-              <Image source={Cad} style={styles.logo2} />
-              <Text style={{color: "#9F9BA8", fontWeight: "500"}}>Tipos Viatura</Text>
-            </View>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={handleLogout}>
-            <View>
-              <Image source={oficina} style={styles.logo2} />
-              <Text style={{color: "#9F9BA8", fontWeight: "500", textAlign: 'center'}}>Oficinas</Text>
-            </View>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={handleLogout}>
-            <View>
-              <Image source={Gota} style={styles.logo2} />
-              <Text style={{color: "#EC853B", fontWeight: "500"}}>Combustíveis</Text>
-            </View>
-          </TouchableOpacity>
-        </View>
-      </View>
     </View>
   );
 }
