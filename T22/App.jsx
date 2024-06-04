@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import OScreen from './View/OScreen';
 import Login from './View/Login';
 import Register from './View/Register';           
-import RegistarQuotidino from './View/RegistarQuotidiano'
+import RegistarQuotidiano from './View/RegistarQuotidiano'
 import RegistarAssistencia from './View/RegistarAssistencia';
 import RegistarViatura from './View/RegistarViatura';
 import EditarViatura from './View/EditarViatura';
@@ -50,7 +50,7 @@ export default function App() {
         <Stack.Screen name="OScreen" component={OScreen} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Register" component={Register} />
-        <Stack.Screen name="RegistarQuotidino" component={RegistarQuotidino} />
+        <Stack.Screen name="RegistarQuotidiano" component={RegistarQuotidiano} />
         <Stack.Screen name="RegistarAssistencia" component={RegistarAssistencia} />
         <Stack.Screen name="RegistarViatura" component={RegistarViatura} />
         <Stack.Screen name="EditarViatura" component={EditarViatura} />

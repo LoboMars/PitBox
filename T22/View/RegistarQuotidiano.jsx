@@ -12,7 +12,9 @@ import {
   ScrollView,
   TextInput,
   inputValue,
+  Alert
 } from "react-native";
+import { useNavigation, useRoute } from '@react-navigation/native';
 
 const firebaseConfig = {
   apiKey: "AIzaSyD7uWXmn3g-xHnnlnNvFnLYZy9VuL3jNAE",
@@ -31,6 +33,10 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 export default function EditarAssistencia() {
+  const navigation = useNavigation();
+  const route = useRoute();
+  const { nome, userId} = route.params;
+
   const [Chegada, setChegada] = useState('');
   const [Comportamento, setComportamento] = useState('');
   const [Consumo, setConsumo] = useState('');
@@ -51,8 +57,10 @@ export default function EditarAssistencia() {
         Kilometros,
         Partida,
         Viatura_Usada,
+        userId,
       });
-      console.log('Car registered successfully!');
+      Alert.alert('Sucesso', 'Viatura registada com sucesso.');
+      navigation.navigate('MainPage', { nome , userId });
     } catch (e) {
       console.error("Error adding document: ", e);
     }
