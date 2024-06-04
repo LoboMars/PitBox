@@ -24,7 +24,7 @@ import LTipoViaturas from '../Image/cadSelect.png';
 
 const Tab = createBottomTabNavigator();
 
-export default function MainPage({ navigation }) {
+export default function AdminMainPage({ navigation }) {
   const handleLogout = () => {
     alert("Logout button pressed!");
   };
@@ -80,34 +80,6 @@ export default function MainPage({ navigation }) {
           </TouchableOpacity>
         </View>
       </View>
-      <Tab.Navigator
-        screenOptions={({ route }) => ({
-          tabBarIcon: ({ focused, color, size }) => {
-            let iconName;
-            if (route.name === 'TipoViaturas') {
-              iconName = focused ? LTipoViaturas : TipoViaturas;
-            } else if (route.name === 'Oficinas') {
-              iconName = focused ? LOficinas : Oficinas;
-            } else if (route.name === 'Combustiveis') {
-              iconName = focused ? LCombustiveis : Combustiveis;
-            }
-            return <Image source={iconName} style={styles.logo2} />;
-          },
-        })}
-        tabBarOptions={{
-          activeTintColor: '#EC853B',
-          inactiveTintColor: '#9F9BA8',
-        }}
-        tabBarStyle={{
-          backgroundColor: '#1C1D21', 
-          borderTopWidth: 0,
-        }}
-
-      >
-        <Tab.Screen name="TipoViaturas" component={Tipoviatura} />
-        <Tab.Screen name="Oficinas" component={oficinas} />
-        <Tab.Screen name="Combustiveis" component={Suasviaturas} />
-      </Tab.Navigator>
     </View>
   );
 }

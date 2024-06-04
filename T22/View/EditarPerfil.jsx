@@ -12,7 +12,7 @@ import {
 
 import Lebron from '../Image/labron.png'
 
-export default function CriarViatura() {
+export default function EditarPerfil() {
   return (
    
     <View style={styles.container}>
