@@ -16,15 +16,31 @@ import Home from '../Image/Home.png';
 import Viaturas from '../Image/Viaturas.png';
 import Assistencias from '../Image/Assistencias.png'
 import Lebron from '../Image/labron.png'
+import { getAuth, signOut } from "firebase/auth";
+import { app, db } from "../firebase.config"; 
 
-export default function MainPage() {
- 
-  const handleLogout = () => {
-    alert("Logout button pressed!");
-  };
+
+export default function MainPage({ route, navigation }) {
+  const { nome } = route.params;
+  const auth = getAuth(app);
+  const userId = auth.currentUser ? auth.currentUser.uid : null;
+
 
   const handleEditar = () => {
-    alert("Editar button pressed!");
+    if (userId) {
+      navigation.navigate("EditarPerfil", { userId });
+    }
+  };
+
+  const handleLogout = async () => {
+    try {
+      const auth = getAuth(app);
+      await signOut(auth);
+      console.log("User signed out successfully");
+      navigation.navigate('OScreen');
+    } catch (error) {
+      console.log("Logout Error:", error.message);
+    }
   };
 
   return (
@@ -42,7 +58,7 @@ export default function MainPage() {
               <Text style={{color: "#C33434", fontWeight: "700", fontSize: 11, marginTop: "10%"}}>LogOut</Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress={handleLogout}>
+          <TouchableOpacity onPress={handleEditar}>
             <View>
               <Image source={EditarPerfil} style={styles.editarPerf}/>
               <Text style={{color: "#9F9BA8", fontWeight: "700", fontSize: 11, marginTop: "10%"}}>Editar Perfil</Text>
@@ -60,7 +76,7 @@ export default function MainPage() {
           <Text style={styles.BigText}>Bem Vindo,</Text>
         </View>
         <View>
-          <Text style={styles.BigTextP}>Lebron<Text style={styles.BigTextW}>.</Text></Text>
+          <Text style={styles.BigTextP}>{nome}<Text style={styles.BigTextW}>.</Text></Text>
         </View>
         <View style={{ paddingTop: "5%" }} />
         <View style={{height: "21%", alignItems: 'center'}}>

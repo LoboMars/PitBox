@@ -25,6 +25,7 @@ export default function Register() {
   const [nome, setNome] = useState(""); 
   const [senha, setSenha] = useState(""); 
   const [nsenha, setNsenha] = useState("");
+  const navigation = useNavigation();
 
   const handlePress = async () => {
     if (senha !== nsenha) {
@@ -37,9 +38,11 @@ export default function Register() {
       const userCred = await createUserWithEmailAndPassword(auth, email, senha);
       await sendEmailVerification(userCred.user);
       await setDoc(doc(db, "Utilizador", userCred.user.uid), {
-        Nome: nome,
-        Mail: email,
+        nome: nome,
+        email: email,
       });
+      console.log('User registered successfully');
+      navigation.navigate('MainPage', { nome: nome });
     } catch (error) {
       console.log(error);
     }
@@ -47,6 +50,10 @@ export default function Register() {
     console.log('Nome:', nome);
     console.log('Email:', email);
     console.log('Password:', senha);
+  };
+
+  const handleLoginPress = () => {
+    navigation.navigate('Login'); 
   };
 
   return (
@@ -101,7 +108,7 @@ export default function Register() {
               </View>
             </TouchableOpacity>
 
-            <TouchableOpacity  onPress={handleLoginNavigation}>
+            <TouchableOpacity  onPress={handleLoginPress}>
               <View style={styles.textBoxLogin}>
                 <Text style={[styles.textPurple, { paddingTop: "5%" }]}>
                   Já tem uma conta?
