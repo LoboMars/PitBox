@@ -10,37 +10,41 @@ import React, { useState, useContext } from 'react';
 
 
 export default function Login() {
-  const [email, setEmail] = useState(""); 
-  const [senha, setSenha] = useState(""); 
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
   const [isEnabled, setIsEnabled] = useState(false);
   const navigation = useNavigation();
 
   const toggleSwitch = () => {
     setIsEnabled(previousState => !previousState);
   };
+
   const handlePress = async () => {
     try {
       const auth = getAuth(app);
       const userCred = await signInWithEmailAndPassword(auth, email, senha);
       console.log('Logged in successfully');
-      
-      // Fetch user name from Firestore
+
       const db = getFirestore(app);
-      const userDocRef = doc(db, "Utilizador", userCred.user.uid);
+      const userDocRef = doc(db, 'Utilizador', userCred.user.uid);
       const userDoc = await getDoc(userDocRef);
       if (userDoc.exists()) {
         const userName = userDoc.data().nome;
-        navigation.navigate('MainPage', { nome: userName, userId: userCred.user.uid });
+        if (userDoc.data().Admin) {
+          navigation.navigate('AdminMainPage', { nome: userName, userId: userCred.user.uid });
+        } else {
+          navigation.navigate('MainPage', { nome: userName, userId: userCred.user.uid });
+        }
       } else {
-        console.log("No such document!");
+        console.log('No such document!');
       }
     } catch (error) {
-      console.log("Firebase Auth Error:", error.code, error.message);
+      console.log('Firebase Auth Error:', error.code, error.message);
     }
   };
 
   const handleRegisterPress = () => {
-    navigation.navigate('Register'); 
+    navigation.navigate('Register');
   };
 
   return (

@@ -103,7 +103,7 @@ const TabContainer = () => {
 };
 const RootNavigator = () => {
     return(
-      <Stack.Navigator initialRouteName="BottomTab">
+      <Stack.Navigator initialRouteName="OScreen">
       <Stack.Screen
         name="Login"
         component={Login}
