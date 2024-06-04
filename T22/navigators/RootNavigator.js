@@ -80,7 +80,7 @@ const TabContainer = () => {
 };
 const RootNavigator = () => {
     return(
-      <Stack.Navigator initialRouteName="EditarTipoViatura">
+      <Stack.Navigator initialRouteName="OScreen">
       <Stack.Screen
         name="Login"
         component={Login}

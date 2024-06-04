@@ -67,6 +67,10 @@ export default function MainPage({ route, navigation }) {
     navigation.navigate("Seuseventos",{ nome, userId });
   }
 
+  const handleHome= () =>{
+    navigation.navigate("MainPage",{ nome, userId });
+  }
+
 
   return (
     <View style={styles.container}>
@@ -138,7 +142,7 @@ export default function MainPage({ route, navigation }) {
         <View style={styles.container3}>
 
           <View style={styles.imageContainer2}>
-            <TouchableOpacity onPress={handleLogout}>
+            <TouchableOpacity onPress={handleHome}>
               <View>
                 <Image source={Home} style={styles.logo2}/>
                 <Text style={{color: "#6D4EE5", fontWeight: "500"}}>Home</Text>
