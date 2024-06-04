@@ -12,11 +12,12 @@ import {
 } from "react-native";
 import Carro from '../Image/carPurple.png'
 
+
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "../firebase.config"; 
 
 
-export default function EditarViatura() {
+export default function EditarViatura(  ) {
   const [nome, setnome] = useState("");
 
   useEffect(() => {
@@ -94,7 +95,7 @@ export default function EditarViatura() {
             </View>
           </TouchableOpacity>
 
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate("AdminMainPage")}>
             <View style={styles.textBoxContainer}>
               <Text style={styles.Cancelar}>Cancelar</Text>
            </View>
