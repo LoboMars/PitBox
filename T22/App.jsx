@@ -38,8 +38,6 @@ import AsSuasAssistencias from './View/AssuasAssistencias';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
 
 const Stack = createStackNavigator();
 
@@ -47,8 +45,7 @@ export default function App() {
   
   return (
     <NavigationContainer>
-
-      <Stack.Navigator initialRouteName="AdminMainPage">
+      <Stack.Navigator initialRouteName="OScreen">
         <Stack.Screen name="AdminMainPage" component={AdminMainPage} />
         <Stack.Screen name="OScreen" component={OScreen} />
         <Stack.Screen name="Login" component={Login} />
@@ -85,7 +82,6 @@ export default function App() {
         <Stack.Screen name="Seuseventos" component={Seuseventos} />
         <Stack.Screen name="AsSuasAssistencias" component={AsSuasAssistencias} />
       </Stack.Navigator>
->>>>>>> d54624e9c6ddace16dd89e482c383e2ae0814790
     </NavigationContainer>
   );
 }

@@ -43,6 +43,10 @@ export default function MainPage({ route, navigation }) {
     }
   };
 
+  const handleRegistarViatura= () =>{
+    navigation.navigate("RegistarViatura",{ nome });
+  }
+
   return (
     <View style={styles.container}>
 
@@ -87,7 +91,7 @@ export default function MainPage({ route, navigation }) {
 
         <View style={styles.textBoxContainer}>
           <ScrollView>
-            <TouchableOpacity onPress={handleLogout}>
+            <TouchableOpacity onPress={handleRegistarViatura}>
               <View style={styles.TextBox}>
                 <Text style={styles.BigTextLeft}>Nova Viatura</Text>
               </View>

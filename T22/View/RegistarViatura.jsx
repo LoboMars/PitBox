@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import React, { forwardRef, useState, useEffect } from "react";
+import React, { useState } from "react";
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 import {
@@ -7,12 +7,12 @@ import {
   Text,
   View,
   Image,
-  Dimensions,
   TouchableOpacity,
   ScrollView,
   TextInput,
-  inputValue,
+  Alert,
 } from "react-native";
+import { useNavigation, useRoute } from '@react-navigation/native';
 
 const firebaseConfig = {
   apiKey: "AIzaSyD7uWXmn3g-xHnnlnNvFnLYZy9VuL3jNAE",
@@ -25,13 +25,15 @@ const firebaseConfig = {
   measurementId: "G-HLP5HY5LYZ"
 };
 
-
 const app = initializeApp(firebaseConfig);
-
 const db = getFirestore(app);
 
-
 export default function RegistarViatura() {
+
+  const navigation = useNavigation();
+  const route = useRoute();
+  const { nome } = route.params;
+
   const [Marca, setMarca] = useState('');
   const [Modelo, setModelo] = useState('');
   const [Matricula, setMatricula] = useState('');
@@ -42,11 +44,12 @@ export default function RegistarViatura() {
 
   const registerCar = async () => {
     if (!Marca || !Modelo || !Matricula || !Tipo_Viatura || !Data_fabrico || !Combustivel || !Cor) {
-      Alert.alert("Erro", "Por favor, preencha todos os campos");
+      Alert.alert('Erro', 'Todos os campos são obrigatórios.');
       return;
     }
+
     try {
-      await addDoc(collection(db, "viatura"), {
+      await addDoc(collection(db, 'viatura'), {
         Marca,
         Modelo,
         Matricula,
@@ -55,9 +58,11 @@ export default function RegistarViatura() {
         Combustivel,
         Cor,
       });
-      console.log('Car registered successfully!');
-    } catch (e) {
-      console.error("Error adding document: ", e);
+      Alert.alert('Sucesso', 'Viatura registada com sucesso.');
+      navigation.navigate('MainPage', { nome });
+    } catch (error) {
+      console.error("Erro ao registar viatura: ", error);
+      Alert.alert('Erro', 'Erro ao registar viatura.');
     }
   };
 
@@ -160,7 +165,7 @@ export default function RegistarViatura() {
             <Text style={styles.BTNpurple}>Registar</Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
           <View style={styles.textBoxContainer}>
             <Text style={styles.Cancelar}>Cancelar</Text>
           </View>
@@ -292,4 +297,3 @@ const styles = StyleSheet.create({
   },
 
 });
-
