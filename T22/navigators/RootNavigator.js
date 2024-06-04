@@ -4,6 +4,15 @@ import { Ionicons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+import LogOut from "../Image/LogOut.png";
+import Combustiveis from '../Image/combustivel.png';
+import Home from '../Image/HomeAD.png';
+import TipoViaturas from '../Image/cad.png';
+import Oficinas from '../Image/OficinaIcon.png';
+import LCombustiveis from '../Image/combustivelLaranja.png';
+import LOficinas from '../Image/oficinaOrange 1.png';
+import LTipoViaturas from '../Image/cadSelect.png';
+
 
 import OScreen from '../View/OScreen';
 import Login from '../View/Login';
@@ -71,16 +80,16 @@ const TabContainer = () => {
         }}
 
       >
-        <Tab.Screen name="TipoViaturas" component={Tipoviatura} />
-        <Tab.Screen name="Oficinas" component={oficinas} />
-        <Tab.Screen name="Combustiveis" component={Suasviaturas} />
+        {/* <Tab.Screen name="TipoViaturas" component={Tipoviatura} /> */}
+        {/* <Tab.Screen name="Oficinas" component={oficinas} /> */}
+       {/* k <Tab.Screen name="Combustiveis" component={Suasviaturas} /> */}
       </Tab.Navigator>
 
     );
 };
 const RootNavigator = () => {
     return(
-      <Stack.Navigator initialRouteName="OScreen">
+      <Stack.Navigator initialRouteName="BottomTab">
       <Stack.Screen
         name="Login"
         component={Login}
