@@ -15,38 +15,51 @@ import Viaturas from '../Image/ViaturaPurple.png';
 import Assistencias from '../Image/Assistencias.png';
 import Tresp from '../Image/3P.png';
 import adicionar from '../Image/Adicionar.png';
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "../firebase.config"; 
+import { getFirestore, collection, query, where, getDocs } from "firebase/firestore";
+import { db,app } from "../firebase.config"; 
+import { useNavigation, useRoute } from '@react-navigation/native';
 
 
 export default function Suasviaturas() {
+  const navigation = useNavigation();
+  const route = useRoute();
+  const {userId} = route.params;
+  const { nome } = route.params;
 
   const [data, setData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [viatura, setViatura] = useState([]);
 
   useEffect(() => {
-    const getData = async () => {
-      const postCollection = collection(db, "viatura");
-      const postSnapshot = await getDocs(postCollection);
-      const postList = postSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-      setData(postList);
+    const fetchViaturas = async () => {
+      const db = getFirestore(app);
+      const q = query(collection(db, "viatura"), where("userId", "==", userId));
+      const querySnapshot = await getDocs(q);
+      const viaturasData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      setViatura(viaturasData);
     };
-    getData();
-  }, []);
+
+    fetchViaturas();
+  }, [userId]);
 
 
   const handleLogout = () => {
     alert("Logout button pressed!");
   };
-  const info = () => {
-    alert("bla bla bla");
+
+  const handleAdicionarViatura = (id) => {
+    navigation.navigate("RegistarViatura", { viaturaId: id ,userId,nome});
+  };
+
+  const handleDetalhesViatura = (id) => {
+    navigation.navigate("DetalhesViatura", { viaturaId: id ,userId});
+  };
+
+  const handleHome = (id) => {
+    navigation.navigate("MainPage", { viaturaId: id ,userId,nome});
   };
 
 
-  const handleEdit = (id) => {
-    // Lógica para editar o item com o ID fornecido
-    console.log("Editar item com ID:", id);
-  };
 
   const filteredData = data.filter((item) =>
     item.Marca.toLowerCase().includes(searchTerm.toLowerCase())
@@ -68,25 +81,25 @@ export default function Suasviaturas() {
     <ScrollView  contentContainerStyle={styles.scrollView}>
       
       <FlatList
-        style={styles.flatList}
-        contentContainerStyle={styles.flatListContent}
-        data={filteredData}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <View style={styles.item}> 
-             <Image source={carPurple} style={styles.icon} />
-             <View style={styles.textContainer}>
-              <Text style={styles.itemText}>{item.Marca}</Text>
-              <Text style={styles.itemText2}>{item.Modelo}</Text>
+          style={styles.flatList}
+          contentContainerStyle={styles.flatListContent}
+          data={viatura}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => (
+            <View style={styles.item}>
+              <Image source={carPurple} style={styles.icon} />
+              <View style={styles.textContainer}>
+                <Text style={styles.itemText}>{item.Marca}</Text>
+                <Text style={styles.itemText2}>{item.Modelo}</Text>
+              </View>
+              <TouchableOpacity onPress={() => handleDetalhesViatura(item.id)} style={styles.buttonn}>
+                <Image source={Tresp} style={styles.logo3} />
+              </TouchableOpacity>
             </View>
-            <TouchableOpacity onPress={info} style={styles.buttonn}>
-            <Image source={Tresp} style={styles.logo3} />
-            </TouchableOpacity>
-          </View>
-        )}
-      />
+          )}
+        />
 
-      <TouchableOpacity>
+      <TouchableOpacity onPress={handleAdicionarViatura}>
         <View style={styles.Adicionar}>
           <Image source={adicionar} style={styles.logo3} />
         </View>
@@ -96,13 +109,13 @@ export default function Suasviaturas() {
 
     <View style={styles.container3}>
       <View style={styles.imageContainer2}>
-        <TouchableOpacity onPress={handleLogout}>
+        <TouchableOpacity onPress={handleHome}>
           <View>
             <Image source={Home} style={styles.logo2}/>
             <Text style={{color: "#9F9BA8", fontWeight: "500"}}>Home</Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={handleLogout}>
+        <TouchableOpacity onPress={handleDetalhesViatura}>
           <View>
             <Image source={Viaturas} style={styles.logo2} />
             <Text style={{color: "#6D4EE5", fontWeight: "500"}}>Viaturas</Text>

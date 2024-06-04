@@ -13,8 +13,13 @@ import {
 
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "../firebase.config"; 
+import { useRoute } from '@react-navigation/native';
+
 
 export default function EditarViatura() {
+  const route = useRoute();
+  const { viaturaId } = route.params;
+
   const [Tipo_Viatura, setTipo_Viatura] = useState("");
   const [Marca, setMarca] = useState("");
   const [Modelo, setModelo] = useState("");
@@ -25,7 +30,7 @@ export default function EditarViatura() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const docRef = doc(db, "viatura", "2"); 
+      const docRef = doc(db, "viatura", viaturaId); 
       const docSnap = await getDoc(docRef);
 
       if (docSnap.exists()) {
@@ -46,7 +51,7 @@ export default function EditarViatura() {
   }, []);
 
   const handleUpdate = async () => {
-      const docRef = doc(db, "viatura", "2");
+      const docRef = doc(db, "viatura", viaturaId);
       await updateDoc(docRef, {
         Tipo_Viatura,
         Marca,
@@ -182,7 +187,7 @@ export default function EditarViatura() {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
           <View style={styles.textBoxContainer}>
             <Text style={styles.Cancelar}>Cancelar</Text>
           </View>

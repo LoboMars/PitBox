@@ -1,57 +1,80 @@
-import React from "react";
+import React,{ useState, useEffect } from "react";
 import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity, TextInput } from "react-native";
 import MainDesfoque from '../Image/MainDesfoque.png'
 import Car  from '../Image/carPurple.png'
+import { useNavigation, useRoute } from '@react-navigation/native';
+import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { db } from "../firebase.config"; 
 
 
 export default function EliminarViatura() {
+  const navigation = useNavigation();
+  const route = useRoute();
+  const { viaturaId } = route.params;
+
+  const [Marca, setMarca] = useState("");
+  const [Modelo, setModelo] = useState("");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const docRef = doc(db, "viatura", viaturaId);
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          const data = docSnap.data();
+          setMarca(data.Marca);
+          setModelo(data.Modelo);
+        } else {
+          console.log("No such document!");
+        }
+      } catch (error) {
+        console.error('Erro ao buscar documento: ', error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  const deleteDocument = async () => {
+    try {
+      await deleteDoc(doc(db, "viatura", viaturaId));
+      console.log('Documento excluído com sucesso.');
+    } catch (error) {
+      console.error('Erro ao excluir documento: ', error);
+    }
+  };
+
   return (
     <View style={styles.container}>
       <Image
         source={MainDesfoque}
         style={styles.backgroundImage}
       />
-
-        <View style={styles.textBoxContainer}>
-            <View style={styles.Box}>
-
-                        <View style={styles.Title}>
-                            <Text style={styles.textWhite}>Tem a certeza que quer</Text>
-                            <Text style={styles.textWhite}>eliminar esta <Text style={styles.textPurple}>Viatura </Text><Text style={styles.textWhite}>?</Text></Text>
-
-                            <View style={{marginTop: "10%"}}/>
-
-
-                            <Text style={styles.Smalltextwhite}>Renault Clio</Text>
-
-                            <View style={{marginTop: "1%"}}/>
-
-                            <Image
-                            source={Car}
-                            style={styles.Icon}
-                            /> 
-
-                            <View style={{marginTop: "15%"}}/>
-
-                        </View>
-
-                        <View style={{flexDirection:'row'}}>
-                            <View style={{marginHorizontal: '4%'}} />
-
-                                <TouchableOpacity>
-                                    <Text style={styles.BtnSim}>Sim</Text>
-                                </TouchableOpacity>
-        
-                            <View style={{marginHorizontal: '5%'}} />
-
-                            <TouchableOpacity>
-                                <Text style={styles.BtnNao}>Não</Text>
-                            </TouchableOpacity>
-                        </View>
-            </View>
+      <View style={styles.textBoxContainer}>
+        <View style={styles.Box}>
+          <View style={styles.Title}>
+            <Text style={styles.textWhite}>Tem certeza que deseja</Text>
+            <Text style={styles.textWhite}>excluir esta <Text style={styles.textPurple}>Viatura</Text>?</Text>
+            <View style={{ marginTop: "10%" }} />
+            <Text style={styles.Smalltextwhite}>{Marca} {' '} {Modelo}</Text>
+            <View style={{ marginTop: "1%" }} />
+            <Image
+              source={Car}
+              style={styles.Icon}
+            />
+            <View style={{ marginTop: "15%" }} />
+          </View>
+          <View style={{ flexDirection: 'row' }}>
+            <View style={{ marginHorizontal: '4%' }} />
+            <TouchableOpacity onPress={deleteDocument}>
+              <Text style={styles.BtnSim}>Sim</Text>
+            </TouchableOpacity>
+            <View style={{ marginHorizontal: '5%' }} />
+            <TouchableOpacity onPress={() => navigation.goBack()}>
+              <Text style={styles.BtnNao}>Não</Text>
+            </TouchableOpacity>
+          </View>
         </View>
-        
-       
+      </View>
     </View>
   );
 }

@@ -1,14 +1,20 @@
 import React, { forwardRef, useState, useEffect } from "react";
 import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity, TextInput } from "react-native";
 import MainDesfoque from '../Image/MainDesfoque.png'
-import Car  from '../Image/carPurple.png'
-import Apagar  from  '../Image/Apagar.png'
+import Car from '../Image/carPurple.png'
+import Apagar from '../Image/Apagar.png'
 import Editar from '../Image/Editar.png'
 import { getDoc, doc, deleteDoc } from "firebase/firestore";
-import { db } from "../firebase.config"; 
+import { db } from "../firebase.config";
+import { useNavigation, useRoute } from '@react-navigation/native';
 
 
 export default function DetalhesViatura() {
+  const navigation = useNavigation();
+  const route = useRoute();
+  const { viaturaId } = route.params;
+  const { userId } = route.params;
+
   const [Tipo_Viatura, setTipo_Viatura] = useState("");
   const [Marca, setMarca] = useState("");
   const [Modelo, setModelo] = useState("");
@@ -19,7 +25,7 @@ export default function DetalhesViatura() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const docRef = doc(db, "viatura", "2"); 
+      const docRef = doc(db, "viatura", viaturaId);
       const docSnap = await getDoc(docRef);
 
       if (docSnap.exists()) {
@@ -39,15 +45,13 @@ export default function DetalhesViatura() {
     fetchData();
   }, []);
 
-  const deleteDocument = async () => {
-    try {
-      await deleteDoc(doc(db, "viatura", "2"));
-      console.log('Documento excluído com sucesso.');
-    } catch (error) {
-      console.error('Erro ao excluir documento: ', error);
-    }
+  const handleEliminarViatura = () => {
+    navigation.navigate("EliminarViatura", { viaturaId, userId });
   };
 
+  const handleEditarViatura = () => {
+    navigation.navigate("EditarViatura", { viaturaId, userId });
+  };
 
   return (
     <View style={styles.container}>
@@ -83,19 +87,19 @@ export default function DetalhesViatura() {
           </View>
         </View>
       </View>
-        <View style={styles.actionsContainer}>
-          <TouchableOpacity onPress={deleteDocument} style={styles.iconButton}>
-            <Image source={Apagar} style={styles.IconSmall} />
-          </TouchableOpacity>
+      <View style={styles.actionsContainer}>
+        <TouchableOpacity onPress={handleEliminarViatura} style={styles.iconButton}>
+          <Image source={Apagar} style={styles.IconSmall} />
+        </TouchableOpacity>
 
-          <TouchableOpacity style={styles.okButton}>
-            <Text style={styles.SmallBox}>OK</Text>
-          </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.goBack()}  style={styles.okButton}>
+          <Text style={styles.SmallBox}>OK</Text>
+        </TouchableOpacity>
 
-          <TouchableOpacity style={styles.iconButton}>
-            <Image source={Editar} style={styles.IconSmall} />
-          </TouchableOpacity>
-        </View>
+        <TouchableOpacity onPress={handleEditarViatura} style={styles.iconButton}>
+          <Image source={Editar} style={styles.IconSmall} />
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
