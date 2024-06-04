@@ -137,7 +137,7 @@ export default function CriarOficina() {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("AdminMainPage")}>
           <View style={styles.textBoxContainer}>
             <Text style={styles.Cancelar}>Cancelar</Text>
           </View>

@@ -76,10 +76,10 @@ export default function DetalhesOficinas() {
               style={styles.IconSmall}
             />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.okButton}>
+          <TouchableOpacity style={styles.okButton} onPress={() => navigation.navigate("AdminOficinas")}>
             <Text style={styles.SmallBox}>OK</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.iconButton}>
+          <TouchableOpacity style={styles.iconButton} onPress={() => navigation.navigate("EditarOficina")}>
             <Image
               source={Editar}
               style={styles.IconSmall}
