@@ -32,7 +32,7 @@ export default function RegistarViatura() {
 
   const navigation = useNavigation();
   const route = useRoute();
-  const { nome } = route.params;
+  const { nome, userId} = route.params;
 
   const [Marca, setMarca] = useState('');
   const [Modelo, setModelo] = useState('');
@@ -57,9 +57,10 @@ export default function RegistarViatura() {
         Data_fabrico,
         Combustivel,
         Cor,
+        userId
       });
       Alert.alert('Sucesso', 'Viatura registada com sucesso.');
-      navigation.navigate('MainPage', { nome });
+      navigation.navigate('MainPage', { nome , userId });
     } catch (error) {
       console.error("Erro ao registar viatura: ", error);
       Alert.alert('Erro', 'Erro ao registar viatura.');

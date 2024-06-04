@@ -30,7 +30,7 @@ export default function Login() {
       const userDoc = await getDoc(userDocRef);
       if (userDoc.exists()) {
         const userName = userDoc.data().nome;
-        navigation.navigate('MainPage', { nome: userName });
+        navigation.navigate('MainPage', { nome: userName, userId: userCred.user.uid });
       } else {
         console.log("No such document!");
       }

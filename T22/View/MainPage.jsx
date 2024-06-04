@@ -44,7 +44,7 @@ export default function MainPage({ route, navigation }) {
   };
 
   const handleRegistarViatura= () =>{
-    navigation.navigate("RegistarViatura",{ nome });
+    navigation.navigate("RegistarViatura",{ nome, userId });
   }
 
   return (
