@@ -1,3 +1,4 @@
+
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import OScreen from './View/OScreen';
@@ -36,10 +37,10 @@ import AdminEditarPerfil from './View/AdminEditarPerfil';
 import Seuseventos from './View/Osseuseventos';
 import AsSuasAssistencias from './View/AssuasAssistencias';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View } from 'react-native';
+import  RootNavigator from "./navigators/RootNavigator"
 
-
-const Stack = createStackNavigator();
 
 export default function App() {
   
@@ -85,12 +86,3 @@ export default function App() {
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

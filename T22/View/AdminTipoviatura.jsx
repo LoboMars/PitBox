@@ -87,8 +87,8 @@ export default function Tipoviatura() {
                 <Image source={carPurple} style={styles.icon} />
                 <Text style={styles.itemText}>{item.nome}</Text>
                 <View style={styles.buttonContainer}>
-                  <TouchableOpacity onPress={info}>
-                    <Image source={Edit} style={styles.logo4} />
+                  <TouchableOpacity >
+                    <Image  source={Edit} style={styles.logo4} />
                   </TouchableOpacity>
                   <TouchableOpacity onPress={() => handleDelete(item.id)}>
                     <Image source={apagar} style={styles.logo3} />
@@ -97,9 +97,9 @@ export default function Tipoviatura() {
               </View>
             )}
           />
-          <TouchableOpacity>
+          <TouchableOpacity >
             <View style={styles.Adicionar}>
-              <Image source={adicionar} style={styles.logo3} />
+              <Image  source={adicionar} style={styles.logo3} />
             </View>
           </TouchableOpacity>
         </ScrollView>

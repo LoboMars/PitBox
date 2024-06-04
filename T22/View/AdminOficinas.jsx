@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { View, FlatList, StyleSheet, Text, TextInput, TouchableOpacity, ScrollView, Image } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import Home from '../Image/homeUnselected.png';
 import TipoViaturas from '../Image/cad.png';
 import Oficina from '../Image/oficinaOrange 1.png';
@@ -10,6 +11,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase.config"; 
 
 export default function AdminOficinas() {
+  const navigation = useNavigation();
   const [data, setData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -64,15 +66,15 @@ export default function AdminOficinas() {
                 <Text style={styles.itemDescription}>{item.morada}</Text>
                 <Text style={styles.itemDescription}>{item.telefone}</Text>
               </View>
-              <TouchableOpacity onPress={info}>
+              <TouchableOpacity onPress={() => navigation.navigate("DetalhesOficinas")}>
                 <Image source={Tresp} style={styles.logo3} />
               </TouchableOpacity>
             </View>
           )}
         />
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("CriarOficina")}>
           <View style={styles.Adicionar}>
-            <Image source={adicionar} style={styles.logo3} />
+            <Image source={adicionar} style={styles.logo4} />
           </View>
         </TouchableOpacity>
       </ScrollView>
@@ -183,6 +185,11 @@ const styles = StyleSheet.create({
     height: 32,
   },
   logo3: {
+    alignSelf: 'center',
+    width: 42,
+    height: 42,
+  },
+  logo4: {
     alignSelf: 'center',
     width: 42,
     height: 42,

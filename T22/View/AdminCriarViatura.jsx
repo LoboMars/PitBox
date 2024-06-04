@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { StyleSheet, Text, View, TouchableOpacity, ScrollView, TextInput } from "react-native";
 import { db } from "../firebase.config";
 import { collection, addDoc } from "firebase/firestore";
+import { useNavigation } from "@react-navigation/native";
 
-export default function CriarViatura() {
+export default function CriarViatura(navigation ) {
   const [nomeViatura, setNomeViatura] = useState("");
 
   const handleCreate = async () => {
@@ -61,7 +62,7 @@ export default function CriarViatura() {
         </TouchableOpacity>
         <View style={{ marginTop: "5%" }} />
         <TouchableOpacity onPress={() => navigation.navigate("AdminMainPage")}>
-          <View style={styles.textBoxContainer}>
+          <View  style={styles.textBoxContainer}>
             <Text style={styles.Cancelar}>Cancelar</Text>
           </View>
         </TouchableOpacity>
