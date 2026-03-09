@@ -13,14 +13,14 @@ import Tipoviatura from './AdminTipoviatura';
 import Suasviaturas from './Assuasviaturas';           
 import oficinas from './AdminOficinas';
 
-import EditarPerfil from "../Image/EditarPerfil.png";
-import LogOut from "../Image/LogOut.png";
+import EditarPerfil from "../Image/editarPerfil.png";
+import LogOut from "../Image/logOut.png";
 import Combustiveis from '../Image/combustivel.png';
-import Home from '../Image/HomeAD.png';
+import Home from '../Image/homeAdmin.png';
 import TipoViaturas from '../Image/cad.png';
-import Oficinas from '../Image/OficinaIcon.png';
+import Oficinas from '../Image/oficinaIcon.png';
 import LCombustiveis from '../Image/combustivelLaranja.png';
-import LOficinas from '../Image/oficinaOrange 1.png';
+import LOficinas from '../Image/oficinaOrange.png';
 import LTipoViaturas from '../Image/cadSelect.png';
 
 export default function AdminMainPage({ navigation }) {

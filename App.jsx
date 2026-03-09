@@ -1,15 +1,15 @@
+import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import  RootNavigator from "./navigators/RootNavigator"
-
+import { UserProvider } from './context/UserContext';
+import RootNavigator from './navigators/RootNavigator';
 
 export default function App() {
-  
+
   return (
-    <NavigationContainer>
-           <RootNavigator />
-    </NavigationContainer>
+    <UserProvider>
+      <NavigationContainer>
+        <RootNavigator />
+      </NavigationContainer>
+    </UserProvider>
   );
 }

@@ -1,6 +1,6 @@
 import React,{ useState, useEffect } from "react";
 import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity, TextInput } from "react-native";
-import MainDesfoque from '../Image/MainDesfoque.png'
+import MainDesfoque from '../Image/mainDesfoque.png'
 import Car  from '../Image/carPurple.png'
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { doc, getDoc, updateDoc } from "firebase/firestore";

@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity, TextInput } from "react-native";
-import MainDesfoque from '../Image/TipoViaturasDesfoque.png'
+import MainDesfoque from '../Image/tipoViaturasDesfoque.png'
 import Mota  from '../Image/moto.png'
 
 

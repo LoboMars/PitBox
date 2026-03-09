@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, Image, Dimensions,TouchableOpacity, TextInput, Switch  } from "react-native";
-import Logo from '../Image/Logo.png';
+import Logo from '../Image/logo.png';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { app, db } from "../firebase.config"; 
 import { useNavigation } from '@react-navigation/native';

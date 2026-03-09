@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity, TextInput } from "react-native";
-import MainDesfoque from '../Image/OficinaDesfoque.png'
-import Oficina  from '../Image/OficinaIcon.png'
+import MainDesfoque from '../Image/oficinaDesfoque.png'
+import Oficina  from '../Image/oficinaIcon.png'
 
 
 export default function EliminarOficina() {

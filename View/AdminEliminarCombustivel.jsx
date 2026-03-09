@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity, TextInput } from "react-native";
-import MainDesfoque from '../Image/OficinaDesfoque.png'
+import MainDesfoque from '../Image/oficinaDesfoque.png'
 import Combustivel  from '../Image/combustivel.png'
 
 

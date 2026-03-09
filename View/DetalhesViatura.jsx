@@ -1,9 +1,9 @@
 import React, { forwardRef, useState, useEffect } from "react";
 import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity, TextInput } from "react-native";
-import MainDesfoque from '../Image/MainDesfoque.png'
+import MainDesfoque from '../Image/mainDesfoque.png'
 import Car from '../Image/carPurple.png'
-import Apagar from '../Image/Apagar.png'
-import Editar from '../Image/Editar.png'
+import Apagar from '../Image/apagar.png'
+import Editar from '../Image/editar.png'
 import { getDoc, doc, deleteDoc } from "firebase/firestore";
 import { db } from "../firebase.config";
 import { useNavigation, useRoute } from '@react-navigation/native';

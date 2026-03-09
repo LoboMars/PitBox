@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity, TextInput } from "react-native";
-import MainDesfoque from '../Image/MainDesfoque.png'
-import Direcao  from '../Image/Direcao.png'
+import MainDesfoque from '../Image/mainDesfoque.png'
+import Direcao  from '../Image/direcao.png'
 
 
 export default function EliminarEvento() {

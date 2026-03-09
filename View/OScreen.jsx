@@ -1,8 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View ,Image,TouchableOpacity} from 'react-native';
 import React, {useState} from 'react';
-import OScreenP from '../Image/OScreenP.png'
-import Logo from '../Image/Logo.png'
+import OScreenP from '../Image/oScreenP.png'
+import Logo from '../Image/logo.png'
 import { useNavigation } from '@react-navigation/native';
 
 

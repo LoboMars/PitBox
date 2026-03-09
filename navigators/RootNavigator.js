@@ -1,35 +1,30 @@
-import * as React from "react";
-import { useEffect } from "react";
-import { Ionicons } from "@expo/vector-icons";
+import React from "react";
+import { StyleSheet, Image, View } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import {
-  StyleSheet,
-  Image,
-} from "react-native";
-
-import LogOut from "../Image/LogOut.png";
+// --- IMPORTS DE IMAGENS (ICONES) ---
 import Combustiveis from '../Image/combustivel.png';
-import Home from '../Image/HomeAD.png';
 import TipoViaturas from '../Image/cad.png';
-import Oficinas from '../Image/OficinaIcon.png';
+import Oficinas from '../Image/oficinaIcon.png';
 import LCombustiveis from '../Image/combustivelLaranja.png';
-import LOficinas from '../Image/oficinaOrange 1.png';
+// CORRIGIDO: O nome na imagem é "oficinaOrange 1.png" (com espaço e o 1)
+import LOficinas from '../Image/oficinaOrange.png'; 
 import LTipoViaturas from '../Image/cadSelect.png';
-import HomeAD from '../Image/HomeAD.png';
+// CORRIGIDO: Na pasta o 'h' é minúsculo: "homeAD.png"
+import HomeAD from '../Image/homeAdmin.png'; 
 import homeUnselected from '../Image/homeUnselected.png';
 
-
+// --- IMPORTS DE SCREENS (VIEWS) ---
 import OScreen from '../View/OScreen';
 import Login from '../View/Login';
 import Register from '../View/Register';           
-import RegistarQuotidino from '../View/RegistarQuotidiano'
+import RegistarQuotidiano from '../View/RegistarQuotidiano';
 import RegistarAssistencia from '../View/RegistarAssistencia';
 import RegistarViatura from '../View/RegistarViatura';
 import EditarViatura from '../View/EditarViatura';
 import EditarAssistencia from '../View/EditarAssistencia';
-import EditarQuotidino from '../View/EditarQuotidiano';
+import EditarQuotidiano from '../View/EditarQuotidiano';
 import CriarViatura from '../View/AdminCriarViatura';
 import CriarOficina from '../View/AdminCriarOficina';
 import CriarCombustivel from '../View/AdminCriarCombustivel';
@@ -40,18 +35,19 @@ import EditarTipoViatura from '../View/AdminEditarTipoViatura';
 import Suasviaturas from '../View/Assuasviaturas';           
 import DetalhesViatura from '../View/DetalhesViatura';
 import DetalhesAssistencia from '../View/DetalhesAssistencias';
-import DetalhesQuotodiano from '../View/DetalhesQuotidiano';
+import DetalhesQuotidiano from '../View/DetalhesQuotidiano';
 import EditarPerfil from '../View/EditarPerfil';
 import Tipoviatura from '../View/AdminTipoviatura';      
 import Tipocombustivel from '../View/AdminTipoCombustiveis';
 import AdminOficinas from '../View/AdminOficinas';
-import EliminarViatura from '../View/ElimirarViatura';
+import EliminarViatura from '../View/EliminarViatura';
 import EliminarAssistencia from '../View/EliminarAssistencia';
 import EliminarEvento from '../View/EliminarEvento';
 import DetalhesOficinas from '../View/AdminDetalhesOficina';
 import AdminMainPage from '../View/AdminMainPage';               
 import EliminarTipo from '../View/AdminEliminarTipo';
-import EliminarOficina from '../View/AdminiEliminarOficina';
+// Nota: Mantive "AdminiEliminarOficina" pois é o que está no teu path
+import EliminarOficina from '../View/AdminiEliminarOficina'; 
 import EliminarCombustivel from '../View/AdminEliminarCombustivel';
 import AdminEditarPerfil from '../View/AdminEditarPerfil';
 import Seuseventos from '../View/Osseuseventos';
@@ -61,232 +57,93 @@ const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
 const styles = StyleSheet.create({
-  logo2: {
+  tabIcon: {
     width: 24,
     height: 24,
+    resizeMode: 'contain',
   },
 });
 
+// --- NAVEGAÇÃO INFERIOR (TABS) ---
 const TabContainer = () => {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
+        headerShown: false,
         tabBarIcon: ({ focused }) => {
-          let iconName;
-          if (route.name === 'AdminMainPage') {
-            iconName = focused ? HomeAD : homeUnselected;
-          } else if (route.name === 'Oficinas') {
-            iconName = focused ? LOficinas : Oficinas;
-          } 
-          else if (route.name === 'TipoViaturas') {
-            iconName = focused ? LTipoViaturas : TipoViaturas;
+          let iconSource;
+          if (route.name === 'AdminMain') {
+            iconSource = focused ? HomeAD : homeUnselected;
+          } else if (route.name === 'OficinasTab') {
+            iconSource = focused ? LOficinas : Oficinas;
+          } else if (route.name === 'TipoViaturasTab') {
+            iconSource = focused ? LTipoViaturas : TipoViaturas;
+          } else if (route.name === 'CombustiveisTab') {
+            iconSource = focused ? LCombustiveis : Combustiveis;
           }
-          else if (route.name === 'Combustiveis') {
-            iconName = focused ? LCombustiveis : Combustiveis;
-          }
-          return <Image source={iconName} style={styles.logo2} />;
+          return <Image source={iconSource} style={styles.tabIcon} />;
         },
         tabBarActiveTintColor: '#EC853B',
         tabBarInactiveTintColor: '#9F9BA8',
         tabBarStyle: {
           backgroundColor: '#1C1D21',
           borderTopWidth: 0,
+          height: 60,
+          paddingBottom: 8,
         },
       })}
     >
-      <Tab.Screen name="AdminMainPage" component={AdminMainPage} />
-      <Tab.Screen name="TipoViaturas" component={Tipoviatura} />
-      <Tab.Screen name="Oficinas" component={AdminOficinas} />
-      <Tab.Screen name="Combustiveis" component={Tipocombustivel} />
+      <Tab.Screen name="AdminMain" component={AdminMainPage} options={{ title: 'Início' }} />
+      <Tab.Screen name="TipoViaturasTab" component={Tipoviatura} options={{ title: 'Tipos' }} />
+      <Tab.Screen name="OficinasTab" component={AdminOficinas} options={{ title: 'Oficinas' }} />
+      <Tab.Screen name="CombustiveisTab" component={Tipocombustivel} options={{ title: 'Combustível' }} />
     </Tab.Navigator>
   );
 };
-const RootNavigator = () => {
-    return(
-      <Stack.Navigator initialRouteName="OScreen">
-      <Stack.Screen
-        name="Login"
-        component={Login}
-        options={{ headerShown: false, headerLeft: () => null }}
-      />
-      <Stack.Screen
-        name="BottomTab"
-        component={TabContainer}
-        options={{ headerShown: false}}
-      />
-       <Stack.Screen
-        name="OScreen"
-        component={OScreen}
-        options={{ headerShown: false}}
-      />
-        <Stack.Screen
-        name="Register"
-        component={Register}
-        options={{ headerShown: false}}
-      />
-        <Stack.Screen
-        name="RegistarQuotidino"
-        component={RegistarQuotidino}
-        options={{ headerShown: false}}
-      />
-        <Stack.Screen
-        name="RegistarAssistencia"
-        component={RegistarAssistencia}
-        options={{ headerShown: false}}
-      />
-        <Stack.Screen
-        name="RegistarViatura"
-        component={RegistarViatura}
-        options={{ headerShown: false}}
-      />
-        <Stack.Screen
-        name="EditarViatura"
-        component={EditarViatura}
-        options={{ headerShown: false}}
-      />
-        <Stack.Screen
-        name="EditarAssistencia"
-        component={EditarAssistencia}
-        options={{ headerShown: false}}
-      />
-        <Stack.Screen
-        name="EditarQuotidino"
-        component={EditarQuotidino}
-        options={{ headerShown: false}}
-      />
-        <Stack.Screen
-        name="CriarViatura"
-        component={CriarViatura}
-        options={{ headerShown: false}}
-      />
-      <Stack.Screen
-        name="CriarOficina"
-        component={CriarOficina}
-        options={{ headerShown: false}}
-      />
-      <Stack.Screen
-        name="CriarCombustivel"
-        component={CriarCombustivel}
-        options={{ headerShown: false}}
-      />
-      <Stack.Screen
-        name="EditarOficina"
-        component={EditarOficina}
-        options={{ headerShown: false}}
-      />
-      <Stack.Screen
-        name="EditarCombustivel"
-        component={EditarCombustivel}
-        options={{ headerShown: false}}
-      />
-      <Stack.Screen
-        name="MainPage"
-        component={MainPage}
-        options={{ headerShown: false}}
-      />
-      <Stack.Screen
-        name="EditarTipoViatura"
-        component={EditarTipoViatura}
-        options={{ headerShown: false}}
-      />
-      <Stack.Screen
-        name="Suasviaturas"
-        component={Suasviaturas}
-        options={{ headerShown: false}}
-      />
-      <Stack.Screen
-        name="DetalhesViatura"
-        component={DetalhesViatura}
-        options={{ headerShown: false}}
-      />
-      <Stack.Screen
-        name="DetalhesAssistencia"
-        component={DetalhesAssistencia}
-        options={{ headerShown: false}}
-      />
-      <Stack.Screen
-        name="DetalhesQuotodiano"
-        component={DetalhesQuotodiano}
-        options={{ headerShown: false}}
-      />
-      <Stack.Screen
-        name="EditarPerfil"
-        component={EditarPerfil}
-        options={{ headerShown: false}}
-      />
-      <Stack.Screen
-        name="Tipoviatura"
-        component={Tipoviatura}
-        options={{ headerShown: false}}
-      />
-      <Stack.Screen
-        name="Tipocombustivel"
-        component={Tipocombustivel}
-        options={{ headerShown: false}}
-      />
-      <Stack.Screen
-        name="EliminarViatura"
-        component={EliminarViatura}
-        options={{ headerShown: false}}
-      />
-      <Stack.Screen
-        name="EliminarAssistencia"
-        component={EliminarAssistencia}
-        options={{ headerShown: false}}
-      />
-      <Stack.Screen
-        name="EliminarEvento"
-        component={EliminarEvento}
-        options={{ headerShown: false}}
-      />
-      <Stack.Screen
-        name="DetalhesOficinas"
-        component={DetalhesOficinas}
-        options={{ headerShown: false}}
-      />
-      <Stack.Screen
-        name="AdminMainPage"
-        component={AdminMainPage}
-        options={{ headerShown: false}}
-      />
-      <Stack.Screen
-        name="EliminarTipo"
-        component={EliminarTipo}
-        options={{ headerShown: false}}
-      />
-      <Stack.Screen
-        name="EliminarOficina"
-        component={EliminarOficina}
-        options={{ headerShown: false}}
-      />
-      <Stack.Screen
-        name="EliminarCombustivel"
-        component={EliminarCombustivel}
-        options={{ headerShown: false}}
-      />
-       <Stack.Screen
-        name="AdminEditarPerfil"
-        component={AdminEditarPerfil}
-        options={{ headerShown: false}}
-      />
-       <Stack.Screen
-        name="Seuseventos"
-        component={Seuseventos}
-        options={{ headerShown: false}}
-      />
-       <Stack.Screen
-        name="AsSuasAssistencias"
-        component={AsSuasAssistencias}
-        options={{ headerShown: false}}
-      />
-      <Stack.Screen
-        name="AdminOficinas"
-        component={AdminOficinas}
-        options={{ headerShown: false}}
-      />
-      </Stack.Navigator>
 
-    );
+// --- NAVEGAÇÃO PRINCIPAL (STACK) ---
+const RootNavigator = () => {
+  return (
+    <Stack.Navigator initialRouteName="OScreen" screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="OScreen" component={OScreen} />
+      <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen name="Register" component={Register} />
+      <Stack.Screen name="BottomTab" component={TabContainer} />
+
+      {/* Restantes ecrãs do Stack */}
+      <Stack.Screen name="MainPage" component={MainPage} />
+      <Stack.Screen name="AdminMainPage" component={AdminMainPage} />
+      <Stack.Screen name="RegistarViatura" component={RegistarViatura} />
+      <Stack.Screen name="EditarViatura" component={EditarViatura} />
+      <Stack.Screen name="Suasviaturas" component={Suasviaturas} />
+      <Stack.Screen name="DetalhesViatura" component={DetalhesViatura} />
+      <Stack.Screen name="EliminarViatura" component={EliminarViatura} />
+      <Stack.Screen name="CriarViatura" component={CriarViatura} />
+      <Stack.Screen name="EditarTipoViatura" component={EditarTipoViatura} />
+      <Stack.Screen name="EliminarTipo" component={EliminarTipo} />
+      <Stack.Screen name="RegistarAssistencia" component={RegistarAssistencia} />
+      <Stack.Screen name="EditarAssistencia" component={EditarAssistencia} />
+      <Stack.Screen name="DetalhesAssistencia" component={DetalhesAssistencia} />
+      <Stack.Screen name="AsSuasAssistencias" component={AsSuasAssistencias} />
+      <Stack.Screen name="EliminarAssistencia" component={EliminarAssistencia} />
+      <Stack.Screen name="RegistarQuotidiano" component={RegistarQuotidiano} />
+      <Stack.Screen name="EditarQuotidiano" component={EditarQuotidiano} />
+      <Stack.Screen name="DetalhesQuotidiano" component={DetalhesQuotidiano} />
+      <Stack.Screen name="Seuseventos" component={Seuseventos} />
+      <Stack.Screen name="EliminarEvento" component={EliminarEvento} />
+      <Stack.Screen name="CriarOficina" component={CriarOficina} />
+      <Stack.Screen name="EditarOficina" component={EditarOficina} />
+      <Stack.Screen name="DetalhesOficinas" component={DetalhesOficinas} />
+      <Stack.Screen name="EliminarOficina" component={EliminarOficina} />
+      <Stack.Screen name="AdminOficinas" component={AdminOficinas} />
+      <Stack.Screen name="CriarCombustivel" component={CriarCombustivel} />
+      <Stack.Screen name="EditarCombustivel" component={EditarCombustivel} />
+      <Stack.Screen name="EliminarCombustivel" component={EliminarCombustivel} />
+      <Stack.Screen name="Tipocombustivel" component={Tipocombustivel} />
+      <Stack.Screen name="EditarPerfil" component={EditarPerfil} />
+      <Stack.Screen name="AdminEditarPerfil" component={AdminEditarPerfil} />
+    </Stack.Navigator>
+  );
 };
 
 export default RootNavigator;

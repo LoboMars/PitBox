@@ -9,12 +9,12 @@ import {
   ScrollView,
 } from "react-native";
 
-import EditarPerfil from "../Image/EditarPerfil.png";
-import LogOut from "../Image/LogOut.png";
-import Eventos from '../Image/Eventos.png';
-import Home from '../Image/Home.png';
-import Viaturas from '../Image/Viaturas.png';
-import Assistencias from '../Image/Assistencias.png'
+import EditarPerfil from "../Image/editarPerfil.png";
+import LogOut from "../Image/logOut.png";
+import Eventos from '../Image/eventos.png';
+import Home from '../Image/home.png';
+import Viaturas from '../Image/viaturas.png';
+import Assistencias from '../Image/assistencias.png'
 import Lebron from '../Image/labron.png'
 import { getAuth, signOut } from "firebase/auth";
 import { app, db } from "../firebase.config"; 

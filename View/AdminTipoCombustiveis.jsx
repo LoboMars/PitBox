@@ -10,13 +10,13 @@ import {
   Image 
 } from "react-native";
 import { useNavigation } from "@react-navigation/native"; 
-import Eventos from '../Image/Eventos.png';
+import Eventos from '../Image/eventos.png';
 import Home from '../Image/homeUnselected.png';
 import Cad from '../Image/cad.png';
-import oficina from '../Image/OficinaIcon.png';
+import oficina from '../Image/oficinaIcon.png';
 import Edit from '../Image/editarAdmin.png';
-import apagar from '../Image/Apagar.png';
-import adicionar from '../Image/Adicionar.png';
+import apagar from '../Image/apagar.png';
+import adicionar from '../Image/adicionar.png';
 import Gota from '../Image/combustivelLaranja.png';
 import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
 import { db } from "../firebase.config"; 

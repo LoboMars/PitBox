@@ -11,9 +11,9 @@ import { View,
 import carPurple from "../Image/carPurple.png";
 import Eventos from '../Image/eventospintado.png';
 import Home from '../Image/homeUnselected.png';
-import Viaturas from '../Image/Viaturas.png';
-import Assistencias from '../Image/Assistencias.png';
-import Tresp from '../Image/3P.png';
+import Viaturas from '../Image/viaturas.png';
+import Assistencias from '../Image/assistencias.png';
+import Tresp from '../Image/maisDetalhes.png';
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase.config"; 
 

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
-import MainDesfoque from '../Image/MainDesfoque.png';
-import Oficina from '../Image/Oficina.png';
-import Apagar from '../Image/Apagar.png';
+import MainDesfoque from '../Image/mainDesfoque.png';
+import Oficina from '../Image/oficina.png';
+import Apagar from '../Image/apagar.png';
 import Editar from '../Image/editarAdmin.png';
 import { db } from "../firebase.config"; 
 import { doc, getDoc, deleteDoc } from "firebase/firestore";

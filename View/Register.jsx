@@ -9,8 +9,8 @@ import {
   ScrollView,
   TextInput, // Importando TextInput do react-native
 } from "react-native";
-import Logo from "../Image/Logo.png";
-import Icon from "../Image/Icon.png";
+import Logo from "../Image/logo.png";
+import Icon from "../Image/icon.png";
 import {
   getAuth,
   createUserWithEmailAndPassword,

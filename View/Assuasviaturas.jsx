@@ -9,12 +9,12 @@ import { View,
   Image,
 } from "react-native";
 import carPurple from "../Image/carPurple.png";
-import Eventos from '../Image/Eventos.png';
+import Eventos from '../Image/eventos.png';
 import Home from '../Image/homeUnselected.png';
-import Viaturas from '../Image/ViaturaPurple.png';
-import Assistencias from '../Image/Assistencias.png';
-import Tresp from '../Image/3P.png';
-import adicionar from '../Image/Adicionar.png';
+import Viaturas from '../Image/viaturaPurple.png';
+import Assistencias from '../Image/assistencias.png';
+import Tresp from '../Image/maisDetalhes.png';
+import adicionar from '../Image/adicionar.png';
 import { getFirestore, collection, query, where, getDocs } from "firebase/firestore";
 import { db,app } from "../firebase.config"; 
 import { useNavigation, useRoute } from '@react-navigation/native';

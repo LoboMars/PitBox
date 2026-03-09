@@ -3,10 +3,10 @@ import { View, FlatList, StyleSheet, Text, TextInput, TouchableOpacity, ScrollVi
 import { useNavigation } from "@react-navigation/native";
 import Home from '../Image/homeUnselected.png';
 import TipoViaturas from '../Image/cad.png';
-import Oficina from '../Image/oficinaOrange 1.png';
+import Oficina from '../Image/oficinaOrange.png';
 import Combustiveis from '../Image/combustivel.png';
-import adicionar from '../Image/Adicionar.png';
-import Tresp from '../Image/3P.png';
+import adicionar from '../Image/adicionar.png';
+import Tresp from '../Image/maisDetalhes.png';
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase.config"; 
 
